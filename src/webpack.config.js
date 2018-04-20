@@ -14,13 +14,6 @@ module.exports = {
         ]
       },
       {
-        test: /\.md$/,
-        use: [
-          { loader: 'html-loader' },
-          { loader: 'markdown-loader' }
-        ]
-      },
-      {
         test: /\.scss|\.css$/,
         use: [
           { loader: 'style-loader' },
