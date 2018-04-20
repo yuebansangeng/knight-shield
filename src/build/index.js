@@ -20,17 +20,41 @@ const getDemos =
 ejs.renderFile(
   path.join(__dirname, 'stories.ejs'),
   {
-    'demos': getDemos(path.join(cpath, 'demos')),
-    'cmpRootPath': cpath
+    'demos': getDemos(path.join(cpath, 'demos'))
   },
   {}, // ejs options
-  (err, str) => {
+  (err, storiesjs) => {
     if (err) throw err
 
-    fs.writeFile(path.join(__dirname, '..', 'stories.js'), str, (err) => {
+    // 创建config文件
+    ejs.renderFile(
+    path.join(__dirname, 'config.ejs'),
+    {
+      'cmpRootPath': cpath
+    },
+    {}, // ejs options
+    (err, str) => {
       if (err) throw err
 
-      console.log('the entry file is saved!')
+      // 创建config文件
+      fs.writeFile(path.join(__dirname, '..', 'config.js'), str, (err) => {
+        if (err) throw err
+
+        console.log('the config file is saved!')
+
+        // 如何组件内部没有.build文件夹则创建一个
+        var cbpath = path.join(cpath, '.build')
+        if (!fs.existsSync(cbpath)) {
+          fs.mkdirSync(cbpath)
+        }
+
+        // 在组建项目中创建配置文件
+        fs.writeFile(path.join(cpath, '.build', '.stories.js'), storiesjs, (err) => {
+          if (err) throw err
+
+          console.log('the entry file is saved!')
+        })
+      })
     })
   }
 )
