@@ -3,7 +3,7 @@ import readme from '../README.md'
 import os from 'object-assign'
 
 <% demos.forEach(function(demo, index) { %>
-import Component<%=index%> from '<%=fcmpRootPath%>/demos/<%=demo.name%>'
+import Component<%=index%> from '<%=cmpRootPath%>/demos/<%=demo.name%>'
 <% }) %>
 
 let defaultConfig = {
