@@ -1,15 +1,12 @@
 
 import readme from '../README.md'
 import os from 'object-assign'
-
 <% demos.forEach(function(demo, index) { %>
 import Component<%=index%> from '../demos/<%=demo.name%>'
+<% if (demo.hasEditableProps) { %>
+import editableProps<%=index%> from '../demos/<%=demo.name%>/editable-props'
+<% } %>
 <% }) %>
-
-let defaultConfig = {
-  'editableProps': []
-}
-
 export default{
   name: "MainRightLayout",
   'stories': [
@@ -17,8 +14,13 @@ export default{
     {
       name: '<%=demo.name%>',
       story: os({
-        'content': Component<%=index%>
-      }, os({}, defaultConfig))
+        'content': Component<%=index%>,
+<% if (demo.hasEditableProps) { %>
+        'editableProps': editableProps<%=index%>
+<% } else { %>
+        'editableProps': []
+<% } %>
+      })
     },
 <% }) %>
   ],
