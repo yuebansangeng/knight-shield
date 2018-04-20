@@ -26,12 +26,12 @@ const typeMap = {
 
 const handleType = (editProps) => {
   let obj = {}
-  editProps && editProps.map(({ name, type = '', label = '', defaultValue}) => {
+  editProps && editProps.map(({ name, type = '', value}) => {
     if (type !== 'selectV2') {
       type = type.toLocaleLowerCase()
     }
     if (!typeMap[type]) return
-    obj[name] = typeMap[type](label, defaultValue)
+    obj[name] = typeMap[type](name, value)
   })
   return obj
 }

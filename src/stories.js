@@ -1,26 +1,35 @@
 
 import readme from '../README.md'
+import os from 'object-assign'
 
 
 import Component0 from '../demos/default'
-import config0 from '../demos/default/config'
-config0.story.content = Component0
 
 import Component1 from '../demos/popupform'
-import config1 from '../demos/popupform/config'
-config1.story.content = Component1
 
 
-export default () => {
-  return {
-    name: 'MainRightLayout',
-    'stories': [
+let defaultConfig = {
+  'editableProps': []
+}
 
-      config0,
+export default {
+  name: "MainRightLayout",
+  'stories': [
 
-      config1,
+    {
+      name: 'default',
+      story: os({
+        'content': Component0
+      }, os({}, defaultConfig))
+    },
 
-    ],
-    readme
-  }
+    {
+      name: 'popupform',
+      story: os({
+        'content': Component1
+      }, os({}, defaultConfig))
+    },
+
+  ],
+  readme
 }
