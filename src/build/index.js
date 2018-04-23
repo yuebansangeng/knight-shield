@@ -4,6 +4,7 @@ const path = require('path')
 const fs = require('fs')
 const { lstatSync, readdirSync } = require('fs')
 const { join } = require('path')
+const os = require('object-assign')
 
 // cpath 组件调用命令传入的路径
 let [ a, b, cpath ] = process.argv
@@ -53,7 +54,6 @@ const readConfigjs = (callback) => {
   )
 }
 
-
 readStoriesjs(storiesjs => {
   readConfigjs(configjs => {
 
@@ -68,11 +68,18 @@ readStoriesjs(storiesjs => {
         fs.mkdirSync(buildFolderPath)
       }
 
-      // 在组建项目中创建配置文件
-      fs.writeFile(path.join(cpath, '.build', '.stories.js'), storiesjs, (err) => {
-        if (err) throw err
+      fs.readFile(path.join(cpath, 'package.json'), 'utf8', (err, jsonText) => {
+        var cmpName = JSON.parse(jsonText).name
+          .replace('@beisen-cmps/', '')
+          .replace(/-(\w)/g, (all, letter) => letter.toUpperCase())
+          .replace(/^\w/, (all, letter) => all.toUpperCase())
 
-        console.log('the stories file is saved!')
+        // 在组建项目中创建配置文件
+        fs.writeFile(path.join(cpath, '.build', '.stories.js'), os({}, storiesjs, { cmpName: cmpName }), (err) => {
+          if (err) throw err
+
+          console.log('the stories file is saved!')
+        })
       })
     })
   })
