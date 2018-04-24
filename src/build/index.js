@@ -9,6 +9,13 @@ const os = require('object-assign')
 // cpath 组件调用命令传入的路径
 let [ a, b, cpath ] = process.argv
 
+// 获取组件名
+var getCmpName = 
+  path => 
+    require(path).name
+    .replace('@beisen-cmps/', '')
+    .replace(/-(\w)/g, (all, letter) => letter.toUpperCase())
+    .replace(/^\w/, (all, letter) => all.toUpperCase())
 
 // 获取目录下文件夹的名字
 var getDemos =
@@ -29,7 +36,8 @@ var readStoriesjs = (callback) => {
   ejs.renderFile(
     path.join(__dirname, 'stories.ejs'),
     {
-      'demos': getDemos(path.join(cpath, 'demos'))
+      'demos': getDemos(path.join(cpath, 'demos')),
+      'cmpName': getCmpName(path.join(cpath, 'package.json'))
     },
     {}, // ejs options
     (err, storiesjs) => {
@@ -68,18 +76,11 @@ readStoriesjs(storiesjs => {
         fs.mkdirSync(buildFolderPath)
       }
 
-      fs.readFile(path.join(cpath, 'package.json'), 'utf8', (err, jsonText) => {
-        var cmpName = JSON.parse(jsonText).name
-          .replace('@beisen-cmps/', '')
-          .replace(/-(\w)/g, (all, letter) => letter.toUpperCase())
-          .replace(/^\w/, (all, letter) => all.toUpperCase())
+      // 在组建项目中创建配置文件
+      fs.writeFile(path.join(cpath, '.build', '.stories.js'), storiesjs, (err) => {
+        if (err) throw err
 
-        // 在组建项目中创建配置文件
-        fs.writeFile(path.join(cpath, '.build', '.stories.js'), os({}, storiesjs, { cmpName: cmpName }), (err) => {
-          if (err) throw err
-
-          console.log('the stories file is saved!')
-        })
+        console.log('the stories file is saved!')
       })
     })
   })

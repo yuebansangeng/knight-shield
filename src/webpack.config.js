@@ -7,7 +7,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: [
-          /node_modules\/(?!storybook-lib)/
+          /node_modules(?!\/@beisen\/storybook-lib)/
         ],
         use: [
           { loader: 'babel-loader' }
