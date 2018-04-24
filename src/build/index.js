@@ -79,10 +79,10 @@ readStoriesjs(storiesjs => {
       })
 
       // 创建demos的名字的文件，提供给组件共享平台使用
-      let demosFileContent = getDemos(path.join(cpath, 'demos')).map(({ name }) => name)
-      fs.writeFile(path.join(cpath, '.build', '.domes'), JSON.stiringify(demosFileContent), (err) => {
+      let demosFileContent = getDemos(path.join(cpath, 'demos')).map(({ name }) => ({ name: name }))
+      fs.writeFile(path.join(cpath, '.build', '.demos'), JSON.stringify(demosFileContent), (err) => {
         if (err) throw err
-        console.log('the stories file is saved!')
+        console.log('the .demos file is saved!')
       })
     })
   })
