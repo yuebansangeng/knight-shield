@@ -30,8 +30,6 @@ var getDemos =
         }
       })
 
-console.log(JSON.stringify(getDemos(path.join(cpath, 'demos'))))
-
 var readStoriesjs = (callback) => {
   ejs.renderFile(
     path.join(__dirname, 'stories.ejs'),
@@ -46,7 +44,6 @@ var readStoriesjs = (callback) => {
     }
   )
 }
-
 
 const readConfigjs = (callback) => {
   ejs.renderFile(
@@ -68,7 +65,6 @@ readStoriesjs(storiesjs => {
     // 创建config文件
     fs.writeFile(path.join(__dirname, '..', 'config.js'), configjs, (err) => {
       if (err) throw err
-
       console.log('the config file is saved!')
 
       const buildFolderPath = path.join(cpath, '.build')
@@ -79,7 +75,13 @@ readStoriesjs(storiesjs => {
       // 在组建项目中创建配置文件
       fs.writeFile(path.join(cpath, '.build', '.stories.js'), storiesjs, (err) => {
         if (err) throw err
+        console.log('the stories file is saved!')
+      })
 
+      // 创建demos的名字的文件，提供给组件共享平台使用
+      let demosFileContent = getDemos(path.join(cpath, 'demos')).map(({ name }) => name)
+      fs.writeFile(path.join(cpath, '.build', '.domes'), JSON.stiringify(demosFileContent), (err) => {
+        if (err) throw err
         console.log('the stories file is saved!')
       })
     })
