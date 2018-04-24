@@ -2,8 +2,8 @@
 import { storiesOf, configure } from '@storybook/react'
 
 import { withKnobs } from '@storybook/addon-knobs/react';
-import { withDocs }  from 'storybook-readme'
-import { stories, readme, name } from '<%=cmpRootPath%>/.build/.stories.js'
+import { withDocs, withReadme }  from 'storybook-readme'
+import { stories, name, readme } from '<%=cmpRootPath%>/.build/.stories.js'
 
 import handleType from './util'
 
@@ -14,12 +14,15 @@ configure(
   () => {
     let storiesInstence = storiesOf(name, module)
     storiesInstence.addDecorator(withKnobs);
+    storiesInstence.addDecorator(withReadme([readme]))
+
     stories.forEach(({ name, story }) => {
-      const { content: Component, editableProps } = story
+      const { content: Component, editableProps, readme } = story
       storiesInstence.add(name, withDocs(readme, () => {
         const params = handleType(editableProps)
-    	 	return <Component {...params} />
-    	}))
+        return <Component {...params} />
+      }))
+
     })
   },
   module

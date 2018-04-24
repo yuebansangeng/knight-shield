@@ -6,6 +6,9 @@ import Component<%=index%> from '../demos/<%=demo.name%>'
 <% if (demo.hasEditableProps) { %>
 import editableProps<%=index%> from '../demos/<%=demo.name%>/editable-props'
 <% } %>
+<% if (demo.hasDoc) { %>
+import doc<%=index%> from '../demos/<%=demo.name%>/readme.md'
+<% } %>
 <% }) %>
 export default{
   name: "<%=cmpName%>",
@@ -19,6 +22,11 @@ export default{
         'editableProps': editableProps<%=index%>
 <% } else { %>
         'editableProps': []
+<% } %>,
+<% if (demo.hasDoc) { %>
+        'readme': doc<%=index%>
+<% } else { %>
+        'readme': readme
 <% } %>
       })
     },

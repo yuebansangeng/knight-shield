@@ -26,11 +26,10 @@ var getDemos =
       .map(name => {
         return {
           'name': name.split('\/')[name.split('\/').length - 1],
-          'hasEditableProps': !!fs.existsSync(path.join(name, 'editable-props.js'))
+          'hasEditableProps': !!fs.existsSync(path.join(name, 'editable-props.js')),
+          'hasDoc': !!fs.existsSync(path.join(name, 'readme.md'))
         }
       })
-
-console.log(JSON.stringify(getDemos(path.join(cpath, 'demos'))))
 
 var readStoriesjs = (callback) => {
   ejs.renderFile(
@@ -46,7 +45,6 @@ var readStoriesjs = (callback) => {
     }
   )
 }
-
 
 const readConfigjs = (callback) => {
   ejs.renderFile(
@@ -68,7 +66,6 @@ readStoriesjs(storiesjs => {
     // 创建config文件
     fs.writeFile(path.join(__dirname, '..', 'config.js'), configjs, (err) => {
       if (err) throw err
-
       console.log('the config file is saved!')
 
       const buildFolderPath = path.join(cpath, '.build')
@@ -79,8 +76,14 @@ readStoriesjs(storiesjs => {
       // 在组建项目中创建配置文件
       fs.writeFile(path.join(cpath, '.build', '.stories.js'), storiesjs, (err) => {
         if (err) throw err
-
         console.log('the stories file is saved!')
+      })
+
+      // 创建demos的名字的文件，提供给组件共享平台使用
+      let demosFileContent = getDemos(path.join(cpath, 'demos')).map(({ name }) => ({ name: name }))
+      fs.writeFile(path.join(cpath, '.build', '.demos'), JSON.stringify(demosFileContent), (err) => {
+        if (err) throw err
+        console.log('the .demos file is saved!')
       })
     })
   })
