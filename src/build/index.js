@@ -27,7 +27,7 @@ var getDemos =
         return {
           'name': name.split('\/')[name.split('\/').length - 1],
           'hasEditableProps': !!fs.existsSync(path.join(name, 'editable-props.js')),
-          'hasDoc': !!fs.existsSync(path.join(name, 'readme.md'))
+          'hasDoc': !!fs.existsSync(path.join(name, 'doc.md'))
         }
       })
 

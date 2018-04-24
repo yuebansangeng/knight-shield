@@ -7,7 +7,7 @@ import Component<%=index%> from '../demos/<%=demo.name%>'
 import editableProps<%=index%> from '../demos/<%=demo.name%>/editable-props'
 <% } %>
 <% if (demo.hasDoc) { %>
-import doc<%=index%> from '../demos/<%=demo.name%>/readme.md'
+import doc<%=index%> from '../demos/<%=demo.name%>/doc.md'
 <% } %>
 <% }) %>
 export default{
@@ -24,10 +24,8 @@ export default{
         'editableProps': []
 <% } %>,
 <% if (demo.hasDoc) { %>
-        'readme': doc<%=index%>
-<% } else { %>
-        'readme': readme
-<% } %>
+        'doc': doc<%=index%>
+<% }
       })
     },
 <% }) %>
