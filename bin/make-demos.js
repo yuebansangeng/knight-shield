@@ -33,7 +33,7 @@ var getDemos =
 
 var readStoriesjs = (callback) => {
   ejs.renderFile(
-    path.join(__dirname, '..', 'templates', 'stories.ejs'),
+    path.join(__dirname, '..', 'src', 'templates', 'stories.ejs'),
     {
       'demos': getDemos(path.join(cpath, 'demos')),
       'cmpName': getCmpName(path.join(cpath, 'package.json'))
@@ -48,7 +48,7 @@ var readStoriesjs = (callback) => {
 
 const readConfigjs = (callback) => {
   ejs.renderFile(
-    path.join(__dirname, '..', 'templates', 'config.ejs'),
+    path.join(__dirname, '..', 'src', 'templates', 'config.ejs'),
     {
       'cmpRootPath': cpath
     },
@@ -64,7 +64,7 @@ readStoriesjs(storiesjs => {
   readConfigjs(configjs => {
 
     // 创建config文件
-    fs.writeFile(path.join(__dirname, '..', 'config.js'), configjs, (err) => {
+    fs.writeFile(path.join(__dirname, '..', 'src', 'config.js'), configjs, (err) => {
       if (err) throw err
       console.log('the config file is saved!')
 
