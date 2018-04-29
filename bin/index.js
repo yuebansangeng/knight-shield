@@ -2,6 +2,7 @@
 const { spawn } = require('child_process')
 const colors = require('colors')
 const shelljs = require('shelljs')
+const path = require('path')
 
 // cpath 组件调用命令传入的路径
 let [ a, b, cpath ] = process.argv
@@ -14,13 +15,13 @@ let [ a, b, cpath ] = process.argv
 //   shelljs.exec(`start-storybook -s . -p 9001 -c ../.config.js`)
 // }
 
-print(spawn('node', 'make-demos.js', cpath))
-print(spawn('gulp', { 'cwd': cpath }))
-print(spawn('npm', ['run', 'storybook'], { 'cwd': cpath }))
+print(spawn('node', ['make-demos.js', cpath], { 'cwd': __dirname }))
+print(spawn('gulp', [], { 'cwd': cpath }))
+print(spawn('start-storybook', ['-s', '.', '-p', '9001', '-c', path.join(__dirname, '..', 'src')], { 'cwd': cpath }))
 print(spawn('gulp', ['watch'], { 'cwd': cpath }))
 
 
 function print (chilprocess) {
   chilprocess.stdout.on('data', data => console.log(`${data}`.green))
-  chilprocess.stderr.on('data', data => console.log(`${data}`.red))
+  chilprocess.stderr.on('data', data => console.log(`${data}`.yellow))
 }
