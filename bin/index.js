@@ -22,7 +22,7 @@ print(spawn('gulp', ['watch'], { 'cwd': cpath }))
 
 // 打开本地调试浏览器
 const openChrome_process = spawn('/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome', ['--enable-speech-input', 'http://localhost:9001'])
-openChrome_process.stderr.on('data', data => console.log(`请使用MacOS系统`.red))
+openChrome_process.stderr.on('data', data => console.log(`尝试打开Chrome浏览器：${data}`.red))
 
 
 function print (chilprocess) {
