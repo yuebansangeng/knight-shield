@@ -15,7 +15,6 @@ function print (chilprocess) {
 
 print(spawn('node', ['make-stories.js', cpath], { 'cwd': __dirname }))
 print(spawn('node', ['make-demos.js', cpath], { 'cwd': __dirname }))
-print(spawn('node', ['make-config.js', cpath], { 'cwd': __dirname }))
 
 // 生成 lib 目录，以及内部转义好的文件
 print(spawn('gulp', [], { 'cwd': cpath }))
@@ -28,6 +27,8 @@ if (fs.existsSync(cpathStbkFlod)) {
   console.log(`已检测到在项目中出现.storybook文件夹，程序将不再使用默认storybook配置，请自行配置storybook.`.yellow)
   print(spawn('start-storybook', stbPreArgs.concat([ cpathStbkFlod ]), { 'cwd': cpath }))
 } else {
+  // 生成 config 文件
+  print(spawn('node', ['make-config.js', cpath], { 'cwd': __dirname }))
   print(spawn('start-storybook', stbPreArgs.concat([ path.join(__dirname, '..', 'src') ]), { 'cwd': cpath }))
 }
 
