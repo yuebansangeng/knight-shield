@@ -15,5 +15,5 @@ if (!fs.existsSync(buildFolderPath)) {
 let demosFileContent = getDemos(path.join(cpath, 'demos')).map(({ name }) => ({ name: name }))
 fs.writeFile(path.join(cpath, '.build', '.demos'), JSON.stringify(demosFileContent), (err) => {
   if (err) throw err
-  console.log('the .demos file is saved!')
+  // console.log('the .demos file is saved!')
 })

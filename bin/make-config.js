@@ -18,7 +18,7 @@ ejs.renderFile(
     // 创建config文件
     fs.writeFile(path.join(__dirname, '..', 'src', 'config.js'), configjs, (err) => {
       if (err) throw err
-      console.log('the config file is saved!')
+      // console.log('the config file is saved!')
     })
   }
 )
