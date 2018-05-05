@@ -1,6 +1,6 @@
 {
   "name": "@beisen/storybook-lib",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "description": "二次封装，易使用",
   "main": "src/index.js",
   "scripts": {
@@ -44,7 +44,13 @@
     "shelljs": "^0.8.1",
     "storybook-readme": "^3.3.0",
     "style-loader": "^0.20.3",
-    "url-loader": "^1.0.1"
+    "url-loader": "^1.0.1",
+    "storybook-chrome-screenshot": "^1.1.0-alpha.1",
+    "storybook-addon-jsx": "^5.3.0",
+    "cli-color": "^1.2.0",
+    "clui": "^0.3.6",
+    "colors": "^1.2.1",
+    "ejs": "^2.5.9"
   },
   "homepage": "https://github.com/BeisenUX/storybooks-lib#readme"
 }
