@@ -1,3 +1,3 @@
 import 'storybook-readme/register'
 import '@storybook/addon-knobs/register'
-import 'storybook-chrome-screenshot/register'
+import '@beisen/storybook-chrome-screenshot/register'
