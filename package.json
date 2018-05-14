@@ -47,7 +47,6 @@
     "storybook-readme": "^3.3.0",
     "style-loader": "^0.20.3",
     "url-loader": "^1.0.1",
-    "storybook-addon-jsx": "^5.3.0",
     "colors": "^1.2.1"
   },
   "homepage": "https://github.com/BeisenUX/storybooks-lib#readme"
