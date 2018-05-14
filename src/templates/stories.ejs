@@ -1,7 +1,7 @@
 
 import readme from '../README.md'
 import os from 'object-assign'
-<% demos.forEach(function(demo, index) { %>
+<% examples.forEach(function(demo, index) { %>
 import Component<%=index%> from '../examples/<%=demo.name%>'
 <% if (demo.hasEditableProps) { %>
 import editableProps<%=index%> from '../examples/<%=demo.name%>/editable-props'
@@ -13,7 +13,7 @@ import doc<%=index%> from '../examples/<%=demo.name%>/doc.md'
 export default{
   name: "<%=cmpName%>",
   'stories': [
-<% demos.forEach(function(demo, index) { %>
+<% examples.forEach(function(demo, index) { %>
     {
       name: '<%=demo.name%>',
       story: os({

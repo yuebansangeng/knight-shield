@@ -10,7 +10,7 @@ let [ a, b, cpath ] = process.argv
 ejs.renderFile(
   path.join(__dirname, '..', 'src', 'templates', 'stories.ejs'),
   {
-    'demos': getDemos(path.join(cpath, 'demos')),
+    'examples': getDemos(path.join(cpath, 'examples')),
     'cmpName': getCmpName(path.join(cpath, 'package.json'))
   },
   { }, // ejs options
