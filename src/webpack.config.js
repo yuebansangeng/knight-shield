@@ -44,8 +44,9 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: path.join(__dirname, 'images/[name].[ext]'),
-          publicPath: '../'
+          name: 'images/[name].[ext]'
+          // name: path.join(__dirname, 'images/[name].[ext]'),
+          // publicPath: '../'
         }
       },
       {
