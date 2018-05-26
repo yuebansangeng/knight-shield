@@ -1,4 +1,5 @@
 
+const log = require('single-line-log').stdout
 const { spawn } = require('child_process')
 const colors = require('colors')
 const shelljs = require('shelljs')
@@ -9,8 +10,8 @@ const fs = require('fs')
 let [ a, b, cpath ] = process.argv
 
 function print (chilprocess) {
-  chilprocess.stdout.on('data', data => console.log(`${data}`.green))
-  chilprocess.stderr.on('data', data => console.log(`${data}`.yellow))
+  chilprocess.stdout.on('data', data => log(`${data}`.green))
+  chilprocess.stderr.on('data', data => log(`${data}`.yellow))
 }
 
 print(spawn('node', ['make-stories.js', cpath], { 'cwd': __dirname }))
