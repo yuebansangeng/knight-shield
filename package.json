@@ -1,6 +1,6 @@
 {
   "name": "@beisen/storybook-lib",
-  "version": "0.0.38",
+  "version": "0.0.39",
   "description": "二次封装，易使用",
   "main": "src/index.js",
   "scripts": {
