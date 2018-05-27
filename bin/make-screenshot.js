@@ -3,7 +3,7 @@ const { spawn } = require('child_process')
 const shelljs = require('shelljs')
 const path = require('path')
 
-let [ a, b, cpath ] = process.argv
+let [ a, b, cpath = process.cwd() ] = process.argv
 
 function print (chilprocess) {
   chilprocess.stdout.on('data', data => console.log(`${data}`.green))

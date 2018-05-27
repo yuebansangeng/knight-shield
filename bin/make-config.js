@@ -4,7 +4,7 @@ const path = require('path')
 const fs = require('fs')
 
 // cpath 组件调用命令传入的路径
-let [ a, b, cpath ] = process.argv
+let [ a, b, cpath = process.cwd() ] = process.argv
 
 ejs.renderFile(
   path.join(__dirname, '..', 'src', 'templates', 'config.ejs'),
