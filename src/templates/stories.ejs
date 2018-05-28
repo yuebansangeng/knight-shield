@@ -1,6 +1,5 @@
 
 import readme from '../README.md'
-import os from 'object-assign'
 <% examples.forEach(function(demo, index) { %>
 import Component<%=index%> from '../examples/<%=demo.name%>'
 <% if (demo.hasEditableProps) { %>
@@ -16,7 +15,7 @@ export default{
 <% examples.forEach(function(demo, index) { %>
     {
       name: '<%=demo.name%>',
-      story: os({
+      story: Object.assign({
         'content': Component<%=index%>,
 <% if (demo.hasEditableProps) { %>
         'editableProps': editableProps<%=index%>
