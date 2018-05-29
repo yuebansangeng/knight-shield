@@ -1,33 +1,15 @@
 
-import readme from '../README.md'
-<% examples.forEach(function(demo, index) { %>
-import Component<%=index%> from '../examples/<%=demo.name%>'
-<% if (demo.hasEditableProps) { %>
-import editableProps<%=index%> from '../examples/<%=demo.name%>/editable-props'
-<% } %>
-<% if (demo.hasDoc) { %>
-import doc<%=index%> from '../examples/<%=demo.name%>/doc.md'
-<% } %>
-<% }) %>
-export default{
-  name: "<%=cmpName%>",
+module.exports = {
+  'name': require('../.bscpmrc').name,
   'stories': [
-<% examples.forEach(function(demo, index) { %>
-    {
-      name: '<%=demo.name%>',
-      story: Object.assign({
-        'content': Component<%=index%>,
-<% if (demo.hasEditableProps) { %>
-        'editableProps': editableProps<%=index%>
-<% } else { %>
-        'editableProps': []
-<% } %>,
-<% if (demo.hasDoc) { %>
-        'doc': doc<%=index%>
-<% } %>
+<% examples.forEach(function(demo, index) { %>    {
+      'name': '<%=demo.name%>',
+      'story': Object.assign({
+        'content': require('../examples/<%=demo.name%>'),
+        'editableProps': <% if (demo.hasEditableProps) { %>require('../examples/<%=demo.name%>/editable-props'),<% } else { %>[],<% } %><% if (demo.hasDoc) { %>
+        'doc': require('../examples/<%=demo.name%>/doc.md')<% } %>
       })
-    },
-<% }) %>
+    },<% }) %>
   ],
-  readme
+  'readme': require('../README.md')
 }

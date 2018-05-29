@@ -45,8 +45,6 @@ module.exports = {
         options: {
           limit: 10000,
           name: 'images/[name].[ext]'
-          // name: path.join(__dirname, 'images/[name].[ext]'),
-          // publicPath: '../'
         }
       },
       {
