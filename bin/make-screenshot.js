@@ -3,7 +3,8 @@ const { spawn } = require('child_process')
 const shelljs = require('shelljs')
 const path = require('path')
 
-let [ a, b, cpath = process.cwd() ] = process.argv
+// cpath 组件调用命令传入的路径
+let cpath = process.cwd()
 
 function print (chilprocess) {
   chilprocess.stdout.on('data', data => console.log(`${data}`.green))

@@ -4,7 +4,7 @@ const fs = require('fs')
 const { getDemos } = require('./utils')
 
 // cpath 组件调用命令传入的路径
-let [ a, b, cpath = process.cwd() ] = process.argv
+let cpath = process.cwd()
 
 const buildFolderPath = path.join(cpath, '.build')
 if (!fs.existsSync(buildFolderPath)) {
