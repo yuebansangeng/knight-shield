@@ -16,7 +16,8 @@ let main = async () => {
       path.join(__dirname, '..', 'src', 'templates', 'stories.ejs'),
       {
         'examples': getDemos(path.join(cpath, 'examples')),
-        'cmpName': getCmpName(path.join(cpath, 'package.json'))
+        'cmpName': getCmpName(path.join(cpath, 'package.json')),
+        'cpath': cpath
       },
       { }, // ejs options
       (err, storiesjs) => {
