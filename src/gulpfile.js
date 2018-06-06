@@ -5,6 +5,9 @@ const babel = require('gulp-babel')
 const cssbeautify = require('gulp-cssbeautify')
 const replace = require('gulp-replace')
 const del = require('del')
+const fs = require('fs')
+const path = require('path')
+const babelrcJson = require('./babelrc.json')
 
 gulp.task('default', [ 'clear', 'scripts', 'style', 'images', 'fonts' ])
 
@@ -26,7 +29,7 @@ gulp.task('clear', function () {
 // es6代码转义es5
 gulp.task('scripts', function () {
   return gulp.src('src/**/*.js')
-    .pipe(babel())
+    .pipe(babel(babelrcJson))
     // 替换 js 文件中引用的 .scss 后缀为 .css
     .pipe(replace(/require\((['"])(.+?)(\.scss)['"]\)/g, 'require($1$2.css$1)'))
     .pipe(gulp.dest('lib'))

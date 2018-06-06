@@ -40,7 +40,7 @@ let main = async () => {
     let cp_n = spawn('node', [
       'node_modules/gulp/bin/gulp.js',
       // 调整 gulpfile 配置文件的获取路径
-      '--gulpfile', path.join(__dirname, 'gulpfile.js'),
+      '--gulpfile', path.join(__dirname, '..', 'src', 'gulpfile.js'),
       // 重定向 gulp 命令执行的路径到组件项目根目录
       '--cwd', cpath,
       '--colors'
@@ -94,7 +94,7 @@ let main = async () => {
   print(spawn('node', [
     'node_modules/gulp/bin/gulp.js',
     // 调整 gulpfile 配置文件的获取路径
-    '--gulpfile', path.join(__dirname, 'gulpfile.js'),
+    '--gulpfile', path.join(__dirname, '..', 'src', 'gulpfile.js'),
     // 重定向 gulp 命令执行的路径到组件项目根目录
     '--cwd', cpath,
     'watch',
