@@ -35,7 +35,16 @@ let main = async () => {
 
   // 生成 lib 目录，以及内部转义好的文件
   await new Promise((resolve, reject) => {
-    let cp_n = spawn('node', [ 'node_modules/gulp/bin/gulp.js', '--colors'], { 'cwd': cpath })
+    // 执行 gulp 命令
+    let cp_n = spawn('node', [
+      'node_modules/gulp/bin/gulp.js',
+      // 调整 gulpfile 配置文件的获取路径
+      '--gulpfile', path.join(__dirname, 'gulpfile.js'),
+      // 重定向 gulp 命令执行的路径到组件项目根目录
+      '--cwd', cpath,
+      '--colors'
+    ], { 'cwd': cpath })
+    // 监听返回值，close时结束
     cp_n.stdout.on('data', data => colorLog(data))
     cp_n.stderr.on('data', err_data => colorLog(err_data))
     cp_n.stderr.on('close', () => {
@@ -80,9 +89,19 @@ let main = async () => {
   }
 
   // 监控文件目录变化
-  print(spawn('node', [ 'node_modules/gulp/bin/gulp.js', 'watch', '--colors'], { 'cwd': cpath }))
+  // 使用 spwan 执行，需要和 start-storybook 命令并行执行
+  print(spawn('node', [
+    'node_modules/gulp/bin/gulp.js',
+    // 调整 gulpfile 配置文件的获取路径
+    '--gulpfile', path.join(__dirname, 'gulpfile.js'),
+    // 重定向 gulp 命令执行的路径到组件项目根目录
+    '--cwd', cpath,
+    'watch',
+    '--colors'
+    ], { 'cwd': cpath }))
 
   // 运行 storyrbooks 调试环境
+  // 使用 spwan 执行，需要和 gulp watch 命令并行执行
   print(spawn('start-storybook', stbPreArgs, { 'cwd': cpath }))
 
   // 打开本地调试浏览器

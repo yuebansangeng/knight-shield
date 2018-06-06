@@ -1,0 +1,57 @@
+
+const gulp = require('gulp')
+const sass = require('gulp-sass')
+const babel = require('gulp-babel')
+const cssbeautify = require('gulp-cssbeautify')
+const replace = require('gulp-replace')
+const del = require('del')
+
+gulp.task('default', [ 'clear', 'scripts', 'style', 'images', 'fonts' ])
+
+const d = <%=dpath%>
+
+// 监控
+// npm run demo 会地调用到这里的watch任务
+gulp.task('watch', function () {
+  gulp.watch([ `${d}/src/**/*.js` ], [ 'scripts' ])
+  gulp.watch([ `${d}/src/**/*.scss`, `${d}/src/**/*.css` ], [ 'style' ])
+  gulp.watch([ `${d}/src/**/*.jpeg`, `${d}/src/**/*.png`, `${d}/src/**/*.jpg`, `${d}/src/**/*.gif`, `${d}/src/**/*.svg` ], [ 'images'])
+  gulp.watch([ `${d}/src/**/*.woff2`, `${d}/src/**/*.woff`, `${d}/src/**/*.eot`, `${d}/src/**/*.ttf`, `${d}/src/**/*.otf` ], [ 'fonts' ])
+})
+
+// 清理lib文件夹内的文件
+gulp.task('clear', function () {
+  del.sync(`${d}/lib`)
+})
+
+// es6代码转义es5
+gulp.task('style', function () {
+  return gulp.src(`${d}/src/**/*.js`)
+    .pipe(babel())
+    // 替换 js 文件中引用的 .scss 后缀为 .css
+    .pipe(replace(/require\((['"])(.+?)(\.scss)['"]\)/g, 'require($1$2.css$1)'))
+    .pipe(gulp.dest(`${d}/lib`))
+})
+
+// 解析scss文件到css
+gulp.task('scripts', function () {
+  return gulp.src([ `${d}/src/**/*.scss`, `${d}/src/**/*.css` ])
+    .pipe(sass.sync().on('error', sass.logError))
+    // 缩进2个空格
+    .pipe(cssbeautify({ indent: '  ' }))
+    .pipe(gulp.dest(`${d}/lib`))
+})
+
+// 复制图片文件到lib文件夹
+gulp.task('images', function () {
+  // (png|jpe?g|gif|svg)
+  return gulp.src([ `${d}/src/**/*.jpeg`, `${d}/src/**/*.png`, `${d}/src/**/*.jpg`, `${d}/src/**/*.gif`, `${d}/src/**/*.svg` ])
+    .pipe(gulp.dest(`${d}/lib`))
+})
+
+// 复制字体文件到lib文件夹
+gulp.task('fonts', function () {
+  // (woff2?|eot|ttf|otf)
+  return gulp.src([ `${d}/src/**/*.woff2`, `${d}/src/**/*.woff`, `${d}/src/**/*.eot`, `${d}/src/**/*.ttf`, `${d}/src/**/*.otf` ])
+    .pipe(gulp.dest(`${d}/lib`))
+})
