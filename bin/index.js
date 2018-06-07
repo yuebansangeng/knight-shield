@@ -70,41 +70,31 @@ let main = async () => {
     })
   })
 
-  // 判断组件内部是否配置storybooks配置
-  // 配置了则不适用内部的 storybook-lib config
-  let cpathStbkFlod = path.join(cpath, '.storybook')
-  let stbPreArgs = [ '-s', '.', '-p', '9001', '-c' ]
+  // 生成 config 文件
+  await new Promise((resolve, reject) => {
+    ejs.renderFile(
+      path.join(__dirname, '..', 'src', 'templates', 'config.ejs'),
+      {
+        'cmpRootPath': cpath
+      },
+      { }, // ejs options
+      (err, configjs) => {
+        if (err) throw err
+        // 创建config文件
+        fs.writeFile(path.join(__dirname, '..', 'src', 'config.js'), configjs, (err) => {
+          if (err) {
+            console.log(err)
+            return reject(false)
+          }
+          resolve(true)
+        })
+      }
+    )
+  })
 
-  if (fs.existsSync(cpathStbkFlod)) {
-
-    stbPreArgs = stbPreArgs.concat([ cpathStbkFlod ])
-    console.log(`已检测到在项目中出现.storybook文件夹，程序将不再使用默认storybook配置，请自行配置storybook.`.yellow)
-  } else {
-
-    // 生成 config 文件
-    await new Promise((resolve, reject) => {
-      ejs.renderFile(
-        path.join(__dirname, '..', 'src', 'templates', 'config.ejs'),
-        {
-          'cmpRootPath': cpath
-        },
-        { }, // ejs options
-        (err, configjs) => {
-          if (err) throw err
-          // 创建config文件
-          fs.writeFile(path.join(__dirname, '..', 'src', 'config.js'), configjs, (err) => {
-            if (err) {
-              console.log(err)
-              return reject(false)
-            }
-            resolve(true)
-          })
-        }
-      )
-    })
-
-    stbPreArgs = stbPreArgs.concat([ path.join(__dirname, '..', 'src') ])
-  }
+  // 运行 storyrbooks 调试环境
+  // 使用 spwan 执行，需要和 gulp watch 命令并行执行
+  print(spawn('start-storybook', [ '-s', '.', '-p', '9001', '-c', path.join(__dirname, '..', 'src') ], { 'cwd': cpath }))
 
   // 监控文件目录变化
   // 使用 spwan 执行，需要和 start-storybook 命令并行执行
@@ -117,10 +107,6 @@ let main = async () => {
     'watch',
     '--colors'
     ], { 'cwd': cpath }))
-
-  // 运行 storyrbooks 调试环境
-  // 使用 spwan 执行，需要和 gulp watch 命令并行执行
-  print(spawn('start-storybook', stbPreArgs, { 'cwd': cpath }))
 
   // 打开本地调试浏览器
   spawn('/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome', ['--enable-speech-input', 'http://localhost:9001'])
