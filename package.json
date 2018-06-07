@@ -1,6 +1,6 @@
 {
   "name": "@beisen/storybook-lib",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "二次封装，易使用",
   "main": "lib/index.js",
   "scripts": {
@@ -50,7 +50,6 @@
     "markdown-loader": "^2.0.2",
     "postcss-loader": "^2.1.2",
     "sass-loader": "^6.0.7",
-    "storybook-addon-material-ui": "^0.8.2",
     "storybook-readme": "^3.3.0",
     "style-loader": "^0.20.3",
     "url-loader": "^1.0.1"
