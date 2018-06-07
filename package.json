@@ -1,6 +1,6 @@
 {
   "name": "@beisen/storybook-lib",
-  "version": "0.0.51",
+  "version": "0.0.52",
   "description": "二次封装，易使用",
   "main": "src/index.js",
   "scripts": {
@@ -40,7 +40,6 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-plugin-transform-decorators-legacy": "^1.3.5",
     "babel-plugin-transform-object-assign": "^6.22.0",
     "babel-plugin-transform-proto-to-assign": "^6.26.0",
     "babel-plugin-transform-react-display-name": "^6.25.0",
@@ -51,5 +50,8 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1"
   },
-  "homepage": "https://github.com/BeisenUX/storybooks-lib#readme"
+  "homepage": "https://github.com/BeisenUX/storybooks-lib#readme",
+  "devDependencies": {
+    "babel-plugin-transform-decorators-legacy": "^1.3.5"
+  }
 }
