@@ -73,7 +73,7 @@ let main = async () => {
   // 生成 config 文件
   await new Promise((resolve, reject) => {
     ejs.renderFile(
-      path.join(__dirname, '..', 'lib', 'templates', 'config.ejs'),
+      path.join(__dirname, '..', 'lib', 'templates', 'config.js'),
       {
         'cmpRootPath': cpath
       },
