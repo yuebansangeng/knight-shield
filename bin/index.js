@@ -70,28 +70,6 @@ let main = async () => {
     })
   })
 
-  // 生成 config 文件
-  await new Promise((resolve, reject) => {
-    ejs.renderFile(
-      path.join(__dirname, '..', 'lib', 'templates', 'config.js'),
-      {
-        'cmpRootPath': cpath
-      },
-      { }, // ejs options
-      (err, configjs) => {
-        if (err) throw err
-        // 创建config文件
-        fs.writeFile(path.join(__dirname, '..', 'lib', 'config.js'), configjs, (err) => {
-          if (err) {
-            console.log(err)
-            return reject(false)
-          }
-          resolve(true)
-        })
-      }
-    )
-  })
-
   // 运行 storyrbooks 调试环境
   // 使用 spwan 执行，需要和 gulp watch 命令并行执行
   print(spawn('start-storybook', [ '-s', '.', '-p', '9001', '-c', path.join(__dirname, '..', 'lib') ], { 'cwd': cpath }))
