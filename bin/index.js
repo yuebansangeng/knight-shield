@@ -10,6 +10,23 @@ let main = async () => {
   // cpath 组件调用命令传入的路径
   cpath = process.cwd()
 
+  // 如何开发者配置了自定义文件，则复制进src
+  await new Promise((resolve, reject) => {
+    let configfiles = {
+      'manager-head.html': `${cpath}/.storybook/manager-head.html`,
+      'preview-head.html': `${cpath}/.storybook/preview-head.html`,
+      'webpack.config.js': `${cpath}/.storybook/webpack.config.js`
+    }
+    Object.keys(configfiles).forEach(fkey => {
+      if (fs.existsSync(configfiles[fkey])) {
+        let content = fs.readFileSync(configfiles[fkey], 'utf8')
+        fs.writeFileSync(path.join(__dirname, '..', 'src', fkey), content, 'utf8')
+        console.log(`${fkey} copied`)
+      }
+    })
+    resolve(true)
+  })
+
   // 配置 运行环境 需要的 stories 配置问题
   await new Promise((resolve, reject) => {
     ejs.renderFile(
