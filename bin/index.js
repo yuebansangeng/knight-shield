@@ -20,7 +20,7 @@ let main = async () => {
     Object.keys(configfiles).forEach(fkey => {
       if (fs.existsSync(configfiles[fkey])) {
         let content = fs.readFileSync(configfiles[fkey], 'utf8')
-        fs.writeFileSync(path.join(__dirname, '..', 'src', fkey), content, 'utf8')
+        fs.writeFileSync(path.join(__dirname, '..', 'lib', fkey), content, 'utf8')
         console.log(`${fkey} copied`)
       }
     })
@@ -30,7 +30,7 @@ let main = async () => {
   // 配置 运行环境 需要的 stories 配置问题
   await new Promise((resolve, reject) => {
     ejs.renderFile(
-      path.join(__dirname, '..', 'src', 'templates', 'stories.ejs'),
+      path.join(__dirname, '..', 'lib', 'templates', 'stories.ejs'),
       {
         'examples': getDemos(path.join(cpath, 'examples')),
         'cmpName': getCmpName(path.join(cpath, 'package.json')),
@@ -40,7 +40,7 @@ let main = async () => {
       (err, storiesjs) => {
         if (err) throw err
         // 在组建项目中创建配置文件
-        fs.writeFile(path.join(__dirname, '..', 'src', 'stories.js'), storiesjs, (err) => {
+        fs.writeFile(path.join(__dirname, '..', 'lib', 'stories.js'), storiesjs, (err) => {
           if (err) {
             console.log(err)
             return reject(false)
@@ -57,7 +57,7 @@ let main = async () => {
     let cp_n = spawn('node', [
       'node_modules/gulp/bin/gulp.js',
       // 调整 gulpfile 配置文件的获取路径
-      '--gulpfile', path.join(__dirname, '..', 'src', 'gulpfile.js'),
+      '--gulpfile', path.join(__dirname, '..', 'lib', 'gulpfile.js'),
       // 重定向 gulp 命令执行的路径到组件项目根目录
       '--cwd', cpath,
       '--colors'
@@ -73,7 +73,7 @@ let main = async () => {
   // 生成 config 文件
   await new Promise((resolve, reject) => {
     ejs.renderFile(
-      path.join(__dirname, '..', 'src', 'templates', 'config.ejs'),
+      path.join(__dirname, '..', 'lib', 'templates', 'config.ejs'),
       {
         'cmpRootPath': cpath
       },
@@ -81,7 +81,7 @@ let main = async () => {
       (err, configjs) => {
         if (err) throw err
         // 创建config文件
-        fs.writeFile(path.join(__dirname, '..', 'src', 'config.js'), configjs, (err) => {
+        fs.writeFile(path.join(__dirname, '..', 'lib', 'config.js'), configjs, (err) => {
           if (err) {
             console.log(err)
             return reject(false)
@@ -94,14 +94,14 @@ let main = async () => {
 
   // 运行 storyrbooks 调试环境
   // 使用 spwan 执行，需要和 gulp watch 命令并行执行
-  print(spawn('start-storybook', [ '-s', '.', '-p', '9001', '-c', path.join(__dirname, '..', 'src') ], { 'cwd': cpath }))
+  print(spawn('start-storybook', [ '-s', '.', '-p', '9001', '-c', path.join(__dirname, '..', 'lib') ], { 'cwd': cpath }))
 
   // 监控文件目录变化
   // 使用 spwan 执行，需要和 start-storybook 命令并行执行
   print(spawn('node', [
     'node_modules/gulp/bin/gulp.js',
     // 调整 gulpfile 配置文件的获取路径
-    '--gulpfile', path.join(__dirname, '..', 'src', 'gulpfile.js'),
+    '--gulpfile', path.join(__dirname, '..', 'lib', 'gulpfile.js'),
     // 重定向 gulp 命令执行的路径到组件项目根目录
     '--cwd', cpath,
     'watch',
