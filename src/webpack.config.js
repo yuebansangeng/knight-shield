@@ -9,6 +9,7 @@ module.exports = function (storybookBaseConfig, configType) {
   storybookBaseConfig.module.rules = storybookBaseConfig.module.rules.concat([
     {
       'test': /\.js$/,
+      'exclude': /node_modules/,
       'use': [
         { 'loader': 'babel-loader', 'options': babelrcJson }
       ]
@@ -68,8 +69,7 @@ module.exports = function (storybookBaseConfig, configType) {
 
   // 用于配置外部可重写
   // 允许外部修改 output 和 externals
-  Object.assign(storybookBaseConfig.output, webpackExtendConfig.output || {})
-  storybookBaseConfig.externals = webpackExtendConfig.externals || {}
+  deepmerge(storybookBaseConfig, webpackExtendConfig)
 
   return storybookBaseConfig
 }
