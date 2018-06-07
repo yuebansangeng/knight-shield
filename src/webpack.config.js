@@ -68,5 +68,10 @@ module.exports = {
   },
   'node': {
     'fs': 'empty'
+  },
+  'resolve': {
+    'alias': {
+      '@': '../../lib'
+    }  
   }
 }
