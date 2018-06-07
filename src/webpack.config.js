@@ -65,6 +65,11 @@ module.exports = function (storybookBaseConfig, configType) {
       }
     }
   ])
+
   // 用于配置外部可重写
-  deepmerge(storybookBaseConfig, webpackExtendConfig)
+  // 允许外部修改 output 和 externals
+  Object.assign(storybookBaseConfig.output, webpackExtendConfig.output || {})
+  storybookBaseConfig.externals = webpackExtendConfig.externals || {}
+
+  return storybookBaseConfig
 }
