@@ -71,7 +71,7 @@ module.exports = {
   },
   'resolve': {
     'alias': {
-      '@': '../../lib'
+      '@component': '../../lib'
     }  
   }
 }
