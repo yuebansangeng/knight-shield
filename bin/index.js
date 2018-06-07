@@ -20,7 +20,11 @@ let main = async () => {
     Object.keys(configfiles).forEach(fkey => {
       if (fs.existsSync(configfiles[fkey])) {
         let content = fs.readFileSync(configfiles[fkey], 'utf8')
-        fs.writeFileSync(path.join(__dirname, '..', 'lib', fkey), content, 'utf8')
+        if (fkey === 'webpack.config.js') {
+          fs.writeFileSync(path.join(__dirname, '..', 'lib', 'webpack.extend.config.js'), content, 'utf8')
+        } else {
+          fs.writeFileSync(path.join(__dirname, '..', 'lib', fkey), content, 'utf8')  
+        }
         console.log(`${fkey} copied`)
       }
     })
