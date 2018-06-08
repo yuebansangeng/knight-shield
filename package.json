@@ -1,6 +1,6 @@
 {
   "name": "@beisen/storybook-lib",
-  "version": "0.1.12",
+  "version": "0.1.14",
   "description": "二次封装，易使用",
   "main": "lib/index.js",
   "scripts": {
@@ -16,6 +16,7 @@
     "url": "https://github.com/BeisenUX/storybooks-lib/issues"
   },
   "dependencies": {
+    "@buildit/storybook-addon-versions": "^0.4.3",
     "@storybook/addon-backgrounds": "^3.4.6",
     "@storybook/addon-knobs": "^3.4.1",
     "@storybook/addon-viewport": "^3.4.6",
@@ -37,9 +38,12 @@
     "babel-preset-stage-0": "^6.24.1",
     "colors": "^1.2.1",
     "deepmerge": "^2.1.1",
+    "del": "^3.0.0",
     "ejs": "^2.5.9",
     "file-loader": "^1.1.11",
     "fs": "0.0.1-security",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
     "html-loader": "^0.5.5",
     "markdown-loader": "^2.0.2",
     "postcss-loader": "^2.1.2",
