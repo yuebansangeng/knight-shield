@@ -25,7 +25,6 @@ let main = async () => {
         } else {
           fs.writeFileSync(path.join(__dirname, '..', 'lib', fkey), content, 'utf8')  
         }
-        console.log(`${fkey} copied`)
       }
     })
     resolve(true)

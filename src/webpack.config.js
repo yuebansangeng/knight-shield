@@ -1,6 +1,5 @@
 
 const path = require('path')
-const deepmerge = require('deepmerge')
 const babelrcJson = require('./babelrc.json')
 const webpackExtendConfig = require('./webpack.extend.config')
 
@@ -67,9 +66,14 @@ module.exports = function (storybookBaseConfig, configType) {
     }
   ])
 
-  // 用于配置外部可重写
-  // 允许外部修改 output 和 externals
-  deepmerge(storybookBaseConfig, webpackExtendConfig)
+  // 如果外部传入了outpu，merge
+  if (webpackExtendConfig.output) {
+    Object.assign(storybookBaseConfig.output, webpackExtendConfig.output)
+  }
+  // 默认没有externals（underfined)，外部传入则赋值
+  if (webpackExtendConfig.externals) {
+    storybookBaseConfig.externals = webpackExtendConfig.externals
+  }
 
   return storybookBaseConfig
 }
