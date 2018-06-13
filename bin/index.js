@@ -59,8 +59,8 @@ let main = async () => {
   print(spawn('start-storybook', [ '-s', '.', '-p', '9001', '-c', path.join(__dirname, '..', 'lib') ], { 'cwd': cpath }))
 
   // 打开本地调试浏览器
-  spawn('/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome', ['--enable-speech-input', 'http://localhost:9001'])
-    .stderr.on('data', data => console.log(`请使用MacOS系统`.red))
+  // spawn('/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome', ['--enable-speech-input', 'http://localhost:9001'])
+    // .stderr.on('data', data => console.log(`请使用MacOS系统`.red))
 }
 
 main()
