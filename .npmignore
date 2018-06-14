@@ -1,1 +1,6 @@
 src
+src-bin
+package-lock.json
+gulpfile.js
+.gitignore
+node_modules

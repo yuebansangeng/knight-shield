@@ -17,11 +17,12 @@ const babelrcJson = {
   ]
 }
 
-gulp.task('default', [ 'clear', 'scripts', 'other', 'scripts-ejs' ])
+gulp.task('default', [ 'clear', 'scripts', 'other', 'scripts-ejs', 'bin' ])
 
 // 清理lib文件夹内的文件
 gulp.task('clear', function () {
   del.sync('lib')
+  del.sync('bin')
 })
 
 // es6代码转义es5
@@ -41,4 +42,11 @@ gulp.task('other', function () {
   // (png|jpe?g|gif|svg)
   return gulp.src([ 'src/**/*.html', 'src/**/*.json', 'src/**/*.ejs' ])
     .pipe(gulp.dest('lib'))
+})
+
+// es6代码转义es5
+gulp.task('bin', function () {
+  return gulp.src('src-bin/**/*.js')
+    .pipe(babel(babelrcJson))
+    .pipe(gulp.dest('bin'))
 })
