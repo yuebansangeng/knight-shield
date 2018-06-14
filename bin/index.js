@@ -63,18 +63,16 @@ var print = function print(cp) {
   });
 };
 
+// cpath 组件调用命令传入的路径
+var cpath = process.cwd();
+
 var main = function () {
   var _ref = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee() {
     return _regenerator2.default.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-
-            // cpath 组件调用命令传入的路径
-            cpath = process.cwd();
-
-            // 如何开发者配置了自定义文件，则复制进src
-            _context.next = 3;
+            _context.next = 2;
             return new _promise2.default(function (resolve, reject) {
               var configfiles = {
                 'manager-head.html': cpath + '/.storybook/manager-head.html',
@@ -94,8 +92,8 @@ var main = function () {
               resolve(true);
             });
 
-          case 3:
-            _context.next = 5;
+          case 2:
+            _context.next = 4;
             return new _promise2.default(function (resolve, reject) {
               ejs.renderFile(path.join(__dirname, '..', 'lib', 'templates', 'stories.ejs'), {
                 'examples': getDemos(path.join(cpath, 'examples')),
@@ -114,13 +112,13 @@ var main = function () {
               });
             });
 
-          case 5:
+          case 4:
 
             // 运行 storyrbooks 调试环境
             // 使用 spwan 执行，需要和 gulp watch 命令并行执行
             print(spawn('start-storybook', ['-s', '.', '-p', '9001', '-c', path.join(__dirname, '..', 'lib')], { 'cwd': cpath }));
 
-          case 6:
+          case 5:
           case 'end':
             return _context.stop();
         }

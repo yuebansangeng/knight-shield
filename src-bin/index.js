@@ -32,10 +32,10 @@ let print = (cp) => {
   cp.stderr.on('data', err_data => colorLog(err_data))
 }
 
-let main = async () => {
+// cpath 组件调用命令传入的路径
+let cpath = process.cwd()
 
-  // cpath 组件调用命令传入的路径
-  cpath = process.cwd()
+let main = async () => {
 
   // 如何开发者配置了自定义文件，则复制进src
   await new Promise((resolve, reject) => {
