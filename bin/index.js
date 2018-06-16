@@ -120,6 +120,8 @@ var main = function () {
             // buildonly 只构建配置，不启动调试环境
             if (!argv.buildonly) {
               print(spawn('start-storybook', ['-s', '.', '-p', '9001', '-c', path.join(__dirname, '..', 'lib')], { 'cwd': cpath }));
+            } else {
+              console.log('配置文件生成完毕');
             }
 
           case 5:
