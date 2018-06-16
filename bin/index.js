@@ -31,6 +31,7 @@ var _require2 = require('fs'),
     readdirSync = _require2.readdirSync;
 
 var colors = require('colors');
+var argv = require('minimist')(process.argv.slice(2));
 
 var getDemos = function getDemos(source) {
   return readdirSync(source).map(function (name) {
@@ -116,7 +117,10 @@ var main = function () {
 
             // 运行 storyrbooks 调试环境
             // 使用 spwan 执行，需要和 gulp watch 命令并行执行
-            print(spawn('start-storybook', ['-s', '.', '-p', '9001', '-c', path.join(__dirname, '..', 'lib')], { 'cwd': cpath }));
+            // buildonly 只构建配置，不启动调试环境
+            if (!argv.buildonly) {
+              print(spawn('start-storybook', ['-s', '.', '-p', '9001', '-c', path.join(__dirname, '..', 'lib')], { 'cwd': cpath }));
+            }
 
           case 5:
           case 'end':

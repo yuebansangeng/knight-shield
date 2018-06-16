@@ -5,6 +5,7 @@ const fs = require('fs')
 const ejs = require('ejs')
 const { lstatSync, readdirSync } = require('fs')
 const colors = require('colors')
+const argv = require('minimist')(process.argv.slice(2))
 
 let getDemos = (source) => {
   return readdirSync(source)
@@ -82,7 +83,10 @@ let main = async () => {
 
   // 运行 storyrbooks 调试环境
   // 使用 spwan 执行，需要和 gulp watch 命令并行执行
-  print(spawn('start-storybook', [ '-s', '.', '-p', '9001', '-c', path.join(__dirname, '..', 'lib') ], { 'cwd': cpath }))
+  // buildonly 只构建配置，不启动调试环境
+  if (!argv.buildonly) {
+    print(spawn('start-storybook', [ '-s', '.', '-p', '9001', '-c', path.join(__dirname, '..', 'lib') ], { 'cwd': cpath }))
+  }
 
 }
 
