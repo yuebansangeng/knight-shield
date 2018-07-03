@@ -14,6 +14,10 @@ module.exports = function (storybookBaseConfig, configType) {
       ]
     },
     {
+      'test': /\.tsx?$/,
+      'loader': 'ts-loader'
+    },
+    {
       'test': /\.scss|\.css$/,
       'use': [
         { 'loader': 'style-loader' },
