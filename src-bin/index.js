@@ -86,8 +86,13 @@ let main = async () => {
   // buildonly 只构建配置，不启动调试环境
   if (!argv.buildonly) {
     print(
-      spawn('start-storybook',
-        [ '-s', '.', '-p', '9001', '-c', path.join(__dirname, '..', 'lib') ], 
+      spawn('node',
+        [
+          'node_modules/@storybook/react/bin/index.js',
+          '-s', '.',
+          '-p', '9001',
+          '-c', path.join(__dirname, '..', 'lib')
+        ], 
         // tsconfig.json 的配置以及，ts-loader 模块获取需要在 dirname
         { 'cwd': __dirname }
       )
