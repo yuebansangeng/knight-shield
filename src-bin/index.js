@@ -86,9 +86,8 @@ let main = async () => {
   // buildonly 只构建配置，不启动调试环境
   if (!argv.buildonly) {
     print(
-      spawn('node',
+      spawn('start-storybook',
         [
-          'node_modules/@storybook/react/bin/index.js',
           '-s', '.',
           '-p', '9001',
           '-c', path.join(__dirname, '..', 'lib')

@@ -119,7 +119,7 @@ var main = function () {
             // 使用 spwan 执行，需要和 gulp watch 命令并行执行
             // buildonly 只构建配置，不启动调试环境
             if (!argv.buildonly) {
-              print(spawn('node', ['node_modules/@storybook/react/bin/index.js', '-s', '.', '-p', '9001', '-c', path.join(__dirname, '..', 'lib')],
+              print(spawn('start-storybook', ['-s', '.', '-p', '9001', '-c', path.join(__dirname, '..', 'lib')],
               // tsconfig.json 的配置以及
               // ts-loader 模块获取需要在 dirname
               { 'cwd': path.join(__dirname, '..') }));
