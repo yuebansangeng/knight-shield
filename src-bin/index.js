@@ -93,8 +93,9 @@ let main = async () => {
           '-p', '9001',
           '-c', path.join(__dirname, '..', 'lib')
         ], 
-        // tsconfig.json 的配置以及，ts-loader 模块获取需要在 dirname
-        { 'cwd': __dirname }
+        // tsconfig.json 的配置以及
+        // ts-loader 模块获取需要在 dirname
+        { 'cwd': path.join(__dirname, '..') }
       )
     )
   } else {
