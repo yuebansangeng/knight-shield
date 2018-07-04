@@ -29,8 +29,8 @@ module.exports = function (storybookBaseConfig, configType) {
         // context 属性，3.5.0 版本的 ts-loader 才支持（4版本的tsloader需要webbpack4以上）
         // tsLoader 自定义的configFile不再项目跟录中，则需要指定content为项目跟目录
         // https://github.com/TypeStrong/ts-loader/issues/732
-        // process.cwd() -> **/[project folder]/node_modules/@beisen/storybook-lib
-        'context': path.join(process.cwd(), '..', '..', '..'),
+        // process.cwd() -> **/[project folder]
+        'context': process.cwd(),
         // 自定义获取tsconfig.json的路径
         'configFile': path.join(__dirname, 'tsconfig.json')
       }
