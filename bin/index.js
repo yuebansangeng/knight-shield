@@ -4,6 +4,10 @@ var _regenerator = require('babel-runtime/regenerator');
 
 var _regenerator2 = _interopRequireDefault(_regenerator);
 
+var _stringify = require('babel-runtime/core-js/json/stringify');
+
+var _stringify2 = _interopRequireDefault(_stringify);
+
 var _keys = require('babel-runtime/core-js/object/keys');
 
 var _keys2 = _interopRequireDefault(_keys);
@@ -107,6 +111,18 @@ var main = function () {
           case 4:
             _context.next = 6;
             return new _promise2.default(function (resolve, reject) {
+              var babelrcFile = '.babelrc';
+              if (fs.existsSync(cpath + '/' + babelrcFile)) {
+                var content = fs.readFileSync(cpath + '/' + babelrcFile, 'utf8');
+                // 转换JSON格式后，再次转换，避免 .json 格式引用出错
+                fs.writeFileSync(path.join(__dirname, '..', 'lib', 'babelrc.json'), (0, _stringify2.default)(JSON.parse(content), null, 2), 'utf8');
+              }
+              resolve(true);
+            });
+
+          case 6:
+            _context.next = 8;
+            return new _promise2.default(function (resolve, reject) {
               ejs.renderFile(path.join(__dirname, '..', 'lib', 'templates', 'stories.ejs'), {
                 'examples': getDemos(path.join(cpath, 'examples')),
                 'cpath': cpath
@@ -124,7 +140,7 @@ var main = function () {
               });
             });
 
-          case 6:
+          case 8:
 
             // 运行 storyrbooks 调试环境
             // 使用 spwan 执行，需要和 gulp watch 命令并行执行
@@ -138,7 +154,7 @@ var main = function () {
               console.log('配置文件生成完毕');
             }
 
-          case 7:
+          case 9:
           case 'end':
             return _context.stop();
         }

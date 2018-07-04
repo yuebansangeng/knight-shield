@@ -68,6 +68,17 @@ let main = async () => {
     resolve(true)
   })
 
+  // 如果开发者配置了 babelrc，则copy配置文件
+  await new Promise((resolve, reject) => {
+    let babelrcFile = '.babelrc'
+    if (fs.existsSync(`${cpath}/${babelrcFile}`)) {
+      let content = fs.readFileSync(`${cpath}/${babelrcFile}`, 'utf8')
+      // 转换JSON格式后，再次转换，避免 .json 格式引用出错
+      fs.writeFileSync(path.join(__dirname, '..', 'lib', 'babelrc.json'), JSON.stringify(JSON.parse(content), null, 2), 'utf8')  
+    }
+    resolve(true)
+  })
+
   // 配置 运行环境 需要的 stories 配置问题
   await new Promise((resolve, reject) => {
     ejs.renderFile(
