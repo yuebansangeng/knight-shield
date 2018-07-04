@@ -5,6 +5,15 @@ const webpackExtendConfig = require('./webpack.extend.config')
 
 module.exports = function (storybookBaseConfig, configType) {
   storybookBaseConfig.node = { fs: 'empty' }
+
+  // 添加模块查找的默认后缀名
+  storybookBaseConfig.resolve.extensions = storybookBaseConfig.resolve.extensions.concat([ '.ts', '.tsx' ])
+
+  // Italent 提供的工具模块中，webpack添加了alias
+  storybookBaseConfig.resolve.alias = {
+    '&': path.join(process.cwd(), '..', '..', '..', 'src')
+  }
+
   storybookBaseConfig.module.rules = storybookBaseConfig.module.rules.concat([
     {
       'test': /\.js$/,
