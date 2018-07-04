@@ -115,7 +115,14 @@ var main = function () {
               if (fs.existsSync(cpath + '/' + babelrcFile)) {
                 var content = fs.readFileSync(cpath + '/' + babelrcFile, 'utf8');
                 // 转换JSON格式后，再次转换，避免 .json 格式引用出错
-                fs.writeFileSync(path.join(__dirname, '..', 'lib', 'babelrc.json'), (0, _stringify2.default)(JSON.parse(content), null, 2), 'utf8');
+                var contentJsonText = '';
+                try {
+                  var contentJson = JSON.parse(content);
+                  contentJsonText = (0, _stringify2.default)(contentJson, null, 2);
+                } catch (e) {
+                  return console.log('.babelrc 内容不是标准 JSON 结构');
+                }
+                fs.writeFileSync(path.join(__dirname, '..', 'lib', 'babelrc.json'), contentJsonText, 'utf8');
               }
               resolve(true);
             });
