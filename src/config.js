@@ -4,7 +4,6 @@ import { storiesOf, configure } from '@storybook/react'
 import { withReadme }  from 'storybook-readme'
 import { withKnobs } from '@storybook/addon-knobs/react'
 import storieConfig from './stories.js'
-import handleType from './util'
 
 configure(
   () => {
@@ -18,8 +17,7 @@ configure(
     stories.forEach(({ name, story }) => {
       const { content: Component, editableProps, doc = '' } = story
       storiesInstence.add(name, () => {
-        const params = handleType(editableProps)
-        return <Component {...params} />
+        return <Component />
       })
     })
   },
