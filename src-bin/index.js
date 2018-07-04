@@ -79,7 +79,7 @@ let main = async () => {
         let contentJson = JSON.parse(content)
         contentJsonText = JSON.stringify(contentJson, null, 2)
       } catch (e) {
-        return console.log('.babelrc 内容不是标准 JSON 结构')
+        return console.log('.babelrc 文件内容异常，不是标准JSON结构')
       }
       fs.writeFileSync(path.join(__dirname, '..', 'lib', 'babelrc.json'), contentJsonText, 'utf8')  
     }
