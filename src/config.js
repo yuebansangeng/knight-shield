@@ -2,7 +2,6 @@
 import React from 'react'
 import { storiesOf, configure } from '@storybook/react'
 import { withReadme }  from 'storybook-readme'
-import { withKnobs } from '@storybook/addon-knobs/react'
 import storieConfig from './stories.js'
 
 configure(
@@ -11,7 +10,6 @@ configure(
     let { stories, name, readme } = storieConfig
 
     let storiesInstence = storiesOf(name, module)
-    storiesInstence.addDecorator(withKnobs);
     storiesInstence.addDecorator(withReadme([ readme ]))
 
     stories.forEach(({ name, story }) => {
