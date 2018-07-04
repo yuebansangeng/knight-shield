@@ -96,6 +96,17 @@ var main = function () {
           case 2:
             _context.next = 4;
             return new _promise2.default(function (resolve, reject) {
+              var configFile = 'tsconfig.json';
+              if (fs.existsSync(cpath + '/' + configFile)) {
+                var content = fs.readFileSync(cpath + '/' + configFile, 'utf8');
+                fs.writeFileSync(path.join(__dirname, '..', 'lib', configFile), content, 'utf8');
+              }
+              resolve(true);
+            });
+
+          case 4:
+            _context.next = 6;
+            return new _promise2.default(function (resolve, reject) {
               ejs.renderFile(path.join(__dirname, '..', 'lib', 'templates', 'stories.ejs'), {
                 'examples': getDemos(path.join(cpath, 'examples')),
                 'cpath': cpath
@@ -113,7 +124,7 @@ var main = function () {
               });
             });
 
-          case 4:
+          case 6:
 
             // 运行 storyrbooks 调试环境
             // 使用 spwan 执行，需要和 gulp watch 命令并行执行
@@ -127,7 +138,7 @@ var main = function () {
               console.log('配置文件生成完毕');
             }
 
-          case 5:
+          case 7:
           case 'end':
             return _context.stop();
         }

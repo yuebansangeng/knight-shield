@@ -58,6 +58,16 @@ let main = async () => {
     resolve(true)
   })
 
+  // 如果开发者配置了 tsconfig，则copy配置文件
+  await new Promise((resolve, reject) => {
+    let configFile = 'tsconfig.json'
+    if (fs.existsSync(`${cpath}/${configFile}`)) {
+      let content = fs.readFileSync(`${cpath}/${configFile}`, 'utf8')
+      fs.writeFileSync(path.join(__dirname, '..', 'lib', configFile), content, 'utf8')  
+    }
+    resolve(true)
+  })
+
   // 配置 运行环境 需要的 stories 配置问题
   await new Promise((resolve, reject) => {
     ejs.renderFile(
