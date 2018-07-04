@@ -88,14 +88,8 @@ module.exports = function (storybookBaseConfig, configType) {
     }
   ])
 
-  // 如果外部传入了outpu，merge
-  if (webpackExtendConfig.output) {
-    Object.assign(storybookBaseConfig.output, webpackExtendConfig.output)
-  }
-  // 默认没有externals（underfined)，外部传入则赋值
-  if (webpackExtendConfig.externals) {
-    storybookBaseConfig.externals = webpackExtendConfig.externals
-  }
+  // 外部可以重写配置
+  storybookBaseConfig = webpackExtendConfig(storybookBaseConfig, configType)
 
   return storybookBaseConfig
 }
