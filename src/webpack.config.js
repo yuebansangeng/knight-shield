@@ -11,7 +11,7 @@ module.exports = function (storybookBaseConfig, configType) {
 
   // Italent 提供的工具模块中，webpack添加了alias
   storybookBaseConfig.resolve.alias = {
-    '&': path.join(process.cwd(), '..', '..', '..', 'src')
+    '&': path.join(process.cwd(), 'src')
   }
 
   storybookBaseConfig.module.rules = storybookBaseConfig.module.rules.concat([
