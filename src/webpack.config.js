@@ -66,8 +66,7 @@ module.exports = function (storybookBaseConfig, configType) {
       'loader': 'url-loader',
       'options': {
         'limit': 10000,
-        'name': 'images/[name].[ext]',
-        'publicPath': '../'
+        'name': 'images/[name].[ext]'
       }
     },
     {
