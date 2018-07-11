@@ -117,7 +117,7 @@ let main = async () => {
       spawn('start-storybook',
         [
           '-s', '.',
-          '-p', '9001',
+          '-p', argv.port || '9001',
           '-c', path.join(__dirname, '..', 'lib')
         ], 
         // tsconfig.json 的配置以及
