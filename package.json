@@ -1,6 +1,6 @@
 {
   "name": "@beisen/storybook-lib",
-  "version": "0.1.62",
+  "version": "0.1.63",
   "description": "二次封装，易使用",
   "main": "lib/index.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/BeisenUX/storybooks-lib.git"
   },
   "bin": {
-    "start-storybook-lib": "./bin/index.js"
+    "storybook-lib": "./bin/index.js"
   },
   "author": "zhanngyue@beisen.com",
   "license": "ISC",
