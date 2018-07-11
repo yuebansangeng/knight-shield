@@ -6,17 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "start-storybook": "./bin/index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BeisenUX/storybooks-lib.git"
   },
-  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/BeisenUX/storybooks-lib/issues"
-  },
   "engines": {
-    "node": ">=8"
+    "node": ">=6"
   },
   "os": [
     "!win32"
