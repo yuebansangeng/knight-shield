@@ -18,7 +18,7 @@ const argv = minimist(process.argv.slice(2)) // 格式化传入参数 --port 500
 
 const storybookFolderName = '.storybook'
 
-const storybookConfigPath = path.join(__dirname, '..', storybookFolderName)
+const storybookConfigPath = path.join(__dirname, storybookFolderName)
 
 const port = argv.port || '9001'
 
