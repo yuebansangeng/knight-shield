@@ -6,8 +6,8 @@ const fs = require('fs')
 const ejs = require('ejs')
 const colors = require('colors')
 const minimist = require('minimist')
-const getdemos = require('./getdemos')
-const colorlog = require('./colorlog')
+const getdemos = require('./get-demos')
+const colorlog = require('./color-log')
 const Hjson = require('hjson')
 
 
@@ -28,7 +28,7 @@ const customConfigFiles = { // 开发者自定义的配置文件
   'manager-head.html': { 'ori': 'manager-head.html' },
   'preview-head.html': { 'ori': 'preview-head.html' },
   'webpack.config.js': {
-    'ori': 'webpack.config.js'
+    'ori': 'webpack.config.js',
     'dest': 'webpack.extend.config.js'
   }
 }
@@ -61,7 +61,7 @@ let main = async () => {
   // 配置 运行环境 需要的 stories 配置问题
   await new Promise((resolve, reject) => {
     ejs.renderFile(
-      path.join(storybookConfigPath, 'templates', 'stories.ejs'),
+      path.join(storybookConfigPath, 'stories.ejs'),
       {
         'examples': getdemos(path.join(cpath, 'examples')),
         'cpath': cpath
