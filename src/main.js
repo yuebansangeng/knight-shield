@@ -38,7 +38,7 @@ const main = async () => {
   // 如何开发者配置了自定义文件，则复制使用自定义配置
   // todo: 会覆盖原有配置
   Object.keys(customConfigFiles).forEach(configFile => {
-    const cusf = `${customConfigFolerPath}/${customConfigFiles[configFile]}`
+    const cusf = `${customConfigFolerPath}/${customConfigFiles[configFile].ori}`
     if (fs.existsSync(cusf)) {
       const content = fs.readFileSync(cusf, 'utf8')
       const { ori, dest } = customConfigFiles[configFile]
