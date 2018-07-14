@@ -3,50 +3,28 @@ const gulp = require('gulp')
 const babel = require('gulp-babel')
 const del = require('del')
 
-const babelrcJson = {
-  "presets": [ "es2015", "react", "stage-0" ],
-  "plugins": [
-    "transform-runtime",
-    "add-module-exports",
-    "transform-decorators-legacy",
-    "transform-react-display-name",
-    "transform-object-assign",
-    "transform-class-properties",
-    [ "transform-es2015-classes", { "loose": true } ],
-    "transform-proto-to-assign"
-  ]
-}
-
-gulp.task('default', [ 'clear', 'scripts', 'other', 'scripts-ejs', 'bin' ])
-
-// 清理lib文件夹内的文件
-gulp.task('clear', function () {
+gulp.task('default', function () {
   del.sync('lib')
-  del.sync('bin')
+
+  gulp.src([ 'src/**/*.js' ])
+    .pipe(babel())
+    .pipe(gulp.dest('lib/'))
+
+  gulp.src([ 'src/.storybook/*.js' ])
+    .pipe(babel())
+    .pipe(gulp.dest('lib/.storybook'))
+
+  gulp.src([ 'src/.storybook/*.html', 'src/.storybook/*.ejs', 'src/.storybook/*.json' ])
+    .pipe(gulp.dest('lib/.storybook'))
 })
 
-// es6代码转义es5
-gulp.task('scripts', function () {
-  return gulp.src('src/**/*.js')
-    .pipe(babel(babelrcJson))
-    .pipe(gulp.dest('lib'))
-})
-
-gulp.task('scripts-ejs', function () {
-  return gulp.src('src/**/*.ejs')
-    .pipe(gulp.dest('lib'))
-})
-
-// 复制图片文件到lib文件夹
-gulp.task('other', function () {
-  // (png|jpe?g|gif|svg)
-  return gulp.src([ 'src/**/*.html', 'src/**/*.json', 'src/**/*.ejs' ])
-    .pipe(gulp.dest('lib'))
-})
-
-// es6代码转义es5
-gulp.task('bin', function () {
-  return gulp.src('src-bin/**/*.js')
-    .pipe(babel(babelrcJson))
-    .pipe(gulp.dest('bin'))
+gulp.task('watch', function () {
+  gulp.watch([
+    'src/**/*.js',
+    'src/.storybook/*.js',
+    'src/.storybook/*.html',
+    'src/.storybook/*.ejs',
+    'src/.storybook/*.json'
+  ],
+  [ 'default' ])
 })

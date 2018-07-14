@@ -1,10 +1,10 @@
 
-const path = require('path')
-const babelrcJson = require('./babelrc.json')
-const webpackExtendConfig = require('./webpack.extend.config')
+import path from 'path'
+import babelrcJson from './babelrc.json'
+import webpackExtendConfig from './webpack.extend.config'
 
-module.exports = function (storybookBaseConfig, configType) {
-  storybookBaseConfig.node = { fs: 'empty' }
+export default (storybookBaseConfig, configType) => {
+  storybookBaseConfig.node = { 'fs': 'empty' }
 
   // 添加模块查找的默认后缀名
   storybookBaseConfig.resolve.extensions = storybookBaseConfig.resolve.extensions.concat([ '.ts', '.tsx' ])

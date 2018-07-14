@@ -13,7 +13,7 @@ configure(
     storiesInstence.addDecorator(withReadme([ readme ]))
 
     stories.forEach(({ name, story }) => {
-      const { content: Component, editableProps, doc = '' } = story
+      const { 'content': Component} = story
       storiesInstence.add(name, () => {
         return <Component />
       })
