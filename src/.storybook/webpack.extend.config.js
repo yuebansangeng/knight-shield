@@ -1,3 +1,3 @@
-module.exports = function (storybookBaseConfig, configType) {
+export default (storybookBaseConfig, configType) => {
   return storybookBaseConfig
 }

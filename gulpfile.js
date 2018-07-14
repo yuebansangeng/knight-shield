@@ -21,9 +21,10 @@ gulp.task('default', function () {
 gulp.task('watch', function () {
   gulp.watch([
     'src/**/*.js',
-    'src/**/*.html',
-    'src/**/*.ejs',
-    'src/**/*.js'
+    'src/.storybook/*.js',
+    'src/.storybook/*.html',
+    'src/.storybook/*.ejs',
+    'src/.storybook/*.json'
   ],
   [ 'default' ])
 })
