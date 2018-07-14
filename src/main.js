@@ -1,14 +1,14 @@
 
-const { spawn, spawnSync } = require('child_process')
-const { lstatSync, readdirSync } = require('fs')
-const path = require('path')
-const fs = require('fs')
-const ejs = require('ejs')
-const colors = require('colors')
-const minimist = require('minimist')
-const getdemos = require('./get-demos')
-const colorlog = require('./color-log')
-const Hjson = require('hjson')
+import { spawn, spawnSync } from 'child_process'
+import { lstatSync, readdirSync } from 'fs'
+import path from 'path'
+import fs from 'fs'
+import ejs from 'ejs'
+import colors from 'colors'
+import minimist from 'minimist'
+import getdemos from './get-demos'
+import colorlog from './color-log'
+import Hjson from 'hjson'
 
 
 // 配置需要的参数，需要改动维护的几率比较高
@@ -33,7 +33,7 @@ const customConfigFiles = { // 开发者自定义的配置文件
   }
 }
 
-let main = async () => {
+const main = async () => {
 
   // 如何开发者配置了自定义文件，则复制使用自定义配置
   // todo: 会覆盖原有配置
