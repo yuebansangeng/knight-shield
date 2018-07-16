@@ -13,7 +13,7 @@ configure(
     storiesInstence.addDecorator(withReadme([ readme ]))
 
     stories.forEach(({ name, story }) => {
-      storiesInstence.add(name, () => <story.content />)
+      storiesInstence.add(name, () => <story.component />)
     })
   },
   module
