@@ -6,8 +6,6 @@ export default {
       'name': '<%=demo.name%>',
       'story': Object.assign({
         'content': require('<%=cpath%>/examples/<%=demo.name%>'),
-        'editableProps': <% if (demo.hasEditableProps) { %>require('<%=cpath%>/examples/<%=demo.name%>/editable-props'),<% } else { %>[],<% } %><% if (demo.hasDoc) { %>
-        'doc': require('<%=cpath%>/examples/<%=demo.name%>/doc.md')<% } %>
       })
     },<% }) %>
   ],
