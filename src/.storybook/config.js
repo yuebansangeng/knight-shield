@@ -14,9 +14,9 @@ configure(
 
     stories.forEach(({ name, story }) => {
       const { 'content': Component } = story
-      storiesInstence.add(name, withScreenshot()(() => {
+      storiesInstence.add(name, () => {
         return <Component />
-      }))
+      })
     })
   },
   module
