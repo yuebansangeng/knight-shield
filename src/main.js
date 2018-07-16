@@ -60,7 +60,7 @@ const main = async () => {
   }
 
   // 配置 运行环境 需要的 stories 配置问题
-  const status = await makeStories({ storybookConfigPath })
+  const status = makeStories({ storybookConfigPath, storybookFolderName })
 
   let cp = spawn('npx',
     [

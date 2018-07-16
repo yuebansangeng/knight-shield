@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 
-require('../lib/make-stories.js')
+require('../lib/make-stories.js')()
