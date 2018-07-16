@@ -1,12 +1,13 @@
 {
   "name": "@beisen/storybook-lib",
-  "version": "0.1.76",
+  "version": "0.1.8",
   "description": "二次封装，易使用",
   "scripts": {
     "prepublish": "gulp"
   },
   "bin": {
-    "storybook-lib": "./bin/index.js"
+    "storybook-lib": "./bin/index.js",
+    "make-stories": "./bin/make-stories.js"
   },
   "repository": {
     "type": "git",
@@ -38,6 +39,7 @@
     "colors": "^1.2.1",
     "ejs": "^2.5.9",
     "file-loader": "^1.1.11",
+    "hjson": "^3.1.1",
     "html-loader": "^0.5.5",
     "markdown-loader": "^2.0.2",
     "minimist": "^1.2.0",
