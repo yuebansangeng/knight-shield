@@ -85,8 +85,9 @@ const main = async () => {
   // 使用 spwan 执行，需要和 gulp watch 命令并行执行
   // buildonly 只构建配置，不启动调试环境
   if (!argv.buildonly) {
-    let cp_sbk = spawn('start-storybook',
+    let cp_sbk = spawn('npx',
       [
+        'start-storybook',
         '-s', '.',
         '-p', port,
         '-c', path.join(storybookConfigPath)
