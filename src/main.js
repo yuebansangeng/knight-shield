@@ -1,14 +1,10 @@
 
-import { spawn, spawnSync } from 'child_process'
-import { lstatSync, readdirSync } from 'fs'
+import { spawn } from 'child_process'
 import path from 'path'
 import fs from 'fs'
-import ejs from 'ejs'
 import colors from 'colors'
 import minimist from 'minimist'
-import getdemos from './get-demos'
 import colorlog from './color-log'
-import Hjson from 'hjson'
 import makeStories from './make-stories'
 
 
