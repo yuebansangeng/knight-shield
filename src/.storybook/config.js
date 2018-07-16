@@ -2,7 +2,7 @@
 import React from 'react'
 import { storiesOf, configure } from '@storybook/react'
 import { withReadme }  from 'storybook-readme'
-import { withScreenshot } from './screenshot'
+import { withScreenshot, initScreenshot } from './screenshot'
 import storieConfig from './stories.js'
 
 configure(
@@ -11,6 +11,7 @@ configure(
     let { stories, name, readme } = storieConfig
 
     let storiesInstence = storiesOf(name, module)
+    storiesInstence.addDecorator(initScreenshot())
     storiesInstence.addDecorator(withReadme([ readme ]))
 
     stories.forEach(({ name, story }) => {
