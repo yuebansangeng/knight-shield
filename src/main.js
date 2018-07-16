@@ -27,6 +27,12 @@ const customConfigFolerPath = `${cpath}/${storybookFolderName}`
 const customConfigFiles = { // 开发者自定义的配置文件
   'manager-head.html': { 'ori': 'manager-head.html' },
   'preview-head.html': { 'ori': 'preview-head.html' },
+  'addons.js': { 'ori': 'addons.js' },
+  'config.js': { 'ori': 'config.js' },
+  '.babelrc': {
+    'ori': '.babelrc',
+    'dest': 'babelrc.json' // 转换成json文件，不需要处理.babelrc路径
+  },
   'webpack.config.js': {
     'ori': 'webpack.config.js',
     'dest': 'webpack.extend.config.js'
