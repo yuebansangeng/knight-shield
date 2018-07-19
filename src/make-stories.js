@@ -6,6 +6,7 @@ import Hjson from 'hjson'
 import getExamples from '@beisen/get-examples'
 
 const cpath = process.cwd()
+const { RC_FILENAME } = process.env
 
 export default async (options = {}) => {
 
@@ -18,13 +19,13 @@ export default async (options = {}) => {
     } = options
 
     // 获取组件的名字
-    const bscpmrc = Hjson.parse(fs.readFileSync(path.join(cpath, '.bscpmrc.json'), 'utf-8'))
+    const rc = Hjson.parse(fs.readFileSync(path.join(cpath, RC_FILENAME), 'utf-8'))
 
     ejs.renderFile(
       path.join(storybookConfigPath, 'stories.ejs'),
       {
         'examples': getExamples(cpath),
-        'name': bscpmrc.name,
+        'name': rc.name,
         'cpath': cpath
       },
       { }, // ejs options

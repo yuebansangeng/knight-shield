@@ -6,6 +6,9 @@ import colors from 'colors'
 import minimist from 'minimist'
 import colorlog from './color-log'
 import makeStories from './make-stories'
+import dotenv from 'dotenv'
+
+dotenv.config({ 'path': path.join(__dirname, '..', '.env') })
 
 
 // 配置需要的参数，需要改动维护的几率比较高
