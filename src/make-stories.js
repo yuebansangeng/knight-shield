@@ -11,7 +11,6 @@ export default (options = {}) => {
   // 该函数需要同步执
   return new Promise((resolve, reject) => {
     const cpath = process.cwd()
-    const { RC_FILENAME } = process.env
     const {
       storybookFolderName = '.storybook',
       // 默认配置，提供给完毕使用二进制的方式调试命令使用

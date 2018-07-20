@@ -13,7 +13,6 @@ dotenv.config({ 'path': path.join(__dirname, '..', '.env') })
 // 统一添加前缀组件模块前缀
 const main = async () => {
   const cpath = process.cwd()
-  const { RC_FILENAME } = process.env
   const { 'name': module, version } = require(`${cpath}/package.json`)
 
   // 获取rc配置文件中的配置
