@@ -5,13 +5,12 @@ import ejs from 'ejs'
 import Hjson from 'hjson'
 import getExamples from '@beisen/get-examples'
 
-const cpath = process.cwd()
-const { RC_FILENAME } = process.env
-
 export default (options = {}) => {
 
   // 该函数需要同步执
   return new Promise((resolve, reject) => {
+    const cpath = process.cwd()
+    const { RC_FILENAME } = process.env
     const {
       storybookFolderName = '.storybook',
       // 默认配置，提供给完毕使用二进制的方式调试命令使用
@@ -20,6 +19,7 @@ export default (options = {}) => {
 
     // 获取package中的配置项
     const packinfo = require(`${cpath}/package.json`)
+
     // 获取组件的名字
     let rc = {}
     if (fs.existsSync(`${cpath}/${RC_FILENAME}`)) {
