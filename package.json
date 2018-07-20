@@ -1,6 +1,6 @@
 {
   "name": "@beisen/storybook-lib",
-  "version": "0.1.91",
+  "version": "0.1.94",
   "description": "二次封装，易使用",
   "scripts": {
     "prepublish": "gulp",
@@ -8,7 +8,7 @@
   },
   "bin": {
     "storybook-lib": "./bin/index.js",
-    "make-stories": "./bin/make-stories.js"
+    "build-storybook-statics": "./bin/build-statics.js"
   },
   "repository": {
     "type": "git",
