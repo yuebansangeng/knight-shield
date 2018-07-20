@@ -4,6 +4,9 @@ import { spawn } from 'child_process'
 import Hjson from 'hjson'
 import makeStories from './make-stories'
 import fs from 'fs'
+import dotenv from 'dotenv'
+
+dotenv.config({ 'path': path.join(__dirname, '..', '.env') })
 
 // 统一添加前缀组件模块前缀
 const main = async () => {
