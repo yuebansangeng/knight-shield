@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 
-require('../lib/build-storybook.js')
+require('../lib/build-statics.js')
