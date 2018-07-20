@@ -22,10 +22,7 @@ export default (options = {}) => {
     const packinfo = require(`${cpath}/package.json`)
 
     // 获取组件的名字
-    let rc = {}
-    if (fs.existsSync(`${cpath}/${RC_FILENAME}`)) {
-      rc = Hjson.parse(fs.readFileSync(`${cpath}/${RC_FILENAME}`, 'utf-8'))
-    }
+    let rc = readRC()
 
     ejs.renderFile(
       path.join(storybookConfigPath, 'stories.ejs'),
