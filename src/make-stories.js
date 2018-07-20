@@ -4,6 +4,7 @@ import fs, { readdirSync, lstatSync } from 'fs'
 import ejs from 'ejs'
 import Hjson from 'hjson'
 import getExamples from '@beisen/get-examples'
+import readRC from '@beisen/read-rc'
 
 export default (options = {}) => {
 

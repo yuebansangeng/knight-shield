@@ -5,6 +5,7 @@ import { spawn } from 'child_process'
 import Hjson from 'hjson'
 import makeStories from './make-stories'
 import fs from 'fs'
+import readRC from '@beisen/read-rc'
 import dotenv from 'dotenv'
 
 dotenv.config({ 'path': path.join(__dirname, '..', '.env') })
@@ -16,11 +17,7 @@ const main = async () => {
   const { 'name': module, version } = require(`${cpath}/package.json`)
 
   // 获取rc配置文件中的配置
-  let rc = {}
-  if (fs.existsSync(`${cpath}/${RC_FILENAME}`)) {
-    rc = Hjson.parse(fs.readFileSync(`${cpath}/${RC_FILENAME}`, 'utf-8'))
-  }
-
+  let rc = readRC()
   // 组件名称
   const cname = rc.name || module
 
