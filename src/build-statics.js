@@ -23,36 +23,35 @@ const main = async () => {
   console.log(`${cname}/${version} 编译中...`)
 
   // 生成 stories.js 配置文件
-  await new Promise(async (resolve, reject) => {
-    // 生成配置文件
-    await makeStories()
-    // 构建
-    let { code, message } = await new Promise((resolve, reject) => {
-      let resmsg = []
-      let build_cp = spawn('node',
-        [
-          'node_modules/.bin/build-storybook',
-          '-c', `${__dirname}/.storybook`,
-          '-o', `${cpath}/storybook-static/${cname}/${version}`
-        ], 
-        {
-          'cwd': cpath
-        }
-      )
-      build_cp.stdout.on('data', data => resmsg.push(`${data}`))
-      build_cp.stderr.on('data', data => resmsg.push(`${data}`))
-      build_cp.on('close', code => {
-        // 如果不join的方式输出log，会在输出信息换行时出现问题
-        resolve({ code, 'message': resmsg.join('') })
-      })
+  // 生成配置文件
+  await makeStories()
+  
+  // 构建
+  let { code, message } = await new Promise((resolve, reject) => {
+    let resmsg = []
+    let build_cp = spawn('node',
+      [
+        'node_modules/.bin/build-storybook',
+        '-c', `${__dirname}/.storybook`,
+        '-o', `${cpath}/storybook-static/${cname}/${version}`
+      ], 
+      {
+        'cwd': cpath
+      }
+    )
+    build_cp.stdout.on('data', data => resmsg.push(`${data}`))
+    build_cp.stderr.on('data', data => resmsg.push(`${data}`))
+    build_cp.on('close', code => {
+      // 如果不join的方式输出log，会在输出信息换行时出现问题
+      resolve({ code, 'message': resmsg.join('') })
     })
-
-    if (code !== 0 ) {
-      throw new Error(message)
-    } else {
-      console.log(message)
-    }
   })
+
+  if (code !== 0 ) {
+    throw new Error(message)
+  } else {
+    console.log(message)
+  }
 }
 
 main()
