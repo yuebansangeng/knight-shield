@@ -28,8 +28,8 @@ export default class Server {
     this.server.on('listening', this.onListening.bind(this))
   }
 
-  stop () {
-
+  close () {
+    this.server.close()
   }
 
   onError (error) {

@@ -1,5 +1,5 @@
 
-import { spawn } from 'child_process'
+import { spawn, fork } from 'child_process'
 import path from 'path'
 import fs from 'fs'
 import colors from 'colors'
@@ -61,7 +61,15 @@ const main = async () => {
   // 配置 运行环境 需要的 stories 配置问题
   const status = makeStories({ storybookConfigPath, storybookFolderName })
 
-  let cp = spawn('npx',
+  // 启动本地mock服务器
+  let cp_mock = fork('./http-mocker/server/start.js', [
+    // args
+  ], { 'cwd': cpath })
+  cp_mock.stdout.on('data', data => colorlog(data))
+  cp_mock.stderr.on('data', err_data => colorlog(err_data))
+
+  // 启动本地调试环境
+  let cp_sytb = spawn('npx',
     [
       'start-storybook',
       '-s', '.',
@@ -72,8 +80,8 @@ const main = async () => {
     // ts-loader 模块获取需要在 dirname
     { 'cwd': cpath }
   )
-  cp.stdout.on('data', data => colorlog(data))
-  cp.stderr.on('data', err_data => colorlog(err_data))
+  cp_sytb.stdout.on('data', data => colorlog(data))
+  cp_sytb.stderr.on('data', err_data => colorlog(err_data))
 }
 
 main()

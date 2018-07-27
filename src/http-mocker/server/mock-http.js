@@ -4,7 +4,7 @@ import HARReader from './har-reader'
 
 export default (req, res, options = {}) => {
   const recording = req.query.recording
-  const { workspace, httpHARFile } = options
+  const { workspace = __dirname , httpHARFile = 'recording.har' } = options
 
   const harContent = fs.readFileSync(`${workspace}/${httpHARFile}`, 'utf-8')
   const har = new HARReader({ 'har': harContent })
