@@ -62,11 +62,7 @@ const main = async () => {
   const status = makeStories({ storybookConfigPath, storybookFolderName })
 
   // 启动本地mock服务器
-  let cp_mock = fork('./http-mocker/server/start.js', [
-    // args
-  ], { 'cwd': cpath })
-  cp_mock.stdout.on('data', data => colorlog(data))
-  cp_mock.stderr.on('data', err_data => colorlog(err_data))
+  let cp_mock = fork(`${__dirname}/http-mocker/server/start.js`)
 
   // 启动本地调试环境
   let cp_sytb = spawn('npx',

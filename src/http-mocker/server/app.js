@@ -14,10 +14,10 @@ app.set('view engine', 'ejs')
 
 app.use(logger('dev'))
 app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ 'extended': false }))
 app.use(cookieParser())
 
-app.all('/test', (req, res) => {
+app.all('/', (req, res) => {
   res.json({ 'code': 200, 'message': 'Mock Server Started' })
 })
 

@@ -1,6 +1,6 @@
 {
   "name": "@beisen/storybook-lib",
-  "version": "0.2.32-bate",
+  "version": "0.2.32-beta2",
   "description": "二次封装，易使用",
   "scripts": {
     "prepublish": "gulp",

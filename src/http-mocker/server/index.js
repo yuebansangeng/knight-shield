@@ -36,9 +36,9 @@ export default class Server {
     if (error.syscall !== 'listen') {
       throw error
     }
-    const bind = typeof port === 'string'
-      ? 'Pipe ' + port
-      : 'Port ' + port
+    const bind = typeof this.port === 'string'
+      ? 'Pipe ' + this.port
+      : 'Port ' + this.port
     // handle specific listen errors with friendly messages
     switch (error.code) {
       case 'EACCES':

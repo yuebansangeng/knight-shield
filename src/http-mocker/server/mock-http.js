@@ -6,13 +6,19 @@ export default (req, res, options = {}) => {
   const recording = req.query.recording
   const { workspace = __dirname , httpHARFile = 'recording.har' } = options
 
-  const harContent = fs.readFileSync(`${workspace}/${httpHARFile}`, 'utf-8')
+  let harContent
+  try {
+    harContent = fs.readFileSync(`${workspace}/${httpHARFile}`, 'utf-8')  
+  } catch (e) {
+    console.log(e)
+  }
+  
   const har = new HARReader({ 'har': harContent })
 
   const http = har.read(recording)
 
   if (!http) {
-    return res.json({ code: 400, message: `can not find '${recording}'` })
+    return res.json({ 'code': 400, 'message': `can not find '${recording}'` })
   }
 
   let {
