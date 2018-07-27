@@ -22,7 +22,10 @@ app.all('/test', (req, res) => {
 })
 
 app.all('/mock', (req, res) => {
-  mockHttp(req, res)
+  mockHttp(req, res, {
+    'workspace': app.get('workspace'),
+    'httpHARFile': app.get('httpHARFile')
+  })
 })
 
 // catch 404 and forward to error handler

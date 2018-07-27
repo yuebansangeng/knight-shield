@@ -16,8 +16,8 @@ export default class Server {
     this.port = this.normalizePort(this.port)
 
     app.set('port', this.port)
-    // app.set('workspace', this.workspace)
-    // app.set('httpHARFile', this.httpHARFile)
+    app.set('workspace', this.workspace)
+    app.set('httpHARFile', this.httpHARFile)
 
     this.server = http.createServer(app)
   }
