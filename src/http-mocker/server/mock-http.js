@@ -2,11 +2,10 @@
 import fs from 'fs'
 import HARReader from './har-reader'
 
-
 export default (req, res) => {
   const recording = req.query.recording
 
-  const harContent = fs.readFileSync(`${__dirname}/recording.har`, 'utf-8')
+  const harContent = fs.readFileSync(`/Users/zhangyue/Github/bscpm-packages-manager/packages/storybook-lib/src/http-mocker/server/recording.har`, 'utf-8')
   const har = new HARReader({ 'har': harContent })
 
   const http = har.read(recording)

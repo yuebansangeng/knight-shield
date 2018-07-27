@@ -14,7 +14,7 @@ gulp.task('default', function () {
     .pipe(babel())
     .pipe(gulp.dest('lib/.storybook'))
 
-  gulp.src([ 'src/.storybook/*.html', 'src/.storybook/*.ejs', 'src/.storybook/*.json' ])
+  gulp.src([ 'src/.storybook/*.html', 'src/.storybook/*.ejs', 'src/.storybook/*.json', 'src/http-mocker/**/*.har' ])
     .pipe(gulp.dest('lib/.storybook'))
 })
 

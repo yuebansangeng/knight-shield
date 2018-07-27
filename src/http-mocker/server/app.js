@@ -4,8 +4,7 @@ import express from 'express'
 import path from 'path'
 import cookieParser from 'cookie-parser'
 import logger from 'morgan'
-
-import Router from './router'
+import mockHttp from './mock-http'
 
 const app = express()
 
@@ -18,7 +17,13 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 
-app.use('/', Router)
+app.all('/test', (req, res) => {
+  res.json({ 'code': 200, 'message': 'Mock Server Started' })
+})
+
+app.all('/mock', (req, res) => {
+  mockHttp(req, res)
+})
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

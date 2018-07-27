@@ -1,8 +1,8 @@
 
 export default class HARReader {
 
-  constructor (opts) {
-    this.har = JSON.parse(opts.har)
+  constructor (o) {
+    this.har = JSON.parse(o.har)
     this.indexCache = {}
     this.filter()
   }

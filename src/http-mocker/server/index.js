@@ -3,17 +3,23 @@ import app from './app'
 import debug from 'debug'
 import http from 'http'
 
+debug('aaa:server')
+
 export default class Server {
 
   constructor (o) {
     Object.assign(this, {
-      'port': 3000
+      'port': 3000,
+      'workspace': '/',
+      'httpHARFile': 'recording.har'
     }, o)
-
     this.port = this.normalizePort(this.port)
+
     app.set('port', this.port)
+    // app.set('workspace', this.workspace)
+    // app.set('httpHARFile', this.httpHARFile)
+
     this.server = http.createServer(app)
-    debug('aaa:server')
   }
 
   start () {
