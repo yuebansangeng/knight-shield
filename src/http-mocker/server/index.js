@@ -9,7 +9,7 @@ export default class Server {
 
   constructor (o) {
     Object.assign(this, {
-      'port': 3000,
+      'port': 9002,
       'workspace': '/',
       'httpHARFile': 'recording.har'
     }, o)

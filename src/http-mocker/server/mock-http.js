@@ -2,17 +2,13 @@
 import fs from 'fs'
 import HARReader from './har-reader'
 
-export default (req, res, options = {}) => {
+export default (req, res, next, options = {}) => {
   const recording = req.query.recording
-  const { workspace = __dirname , httpHARFile = 'recording.har' } = options
+  let { workspace = __dirname , httpHARFile = 'recording.har' } = options
 
-  let harContent
-  try {
-    harContent = fs.readFileSync(`${workspace}/${httpHARFile}`, 'utf-8')  
-  } catch (e) {
-    console.log(e)
-  }
-  
+  // workspace = `${workspace}/src/http-mocker/server`
+
+  let harContent = fs.readFileSync(`${workspace}/${httpHARFile}`, 'utf-8')
   const har = new HARReader({ 'har': harContent })
 
   const http = har.read(recording)
