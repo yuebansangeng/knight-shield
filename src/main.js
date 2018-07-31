@@ -42,20 +42,20 @@ const main = async () => {
     if (fs.existsSync(cusf)) {
       const content = fs.readFileSync(cusf, 'utf8')
       const { ori, dest } = customConfigFiles[configFile]
-      fs.writeFileSync(path.join(storybookConfigPath, dest || ori), content, 'utf8')  
+      fs.writeFileSync(path.join(storybookConfigPath, dest || ori), content, 'utf8')
     }
   })
 
   // 如果开发者配置了 tsconfig，则copy配置文件
   if (fs.existsSync(`${cpath}/tsconfig.json`)) {
     const content = fs.readFileSync(`${cpath}/tsconfig.json`, 'utf8')
-    fs.writeFileSync(path.join(storybookConfigPath, 'tsconfig.json'), content, 'utf8')  
+    fs.writeFileSync(path.join(storybookConfigPath, 'tsconfig.json'), content, 'utf8')
   }
 
   // 如果开发者配置了 babelrc，则copy配置文件
   if (fs.existsSync(`${cpath}/.babelrc`)) {
     const content = fs.readFileSync(`${cpath}/.babelrc`, 'utf8')
-    fs.writeFileSync(path.join(storybookConfigPath, 'babelrc.json'), content, 'utf8')  
+    fs.writeFileSync(path.join(storybookConfigPath, 'babelrc.json'), content, 'utf8')
   }
 
   // 配置 运行环境 需要的 stories 配置问题
@@ -65,9 +65,9 @@ const main = async () => {
   // fork(`${__dirname}/http-mocker/server/start.js`)
 
   // 启动本地调试环境
-  let cp_sytb = spawn('npx',
+  let cp_sytb = spawn('node',
     [
-      'start-storybook',
+      'node_modules/.bin/start-storybook',
       '-s', '.',
       '-p', port,
       '-c', path.join(storybookConfigPath)
