@@ -2,9 +2,7 @@
 import path from 'path'
 import Promise from 'bluebird'
 import { spawn } from 'child_process'
-import Hjson from 'hjson'
 import makeStories from './make-stories'
-import fs from 'fs'
 import readRC from '@beisen/read-rc'
 import dotenv from 'dotenv'
 

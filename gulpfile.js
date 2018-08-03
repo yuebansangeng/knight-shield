@@ -10,7 +10,7 @@ gulp.task('default', function () {
     .pipe(babel())
     .pipe(gulp.dest('lib/'))
 
-  gulp.src([ 'src/.storybook/*.js' ])
+  gulp.src([ 'src/.storybook/**/*.js' ])
     .pipe(babel())
     .pipe(gulp.dest('lib/.storybook'))
 
@@ -21,7 +21,7 @@ gulp.task('default', function () {
 gulp.task('watch', function () {
   gulp.watch([
     'src/**/*.js',
-    'src/.storybook/*.js',
+    'src/.storybook/**/*.js',
     'src/.storybook/*.html',
     'src/.storybook/*.ejs',
     'src/.storybook/*.json'

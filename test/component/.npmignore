@@ -1,7 +1,9 @@
+
 # base
 node_modules
 package-lock.json
-src
+.prettierrc
+
 # tests
 test
 coverage
@@ -11,15 +13,12 @@ coverage
 .jenkins.yml
 .codeclimate.yml
 
-test/
+.vscode
 
 # linters
 .jscsrc
 .jshintrc
 .eslintrc*
-
-.babelrc
-gulpfile.js
 
 # editor settings
 .idea
