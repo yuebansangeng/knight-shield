@@ -2,7 +2,10 @@
 import path from 'path'
 import babelrcJson from './babelrc.json'
 import webpackExtendConfig from './webpack.extend.config'
-import WebpackMonitor from 'webpack-monitor'
+// import WebpackMonitor from 'webpack-monitor'
+// import minimist from 'minimist'
+
+// const argv = minimist(process.argv.slice(2))
 
 export default (storybookBaseConfig, configType) => {
   storybookBaseConfig.node = { 'fs': 'empty' }
@@ -16,15 +19,15 @@ export default (storybookBaseConfig, configType) => {
   }
 
   // 组件依赖分析
-  storybookBaseConfig.plugins.push(
-    new WebpackMonitor({
-      capture: true, // -> default 'true'
-      target: `${process.cwd()}/monitor/stats.json`, // default -> '../monitor/stats.json'
-      launch: true, // -> default 'false'
-      port: 9004, // default -> 8081
-      excludeSourceMaps: true // default 'true'
-    }),
-  )
+  // argv.monitor && storybookBaseConfig.plugins.push(
+  //   new WebpackMonitor({
+  //     capture: true, // -> default 'true'
+  //     target: `${process.cwd()}/monitor/stats.json`, // default -> '../monitor/stats.json'
+  //     launch: true, // -> default 'false'
+  //     port: 9004, // default -> 8081
+  //     excludeSourceMaps: true // default 'true'
+  //   })
+  // )
 
   storybookBaseConfig.module.rules = storybookBaseConfig.module.rules.concat([
     {

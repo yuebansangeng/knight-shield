@@ -1,6 +1,6 @@
 {
   "name": "@beisen/storybook-lib",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "二次封装，易使用",
   "scripts": {
     "prepublish": "gulp",
@@ -55,8 +55,7 @@
     "storybook-readme": "^3.3.0",
     "style-loader": "^0.20.3",
     "ts-loader": "^3.5.0",
-    "url-loader": "^1.0.1",
-    "webpack-monitor": "^1.0.14"
+    "url-loader": "^1.0.1"
   },
   "devDependencies": {
     "del": "^3.0.0",
