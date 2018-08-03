@@ -2,11 +2,11 @@
 import { spawn, fork } from 'child_process'
 import path from 'path'
 import fs from 'fs'
-import colors from 'colors'
 import minimist from 'minimist'
 import colorlog from './color-log'
 import makeStories from './make-stories'
 import dotenv from 'dotenv'
+import 'colors'
 
 dotenv.config({ 'path': path.join(__dirname, '..', '.env') })
 
@@ -60,9 +60,6 @@ const main = async () => {
 
   // 配置 运行环境 需要的 stories 配置问题
   const status = makeStories({ storybookConfigPath, storybookFolderName })
-
-  // 启动本地mock服务器
-  // fork(`${__dirname}/http-mocker/server/start.js`)
 
   // 启动本地调试环境
   let cp_sytb = spawn('node',
