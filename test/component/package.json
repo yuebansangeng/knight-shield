@@ -14,11 +14,13 @@
     "url": ""
   },
   "dependencies": {
+    "@beisen/addon-mock-server": "0.0.2",
+    "@beisen/http-mock": "0.0.1",
     "react": "^15.6.2",
     "react-dom": "^15.6.2"
   },
   "devDependencies": {
     "@beisen/gulp-lib": "^0.1.1",
-    "@beisen/storybook-lib": "^0.3.2-test10"
+    "@beisen/storybook-lib": "^0.3.2-test11"
   }
 }

@@ -14,7 +14,11 @@ export default (options = {}) => {
     const {
       storybookFolderName = '.storybook',
       // 默认配置，提供给完毕使用二进制的方式调试命令使用
-      storybookConfigPath = path.join(__dirname, storybookFolderName)
+      storybookConfigPath = path.join(__dirname, storybookFolderName),
+      //
+      stoiresEjsTemplatePath = path.join(storybookConfigPath, 'stories.ejs'),
+      //
+      targetStoireJsPath = path.join(storybookConfigPath, 'stories.js')
     } = options
 
     // 获取package中的配置项
@@ -23,23 +27,30 @@ export default (options = {}) => {
     // 获取组件的名字
     let rc = readRC()
 
+    // 判断是否有 README 文件
+    let hasReadme = false
+    if (fs.existsSync(`${cpath}/README.md`)) {
+      hasReadme = true
+    }
+
     ejs.renderFile(
-      path.join(storybookConfigPath, 'stories.ejs'),
+      stoiresEjsTemplatePath,
       {
         'examples': getExamples(cpath),
         'name': rc.name || packinfo.name, // 默认名称，不依赖rc文件
-        'cpath': cpath
+        'cpath': cpath,
+        'hasReadme': hasReadme
       },
       { }, // ejs options
       (err, storiesjs) => {
         if (err) throw err
         // 在组建项目中创建配置文件
-        fs.writeFile(path.join(storybookConfigPath, 'stories.js'), storiesjs, (err) => {
+        fs.writeFile(targetStoireJsPath, storiesjs, (err) => {
           if (err) {
             console.log(err)
-            return reject(false)
+            return reject(err)
           }
-          resolve(true)
+          resolve(storiesjs)
         })
       }
     )
