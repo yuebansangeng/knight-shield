@@ -3,9 +3,10 @@ import React from 'react'
 import { storiesOf, configure } from '@storybook/react'
 import { withReadme }  from 'storybook-readme'
 import storieConfig from './stories.js'
-import { adapterFeth } from '../http-mock'
+import { adapterFeth, adapterXHR } from '../http-mock'
 
 adapterFeth()
+adapterXHR()
 
 configure(
   () => {

@@ -22,3 +22,7 @@ export const adapterFeth = () => {
     })
   }
 }
+
+export const adapterXHR = () => {
+
+}

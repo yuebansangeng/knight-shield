@@ -34,7 +34,8 @@ describe('工具类测试', () => {
 
   it('测试生成 HTTP HAR 配置文件入口', () => {
     require('../lib/generate-http-har-entry')({
-      'httpHARPath': `${__dirname}/recordings/`,
+      'cpath': `${__dirname}/component`,
+      'httpHARPath': `./recordings`,
       'destinationPath': `${__dirname}/har.json`
     })
   })
