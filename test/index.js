@@ -16,7 +16,7 @@ describe('工具类测试', () => {
 
   it('复制开发者自定义配置文件', () => {
     let files = require('../lib/override-config.js')({
-      'configPath': path.join(__dirname, 'component', '.storybook'),
+      'configPath': path.join(__dirname, 'component', '.storybook-test'),
       'destinationPath': path.join(__dirname, 'storybook-configs'),
       'configs': [
         'manager-head.html',

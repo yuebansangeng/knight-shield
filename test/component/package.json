@@ -1,6 +1,6 @@
 {
   "name": "component",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -22,6 +22,6 @@
   },
   "devDependencies": {
     "@beisen/gulp-lib": "^0.1.1",
-    "@beisen/storybook-lib": "^0.3.3"
+    "@beisen/storybook-lib": "^0.3.5-bate"
   }
 }
