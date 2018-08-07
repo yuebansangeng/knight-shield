@@ -1,6 +1,6 @@
 {
   "name": "@beisen/storybook-lib",
-  "version": "0.3.6",
+  "version": "0.3.6-beta",
   "description": "二次封装，易使用",
   "scripts": {
     "prepublish": "gulp && npm run test",
@@ -25,11 +25,9 @@
     "!win32"
   ],
   "dependencies": {
-    "@beisen/addon-mock-server": "^0.0.1",
     "@beisen/get-examples": "0.0.4",
     "@beisen/read-rc": "0.0.2",
     "@storybook/addon-viewport": "^3.4.6",
-    "@storybook/cli": "^3.3.15",
     "@storybook/react": "^3.3.15",
     "@types/prop-types": "^15.5.2",
     "@types/react": "*",
@@ -43,13 +41,11 @@
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.7.0",
     "colors": "^1.2.1",
-    "cookie-parser": "^1.4.3",
     "dotenv": "^6.0.0",
     "ejs": "^2.5.9",
     "file-loader": "^1.1.11",
     "hjson": "^3.1.1",
     "html-loader": "^0.5.5",
-    "jade": "^1.11.0",
     "markdown-loader": "^2.0.2",
     "minimist": "^1.2.0",
     "postcss-loader": "^2.1.2",
