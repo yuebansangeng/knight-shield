@@ -12,12 +12,9 @@ export default (options = {}) => {
   return new Promise((resolve, reject) => {
     const cpath = process.cwd()
     const {
-      storybookFolderName = '.storybook',
       // 默认配置，提供给完毕使用二进制的方式调试命令使用
-      storybookConfigPath = path.join(__dirname, storybookFolderName),
-      //
-      stoiresEjsTemplatePath = path.join(storybookConfigPath, 'stories.ejs'),
-      //
+      storybookConfigPath = path.join(__dirname, '.storybook'),
+      stoiresEjsTemplatePath = path.join(__dirname, 'stories.ejs'),
       targetStoireJsPath = path.join(storybookConfigPath, 'stories.js')
     } = options
 

@@ -2,11 +2,11 @@
 import path from 'path'
 import Promise from 'bluebird'
 import { spawn } from 'child_process'
-import makeStories from './make-stories'
+import makeStories from '../make-stories'
 import readRC from '@beisen/read-rc'
 import dotenv from 'dotenv'
 
-dotenv.config({ 'path': path.join(__dirname, '..', '.env') })
+dotenv.config({ 'path': path.join(__dirname, '..', '..', '.env') })
 
 // 统一添加前缀组件模块前缀
 const main = async () => {
@@ -18,11 +18,9 @@ const main = async () => {
   // 组件名称
   const cname = rc.name || module
 
-  console.log(`${cname}/${version} 编译中...`)
-
   // 生成 stories.js 配置文件
-  // 生成配置文件
-  await makeStories()
+  makeStories()
+  console.log(`配置文件( stories.js )生成完毕, 开始编译静态资源：${cname}/${version}`)
   
   // 构建
   let { code, message } = await new Promise((resolve, reject) => {
@@ -30,7 +28,7 @@ const main = async () => {
     let build_cp = spawn('node',
       [
         'node_modules/.bin/build-storybook',
-        '-c', `${__dirname}/.storybook`,
+        '-c', path.join(__dirname, '..', '.storybook'),
         '-o', `${cpath}/storybook-static/${cname}/${version}`
       ], 
       {

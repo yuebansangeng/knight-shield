@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 
-require('../lib/build-statics.js')
+require('../lib/bin/build-statics.js')

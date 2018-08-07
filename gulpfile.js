@@ -16,6 +16,9 @@ gulp.task('default', function () {
 
   gulp.src([ 'src/.storybook/*.html', 'src/.storybook/*.ejs', 'src/.storybook/*.json', 'src/http-mocker/**/*.har' ])
     .pipe(gulp.dest('lib/.storybook'))
+
+    gulp.src([ 'src/**/*.ejs' ])
+    .pipe(gulp.dest('lib/'))
 })
 
 gulp.task('watch', function () {
@@ -23,7 +26,7 @@ gulp.task('watch', function () {
     'src/**/*.js',
     'src/.storybook/**/*.js',
     'src/.storybook/*.html',
-    'src/.storybook/*.ejs',
+    'src/**/*.ejs',
     'src/.storybook/*.json'
   ],
   [ 'default' ])
