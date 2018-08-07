@@ -1,0 +1,25 @@
+{
+  "name": "ux-assess-project",
+  "version": "0.0.1",
+  "description": " ",
+  "main": "lib/index.js",
+  "scripts": {
+    "lib": "gulp-lib",
+    "prepush": "gulp-lib",
+    "examples": "storybook-lib --port 9001 --http-har-path ../recordings",
+    "t": "node ../../bin/index.js --port 9001 --http-har-path ../recordings"
+  },
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "dependencies": {
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2"
+  },
+  "devDependencies": {
+    "@beisen/gulp-lib": "^0.1.1",
+    "@beisen/storybook-lib": "^0.3.6-beta-3"
+  }
+}

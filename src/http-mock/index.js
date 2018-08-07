@@ -8,14 +8,27 @@ export const adapterFeth = () => {
   window.fetch = function (url, options) {
 
     return new Promise((resolve, reject) => {
+
       const har = new HARReader({
         'har': httpsHarJson,
         'filters': []
       })
 
       const http = har.get(url)
+
       if (http) {
-        return resolve(http)  
+
+        let { status, content, headers } = http.response
+        let { mimeType, text } = content
+
+        let resHeaders = {}
+        headers.forEach(head => resHeaders[head.name] = head.value)
+
+        let response = new Response(text, {
+          'headers': resHeaders
+        })
+
+        return resolve(response)
       }
 
       return native(url, options)

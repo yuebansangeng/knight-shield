@@ -22,6 +22,12 @@ export default class HARReader {
     return this.har.log.entries
   }
 
+  getLastPath (url) {
+    let urlParts = url.split('/')
+    urlParts = urlParts[urlParts.length - 1].split('?')
+    return urlParts[0]
+  }
+
   get (key) {
     if (!this.har || !this.har.log || !this.har.log.entries.length) {
       return null
@@ -36,7 +42,7 @@ export default class HARReader {
     for (let i = 0; i < entries.length; i++) {
       const { request, response } = entries[i]
       const { url = '' } = request
-      if (url.match(new RegExp(key,'ig'))) {
+      if (url.match(new RegExp(this.getLastPath(key), 'ig'))) {
         this.indexCache[key] = i + 1
         return entries[i]
       }
