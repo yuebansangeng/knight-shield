@@ -9,6 +9,11 @@ export default (o) => {
     cpath
   } = o
 
+  // 未传入 har 所在目录，直接跳出
+  if (!httpHARPath) {
+    return false
+  }
+
   // 根据外部传入的 http hars 相对路径，生成绝对路径
   if (httpHARPath) {
     httpHARPath = path.join(cpath, httpHARPath)

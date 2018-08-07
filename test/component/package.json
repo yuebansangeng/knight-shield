@@ -22,6 +22,6 @@
   },
   "devDependencies": {
     "@beisen/gulp-lib": "^0.1.1",
-    "@beisen/storybook-lib": "^0.3.6-beta"
+    "@beisen/storybook-lib": "^0.3.6-beta-2"
   }
 }
