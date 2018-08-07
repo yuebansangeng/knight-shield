@@ -17,7 +17,7 @@ gulp.task('default', function () {
   gulp.src([ 'src/.storybook/*.html', 'src/.storybook/*.ejs', 'src/.storybook/*.json', 'src/http-mocker/**/*.har' ])
     .pipe(gulp.dest('lib/.storybook'))
 
-    gulp.src([ 'src/**/*.ejs' ])
+    gulp.src([ 'src/**/*.ejs', 'src/**/*.json' ])
     .pipe(gulp.dest('lib/'))
 })
 

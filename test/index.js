@@ -7,7 +7,7 @@ describe('工具类测试', () => {
   it('测试输出 stories.js 配置文件', () => {
      process.chdir(`${__dirname}/component`)
      require('../lib/make-stories.js')({
-       'stoiresEjsTemplatePath': path.join(__dirname, '..', 'lib', '.storybook', 'stories.ejs'),
+       'stoiresEjsTemplatePath': path.join(__dirname, '..', 'lib', 'stories.ejs'),
        'targetStoireJsPath': `${__dirname}/storybook-configs/stories.js`
      }).then(res => {
       console.log(res)
@@ -30,5 +30,12 @@ describe('工具类测试', () => {
       ]
     })
     console.log(files)
+  })
+
+  it('测试生成 HTTP HAR 配置文件入口', () => {
+    require('../lib/generate-http-har-entry')({
+      'httpHARPath': `${__dirname}/recordings/`,
+      'destinationPath': `${__dirname}/har.json`
+    })
   })
 })

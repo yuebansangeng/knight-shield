@@ -1,12 +1,12 @@
 {
   "name": "component",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
     "lib": "gulp-lib",
     "examples": "storybook-lib --port 9001",
-    "t": "node ../../bin/index.js --port 9001",
+    "t": "node ../../bin/index.js --port 9001 --http-har-path ../recordings1",
     "t1": "node ../../bin/build-statics.js"
   },
   "license": "ISC",
