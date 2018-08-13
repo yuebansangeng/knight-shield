@@ -3,7 +3,8 @@ import path from 'path'
 import Promise from 'bluebird'
 import { spawn } from 'child_process'
 import makeStories from '../make-stories'
-import readRC from '@beisen/read-rc'
+import generateHttpHAREntry from '../generate-http-har-entry'
+import readrc from '@beisen/read-rc'
 import dotenv from 'dotenv'
 
 dotenv.config({ 'path': path.join(__dirname, '..', '..', '.env') })
@@ -14,13 +15,23 @@ const main = async () => {
   const { 'name': module, version } = require(`${cpath}/package.json`)
 
   // 获取rc配置文件中的配置
-  let rc = readRC()
+  let rc = readrc()
   // 组件名称
   const cname = rc.name || module
 
   // 生成 stories.js 配置文件
   makeStories()
-  console.log(`配置文件( stories.js )生成完毕, 开始编译静态资源：${cname}/${version}`)
+  console.log(`配置文件( stories.js )生成完毕`)
+
+    // 生成 https HAR 配置文件
+  generateHttpHAREntry({
+    // argv['http-har-path']:
+    // 该构建任务是jenkins调用，无法在执行指令时配置参数，只能在rc文件中获取
+    'httpHARPath': rc.mock.https,
+    cpath
+  })
+  console.log(`配置文件( https.json )生成完毕`)
+  console.log(`开始编译静态资源：${cname}/${version}`)
   
   // 构建
   let { code, message } = await new Promise((resolve, reject) => {
