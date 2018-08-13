@@ -8,6 +8,7 @@ import makeStories from '../make-stories'
 import overrideConfig from '../override-config'
 import generateHttpHAREntry from '../generate-http-har-entry'
 import dotenv from 'dotenv'
+import readrc from '@beisen/read-rc'
 import 'colors'
 
 dotenv.config({ 'path': path.join(__dirname, '..', '..', '.env') })
@@ -50,8 +51,9 @@ const main = async () => {
   const status = makeStories({ storybookConfigPath })
 
   // 生成 https HAR 配置文件
+  // 同时支持 "参数" 和 "配置" 方式
   generateHttpHAREntry({
-    'httpHARPath': argv['http-har-path'],
+    'httpHARPath': argv['http-har-path'] || readrc().mock.https,
     cpath
   })
 

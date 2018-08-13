@@ -4,7 +4,7 @@ import fs, { readdirSync, lstatSync } from 'fs'
 import ejs from 'ejs'
 import Hjson from 'hjson'
 import getExamples from '@beisen/get-examples'
-import readRC from '@beisen/read-rc'
+import readrc from '@beisen/read-rc'
 
 export default (options = {}) => {
 
@@ -21,9 +21,6 @@ export default (options = {}) => {
     // 获取package中的配置项
     const packinfo = require(`${cpath}/package.json`)
 
-    // 获取组件的名字
-    let rc = readRC()
-
     // 判断是否有 README 文件
     let hasReadme = false
     if (fs.existsSync(`${cpath}/README.md`)) {
@@ -34,7 +31,7 @@ export default (options = {}) => {
       stoiresEjsTemplatePath,
       {
         'examples': getExamples(cpath),
-        'name': rc.name || packinfo.name, // 默认名称，不依赖rc文件
+        'name': readrc().name || packinfo.name, // 默认名称，不依赖rc文件
         'cpath': cpath,
         'hasReadme': hasReadme
       },

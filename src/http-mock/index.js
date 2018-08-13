@@ -9,21 +9,15 @@ export const adapterFeth = () => {
 
     return new Promise((resolve, reject) => {
 
-      const har = new HARReader({
-        'har': httpsHarJson,
-        'filters': []
-      })
-
+      const har = new HARReader({ 'har': httpsHarJson, 'filters': [] })
       const http = har.get(url)
 
       if (http) {
-
         let { status, content, headers } = http.response
         let { mimeType, text } = content
 
         let resHeaders = {}
         headers.forEach(head => resHeaders[head.name] = head.value)
-
         let response = new Response(text, {
           'headers': resHeaders
         })
@@ -31,11 +25,23 @@ export const adapterFeth = () => {
         return resolve(response)
       }
 
-      return native(url, options)
+      return native.apply(this, [].slice.call(arguments))
     })
   }
 }
 
 export const adapterXHR = () => {
+  let native = window.XMLHttpRequest.prototype.open
 
+  window.XMLHttpRequest.prototype.open = function () {
+
+    const har = new HARReader({ 'har': httpsHarJson, 'filters': [] })
+    const http = har.get(url)
+
+    if (http) {
+      
+    }
+
+    return native.apply(this, [].slice.call(arguments))
+  }
 }

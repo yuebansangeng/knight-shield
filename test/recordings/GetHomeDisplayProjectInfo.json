@@ -3,7 +3,7 @@
   "time": 634.4947919980841,
   "request": {
     "method": "GET",
-    "url": "http://cloud.italent.cn/AssessMRest/100000/Index/GetHomeDisplayProjectInfo?tag=3&count=3",
+    "url": "sss",
     "httpVersion": "HTTP/1.1",
     "headers": [
       {
