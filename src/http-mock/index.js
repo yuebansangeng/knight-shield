@@ -31,17 +31,17 @@ export const adapterFeth = () => {
 }
 
 export const adapterXHR = () => {
-  let native = window.XMLHttpRequest.prototype.open
+  // let native = window.XMLHttpRequest.prototype.open
 
-  window.XMLHttpRequest.prototype.open = function () {
+  // window.XMLHttpRequest.prototype.open = function () {
 
-    const har = new HARReader({ 'har': httpsHarJson, 'filters': [] })
-    const http = har.get(url)
+  //   const har = new HARReader({ 'har': httpsHarJson, 'filters': [] })
+  //   const http = har.get(url)
 
-    if (http) {
+  //   if (http) {
       
-    }
+  //   }
 
-    return native.apply(this, [].slice.call(arguments))
-  }
+  //   return native.apply(this, [].slice.call(arguments))
+  // }
 }

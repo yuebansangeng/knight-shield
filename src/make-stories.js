@@ -10,8 +10,8 @@ export default (options = {}) => {
 
   // 该函数需要同步执
   return new Promise((resolve, reject) => {
-    const cpath = process.cwd()
     const {
+      cpath = process.cwd(),
       // 默认配置，提供给完毕使用二进制的方式调试命令使用
       storybookConfigPath = path.join(__dirname, '.storybook'),
       stoiresEjsTemplatePath = path.join(__dirname, 'stories.ejs'),
