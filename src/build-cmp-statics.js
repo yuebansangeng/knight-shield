@@ -13,7 +13,7 @@ dotenv.config({ 'path': path.join(__dirname, '..', '.env') })
 
 // 统一添加前缀组件模块前缀
 export default async (o) => {
-  const { cpath } = o
+  const { cpath, staticOutputPath } = o
   const { 'name': module, version } = require(`${cpath}/package.json`)
 
   // 获取rc配置文件中的配置
@@ -46,7 +46,7 @@ export default async (o) => {
       [
         'node_modules/.bin/build-storybook',
         '-c', path.join(__dirname, '.storybook'),
-        '-o', `${cpath}/storybook-static/${cname}/${version}`
+        '-o', `${staticOutputPath || cpath}/storybook-static/${cname}/${version}`
       ],
       { }
     )

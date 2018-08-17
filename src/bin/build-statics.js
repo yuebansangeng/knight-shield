@@ -2,7 +2,9 @@
 import path from 'path'
 import minimist from 'minimist'
 import dotenv from 'dotenv'
+import fg from 'fast-glob'
 import buildCmpStatics from '../build-cmp-statics'
+import readrc from '@beisen/read-rc'
 
 dotenv.config({ 'path': path.join(__dirname, '..', '..', '.env') })
 
@@ -19,17 +21,37 @@ const main = async (o) => {
     cpath = path.join(process.cwd(), sourcePath)
   }
 
+  let rc = readrc(cpath)
+
   let resp = null
+
   if (independent) {
 
-  } else {
-    resp = await buildCmpStatics({ cpath })  
-  }
+    let components = await fg.sync(rc.components, { 'onlyDirectories': true })
+    components = components.map(cmp => path.join(cpath, cmp))
 
-  if (resp.code !== 0) {
-    throw new Error(resp.message)
+    for (let i = 0; i < components.length; i++) {
+      resp = await buildCmpStatics({
+        'cpath': components[i],
+        'staticOutputPath': cpath
+      })
+
+      if (resp.code !== 0) {
+        throw new Error(resp.message)
+      } else {
+        console.log(resp.message)
+      }
+    }
+
   } else {
-    console.log(resp.message)
+
+    resp = await buildCmpStatics({ cpath })
+
+    if (resp.code !== 0) {
+      throw new Error(resp.message)
+    } else {
+      console.log(resp.message)
+    }
   }
 }
 
