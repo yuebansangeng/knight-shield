@@ -29,7 +29,6 @@ const main = async (o) => {
   if (resp.code !== 0) {
     throw new Error(resp.message)
   } else {
-    res = true
     console.log(resp.message)
   }
 }

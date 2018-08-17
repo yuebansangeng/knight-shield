@@ -3,13 +3,13 @@ import path from 'path'
 import Promise from 'bluebird'
 import { spawn } from 'child_process'
 import minimist from 'minimist'
-import makeStories from '../make-stories'
-import generateHttpHAREntry from '../generate-http-har-entry'
+import makeStories from './make-stories'
+import generateHttpHAREntry from './generate-http-har-entry'
 import readrc from '@beisen/read-rc'
 import dotenv from 'dotenv'
 import fg from 'fast-glob'
 
-dotenv.config({ 'path': path.join(__dirname, '..', '..', '.env') })
+dotenv.config({ 'path': path.join(__dirname, '..', '.env') })
 
 // 统一添加前缀组件模块前缀
 export default async (o) => {
@@ -45,7 +45,7 @@ export default async (o) => {
     let build_cp = spawn('node',
       [
         'node_modules/.bin/build-storybook',
-        '-c', path.join(__dirname, '..', '.storybook'),
+        '-c', path.join(__dirname, '.storybook'),
         '-o', `${cpath}/storybook-static/${cname}/${version}`
       ],
       { }
