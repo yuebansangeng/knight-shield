@@ -1,6 +1,6 @@
 {
   "name": "@beisen/storybook-lib",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "二次封装，易使用",
   "scripts": {
     "prepublish": "gulp && npm run test",
@@ -42,6 +42,7 @@
     "colors": "^1.2.1",
     "dotenv": "^6.0.0",
     "ejs": "^2.5.9",
+    "fast-glob": "^2.2.2",
     "file-loader": "^1.1.11",
     "hjson": "^3.1.1",
     "html-loader": "^0.5.5",

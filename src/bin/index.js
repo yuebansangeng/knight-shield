@@ -9,13 +9,13 @@ import overrideConfig from '../override-config'
 import generateHttpHAREntry from '../generate-http-har-entry'
 import dotenv from 'dotenv'
 import readrc from '@beisen/read-rc'
+import fg from 'fast-glob'
 import 'colors'
 
 dotenv.config({ 'path': path.join(__dirname, '..', '..', '.env') })
 
 // 格式化传入参数 --port 5000 => { port: 5000 }
 const argv = minimist(process.argv.slice(2))
-const rc = readrc(cpath)
 
 // cpath 组件调用命令传入的路径
 // 开发者可以自定义命令执行路径
@@ -24,6 +24,7 @@ if (argv['source-path']) {
   cpath = path.join(process.cwd(), argv['source-path'])
 }
 
+const rc = readrc(cpath)
 const storybookConfigPath = path.join(__dirname, '..', '.storybook')
 const port = argv.port || '9001'
 
@@ -55,8 +56,11 @@ const main = async () => {
     ]
   })
 
+  // 获取需要展示示例的组件路径
   // 配置 运行环境 需要的 stories 配置问题
-  const status = makeStories({ storybookConfigPath, 'cpaths': [cpath] })
+  let components = [cpath]
+  if (rc.components) components = await fg(rc.components)
+  makeStories({ storybookConfigPath, components })
 
   // 生成 https HAR 配置文件
   // 同时支持 "参数" 和 "配置" 方式
