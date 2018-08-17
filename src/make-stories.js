@@ -38,7 +38,7 @@ export default (options = {}) => {
           stories = examples.map(exp => ({
             'name': exp.name,
             'story': {
-              'component': `require('${cpath}/examples/<%=demo.name%>')`
+              'component': `require('${cpath}/examples/${exp.name}')`
             }
           }))
         }
