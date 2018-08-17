@@ -13,8 +13,13 @@ dotenv.config({ 'path': path.join(__dirname, '..', '..', '.env') })
 // 统一添加前缀组件模块前缀
 const main = async () => {
   const argv = minimist(process.argv.slice(2))
+
   // 开发者可以自定义构建静路径
-  const cpath = argv['source-path'] || process.cwd()
+  let cpath = process.cwd()
+  if (argv['source-path']) {
+    cpath = path.join(process.cwd(), argv['source-path'])
+  }
+  
   const { 'name': module, version } = require(`${cpath}/package.json`)
 
   // 获取rc配置文件中的配置
@@ -26,7 +31,7 @@ const main = async () => {
   makeStories({ cpath })
   console.log(`配置文件( stories.js )生成完毕`)
 
-    // 生成 https HAR 配置文件
+  // 生成 https HAR 配置文件
   generateHttpHAREntry({
     // argv['http-har-path']:
     // 该构建任务是jenkins调用，无法在执行指令时配置参数，只能在rc文件中获取

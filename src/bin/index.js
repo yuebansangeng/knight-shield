@@ -13,9 +13,16 @@ import 'colors'
 
 dotenv.config({ 'path': path.join(__dirname, '..', '..', '.env') })
 
-// 配置需要的参数，需要改动维护的几率比较高
-const cpath = process.cwd() // cpath 组件调用命令传入的路径
-const argv = minimist(process.argv.slice(2)) // 格式化传入参数 --port 5000 => { port: 5000 }
+// 格式化传入参数 --port 5000 => { port: 5000 }
+const argv = minimist(process.argv.slice(2))
+
+// cpath 组件调用命令传入的路径
+// 开发者可以自定义命令执行路径
+let cpath = process.cwd()
+if (argv['source-path']) {
+  cpath = path.join(process.cwd(), argv['source-path'])
+}
+
 const storybookConfigPath = path.join(__dirname, '..', '.storybook')
 const port = argv.port || '9001'
 
@@ -53,7 +60,7 @@ const main = async () => {
   // 生成 https HAR 配置文件
   // 同时支持 "参数" 和 "配置" 方式
   generateHttpHAREntry({
-    'httpHARPath': argv['http-har-path'] || readrc().mock.https,
+    'httpHARPath': readrc().mock.https,
     cpath
   })
 
