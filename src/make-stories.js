@@ -31,7 +31,7 @@ export default (options = {}) => {
       stoiresEjsTemplatePath,
       {
         'examples': getExamples(cpath),
-        'name': readrc().name || packinfo.name, // 默认名称，不依赖rc文件
+        'name': readrc(cpath).name || packinfo.name, // 默认名称，不依赖rc文件
         'cpath': cpath,
         'hasReadme': hasReadme
       },

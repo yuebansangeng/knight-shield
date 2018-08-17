@@ -60,7 +60,7 @@ const main = async () => {
   // 生成 https HAR 配置文件
   // 同时支持 "参数" 和 "配置" 方式
   generateHttpHAREntry({
-    'httpHARPath': readrc().mock.https,
+    'httpHARPath': readrc(cpath).mock.https,
     cpath
   })
 

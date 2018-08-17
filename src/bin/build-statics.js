@@ -23,7 +23,7 @@ const main = async () => {
   const { 'name': module, version } = require(`${cpath}/package.json`)
 
   // 获取rc配置文件中的配置
-  let rc = readrc()
+  let rc = readrc(cpath)
   // 组件名称
   const cname = rc.name || module
 
