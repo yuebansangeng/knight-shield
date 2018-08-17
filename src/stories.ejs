@@ -1,26 +1,15 @@
 
 export default {
-  'name': '<%=name%>',
+  'name': '<%= storyMeta.name %>',
   'stories': [
-
-<% if(examples.length) { %>
-  <% examples.forEach((demo, index) => { %>
-    {
-      'name': '<%=demo.name%>',
-      'story': Object.assign({
-        'component': require('<%=cpath%>/examples/<%=demo.name%>'),
-      })
+    <% storyMeta.stories.forEach(example => { %>
+    { 
+      'name': '<%= example.name %>',
+      'story': {
+        'component': <%- example.story.component %>
+      }
     },
-  <% }) %>
-<% } else { %>
-    {
-      'name': 'default',
-      'story': Object.assign({
-        'component': require('<%=cpath%>/src')
-      })
-    },
-<% } %>
-
+    <% }) %>
   ],
-  'readme': <% if(hasReadme){ %>require('<%=cpath%>/README.md')<% }else{ %>''<% } %>
+  'readme': '<%= storyMeta.readme %>'
 }

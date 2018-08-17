@@ -15,6 +15,7 @@ dotenv.config({ 'path': path.join(__dirname, '..', '..', '.env') })
 
 // 格式化传入参数 --port 5000 => { port: 5000 }
 const argv = minimist(process.argv.slice(2))
+const rc = readrc(cpath)
 
 // cpath 组件调用命令传入的路径
 // 开发者可以自定义命令执行路径
@@ -55,12 +56,12 @@ const main = async () => {
   })
 
   // 配置 运行环境 需要的 stories 配置问题
-  const status = makeStories({ storybookConfigPath, cpath })
+  const status = makeStories({ storybookConfigPath, 'cpaths': [cpath] })
 
   // 生成 https HAR 配置文件
   // 同时支持 "参数" 和 "配置" 方式
   generateHttpHAREntry({
-    'httpHARPath': readrc(cpath).mock.https,
+    'httpHARPath': rc.mock.https,
     cpath
   })
 
