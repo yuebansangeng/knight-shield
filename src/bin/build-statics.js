@@ -19,7 +19,7 @@ const main = async () => {
   if (argv['source-path']) {
     cpath = path.join(process.cwd(), argv['source-path'])
   }
-  
+
   const { 'name': module, version } = require(`${cpath}/package.json`)
 
   // 获取rc配置文件中的配置
@@ -60,7 +60,7 @@ const main = async () => {
     })
   })
 
-  if (code !== 0 ) {
+  if (code !== 0) {
     throw new Error(message)
   } else {
     console.log(message)

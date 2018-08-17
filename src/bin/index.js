@@ -55,7 +55,7 @@ const main = async () => {
   })
 
   // 配置 运行环境 需要的 stories 配置问题
-  const status = makeStories({ storybookConfigPath })
+  const status = makeStories({ storybookConfigPath, cpath })
 
   // 生成 https HAR 配置文件
   // 同时支持 "参数" 和 "配置" 方式
