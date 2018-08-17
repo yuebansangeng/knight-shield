@@ -49,7 +49,7 @@ const main = async () => {
         'node_modules/.bin/build-storybook',
         '-c', path.join(__dirname, '..', '.storybook'),
         '-o', `${cpath}/storybook-static/${cname}/${version}`
-      ], 
+      ],
       { }
     )
     build_cp.stdout.on('data', data => resmsg.push(`${data}`))
