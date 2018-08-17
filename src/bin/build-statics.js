@@ -45,9 +45,7 @@ const main = async () => {
         '-c', path.join(__dirname, '..', '.storybook'),
         '-o', `${cpath}/storybook-static/${cname}/${version}`
       ], 
-      {
-        'cwd': cpath
-      }
+      { }
     )
     build_cp.stdout.on('data', data => resmsg.push(`${data}`))
     build_cp.stderr.on('data', data => resmsg.push(`${data}`))

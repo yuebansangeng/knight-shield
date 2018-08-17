@@ -64,10 +64,8 @@ const main = async () => {
       '-s', '.',
       '-p', port,
       '-c', path.join(storybookConfigPath)
-    ], 
-    // tsconfig.json 的配置以及
-    // ts-loader 模块获取需要在 dirname
-    { 'cwd': cpath }
+    ],
+    { }
   )
   cp_sytb.stdout.on('data', data => colorlog(data))
   cp_sytb.stderr.on('data', err_data => colorlog(err_data))
