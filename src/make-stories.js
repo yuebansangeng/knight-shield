@@ -3,7 +3,7 @@ import path from 'path'
 import fs, { readdirSync, lstatSync } from 'fs'
 import ejs from 'ejs'
 import Hjson from 'hjson'
-import getExamples from '@beisen/get-examples'
+import getExamples from './get-examples'
 import readrc from '@beisen/read-rc'
 
 export default (options = {}) => {
