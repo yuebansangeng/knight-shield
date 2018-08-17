@@ -78,7 +78,7 @@ const main = async () => {
       'node_modules/.bin/start-storybook',
       '-s', '.',
       '-p', port,
-      '-c', path.join(storybookConfigPath)
+      '-c', storybookConfigPath
     ],
     { }
   )

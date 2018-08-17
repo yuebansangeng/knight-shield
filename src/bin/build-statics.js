@@ -7,6 +7,7 @@ import makeStories from '../make-stories'
 import generateHttpHAREntry from '../generate-http-har-entry'
 import readrc from '@beisen/read-rc'
 import dotenv from 'dotenv'
+import fg from 'fast-glob'
 
 dotenv.config({ 'path': path.join(__dirname, '..', '..', '.env') })
 
@@ -28,7 +29,12 @@ const main = async () => {
   const cname = rc.name || module
 
   // 生成 stories.js 配置文件
-  makeStories({ cpath })
+  let components = [cpath]
+  if (rc.components) {
+    components = await fg.sync(rc.components, { 'onlyDirectories': true })
+    components = components.map(p => path.join(cpath, p))
+  }
+  makeStories({ components })
   console.log(`配置文件( stories.js )生成完毕`)
 
   // 生成 https HAR 配置文件
