@@ -59,7 +59,10 @@ const main = async () => {
   // 获取需要展示示例的组件路径
   // 配置 运行环境 需要的 stories 配置问题
   let components = [cpath]
-  if (rc.components) components = await fg(rc.components)
+  if (rc.components) {
+    components = await fg.sync(rc.components, { 'onlyDirectories': true })
+    components = components.map(p => path.join(cpath, p))
+  }
   makeStories({ storybookConfigPath, components })
 
   // 生成 https HAR 配置文件
