@@ -4,10 +4,7 @@ import { spawn } from 'child_process'
 import makeStories from '../../../helpers/make-stories'
 import generateHttpHAREntry from '../../../helpers/generate-http-har-entry'
 import readrc from '@beisen/read-rc'
-import dotenv from 'dotenv'
 import fg from 'fast-glob'
-
-dotenv.config({ 'path': path.join(__dirname, '..', '.env') })
 
 // 统一添加前缀组件模块前缀
 export default async (o) => {
