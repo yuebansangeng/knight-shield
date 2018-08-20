@@ -16,11 +16,13 @@ program
 
 program
   .command('publish')
+  .option('-s, --source [source]', '命令执行时所构建的组件项目')
+  .option('-c, --cinumber [cinumber]', 'jenkins构建任务的指针')
+  .option('-j, --jobname [jobname]', '构建任务的名称，用于定位构建任务')
   .description('发布组件到共享中心')
   .action(opts => {
-    let { } = opts
-    // 当前create命令还只支持组件项目，之后会逐步增加其他解决方案
-    env.run('publish', { })
+    let { source, cinumber, jobname } = opts
+    env.run('publish', { source, cinumber, jobname })
   })
 
 program
@@ -35,3 +37,4 @@ program
   })
 
 program.parse(process.argv)
+
