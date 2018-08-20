@@ -16,12 +16,11 @@ program
 
 program
   .command('publish')
-  .option('-u, --username [username]', 'Gitlab账号名，创建项目时添加最高权限的用户，默认是当前机器上的 git user.name')
-  .description('脚手架工具生成解决方案')
-  .action(async (opts) => {
-    let { username } = opts
+  .description('发布组件到共享中心')
+  .action(opts => {
+    let { } = opts
     // 当前create命令还只支持组件项目，之后会逐步增加其他解决方案
-    env.run('create component', { username })
+    env.run('publish', { })
   })
 
 program
