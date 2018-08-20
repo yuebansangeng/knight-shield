@@ -1,6 +1,6 @@
 {
   "name": "@beisen/sbl",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "二次封装，易使用",
   "scripts": {
     "prepublish": "gulp && npm run test",

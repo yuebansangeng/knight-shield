@@ -3,12 +3,12 @@ import request from 'request'
 
 export default async (o) => {
   const { CMP_SERVER_HOST } = process.env
-  const {
-    cinumber = '',
+  let {
+    cinumber = '0',
     jobname = 'build',
     'rc': { name },
     'package': { 'name': module, version }
-  } = this.options
+  } = o
 
   if (!name || !name.match(/^[A-Za-z\-\d]+?$/)) {
     name = 'unknown'

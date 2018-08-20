@@ -14,12 +14,13 @@ export default class extends Generator {
   }
 
   _private_resolve (compoesePath) {
-    const packinfo = require(`${this.contextRoot}/package.json`)
+    let packinfo = require(`${this.contextRoot}/package.json`)
+    let contextRoot = this.contextRoot
 
     // 使用者通过 source 控制命令执行路径
-    let contextRoot = this.contextRoot
     if (this.options.source) {
       contextRoot = path.join(this.contextRoot, this.options.source)
+      packinfo = require(`${contextRoot}/package.json`)
     }
    
     this.composeWith(

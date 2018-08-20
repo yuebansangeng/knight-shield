@@ -9,7 +9,6 @@ import 'colors'
 
 export default class extends Generator {
   async writing () {
-
     const { contextRoot, 'package': packinfo, rc, cinumber, jobname } = this.options
     const { CMP_SERVER_HOST } = process.env
 
