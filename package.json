@@ -1,6 +1,6 @@
 {
   "name": "@beisen/sbl",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "二次封装，易使用",
   "scripts": {
     "prepublish": "gulp && npm run test",
@@ -9,7 +9,8 @@
     "cover": "istanbul cover --report lcov _mocha -- -R spec ./test/*.js"
   },
   "bin": {
-    "sbl": "./bin/index.js"
+    "sbl": "./bin/index.js",
+    "storybook-lib": "./bin/storybook-start.js"
   },
   "repository": {
     "type": "git",
