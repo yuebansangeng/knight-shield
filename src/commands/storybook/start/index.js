@@ -4,9 +4,9 @@ import Generator from 'yeoman-generator'
 import readrc from '@beisen/read-rc'
 import { spawn } from 'child_process'
 import colorlog from './color-log'
-import makeStories from '../../../../helpers/make-stories'
-import overrideConfig from '../override-config'
-import generateHttpHAREntry from '../../../../helpers/mock-https/generate-http-har-entry'
+import makeStories from '../../../helpers/make-stories'
+import overrideConfig from '../../../helpers/override-config'
+import generateHttpHAREntry from '../../../helpers/generate-http-har-entry'
 import fg from 'fast-glob'
 
 export default class extends Generator {
@@ -22,11 +22,12 @@ export default class extends Generator {
     }
 
     const rc = readrc(cpath)
-    const storybookConfigPath = path.join(__dirname, '../../../../', '.storybook')
+    const storybookConfigPath = path.join(__dirname, '../../../', 'configs')
 
     // 用开发者自定义配置文件，覆盖默认文件
     overrideConfig({
-      'configPath': `${cpath}/.storybook`,
+      'configPath': `${cpath}/configs`,
+      'destinationPath': storybookConfigPath,
       'configs': [
         'manager-head.html',
         'preview-head.html',
@@ -41,6 +42,7 @@ export default class extends Generator {
 
     overrideConfig({
       'configPath': cpath,
+      'destinationPath': storybookConfigPath,
       'configs': [
         'tsconfig.json',
         {

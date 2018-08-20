@@ -12,15 +12,7 @@ import path from 'path'
 // ]
 
 export default (o) => {
-
-  const {
-    // 配置文件获取的文件路径
-    configPath = process.cwd(),
-    // 配置文件需要复制到的目标路径
-    destinationPath = `${__dirname}/.storybook`,
-    // 配置文件描述
-    configs = []
-  } = o
+  const { configPath, destinationPath, configs = [] } = o
 
   // 开发者自定的配置文件
   let retFilesPath = []

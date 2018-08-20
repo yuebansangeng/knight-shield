@@ -14,29 +14,29 @@ describe('工具类测试', () => {
   //    })
   // })
 
-  it('复制开发者自定义配置文件', () => {
-    let files = require('../lib/override-config.js')({
-      'configPath': path.join(__dirname, 'component', '.storybook-test'),
-      'destinationPath': path.join(__dirname, 'storybook-configs'),
-      'configs': [
-        'manager-head.html',
-        'preview-head.html',
-        'addons.js',
-        'config.js',
-        {
-          'ori': 'webpack.config.js',
-          'dest': 'webpack.extend.config.js'
-        }
-      ]
-    })
-    console.log(files)
-  })
+  // it('复制开发者自定义配置文件', () => {
+  //   let files = require('../lib/override-config.js')({
+  //     'configPath': path.join(__dirname, 'component', '.storybook-test'),
+  //     'destinationPath': path.join(__dirname, 'storybook-configs'),
+  //     'configs': [
+  //       'manager-head.html',
+  //       'preview-head.html',
+  //       'addons.js',
+  //       'config.js',
+  //       {
+  //         'ori': 'webpack.config.js',
+  //         'dest': 'webpack.extend.config.js'
+  //       }
+  //     ]
+  //   })
+  //   console.log(files)
+  // })
 
-  it('测试生成 HTTP HAR 配置文件入口', () => {
-    require('../lib/generate-http-har-entry')({
-      'cpath': `${__dirname}/component`,
-      'httpHARPath': `./recordings`,
-      'destinationPath': `${__dirname}/har.json`
-    })
-  })
+  // it('测试生成 HTTP HAR 配置文件入口', () => {
+  //   require('../lib/generate-http-har-entry')({
+  //     'cpath': `${__dirname}/component`,
+  //     'httpHARPath': `./recordings`,
+  //     'destinationPath': `${__dirname}/har.json`
+  //   })
+  // })
 })

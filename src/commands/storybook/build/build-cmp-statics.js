@@ -1,9 +1,8 @@
 
 import path from 'path'
-import Promise from 'bluebird'
 import { spawn } from 'child_process'
-import makeStories from '../../../../helpers/make-stories'
-import generateHttpHAREntry from '../../../../helpers/mock-https/generate-http-har-entry'
+import makeStories from '../../../helpers/make-stories'
+import generateHttpHAREntry from '../../../helpers/generate-http-har-entry'
 import readrc from '@beisen/read-rc'
 import dotenv from 'dotenv'
 import fg from 'fast-glob'
@@ -12,8 +11,9 @@ dotenv.config({ 'path': path.join(__dirname, '..', '.env') })
 
 // 统一添加前缀组件模块前缀
 export default async (o) => {
-  const { cpath, staticOutputPath } = o
+  const { cpath, output } = o
   const { 'name': module, version } = require(`${cpath}/package.json`)
+  const storybookConfigPath = path.join(__dirname, '../../../', 'configs')
 
   // 获取rc配置文件中的配置
   let rc = readrc(cpath)
@@ -27,7 +27,7 @@ export default async (o) => {
     components = await fg.sync(rc.components, { 'onlyDirectories': true })
     components = components.map(p => path.join(cpath, p))
   }
-  makeStories({ components })
+  makeStories({ storybookConfigPath, components })
 
   // 生成 https HAR 配置文件
   generateHttpHAREntry({
@@ -44,8 +44,8 @@ export default async (o) => {
     let build_cp = spawn('node',
       [
         'node_modules/.bin/build-storybook',
-        '-c', path.join(__dirname, '.storybook'),
-        '-o', `${staticOutputPath || cpath}/storybook-static/${cname}/${version}`
+        '-c', storybookConfigPath,
+        '-o', `${output || cpath}/storybook-static/${cname}/${version}`
       ],
       { }
     )

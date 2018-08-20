@@ -10,7 +10,7 @@ export default class extends Generator {
   async writing () {
     let { name } = this.options.rc
     let { 'name': module, version } = this.options.package
-    let { contextRoot, independent, source } = this.options
+    let { contextRoot, independent, source, output } = this.options
 
     // 开发者可以自定义构建静路径
     let cpath = contextRoot
@@ -30,7 +30,7 @@ export default class extends Generator {
       for (let i = 0; i < components.length; i++) {
         resp = await buildCmpStatics({
           'cpath': components[i],
-          'staticOutputPath': cpath
+          'output': output || cpath
         })
   
         if (resp.code !== 0) {

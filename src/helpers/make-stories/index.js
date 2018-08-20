@@ -1,8 +1,7 @@
 
 import path from 'path'
-import fs, { readdirSync, lstatSync } from 'fs'
+import fs from 'fs'
 import ejs from 'ejs'
-import Hjson from 'hjson'
 import getExamples from './get-examples'
 import readrc from '@beisen/read-rc'
 
@@ -10,11 +9,8 @@ export default (options = {}) => {
 
   // 该函数需要同步执
   return new Promise((resolve, reject) => {
-
-    const {
-      storybookConfigPath = path.join(__dirname, '.storybook'),
-      components = []
-    } = options
+    
+    const { storybookConfigPath, components = [] } = options
 
     const storyMetas = components.map(cpath => {
 

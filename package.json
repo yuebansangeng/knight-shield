@@ -9,8 +9,7 @@
     "cover": "istanbul cover --report lcov _mocha -- -R spec ./test/*.js"
   },
   "bin": {
-    "storybook-lib": "./bin/index.js",
-    "build-storybook-statics": "./bin/build-statics.js"
+    "storybook-lib": "./bin/index.js"
   },
   "repository": {
     "type": "git",
