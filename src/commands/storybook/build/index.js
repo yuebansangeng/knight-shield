@@ -8,8 +8,6 @@ import buildCmpStatics from './build-cmp-statics'
 export default class extends Generator {
 
   async writing () {
-    let { name } = this.options.rc
-    let { 'name': module, version } = this.options.package
     let { contextRoot, independent, source, output } = this.options
 
     // 开发者可以自定义构建静路径

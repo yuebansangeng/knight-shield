@@ -12,8 +12,6 @@ import fg from 'fast-glob'
 export default class extends Generator {
 
   async writing () {
-    let { name } = this.options.rc
-    let { 'name': module, version } = this.options.package
     let { contextRoot, source, port = '9001' } = this.options
 
     let cpath = contextRoot
@@ -26,7 +24,7 @@ export default class extends Generator {
 
     // 用开发者自定义配置文件，覆盖默认文件
     overrideConfig({
-      'configPath': `${cpath}/configs`,
+      'configPath': `${cpath}/.storybook`,
       'destinationPath': storybookConfigPath,
       'configs': [
         'manager-head.html',
@@ -54,7 +52,7 @@ export default class extends Generator {
 
     // 获取需要展示示例的组件路径
     // 配置 运行环境 需要的 stories 配置问题
-    let components = [cpath]
+    let components = [ cpath ]
     if (rc.components) {
       components = await fg.sync(rc.components, { 'onlyDirectories': true })
       components = components.map(p => path.join(cpath, p))

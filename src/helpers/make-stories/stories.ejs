@@ -13,7 +13,7 @@ export default [
         },
         <% }) %>
       ],
-      'readme': '<%= storyMeta.readme %>'
+      'readme': <% if (storyMeta.readme) { %> <%- storyMeta.readme || '' %> <% } else { %> '' <% } %>
     },
   <% }) %>
 ]
