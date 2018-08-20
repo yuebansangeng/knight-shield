@@ -1,34 +1,23 @@
 
 import path from 'path'
 import Generator from 'yeoman-generator'
-import readrc from '@beisen/read-rc'
 import fg from 'fast-glob'
 import buildCmpStatics from './build-cmp-statics'
 
 export default class extends Generator {
 
   async writing () {
-    let { contextRoot, independent, source, output } = this.options
-
-    // 开发者可以自定义构建静路径
-    let cpath = contextRoot
-    if (source) {
-      cpath = path.join(contextRoot, source)
-    }
-  
-    let rc = readrc(cpath)
-  
-    let resp = null
+    let { contextRoot, independent, rc, output, resp = null } = this.options
   
     if (independent) {
   
       let components = await fg.sync(rc.components, { 'onlyDirectories': true })
-      components = components.map(cmp => path.join(cpath, cmp))
+      components = components.map(cmp => path.join(contextRoot, cmp))
   
       for (let i = 0; i < components.length; i++) {
         resp = await buildCmpStatics({
-          'cpath': components[i],
-          'output': output || cpath
+          'contextRoot': components[i],
+          'output': output || contextRoot
         })
   
         if (resp.code !== 0) {
@@ -40,7 +29,7 @@ export default class extends Generator {
   
     } else {
   
-      resp = await buildCmpStatics({ cpath })
+      resp = await buildCmpStatics({ contextRoot })
   
       if (resp.code !== 0) {
         throw new Error(resp.message)

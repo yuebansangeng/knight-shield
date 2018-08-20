@@ -2,10 +2,10 @@
 import path from 'path'
 import fs, { readdirSync, lstatSync } from 'fs'
 
-export default (cpath) => {
+export default (contextRoot) => {
 
   // 获取组件目录中定义的示例
-  const epath = path.join(cpath, 'examples')
+  const epath = path.join(contextRoot, 'examples')
 
   if (!fs.existsSync(epath)) return []
 

@@ -1,7 +1,6 @@
 
 import path from 'path'
 import Generator from 'yeoman-generator'
-import readrc from '@beisen/read-rc'
 import { spawn } from 'child_process'
 import colorlog from './color-log'
 import makeStories from '../../../helpers/make-stories'
@@ -12,19 +11,12 @@ import fg from 'fast-glob'
 export default class extends Generator {
 
   async writing () {
-    let { contextRoot, source, port = '9001' } = this.options
-
-    let cpath = contextRoot
-    if (source) {
-      cpath = path.join(contextRoot, source)
-    }
-
-    const rc = readrc(cpath)
+    let { contextRoot, rc, port = '9001' } = this.options
     const storybookConfigPath = path.join(__dirname, '../../../', 'configs')
 
     // 用开发者自定义配置文件，覆盖默认文件
     overrideConfig({
-      'configPath': `${cpath}/.storybook`,
+      'configPath': `${contextRoot}/.storybook`,
       'destinationPath': storybookConfigPath,
       'configs': [
         'manager-head.html',
@@ -39,7 +31,7 @@ export default class extends Generator {
     })
 
     overrideConfig({
-      'configPath': cpath,
+      'configPath': contextRoot,
       'destinationPath': storybookConfigPath,
       'configs': [
         'tsconfig.json',
@@ -52,10 +44,10 @@ export default class extends Generator {
 
     // 获取需要展示示例的组件路径
     // 配置 运行环境 需要的 stories 配置问题
-    let components = [ cpath ]
+    let components = [ contextRoot ]
     if (rc.components) {
       components = await fg.sync(rc.components, { 'onlyDirectories': true })
-      components = components.map(p => path.join(cpath, p))
+      components = components.map(p => path.join(contextRoot, p))
     }
     makeStories({ storybookConfigPath, components })
 
@@ -63,7 +55,7 @@ export default class extends Generator {
     // 同时支持 "参数" 和 "配置" 方式
     generateHttpHAREntry({
       'httpHARPath': rc.mock.https,
-      cpath
+      contextRoot
     })
 
     // 启动本地调试环境

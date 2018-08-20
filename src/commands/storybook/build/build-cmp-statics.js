@@ -11,21 +11,21 @@ dotenv.config({ 'path': path.join(__dirname, '..', '.env') })
 
 // 统一添加前缀组件模块前缀
 export default async (o) => {
-  const { cpath, output } = o
-  const { 'name': module, version } = require(`${cpath}/package.json`)
+  const { contextRoot, output } = o
+  const { 'name': module, version } = require(`${contextRoot}/package.json`)
   const storybookConfigPath = path.join(__dirname, '../../../', 'configs')
 
   // 获取rc配置文件中的配置
-  let rc = readrc(cpath)
+  let rc = readrc(contextRoot)
 
   // 组件名称
   const cname = rc.name || module
 
   // 生成 stories.js 配置文件
-  let components = [cpath]
+  let components = [contextRoot]
   if (rc.components) {
     components = await fg.sync(rc.components, { 'onlyDirectories': true })
-    components = components.map(p => path.join(cpath, p))
+    components = components.map(p => path.join(contextRoot, p))
   }
   makeStories({ storybookConfigPath, components })
 
@@ -33,7 +33,7 @@ export default async (o) => {
   generateHttpHAREntry({
     // 该构建任务是jenkins调用，无法在执行指令时配置参数，只能在rc文件中获取
     'httpHARPath': rc.mock.https,
-    cpath
+    contextRoot
   })
 
   console.log(`开始编译静态资源：${cname}/${version}`)
@@ -45,7 +45,7 @@ export default async (o) => {
       [
         'node_modules/.bin/build-storybook',
         '-c', storybookConfigPath,
-        '-o', `${output || cpath}/storybook-static/${cname}/${version}`
+        '-o', `${output || contextRoot}/storybook-static/${cname}/${version}`
       ],
       { }
     )

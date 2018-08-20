@@ -12,17 +12,17 @@ export default (options = {}) => {
     
     const { storybookConfigPath, components = [] } = options
 
-    const storyMetas = components.map(cpath => {
+    const storyMetas = components.map(contentRoot => {
 
       // 获取package中的配置项
-      const packinfo = require(`${cpath}/package.json`)
-      const examples = getExamples(cpath)
-      const rc = readrc(cpath)
+      const packinfo = require(`${contentRoot}/package.json`)
+      const examples = getExamples(contentRoot)
+      const rc = readrc(contentRoot)
 
       // 判断是否有 README 文件
       let readme = ''
-      if (fs.existsSync(`${cpath}/README.md`)) {
-        readme = `require('${cpath}/README.md')`
+      if (fs.existsSync(`${contentRoot}/README.md`)) {
+        readme = `require('${contentRoot}/README.md')`
       }
 
       // 生成 storybook 需要的组件元数据
@@ -31,14 +31,14 @@ export default (options = {}) => {
         stories.push({
           'name': 'default',
           'story': {
-            'component': `require('${cpath}/src')`
+            'component': `require('${contentRoot}/src')`
           }
         })
       } else {
         stories = examples.map(exp => ({
           'name': exp.name,
           'story': {
-            'component': `require('${cpath}/examples/${exp.name}')`
+            'component': `require('${contentRoot}/examples/${exp.name}')`
           }
         }))
       }
