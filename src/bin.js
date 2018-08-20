@@ -19,10 +19,11 @@ program
   .option('-s, --source [source]', '命令执行时所构建的组件项目')
   .option('-c, --cinumber [cinumber]', 'jenkins构建任务的指针')
   .option('-j, --jobname [jobname]', '构建任务的名称，用于定位构建任务')
+  .option('-i, --independent [independent]', '组件单独发布')
   .description('发布组件到共享中心')
   .action(opts => {
-    let { source, cinumber, jobname } = opts
-    env.run('publish', { source, cinumber, jobname })
+    let { source, cinumber, jobname, independent } = opts
+    env.run('publish', { source, cinumber, jobname, independent })
   })
 
 program

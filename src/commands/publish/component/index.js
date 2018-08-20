@@ -1,72 +1,50 @@
 
+import path from 'path'
 import Generator from 'yeoman-generator'
-import request from 'request'
-import { getContent } from './get-file-content'
-import getExamples from '../../../helpers/make-stories/get-examples'
-import check from './check'
-import record from './record'
+import singlePub from './single-pub'
+import fg from 'fast-glob'
 import 'colors'
 
 export default class extends Generator {
   async writing () {
-    const { contextRoot, 'package': packinfo, rc, cinumber, jobname } = this.options
-    const { CMP_SERVER_HOST } = process.env
+    const { independent, rc, contextRoot, cinumber, jobname } = this.options
 
-    // 记录组件构建
-    await record({ 'package': packinfo, rc, cinumber, jobname })
+    let resp = null
 
-    // 验证组件的配置
-    await check({ 'package': packinfo, rc })
+    if (independent) {
 
-    // 获取组件目录中定义的示例
-    const examples = getExamples(contextRoot)
+      let components = await fg.sync(rc.components, { 'onlyDirectories': true })
+      components = components.map(cmp => path.join(contextRoot, cmp))
 
-    // 组装接口上传需要的文件
-    let formData = {
-      'name': packinfo.name,
-      'version': packinfo.version,
-      'rc': JSON.stringify(rc),
-      'package': getContent(`${contextRoot}/package.json`),
-      'examples': JSON.stringify(examples),
-      'readme': getContent(`${contextRoot}/README.md`)
-    }
-
-    // 开发者没有自定义examples
-    if (!examples.length) {
-      formData['example_code_default'] = getContent(`${__dirname}/default-example.ejs`)
-      formData['example_css_default'] = ''
-      formData.examples = JSON.stringify([ { 'name': 'default' } ])
+      for (let i = 0; i < components.length; i++) {
+        resp = await singlePub({ 'contextRoot': components[i], cinumber, jobname })
+        this._private_response(resp)
+      }
     } else {
-      // 提取组件示例的 js 和 css
-      examples.forEach(({ name }) => {
-        formData[`example_code_${name}`] = getContent(`${contextRoot}/examples/${name}/index.js`)
-        formData[`example_css_${name}`] = getContent(`${contextRoot}/examples/${name}/index.css`)
-      })
+
+      resp = await singlePub({ contextRoot, cinumber, jobname })
+
+      this._private_response(resp)
+    }
+  }
+
+  _private_response (res) {
+    let { err, resp, body } = res
+
+    if (err || !/^2/.test(resp.statusCode)) {
+      console.log(`${'Error'.red} publishing`)
+      console.log(body)
+      throw new Error(err)
     }
 
-    // 开始发布组件到共享中心
-    console.log(`${'Starting'.yellow} publishing`)
+    // 处理结果返回值
+    let { code, message } = JSON.parse(body)
 
-    request.post({
-      'url': `${CMP_SERVER_HOST}/users/publish`,
-      'form': formData
-    },
-    (err, resp, body) => {
-      if (err || !/^2/.test(resp.statusCode)) {
-        console.log(`${'Error'.red} publishing`)
-        console.log(body)
-        throw new Error(err)
-      }
-
-      // 处理结果返回值
-      let { code, message } = JSON.parse(body)
-
-      if (code === 200) {
-        console.log(`${'Finished'.green} publishing`)
-      } else {
-        console.log(`${'Error'.red} publishing`)
-        throw new Error(message)
-      }
-    })
+    if (code === 200) {
+      console.log(`${'Finished'.green} publishing`)
+    } else {
+      console.log(`${'Error'.red} publishing`)
+      throw new Error(message)
+    }
   }
 }
