@@ -14,7 +14,7 @@ export default class extends Generator {
   async writing () {
     let { name } = this.options.rc
     let { 'name': module, version } = this.options.package
-    let { contextRoot, source, port } = this.options
+    let { contextRoot, source, port = '9001' } = this.options
 
     let cpath = contextRoot
     if (source) {
@@ -23,7 +23,6 @@ export default class extends Generator {
 
     const rc = readrc(cpath)
     const storybookConfigPath = path.join(__dirname, '../../../../', '.storybook')
-    const port = port || '9001'
 
     // 用开发者自定义配置文件，覆盖默认文件
     overrideConfig({

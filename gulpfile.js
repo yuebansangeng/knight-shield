@@ -10,24 +10,14 @@ gulp.task('default', function () {
     .pipe(babel())
     .pipe(gulp.dest('lib/'))
 
-  gulp.src([ 'src/.storybook/**/*.js' ])
-    .pipe(babel())
-    .pipe(gulp.dest('lib/.storybook'))
-
-  gulp.src([ 'src/.storybook/*.html', 'src/.storybook/*.ejs', 'src/.storybook/*.json', 'src/http-mocker/**/*.har' ])
-    .pipe(gulp.dest('lib/.storybook'))
-
-    gulp.src([ 'src/**/*.ejs', 'src/**/*.json' ])
+  gulp.src([ 'src/**/*.html', 'src/**/*.ejs', 'src/**/*.json', 'src/http-mocker/**/*.har' ])
     .pipe(gulp.dest('lib/'))
 })
 
 gulp.task('watch', function () {
   gulp.watch([
     'src/**/*.js',
-    'src/.storybook/**/*.js',
-    'src/.storybook/*.html',
-    'src/**/*.ejs',
-    'src/.storybook/*.json'
+    'src/**/*.html', 'src/**/*.ejs', 'src/**/*.json', 'src/http-mocker/**/*.har'
   ],
   [ 'default' ])
 })
