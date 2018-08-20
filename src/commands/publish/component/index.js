@@ -31,11 +31,18 @@ export default class extends Generator {
       'readme': getContent(`${contextRoot}/README.md`)
     }
 
-    // 提取组件示例的 js 和 css
-    examples.forEach(({ name }) => {
-      formData[`example_code_${name}`] = getContent(`${contextRoot}/examples/${name}/index.js`)
-      formData[`example_css_${name}`] = getContent(`${contextRoot}/examples/${name}/index.css`)
-    })
+    // 开发者没有自定义examples
+    if (!examples.length) {
+      formData['example_code_default'] = getContent(`${__dirname}/default-example.ejs`)
+      formData['example_css_default'] = ''
+      formData.examples = JSON.stringify([ { 'name': 'default' } ])
+    } else {
+      // 提取组件示例的 js 和 css
+      examples.forEach(({ name }) => {
+        formData[`example_code_${name}`] = getContent(`${contextRoot}/examples/${name}/index.js`)
+        formData[`example_css_${name}`] = getContent(`${contextRoot}/examples/${name}/index.css`)
+      })
+    }
 
     // 开始发布组件到共享中心
     console.log(`${'Starting'.yellow} publishing`)
