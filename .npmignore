@@ -19,7 +19,7 @@ test/
 .eslintrc*
 
 .babelrc
-gulpfile.js
+/gulpfile.js
 
 # editor settings
 .idea
