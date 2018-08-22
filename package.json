@@ -1,6 +1,6 @@
 {
   "name": "@beisen/sbl",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "二次封装，易使用",
   "scripts": {
     "prepublish": "gulp && npm run test",
@@ -58,12 +58,14 @@
     "ts-loader": "^3.5.0",
     "url-loader": "^1.0.1",
     "yeoman-environment": "^2.3.1",
-    "yeoman-generator": "^3.1.1"
-  },
-  "devDependencies": {
-    "del": "^3.0.0",
+    "yeoman-generator": "^3.1.1",
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.1",
+    "del": "^3.0.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.0.1"
+  },
+  "devDependencies": {
     "coveralls": "^3.0.2",
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0"

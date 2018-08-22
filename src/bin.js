@@ -10,6 +10,7 @@ dotenv.config({ 'path': path.join(__dirname, '..', '.env') })
 const env = yeomanEnv.createEnv()
   .register(require.resolve('../lib/commands/storybook'), 'storybook')
   .register(require.resolve('../lib/commands/publish'), 'publish')
+  .register(require.resolve('../lib/commands/build'), 'build')
 
 program
   .version(pckJson.version, '-v, --version')
@@ -35,6 +36,16 @@ program
   .action((cmd, opts) => {
     let { source, port, independent } = opts
     env.run(`storybook ${cmd}`, { source, port, independent })
+  })
+
+program
+  .command('build <cmd>')
+  .option('-w, --workspaces [workspaces]', '执行构建的lib的所在工作区')
+  .option('-s, --source [source]', '命令执行时所构建的组件项目')
+  .description('构建组件的 lib 目录')
+  .action((cmd, opts) => {
+    let { source, workspaces } = opts
+    env.run(`build ${cmd}`, { source, workspaces })
   })
 
 program.parse(process.argv)
