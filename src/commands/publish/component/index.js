@@ -3,8 +3,8 @@ import path from 'path'
 import Generator from 'yeoman-generator'
 import singlePub from './single-pub'
 import fg from 'fast-glob'
-import 'colors'
 import logger from '../../../helpers/logger'
+import 'colors'
 
 export default class extends Generator {
   async writing () {

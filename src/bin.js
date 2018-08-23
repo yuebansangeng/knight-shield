@@ -42,10 +42,11 @@ program
   .command('build <cmd>')
   .option('-w, --workspaces [workspaces]', '执行构建的lib的所在工作区')
   .option('-s, --source [source]', '命令执行时所构建的组件项目')
+  .option('-c, --watch [watch]', '监听目录文件变动重新构建')
   .description('构建组件的 lib 目录')
   .action((cmd, opts) => {
-    let { source, workspaces } = opts
-    env.run(`build ${cmd}`, { source, workspaces })
+    let { source, workspaces, watch } = opts
+    env.run(`build ${cmd}`, { source, workspaces, watch })
   })
 
 program.parse(process.argv)
