@@ -3,7 +3,7 @@ import path from 'path'
 import fs from 'fs'
 import ejs from 'ejs'
 import getExamples from './get-examples'
-import readrc from '@beisen/read-rc'
+import readrc from '../read-rc'
 
 export default (options = {}) => {
 

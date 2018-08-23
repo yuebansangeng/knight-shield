@@ -19,11 +19,17 @@ export default class extends Generator {
 
     logger.enableProgress()
     let tracker = null
+
+    // 获取相关组件集合的配置
+    let components = [ contextRoot ]
+    if (rc.components.length) {
+      components = await fg(rc.components, { 'onlyDirectories': true }).then(cps => 
+        cps.map(p => path.join(contextRoot, p))
+      )  
+    }
   
-    if (independent && rc.components && rc.components.length) {
-  
-      let components = await fg.sync(rc.components, { 'onlyDirectories': true })
-      components = components.map(cmp => path.join(contextRoot, cmp))
+    // 在组件集合中的所有的组件，都单独进行构建
+    if (independent) {
 
       tracker = logger.newItem('building', components.length)
 
@@ -40,7 +46,7 @@ export default class extends Generator {
       logger.silly('building', contextRoot)
       tracker.completeWork(1)
 
-      await buildCmpStatics({ contextRoot })
+      await buildCmpStatics({ contextRoot, components })
     }
 
     tracker.finish()

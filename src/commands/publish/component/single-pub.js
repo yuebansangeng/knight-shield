@@ -5,7 +5,7 @@ import { getContent } from './get-file-content'
 import getExamples from '../../../helpers/make-stories/get-examples'
 import check from './check'
 import record from './record'
-import readrc from '@beisen/read-rc'
+import readrc from '../../../helpers/read-rc'
 import 'colors'
 
 export default async (o) => {

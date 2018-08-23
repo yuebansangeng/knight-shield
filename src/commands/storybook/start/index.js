@@ -20,18 +20,16 @@ export default class extends Generator {
     // 获取需要展示示例的组件路径
     // 配置 运行环境 需要的 stories 配置问题
     let components = [ contextRoot ]
-    if (rc.components) {
-      components = await fg.sync(rc.components, { 'onlyDirectories': true })
-      components = components.map(p => path.join(contextRoot, p))
+    if (rc.components.length) {
+      components = await fg(rc.components, { 'onlyDirectories': true }).then(cps => 
+        cps.map(p => path.join(contextRoot, p))
+      )
     }
     makeStories({ storybookConfigPath, components })
 
     // 生成 https HAR 配置文件
     // 同时支持 "参数" 和 "配置" 方式
-    generateHttpHAREntry({
-      'httpHARPath': rc.mock.https,
-      contextRoot
-    })
+    generateHttpHAREntry({ 'httpHARPath': rc.mock.https, contextRoot })
 
     // 启动本地调试环境
     execa('node',

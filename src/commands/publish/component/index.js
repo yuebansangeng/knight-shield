@@ -15,9 +15,12 @@ export default class extends Generator {
     
     if (independent) {
 
-      let components = await fg.sync(rc.components, { 'onlyDirectories': true })
-      components = components.map(cmp => path.join(contextRoot, cmp))
-
+      let components = [ contextRoot ]
+      if (rc.components.length) {
+        components = await fg(rc.components, { 'onlyDirectories': true }).then(cps => 
+          cps.map(p => path.join(contextRoot, p))
+        )  
+      }
 
       tracker = logger.newItem('publishing', components.length)
 
