@@ -4,47 +4,51 @@ import Generator from 'yeoman-generator'
 import singlePub from './single-pub'
 import fg from 'fast-glob'
 import 'colors'
+import logger from '../../../helpers/logger'
 
 export default class extends Generator {
   async writing () {
     const { independent, rc, contextRoot, cinumber, jobname } = this.options
 
-    let resp = null
-
+    logger.enableProgress()
+    let tracker = null
+    
     if (independent) {
 
       let components = await fg.sync(rc.components, { 'onlyDirectories': true })
       components = components.map(cmp => path.join(contextRoot, cmp))
 
+
+      tracker = logger.newItem('publishing', components.length)
+
       for (let i = 0; i < components.length; i++) {
-        resp = await singlePub({ 'contextRoot': components[i], cinumber, jobname })
-        this._private_response(resp)
+
+        logger.silly('publishing', components[i])
+        tracker.completeWork(1)
+
+        let { code ,message } = await singlePub({ 'contextRoot': components[i], cinumber, jobname })
+
+        // 发布异常
+        if (code !== 200) {
+          throw new Error(message)
+        }
       }
+
     } else {
 
-      resp = await singlePub({ contextRoot, cinumber, jobname })
+      tracker = logger.newItem('publishing', 1)
 
-      this._private_response(resp)
-    }
-  }
+      logger.silly('publishing', contextRoot)
+      tracker.completeWork(1)
 
-  _private_response (res) {
-    let { err, resp, body } = res
+      let { code ,message } = await singlePub({ contextRoot, cinumber, jobname })
 
-    if (err || !/^2/.test(resp.statusCode)) {
-      console.log(`${'Error'.red} publishing`)
-      console.log(body)
-      throw new Error(err)
+      // 发布异常
+      if (code !== 200) {
+        throw new Error(message)
+      }
     }
 
-    // 处理结果返回值
-    let { code, message } = JSON.parse(body)
-
-    if (code === 200) {
-      console.log(`${'Finished'.green} publishing`)
-    } else {
-      console.log(`${'Error'.red} publishing`)
-      throw new Error(message)
-    }
+    tracker.finish()
   }
 }

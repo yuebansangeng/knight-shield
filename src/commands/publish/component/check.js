@@ -1,5 +1,5 @@
 
-import request from 'request'
+import request from 'request-promise'
 
 export default async (o) => {
   const { CMP_SERVER_HOST } = process.env
@@ -15,22 +15,14 @@ export default async (o) => {
     throw new Error(`请在 rc 文件中，配置 team 字段（team 字段将会用来组件唯一性验证，以及搜索功能）`)
   }
   if (!category) {
-    console.log('组件未配置 category，将为组件自动匹配一个最相近类型')
+    // console.log('组件未配置 category，将为组件自动匹配一个最相近类型')
   }
 
-  const { code, message, data } = await new Promise((resolve, reject) => {
-    request(`${CMP_SERVER_HOST}/users/check-cmp?name=${name || ''}&team=${team || ''}&module=${module || ''}`, (err, res, body) => {
-      if (err) {
-        console.log(err)
-        reject(err)
-      }
-      resolve(JSON.parse(body))
-    })
-  })
+  const { code, message, data } =
+    await request(`${CMP_SERVER_HOST}/users/check-cmp?name=${name || ''}&team=${team || ''}&module=${module || ''}`)
+            .then(res => JSON.parse(res))
 
   if (code !== 200 || !data) {
     throw new Error(message)
   }
-
-  console.log(message)
 }

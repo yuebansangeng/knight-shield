@@ -5,11 +5,12 @@ import fg from 'fast-glob'
 import { spawn } from 'child_process'
 import Generator from 'yeoman-generator'
 import makeSingleLib from './make-single-lib'
+import logger from '../../../helpers/logger'
 
 export default class extends Generator {
 
   async writing () {
-    let { logger, contextRoot, workspaces, rc, resp = null } = this.options
+    let { contextRoot, workspaces, rc, resp = null } = this.options
 
     workspaces = workspaces || rc.components || []
 

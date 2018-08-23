@@ -1,6 +1,6 @@
 
 import path from 'path'
-import request from 'request'
+import request from 'request-promise'
 import { getContent } from './get-file-content'
 import getExamples from '../../../helpers/make-stories/get-examples'
 import check from './check'
@@ -46,16 +46,10 @@ export default async (o) => {
     })
   }
 
-  // 开始发布组件到共享中心
-  console.log(`${'Starting'.yellow} publishing`)
-
-  return new Promise((resolve, reject) => {
-    request.post({
-      'url': `${CMP_SERVER_HOST}/users/publish`,
-      'form': formData
-    },
-      (err, resp, body) => {
-        resolve({ err, resp, body })
-      })
+  return await request.post({
+    'url': `${CMP_SERVER_HOST}/users/publish`,
+    'form': formData
   })
+  .then(res => JSON.parse(res))
+  .catch(err => { throw new Error(err) })
 }

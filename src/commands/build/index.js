@@ -2,7 +2,6 @@
 import path from 'path'
 import Generator from 'yeoman-generator'
 import readrc from '@beisen/read-rc'
-import logger from '../../helpers/logger'
 
 export default class extends Generator {
 
@@ -33,8 +32,7 @@ export default class extends Generator {
         {
           'rc': readrc(contextRoot),
           'package': packinfo,
-          contextRoot,
-          logger
+          contextRoot
         }
       )
     )
