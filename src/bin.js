@@ -11,6 +11,7 @@ const env = yeomanEnv.createEnv()
   .register(require.resolve('../lib/commands/storybook'), 'storybook')
   .register(require.resolve('../lib/commands/publish'), 'publish')
   .register(require.resolve('../lib/commands/build'), 'build')
+  .register(require.resolve('../lib/commands/covert'), 'covert')
 
 program
   .version(pckJson.version, '-v, --version')
@@ -46,6 +47,15 @@ program
   .action((cmd, opts) => {
     let { source, watch } = opts
     env.run(`build ${cmd}`, { source, watch })
+  })
+
+program
+  .command('covert <cmd>')
+  .option('-s, --source [source]', '命令执行时所构建的组件项目')
+  .description('file:|link:|[version]协议之间的准换')
+  .action((cmd, opts) => {
+    let { source, watch } = opts
+    env.run(`covert ${cmd}`, { source, watch })
   })
 
 program.parse(process.argv)

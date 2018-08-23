@@ -19,8 +19,9 @@ export default class extends Generator {
     let contextRoot = this.contextRoot
 
     // 使用者通过 source 控制命令执行路径
-    if (this.options.source) {
-      contextRoot = path.join(this.contextRoot, this.options.source)
+    let { source } = this.options
+    if (source) {
+      contextRoot = source.match(/^\//) ? source : path.join(this.contextRoot, source)
       packinfo = require(`${contextRoot}/package.json`)
     }
    
