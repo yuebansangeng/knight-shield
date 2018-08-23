@@ -2,11 +2,11 @@
 import path from 'path'
 import Generator from 'yeoman-generator'
 import { spawn } from 'child_process'
-import colorlog from './color-log'
 import makeStories from '../../../helpers/make-stories'
 import overrideConfig from '../../../helpers/override-config'
 import generateHttpHAREntry from '../../../helpers/generate-http-har-entry'
 import fg from 'fast-glob'
+import execa from 'execa'
 
 export default class extends Generator {
 
@@ -34,16 +34,14 @@ export default class extends Generator {
     })
 
     // 启动本地调试环境
-    let cp_sytb = spawn('node',
+    execa('node',
       [
         'node_modules/.bin/start-storybook',
         '-s', '.',
         '-p', port,
         '-c', storybookConfigPath
       ],
-      { }
+      { 'stdio': 'inherit' }
     )
-    cp_sytb.stdout.on('data', data => colorlog(data))
-    cp_sytb.stderr.on('data', err_data => colorlog(err_data))
   }
 }

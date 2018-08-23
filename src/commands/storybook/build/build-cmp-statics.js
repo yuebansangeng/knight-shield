@@ -5,6 +5,7 @@ import makeStories from '../../../helpers/make-stories'
 import generateHttpHAREntry from '../../../helpers/generate-http-har-entry'
 import readrc from '@beisen/read-rc'
 import fg from 'fast-glob'
+import execa from 'execa'
 
 // 统一添加前缀组件模块前缀
 export default async (o) => {
@@ -33,24 +34,12 @@ export default async (o) => {
     contextRoot
   })
 
-  console.log(`开始编译静态资源：${cname}/${version}`)
-
-  // 构建
-  return await new Promise((resolve, reject) => {
-    let resmsg = []
-    let build_cp = spawn('node',
-      [
-        'node_modules/.bin/build-storybook',
-        '-c', storybookConfigPath,
-        '-o', `${output || contextRoot}/storybook-static/${cname}/${version}`
-      ],
-      { }
-    )
-    build_cp.stdout.on('data', data => resmsg.push(`${data}`))
-    build_cp.stderr.on('data', data => resmsg.push(`${data}`))
-    build_cp.on('close', code => {
-      // 如果不join的方式输出log，会在输出信息换行时出现问题
-      resolve({ code, 'message': resmsg.join('') })
-    })
-  })
+  return await execa('node',
+    [
+      'node_modules/.bin/build-storybook',
+      '-c', storybookConfigPath,
+      '-o', `${output || contextRoot}/storybook-static/${cname}/${version}`
+    ],
+    { }
+  )
 }

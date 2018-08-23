@@ -9,7 +9,7 @@ import makeSingleLib from './make-single-lib'
 export default class extends Generator {
 
   async writing () {
-    let { contextRoot, workspaces, rc, resp = null } = this.options
+    let { logger, contextRoot, workspaces, rc, resp = null } = this.options
 
     workspaces = workspaces || rc.components || []
 
@@ -18,15 +18,21 @@ export default class extends Generator {
       let packages = await fg.sync(workspaces, { 'onlyDirectories': true })
       packages = packages.map(p => path.join(contextRoot, p))
 
+      logger.enableProgress()
+      let tracker = logger.newItem('building', packages.length)
+
       for (let i = 0; i < packages.length; i++) {
+        logger.silly('success', packages[i])
+        tracker.completeWork(1)
         resp = await makeSingleLib({ 'contextRoot': packages[i] })
-        console.log(resp.message)
       }
+
+      tracker.finish()
 
     } else {
 
       resp = await makeSingleLib({ contextRoot })
-      console.log(resp.message)
+      logger.info('success', contextRoot)
     }
   }
 }

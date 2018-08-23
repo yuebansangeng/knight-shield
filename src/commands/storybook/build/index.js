@@ -1,14 +1,14 @@
 
 import path from 'path'
-import Generator from 'yeoman-generator'
 import fg from 'fast-glob'
+import Generator from 'yeoman-generator'
 import buildCmpStatics from './build-cmp-statics'
 import overrideConfig from '../../../helpers/override-config'
 
 export default class extends Generator {
 
   async writing () {
-    let { contextRoot, independent, rc, output, resp = null } = this.options
+    let { contextRoot, independent, rc, output = contextRoot, logger } = this.options
 
     // 用开发者自定义配置文件，覆盖默认文件
     overrideConfig({
@@ -20,29 +20,22 @@ export default class extends Generator {
   
       let components = await fg.sync(rc.components, { 'onlyDirectories': true })
       components = components.map(cmp => path.join(contextRoot, cmp))
+
+      logger.enableProgress()
+      let tracker = logger.newItem('building', components.length)
   
       for (let i = 0; i < components.length; i++) {
-        resp = await buildCmpStatics({
-          'contextRoot': components[i],
-          'output': output || contextRoot
-        })
-  
-        if (resp.code !== 0) {
-          throw new Error(resp.message)
-        } else {
-          console.log(resp.message)
-        }
+        logger.silly('success', components[i])
+        tracker.completeWork(1)
+        await buildCmpStatics({ 'contextRoot': components[i], output })
       }
+
+      tracker.finish()
   
     } else {
-  
-      resp = await buildCmpStatics({ contextRoot })
-  
-      if (resp.code !== 0) {
-        throw new Error(resp.message)
-      } else {
-        console.log(resp.message)
-      }
+
+      await buildCmpStatics({ contextRoot })
+      logger.info('success', contextRoot)
     }
   }
 }
