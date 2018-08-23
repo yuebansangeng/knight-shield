@@ -10,9 +10,8 @@ import logger from '../../../helpers/logger'
 export default class extends Generator {
 
   async writing () {
-    let { contextRoot, workspaces, watch, rc, resp = null } = this.options
-
-    workspaces = workspaces || rc.components || []
+    let { contextRoot, watch, rc, resp = null } = this.options
+    let { components = [], workspaces = components } = rc
 
     logger.enableProgress()
     let tracker = null
@@ -46,13 +45,8 @@ export default class extends Generator {
 
     // 监听更新
     if (watch) {
-
       logger.info('watching', '*/src')
-
-      fork(`${__dirname}/watcher.js`, [
-        '--workspaces', JSON.stringify(workspaces),
-        '--context-root', contextRoot
-      ])
+      fork(`${__dirname}/watcher.js`, [ '--workspaces', JSON.stringify(workspaces), '--context-root', contextRoot ])
     }
   }
 }
