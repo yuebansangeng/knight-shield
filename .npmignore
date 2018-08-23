@@ -13,6 +13,8 @@ coverage
 
 test/
 
+/lib/configs/stories.js
+
 # linters
 .jscsrc
 .jshintrc

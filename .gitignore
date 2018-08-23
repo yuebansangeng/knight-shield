@@ -10,6 +10,8 @@ node_modules/
 package-lock.json
 coverage
 
+/lib/configs/stories.js
+
 # some local files
 */.settings/
 */.DS_Store
