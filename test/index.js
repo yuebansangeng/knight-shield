@@ -2,9 +2,9 @@
 const assert = require('assert')
 const path = require('path')
 
-describe('工具类测试', () => {
+describe('units test', () => {
 
-  // it('测试输出 stories.js 配置文件', () => {
+  // it('stories.js configs', () => {
   //    process.chdir(`${__dirname}/component`)
   //    require('../lib/make-stories.js')({
   //      'stoiresEjsTemplatePath': path.join(__dirname, '..', 'lib', 'stories.ejs'),
@@ -14,7 +14,7 @@ describe('工具类测试', () => {
   //    })
   // })
 
-  // it('复制开发者自定义配置文件', () => {
+  // it('copy configs', () => {
   //   let files = require('../lib/override-config.js')({
   //     'configPath': path.join(__dirname, 'component', '.storybook-test'),
   //     'destinationPath': path.join(__dirname, 'storybook-configs'),
@@ -32,7 +32,7 @@ describe('工具类测试', () => {
   //   console.log(files)
   // })
 
-  // it('测试生成 HTTP HAR 配置文件入口', () => {
+  // it('test HTTP HAR entry', () => {
   //   require('../lib/generate-http-har-entry')({
   //     'cpath': `${__dirname}/component`,
   //     'httpHARPath': `./recordings`,
