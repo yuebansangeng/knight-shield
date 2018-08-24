@@ -4,7 +4,6 @@ import override from './override'
 export default (o) => {
   let { contextRoot, storybookConfigPath } = o
 
-  // 用开发者自定义配置文件，覆盖默认文件
   override({
     'configPath': `${contextRoot}/.storybook`,
     'destinationPath': storybookConfigPath,
@@ -27,7 +26,7 @@ export default (o) => {
       'tsconfig.json',
       {
         'ori': '.babelrc',
-        'dest': 'babelrc.json' // 转换成json文件，不需要处理.babelrc路径
+        'dest': 'babelrc.json'
       }
     ]
   })

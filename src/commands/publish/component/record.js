@@ -12,7 +12,6 @@ export default async (o) => {
 
   if (!name || !name.match(/^[A-Za-z\-\d]+?$/)) {
     name = 'unknown'
-    // console.log(`组件 rc 文件中的 name 属性格式不正确，只允许是字母、数字、中划线`)
   }
 
   const { code, message } =

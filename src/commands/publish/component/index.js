@@ -31,7 +31,6 @@ export default class extends Generator {
 
         let { code ,message } = await singlePub({ 'contextRoot': components[i], cinumber, jobname })
 
-        // 发布异常
         if (code !== 200) {
           throw new Error(message)
         }
@@ -46,7 +45,6 @@ export default class extends Generator {
 
       let { code ,message } = await singlePub({ contextRoot, cinumber, jobname })
 
-      // 发布异常
       if (code !== 200) {
         throw new Error(message)
       }

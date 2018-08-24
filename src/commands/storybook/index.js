@@ -1,3 +1,4 @@
+
 import path from 'path'
 import Generator from 'yeoman-generator'
 import readrc from '../../helpers/read-rc'
@@ -18,7 +19,6 @@ export default class extends Generator {
     let packinfo = require(`${this.contextRoot}/package.json`)
     let contextRoot = this.contextRoot
 
-    // 使用者通过 source 控制命令执行路径
     let { source } = this.options
     if (source) {
       contextRoot = source.match(/^\//) ? source : path.join(this.contextRoot, source)

@@ -6,10 +6,8 @@ import webpackExtendConfig from './webpack.extend.config'
 export default (storybookBaseConfig, configType) => {
   storybookBaseConfig.node = { 'fs': 'empty' }
 
-  // 添加模块查找的默认后缀名
   storybookBaseConfig.resolve.extensions = storybookBaseConfig.resolve.extensions.concat([ '.ts', '.tsx' ])
 
-  // Italent 提供的工具模块中，webpack添加了alias
   storybookBaseConfig.resolve.alias = {
     '&': path.join(process.cwd(), 'src')
   }
@@ -26,12 +24,8 @@ export default (storybookBaseConfig, configType) => {
       'test': /\.tsx?$/,
       'loader': 'ts-loader',
       'options': {
-        // context 属性，3.5.0 版本的 ts-loader 才支持（4版本的tsloader需要webbpack4以上）
-        // tsLoader 自定义的configFile不再项目跟录中，则需要指定content为项目跟目录
-        // https://github.com/TypeStrong/ts-loader/issues/732
-        // process.cwd() -> **/[project folder]
+        // use 'configFile' must use 'context'
         'context': process.cwd(),
-        // 自定义获取tsconfig.json的路径
         'configFile': path.join(__dirname, 'tsconfig.json')
       }
     },
@@ -110,7 +104,7 @@ export default (storybookBaseConfig, configType) => {
     }
   ])
 
-  // 外部可以重写配置
+  // custom webpack.config.js override
   storybookBaseConfig = webpackExtendConfig(storybookBaseConfig, configType)
 
   return storybookBaseConfig

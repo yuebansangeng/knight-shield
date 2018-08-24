@@ -11,7 +11,6 @@ adapterXHR()
 configure(
   () => {
     storieConfigs.forEach(storieConfig => {
-      // 获取配置项
       let { stories, name, readme } = storieConfig
       let storiesInstence = storiesOf(name, module)
 

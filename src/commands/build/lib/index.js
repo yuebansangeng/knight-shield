@@ -16,7 +16,7 @@ export default class extends Generator {
     logger.enableProgress()
     let tracker = null
 
-    // 空时使用components填充
+    // default workspaces
     if (!workspaces.length) {
       workspaces = workspaces.concat(components)
     }
@@ -48,7 +48,7 @@ export default class extends Generator {
     tracker.finish()
     logger.disableProgress()
 
-    // 监听更新
+    // watching change, rebuild
     if (watch) {
       logger.info('watching', '*/src')
       fork(`${__dirname}/watcher.js`, [ '--workspaces', JSON.stringify(workspaces), '--context-root', contextRoot ])

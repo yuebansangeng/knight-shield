@@ -14,16 +14,12 @@ export default async (o) => {
   const packinfo = require(path.join(contextRoot, 'package.json'))
   const rc = readrc(contextRoot)
 
-  // 记录组件构建
   await record({ 'package': packinfo, rc, cinumber, jobname })
 
-  // 验证组件的配置
   await check({ 'package': packinfo, rc })
 
-  // 获取组件目录中定义的示例
   const examples = getExamples(contextRoot)
 
-  // 组装接口上传需要的文件
   let formData = {
     'name': packinfo.name,
     'version': packinfo.version,
@@ -33,13 +29,11 @@ export default async (o) => {
     'readme': getContent(path.join(contextRoot, 'README.md'))
   }
 
-  // 开发者没有自定义examples
   if (!examples.length) {
     formData['example_code_default'] = getContent(`${__dirname}/default-example.ejs`)
     formData['example_css_default'] = ''
     formData.examples = JSON.stringify([{ 'name': 'default' }])
   } else {
-    // 提取组件示例的 js 和 css
     examples.forEach(({ name }) => {
       formData[`example_code_${name}`] = getContent(path.join(contextRoot, 'examples', name, 'index.js'))
       formData[`example_css_${name}`] = getContent(path.join(contextRoot, 'examples', name, 'index.css'))

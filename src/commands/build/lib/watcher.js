@@ -14,7 +14,7 @@ const { 'context-root': contextRoot, workspaces } = argv
 
 let packages = fg.sync(JSON.parse(workspaces), { 'onlyDirectories': true })
 
-// 如果没有传递 workspaces 则默认监听当前目录 src 变动
+// defualt watching context-root, if no pakcages
 if (!packages || !packages.length) packages = [ contextRoot ]
 
 packages.forEach(pack => {
