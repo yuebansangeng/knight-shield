@@ -1,6 +1,6 @@
 
 import path from 'path'
-import { spawn } from 'child_process'
+import { spawn, execSync } from 'child_process'
 import makeStories from '../../../helpers/make-stories'
 import generateHttpHAREntry from '../../../helpers/generate-http-har-entry'
 import readrc from '../../../helpers/read-rc'
@@ -9,8 +9,22 @@ import execa from 'execa'
 
 // 统一添加前缀组件模块前缀
 export default async (o) => {
-  const { contextRoot, components = [ contextRoot ], output } = o
+  const {
+    contextRoot,
+    components = [ contextRoot ],
+    output,
+    onlyUpdated
+  } = o
+
   const { 'name': module, version } = require(`${contextRoot}/package.json`)
+
+  // 通过版本判断，只构建更新的组件
+  if (onlyUpdated) {
+    var stdout = execSync(`npm view ${module} versions`)
+    if (`${stdout}`.match(new RegExp(`'${version}'`, 'ig')))
+      return
+  }
+
   const storybookConfigPath = path.join(__dirname, '../../../', 'configs')
 
   // 获取rc配置文件中的配置

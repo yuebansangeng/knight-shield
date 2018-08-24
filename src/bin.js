@@ -11,7 +11,7 @@ const env = yeomanEnv.createEnv()
   .register(require.resolve('../lib/commands/storybook'), 'storybook')
   .register(require.resolve('../lib/commands/publish'), 'publish')
   .register(require.resolve('../lib/commands/build'), 'build')
-  .register(require.resolve('../lib/commands/covert'), 'covert')
+  .register(require.resolve('../lib/commands/convert'), 'convert')
 
 program
   .version(pckJson.version, '-v, --version')
@@ -33,10 +33,11 @@ program
   .option('-s, --source [source]', '命令执行时所构建的组件项目')
   .option('-p, --port [port]', '调试服务的监听端口')
   .option('-i, --independent [independent]', '组件独立构建')
+  .option('-v, --only-updated [onlyUpdated]', '监听目录文件变动重新构建')
   .description('使用 storybook 功能 调试/构建 组件示例')
   .action((cmd, opts) => {
-    let { source, port, independent } = opts
-    env.run(`storybook ${cmd}`, { source, port, independent })
+    let { source, port, independent, onlyUpdated } = opts
+    env.run(`storybook ${cmd}`, { source, port, independent, onlyUpdated })
   })
 
 program
@@ -50,12 +51,14 @@ program
   })
 
 program
-  .command('covert <cmd>')
+  .command('convert <cmd>')
+  .option('-p, --packages [packages]', '需要转换的目录')
+  .option('-t, --target [target]', '目标路径')
   .option('-s, --source [source]', '命令执行时所构建的组件项目')
   .description('file:|link:|[version]协议之间的准换')
   .action((cmd, opts) => {
-    let { source, watch } = opts
-    env.run(`covert ${cmd}`, { source, watch })
+    let { source, watch, packages, target } = opts
+    env.run(`convert ${cmd}`, { source, watch, packages, target })
   })
 
 program.parse(process.argv)
