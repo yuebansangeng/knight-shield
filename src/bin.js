@@ -11,7 +11,6 @@ const env = yeomanEnv.createEnv()
   .register(require.resolve('../lib/commands/storybook'), 'storybook')
   .register(require.resolve('../lib/commands/publish'), 'publish')
   .register(require.resolve('../lib/commands/build'), 'build')
-  .register(require.resolve('../lib/commands/convert'), 'convert')
 
 program
   .version(pckJson.version, '-v, --version')
@@ -48,17 +47,6 @@ program
   .action((cmd, opts) => {
     let { source, watch } = opts
     env.run(`build ${cmd}`, { source, watch })
-  })
-
-program
-  .command('convert <cmd>')
-  .option('-p, --packages [packages]', '需要转换的目录')
-  .option('-t, --target [target]', '目标路径')
-  .option('-s, --source [source]', '命令执行时所构建的组件项目')
-  .description('file:|link:|[version]协议之间的准换')
-  .action((cmd, opts) => {
-    let { source, watch, packages, target } = opts
-    env.run(`convert ${cmd}`, { source, watch, packages, target })
   })
 
 program.parse(process.argv)

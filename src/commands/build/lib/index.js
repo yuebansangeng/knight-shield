@@ -11,10 +11,15 @@ export default class extends Generator {
 
   async writing () {
     let { contextRoot, watch, rc, resp = null } = this.options
-    let { components = [], workspaces = components } = rc
+    let { components, workspaces } = rc
 
     logger.enableProgress()
     let tracker = null
+
+    // 空时使用components填充
+    if (!workspaces.length) {
+      workspaces = workspaces.concat(components)
+    }
 
     if (workspaces.length) {
 
