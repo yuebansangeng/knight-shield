@@ -17,15 +17,15 @@ export default async (o) => {
   } = o
 
   const { 'name': module, version } = require(`${contextRoot}/package.json`)
+  const storybookConfigPath = path.join(__dirname, '../../../', 'configs')
 
   // 通过版本判断，只构建更新的组件
   if (onlyUpdated) {
-    var stdout = execSync(`npm view ${module} versions`)
-    if (`${stdout}`.match(new RegExp(`'${version}'`, 'ig')))
-      return
+    let stdout = execSync(`npm view ${module} versions`)
+    if (`${stdout}`.match(new RegExp(`'${version}'`, 'ig'))) {
+      return false
+    }
   }
-
-  const storybookConfigPath = path.join(__dirname, '../../../', 'configs')
 
   // 获取rc配置文件中的配置
   let rc = readrc(contextRoot)

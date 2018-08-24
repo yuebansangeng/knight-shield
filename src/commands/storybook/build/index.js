@@ -9,7 +9,13 @@ import logger from '../../../helpers/logger'
 export default class extends Generator {
 
   async writing () {
-    let { contextRoot, independent, rc, onlyUpdated, output = contextRoot } = this.options
+    let {
+      rc,
+      contextRoot,
+      independent,
+      onlyUpdated,
+      output = contextRoot
+    } = this.options
 
     // 用开发者自定义配置文件，覆盖默认文件
     overrideConfig({
