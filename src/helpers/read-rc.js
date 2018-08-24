@@ -32,11 +32,20 @@ export const extractRCFromPakcage = (workspace) => {
 
 export default (workspace) => {
   let cpath = workspace || process.cwd()
+  let packInfo = extractRCFromPakcage(workspace)
   let rc = {}
   for (let filename of fileNames) {
     if (fs.existsSync(`${cpath}/${filename}`)) {
       rc = Hjson.parse(fs.readFileSync(`${cpath}/${filename}`, 'utf-8'))
     }
   }
-  return Object.assign({}, extractRCFromPakcage(workspace), rc)
+  return Object.assign(
+    {},
+    extractRCFromPakcage(workspace),
+    rc,
+    {
+      // discarded: replaced with package.json's name
+      'name': packInfo.name
+    }
+  )
 }

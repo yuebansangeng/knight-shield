@@ -26,16 +26,11 @@ export default async (o) => {
     }
   }
 
-  let rc = readrc(contextRoot)
-
+  const rc = readrc(contextRoot)
   const cname = rc.name || module
 
   makeStories({ storybookConfigPath, components })
-
-  generateHttpHAREntry({
-    'httpHARPath': rc.mock.https,
-    contextRoot
-  })
+  generateHttpHAREntry({ 'httpHARPath': rc.mock.https, contextRoot })
 
   return await execa('node',
     [

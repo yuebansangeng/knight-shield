@@ -15,7 +15,6 @@ export default async (o) => {
   const rc = readrc(contextRoot)
 
   await record({ 'package': packinfo, rc, cinumber, jobname })
-
   await check({ 'package': packinfo, rc })
 
   const examples = getExamples(contextRoot)
