@@ -17,7 +17,6 @@ export default async (o) => {
   const { 'name': module, version } = require(`${contextRoot}/package.json`)
   const storybookConfigPath = path.join(__dirname, '../../../', 'configs')
   const rc = readrc(contextRoot)
-  // const cname = rc.name || module
 
   // only build updated module
   if (onlyUpdated) {

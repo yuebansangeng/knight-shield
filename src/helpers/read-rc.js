@@ -45,7 +45,7 @@ export default (workspace) => {
     rc,
     {
       // discarded: replaced with package.json's name
-      'name': packInfo.name
+      // 'name': packInfo.name
     }
   )
 }
