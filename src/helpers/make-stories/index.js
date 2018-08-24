@@ -40,7 +40,7 @@ export default (options = {}) => {
       }
 
       return {
-        'name': rc.name || packinfo.name,
+        'name': packinfo.name, // rc.name || packinfo.name,
         'stories': stories,
         'readme': readme
       }

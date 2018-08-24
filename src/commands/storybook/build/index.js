@@ -4,6 +4,7 @@ import fg from 'fast-glob'
 import Generator from 'yeoman-generator'
 import buildCmpStatics from './build-cmp-statics'
 import overrideConfig from '../../../helpers/override-config'
+import generateHttpHAREntry from '../../../helpers/generate-http-har-entry'
 import logger from '../../../helpers/logger'
 
 export default class extends Generator {
@@ -31,6 +32,8 @@ export default class extends Generator {
         cps.map(p => path.join(contextRoot, p))
       )  
     }
+
+    generateHttpHAREntry({ 'httpHARPath': rc.mock.https, contextRoot })
   
     if (independent) {
 
