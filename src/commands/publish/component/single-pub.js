@@ -4,17 +4,15 @@ import request from 'request-promise'
 import { getContent } from './get-file-content'
 import getExamples from '../../../helpers/make-stories/get-examples'
 import check from './check'
-import record from './record'
 import readrc from '../../../helpers/read-rc'
 import 'colors'
 
 export default async (o) => {
   const { CMP_SERVER_HOST } = process.env
-  const { contextRoot, cinumber, jobname } = o
+  const { contextRoot } = o
   const packinfo = require(path.join(contextRoot, 'package.json'))
   const rc = readrc(contextRoot)
 
-  await record({ 'package': packinfo, rc, cinumber, jobname })
   await check({ 'package': packinfo, rc })
 
   const examples = getExamples(contextRoot)

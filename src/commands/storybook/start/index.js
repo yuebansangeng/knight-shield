@@ -26,14 +26,17 @@ export default class extends Generator {
 
     generateHttpHAREntry({ 'httpHARPath': rc.mock.https, contextRoot })
 
-    execa('node',
+    execa('npx',
       [
-        'node_modules/.bin/start-storybook',
+        'start-storybook',
         '-s', '.',
         '-p', port,
         '-c', storybookConfigPath
       ],
-      { 'stdio': 'inherit' }
+      {
+        'stdio': 'inherit',
+        'cwd': __dirname
+      }
     )
   }
 }

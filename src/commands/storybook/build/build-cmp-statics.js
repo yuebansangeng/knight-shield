@@ -28,9 +28,9 @@ export default async (o) => {
 
   makeStories({ storybookConfigPath, components })
 
-  return await execa('node',
+  return await execa('npx',
     [
-      'node_modules/.bin/build-storybook',
+      `build-storybook`,
       '-c', storybookConfigPath,
       '-o', `${output || contextRoot}/storybook-static/${rc.name}/${version}`
     ],
