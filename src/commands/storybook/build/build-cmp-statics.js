@@ -32,7 +32,7 @@ export default async (o) => {
     [
       'node_modules/.bin/build-storybook',
       '-c', storybookConfigPath,
-      '-o', `${output || contextRoot}/storybook-static/${module}/${version}`
+      '-o', `${output || contextRoot}/storybook-static/${rc.name}/${version}`
     ],
     { }
   )

@@ -42,10 +42,6 @@ export default (workspace) => {
   return Object.assign(
     {},
     extractRCFromPakcage(workspace),
-    rc,
-    {
-      // discarded: replaced with package.json's name
-      // 'name': packInfo.name
-    }
+    rc
   )
 }

@@ -20,7 +20,7 @@ export default async (o) => {
   const examples = getExamples(contextRoot)
 
   let formData = {
-    'name': packinfo.name,
+    'name': rc.name,
     'version': packinfo.version,
     'rc': JSON.stringify(rc),
     'package': JSON.stringify(packinfo),
