@@ -5,12 +5,13 @@ import buildCmpStatics from './build-cmp-statics'
 import overrideConfig from '../../../helpers/override-config'
 import generateHttpHAREntry from '../../../helpers/generate-http-har-entry'
 import prepareCmpPaths from '../../../helpers/prepare-cmp-paths'
+import collectUpdates from './collect-updates'
 import logger from '../../../helpers/logger'
 
 export default class extends Generator {
 
   async writing () {
-    let { rc, contextRoot, independent, output = contextRoot } = this.options
+    let { rc, contextRoot, independent, output = contextRoot, onlyUpdated } = this.options
 
     overrideConfig({
       contextRoot,
@@ -21,6 +22,11 @@ export default class extends Generator {
     let tracker = null
 
     let cmpPaths = prepareCmpPaths({ contextRoot, independent, rc })
+
+    // 过滤没有修改的组件
+    if (onlyUpdated) {
+      cmpPaths = await collectUpdates({ contextRoot, independent, rc })
+    }
 
     generateHttpHAREntry({ 'httpHARPath': rc.mock.https, contextRoot })
 
