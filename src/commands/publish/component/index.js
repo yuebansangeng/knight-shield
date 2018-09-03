@@ -4,46 +4,33 @@ import Generator from 'yeoman-generator'
 import singlePub from './single-pub'
 import fg from 'fast-glob'
 import logger from '../../../helpers/logger'
-import 'colors'
 
 export default class extends Generator {
   async writing () {
-    const { independent, rc, contextRoot, cinumber, jobname } = this.options
+    const { independent, rc, contextRoot } = this.options
 
     logger.enableProgress()
     let tracker = null
-    
-    if (independent) {
 
-      let components = [ contextRoot ]
+    let cmpPaths = [ contextRoot ]
+    
+    // 如果是 independent 模式，则使用 rc 文件中配置的 components
+    if (independent) {
       if (rc.components.length) {
-        components = await fg(rc.components, { 'onlyDirectories': true }).then(cps => 
+        cmpPaths = await fg(rc.components, { 'onlyDirectories': true }).then(cps => 
           cps.map(p => path.join(contextRoot, p))
         )  
       }
+    }
 
-      tracker = logger.newItem('publishing', components.length)
+    tracker = logger.newItem('publishing', cmpPaths.length)
 
-      for (let i = 0; i < components.length; i++) {
+    for (let i = 0; i < cmpPaths.length; i++) {
 
-        logger.silly('publishing', components[i])
-        tracker.completeWork(1)
-
-        let { code ,message } = await singlePub({ 'contextRoot': components[i], cinumber, jobname })
-
-        if (code !== 200) {
-          throw new Error(message)
-        }
-      }
-
-    } else {
-
-      tracker = logger.newItem('publishing', 1)
-
-      logger.silly('publishing', contextRoot)
+      logger.silly('publishing', cmpPaths[i])
       tracker.completeWork(1)
 
-      let { code ,message } = await singlePub({ contextRoot, cinumber, jobname })
+      let { code ,message } = await singlePub({ 'contextRoot': cmpPaths[i] })
 
       if (code !== 200) {
         throw new Error(message)

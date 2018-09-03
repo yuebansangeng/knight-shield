@@ -1,1 +1,1225 @@
-{}
+{
+  "log": {
+    "version": "0.0.1",
+    "creator": {
+      "name": "@beisen/http-mocker",
+      "version": "0.0.1"
+    },
+    "pages": {},
+    "entries": [
+      {
+        "startedDateTime": "2018-08-08T08:56:28.941Z",
+        "time": 25.738201989035588,
+        "request": {
+          "method": "GET",
+          "url": "http://cloud.italent.cn/AssessMRest/100000/AskLibiary/GetAllTopic",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate"
+            },
+            {
+              "name": "Host",
+              "value": "cloud.italent.cn"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "zh-CN,zh;q=0.9,en;q=0.8,fr;q=0.7"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "application/json, text/plain, */*"
+            },
+            {
+              "name": "Referer",
+              "value": "http://cloud.italent.cn/Assess/"
+            },
+            {
+              "name": "Cookie",
+              "value": "gr_user_id=b516cb3b-bc49-40a6-a82d-124432e81336; UM_distinctid=16513a3fb476a-058466eec33194-10396f5d-13c680-16513a3fb48709; Tita_PC=-UeCP-_IEMQjORcocBU17hSLWEL5XhSK1aqFFbPAxPnodrH6TKLcDQ"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "queryString": [],
+          "cookies": [
+            {
+              "name": "gr_user_id",
+              "value": "b516cb3b-bc49-40a6-a82d-124432e81336",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "UM_distinctid",
+              "value": "16513a3fb476a-058466eec33194-10396f5d-13c680-16513a3fb48709",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "Tita_PC",
+              "value": "-UeCP-_IEMQjORcocBU17hSLWEL5XhSK1aqFFbPAxPnodrH6TKLcDQ",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            }
+          ],
+          "headersSize": 603,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Date",
+              "value": "Wed, 08 Aug 2018 08:56:28 GMT"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "private"
+            },
+            {
+              "name": "Server",
+              "value": "Microsoft-IIS/7.5"
+            },
+            {
+              "name": "X-AspNet-Version",
+              "value": "4.0.30319"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "ASP.NET"
+            },
+            {
+              "name": "Content-Length",
+              "value": "949"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 949,
+            "mimeType": "application/json",
+            "compression": 0,
+            "text": "{\r\n  \"Code\": 200,\r\n  \"Data\": [\r\n    {\r\n      \"TopicId\": \"f78f4e9a-f718-4bf2-84b3-9a413ec389e5\",\r\n      \"TopicName\": \"校园招聘\",\r\n      \"Order\": 7\r\n    },\r\n    {\r\n      \"TopicId\": \"70dc6526-a55d-470f-b525-8299e5049132\",\r\n      \"TopicName\": \"人才盘点\",\r\n      \"Order\": 6\r\n    },\r\n    {\r\n      \"TopicId\": \"54be128d-96d7-470f-b232-429d7bf289ce\",\r\n      \"TopicName\": \"能力建模\",\r\n      \"Order\": 5\r\n    },\r\n    {\r\n      \"TopicId\": \"56f6e39b-88cb-4337-b2ca-992e04302ba5\",\r\n      \"TopicName\": \"测评知识\",\r\n      \"Order\": 4\r\n    },\r\n    {\r\n      \"TopicId\": \"2ce34e3b-4c31-4eae-86de-729170aa85c8\",\r\n      \"TopicName\": \"成功故事\",\r\n      \"Order\": 3\r\n    },\r\n    {\r\n      \"TopicId\": \"fd735eac-2c7e-43af-92eb-ba59a61ec09f\",\r\n      \"TopicName\": \"顾问经验\",\r\n      \"Order\": 2\r\n    },\r\n    {\r\n      \"TopicId\": \"13a4e9ee-9167-4313-9fce-9dc6a613e621\",\r\n      \"TopicName\": \"北森专栏\",\r\n      \"Order\": 1\r\n    }\r\n  ],\r\n  \"Message\": null\r\n}"
+          },
+          "redirectURL": "",
+          "headersSize": 212,
+          "bodySize": 949,
+          "_transferSize": 1161
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 2.0322020000140184,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.05099999999999971,
+          "wait": 21.8460000096187,
+          "receive": 1.80899997940287,
+          "_blocked_queueing": 1.2020000140182674,
+          "_blocked_proxy": 0.2749999999999999
+        },
+        "serverIPAddress": "60.28.209.81",
+        "connection": "239159"
+      },
+      {
+        "startedDateTime": "2018-08-08T08:56:28.946Z",
+        "time": 457.0785480067716,
+        "request": {
+          "method": "GET",
+          "url": "http://cloud.italent.cn/AssessMRest/100000/AskLibiary/GetByTopicID?TopicID=00000000-0000-0000-0000-000000000000&From=0&Size=99",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate"
+            },
+            {
+              "name": "Host",
+              "value": "cloud.italent.cn"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "zh-CN,zh;q=0.9,en;q=0.8,fr;q=0.7"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "application/json, text/plain, */*"
+            },
+            {
+              "name": "Referer",
+              "value": "http://cloud.italent.cn/Assess/"
+            },
+            {
+              "name": "Cookie",
+              "value": "gr_user_id=b516cb3b-bc49-40a6-a82d-124432e81336; UM_distinctid=16513a3fb476a-058466eec33194-10396f5d-13c680-16513a3fb48709; Tita_PC=-UeCP-_IEMQjORcocBU17hSLWEL5XhSK1aqFFbPAxPnodrH6TKLcDQ"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "queryString": [
+            {
+              "name": "TopicID",
+              "value": "00000000-0000-0000-0000-000000000000"
+            },
+            {
+              "name": "From",
+              "value": "0"
+            },
+            {
+              "name": "Size",
+              "value": "99"
+            }
+          ],
+          "cookies": [
+            {
+              "name": "gr_user_id",
+              "value": "b516cb3b-bc49-40a6-a82d-124432e81336",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "UM_distinctid",
+              "value": "16513a3fb476a-058466eec33194-10396f5d-13c680-16513a3fb48709",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "Tita_PC",
+              "value": "-UeCP-_IEMQjORcocBU17hSLWEL5XhSK1aqFFbPAxPnodrH6TKLcDQ",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            }
+          ],
+          "headersSize": 664,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Date",
+              "value": "Wed, 08 Aug 2018 08:56:28 GMT"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "private"
+            },
+            {
+              "name": "Server",
+              "value": "Microsoft-IIS/7.5"
+            },
+            {
+              "name": "X-AspNet-Version",
+              "value": "4.0.30319"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "ASP.NET"
+            },
+            {
+              "name": "Content-Length",
+              "value": "66066"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 66066,
+            "mimeType": "application/json",
+            "compression": 0,
+            "text": "{\r\n  \"Code\": 200,\r\n  \"Data\": {\r\n    \"AskLibrarys\": [\r\n      {\r\n        \"AskLibraryId\": \"a43ded46-f7b3-484e-8b3d-a238ec7ead5b\",\r\n        \"AskLibraryTitle\": \"北森 2017-2018《中国房地产行业人才白皮书》\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/390baef8225b4e519eaf40a265ebed36.jpg\",\r\n        \"AskLibraryOrder\": 49,\r\n        \"AskLibraryIntroduction\": \"本报告从人才分布 、人才挑战 、人才要求 、人才画像几大视角，揭示当前地产行业人才特征与现状\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD1hNDNkZWQ0Ni1mN2IzLTQ4NGUtOGIzZC1hMjM4ZWM3ZWFkNWImZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"f78f4e9a-f718-4bf2-84b3-9a413ec389e5\",\r\n            \"TopicName\": \"校园招聘\",\r\n            \"Order\": 7\r\n          },\r\n          {\r\n            \"TopicId\": \"70dc6526-a55d-470f-b525-8299e5049132\",\r\n            \"TopicName\": \"人才盘点\",\r\n            \"Order\": 6\r\n          },\r\n          {\r\n            \"TopicId\": \"56f6e39b-88cb-4337-b2ca-992e04302ba5\",\r\n            \"TopicName\": \"测评知识\",\r\n            \"Order\": 4\r\n          },\r\n          {\r\n            \"TopicId\": \"fd735eac-2c7e-43af-92eb-ba59a61ec09f\",\r\n            \"TopicName\": \"顾问经验\",\r\n            \"Order\": 2\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD1hNDNkZWQ0Ni1mN2IzLTQ4NGUtOGIzZC1hMjM4ZWM3ZWFkNWI*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"5b08b5fa-78ee-4e86-9e8f-acedb8394cd4\",\r\n        \"AskLibraryTitle\": \"《北森2017-2018中国企业招聘指数（BRI）报告》\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/dc3846d7d1b64dd6a23b225f1dd199fa.jpg\",\r\n        \"AskLibraryOrder\": 48,\r\n        \"AskLibraryIntroduction\": \"北森2017-2018年度针对中国企业招聘的最新洞见\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD01YjA4YjVmYS03OGVlLTRlODYtOWU4Zi1hY2VkYjgzOTRjZDQmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"f78f4e9a-f718-4bf2-84b3-9a413ec389e5\",\r\n            \"TopicName\": \"校园招聘\",\r\n            \"Order\": 7\r\n          },\r\n          {\r\n            \"TopicId\": \"56f6e39b-88cb-4337-b2ca-992e04302ba5\",\r\n            \"TopicName\": \"测评知识\",\r\n            \"Order\": 4\r\n          },\r\n          {\r\n            \"TopicId\": \"fd735eac-2c7e-43af-92eb-ba59a61ec09f\",\r\n            \"TopicName\": \"顾问经验\",\r\n            \"Order\": 2\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD01YjA4YjVmYS03OGVlLTRlODYtOWU4Zi1hY2VkYjgzOTRjZDQ*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"2219dfaf-c824-4e39-8945-fe92b673397b\",\r\n        \"AskLibraryTitle\": \"TCL 校园招聘，精心打造雏鹰工程\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/57de8f1e373b4700b3ed423f2f506cce.jpg\",\r\n        \"AskLibraryOrder\": 47,\r\n        \"AskLibraryIntroduction\": \"TCL通过招聘测评一体化解决方案精准监控校招进程、合理降低校招成本，严格把控校招质量\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD0yMjE5ZGZhZi1jODI0LTRlMzktODk0NS1mZTkyYjY3MzM5N2ImZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"f78f4e9a-f718-4bf2-84b3-9a413ec389e5\",\r\n            \"TopicName\": \"校园招聘\",\r\n            \"Order\": 7\r\n          },\r\n          {\r\n            \"TopicId\": \"56f6e39b-88cb-4337-b2ca-992e04302ba5\",\r\n            \"TopicName\": \"测评知识\",\r\n            \"Order\": 4\r\n          },\r\n          {\r\n            \"TopicId\": \"2ce34e3b-4c31-4eae-86de-729170aa85c8\",\r\n            \"TopicName\": \"成功故事\",\r\n            \"Order\": 3\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD0yMjE5ZGZhZi1jODI0LTRlMzktODk0NS1mZTkyYjY3MzM5N2I*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"818da78b-58de-482a-b78a-788af92f9b95\",\r\n        \"AskLibraryTitle\": \"康姿百德330人招聘团队协作 树立企业雇主品牌\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/2eeb1b3cbdc745f8a1097375b61421f1.jpg\",\r\n        \"AskLibraryOrder\": 46,\r\n        \"AskLibraryIntroduction\": \"康姿百德引入测评和招聘系统等工具，实施管培生、西点商学院等项目，突破人才甄选、管理瓶颈\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD04MThkYTc4Yi01OGRlLTQ4MmEtYjc4YS03ODhhZjkyZjliOTUmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"f78f4e9a-f718-4bf2-84b3-9a413ec389e5\",\r\n            \"TopicName\": \"校园招聘\",\r\n            \"Order\": 7\r\n          },\r\n          {\r\n            \"TopicId\": \"56f6e39b-88cb-4337-b2ca-992e04302ba5\",\r\n            \"TopicName\": \"测评知识\",\r\n            \"Order\": 4\r\n          },\r\n          {\r\n            \"TopicId\": \"2ce34e3b-4c31-4eae-86de-729170aa85c8\",\r\n            \"TopicName\": \"成功故事\",\r\n            \"Order\": 3\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD04MThkYTc4Yi01OGRlLTQ4MmEtYjc4YS03ODhhZjkyZjliOTU*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"d5797f9b-fa1e-4014-806e-d0b40fe8951f\",\r\n        \"AskLibraryTitle\": \"寻找“蒙牛基因”的同路人\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/629b0a4b94b44045acbcef0630222d31.jpg\",\r\n        \"AskLibraryOrder\": 45,\r\n        \"AskLibraryIntroduction\": \"蒙牛在用人标准上植入“蒙牛基因”，成功开展了校招项目及内推项目，为企业招募、培养优秀人才\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD1kNTc5N2Y5Yi1mYTFlLTQwMTQtODA2ZS1kMGI0MGZlODk1MWYmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"f78f4e9a-f718-4bf2-84b3-9a413ec389e5\",\r\n            \"TopicName\": \"校园招聘\",\r\n            \"Order\": 7\r\n          },\r\n          {\r\n            \"TopicId\": \"70dc6526-a55d-470f-b525-8299e5049132\",\r\n            \"TopicName\": \"人才盘点\",\r\n            \"Order\": 6\r\n          },\r\n          {\r\n            \"TopicId\": \"56f6e39b-88cb-4337-b2ca-992e04302ba5\",\r\n            \"TopicName\": \"测评知识\",\r\n            \"Order\": 4\r\n          },\r\n          {\r\n            \"TopicId\": \"2ce34e3b-4c31-4eae-86de-729170aa85c8\",\r\n            \"TopicName\": \"成功故事\",\r\n            \"Order\": 3\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD1kNTc5N2Y5Yi1mYTFlLTQwMTQtODA2ZS1kMGI0MGZlODk1MWY*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"fa09dbe5-29b3-45df-9784-7d798623a416\",\r\n        \"AskLibraryTitle\": \"网易&quot;笑招天团&quot;花样百出，提前锁定秋招人才\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/571d014d7d0748d6854f80ee31411aba.jpg\",\r\n        \"AskLibraryOrder\": 44,\r\n        \"AskLibraryIntroduction\": \"网易“笑招天团”，赋能HR和面试官，利用多种评估方式和创意宣传模式，精准吸引和锁定校招人才\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD1mYTA5ZGJlNS0yOWIzLTQ1ZGYtOTc4NC03ZDc5ODYyM2E0MTYmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"f78f4e9a-f718-4bf2-84b3-9a413ec389e5\",\r\n            \"TopicName\": \"校园招聘\",\r\n            \"Order\": 7\r\n          },\r\n          {\r\n            \"TopicId\": \"56f6e39b-88cb-4337-b2ca-992e04302ba5\",\r\n            \"TopicName\": \"测评知识\",\r\n            \"Order\": 4\r\n          },\r\n          {\r\n            \"TopicId\": \"2ce34e3b-4c31-4eae-86de-729170aa85c8\",\r\n            \"TopicName\": \"成功故事\",\r\n            \"Order\": 3\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD1mYTA5ZGJlNS0yOWIzLTQ1ZGYtOTc4NC03ZDc5ODYyM2E0MTY*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"e0ddfbb2-307d-4112-a9bf-2ceea2da322f\",\r\n        \"AskLibraryTitle\": \"4年期间，滴滴出行如何做到10几人团队到5000多人的快速增长？\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/d5d13c7dd4c7410dac9f80d5b60d4e08.jpg\",\r\n        \"AskLibraryOrder\": 43,\r\n        \"AskLibraryIntroduction\": \"滴滴以one team one dream为理念，利用多种招聘策略，快速达成招聘平台建设及招聘任务\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD1lMGRkZmJiMi0zMDdkLTQxMTItYTliZi0yY2VlYTJkYTMyMmYmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"f78f4e9a-f718-4bf2-84b3-9a413ec389e5\",\r\n            \"TopicName\": \"校园招聘\",\r\n            \"Order\": 7\r\n          },\r\n          {\r\n            \"TopicId\": \"56f6e39b-88cb-4337-b2ca-992e04302ba5\",\r\n            \"TopicName\": \"测评知识\",\r\n            \"Order\": 4\r\n          },\r\n          {\r\n            \"TopicId\": \"2ce34e3b-4c31-4eae-86de-729170aa85c8\",\r\n            \"TopicName\": \"成功故事\",\r\n            \"Order\": 3\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD1lMGRkZmJiMi0zMDdkLTQxMTItYTliZi0yY2VlYTJkYTMyMmY*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"5691b487-fc1b-4b97-8b2d-2c8b5f00790b\",\r\n        \"AskLibraryTitle\": \"前海人寿3812人才工程\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/d3bc079df1df4ccf99d9755e50179320.jpg\",\r\n        \"AskLibraryOrder\": 42,\r\n        \"AskLibraryIntroduction\": \"前海人寿3812人才工程以人才测评为切入点，倾力甄选、培养和发展能力素质过硬的优秀管理干部\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD01NjkxYjQ4Ny1mYzFiLTRiOTctOGIyZC0yYzhiNWYwMDc5MGImZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"56f6e39b-88cb-4337-b2ca-992e04302ba5\",\r\n            \"TopicName\": \"测评知识\",\r\n            \"Order\": 4\r\n          },\r\n          {\r\n            \"TopicId\": \"2ce34e3b-4c31-4eae-86de-729170aa85c8\",\r\n            \"TopicName\": \"成功故事\",\r\n            \"Order\": 3\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD01NjkxYjQ4Ny1mYzFiLTRiOTctOGIyZC0yYzhiNWYwMDc5MGI*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"3660a376-2a87-40c7-adac-e8db8eef12ba\",\r\n        \"AskLibraryTitle\": \"京东核心管理者轮岗项目\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/b5df25fa749546aa9abe4b0070b6e488.jpg\",\r\n        \"AskLibraryOrder\": 41,\r\n        \"AskLibraryIntroduction\": \"京东依托360测评工具，对人才进行能力诊断、能力聚焦和效果验证，确保人才轮岗计划有效落地\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD0zNjYwYTM3Ni0yYTg3LTQwYzctYWRhYy1lOGRiOGVlZjEyYmEmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"56f6e39b-88cb-4337-b2ca-992e04302ba5\",\r\n            \"TopicName\": \"测评知识\",\r\n            \"Order\": 4\r\n          },\r\n          {\r\n            \"TopicId\": \"2ce34e3b-4c31-4eae-86de-729170aa85c8\",\r\n            \"TopicName\": \"成功故事\",\r\n            \"Order\": 3\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD0zNjYwYTM3Ni0yYTg3LTQwYzctYWRhYy1lOGRiOGVlZjEyYmE*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"481c2fdd-5017-4817-9be0-fbdfc1f43b73\",\r\n        \"AskLibraryTitle\": \"中国电信：“小CEO”点燃国企深化改革中的新活力\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/93431d560ce84489bd9b27fe351a4029.jpg\",\r\n        \"AskLibraryOrder\": 40,\r\n        \"AskLibraryIntroduction\": \"电信学院启动“小CEO”人才培养三年规划，承接中国电信“划小承包”和“倒三角支撑”基础业务改革\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD00ODFjMmZkZC01MDE3LTQ4MTctOWJlMC1mYmRmYzFmNDNiNzMmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"54be128d-96d7-470f-b232-429d7bf289ce\",\r\n            \"TopicName\": \"能力建模\",\r\n            \"Order\": 5\r\n          },\r\n          {\r\n            \"TopicId\": \"56f6e39b-88cb-4337-b2ca-992e04302ba5\",\r\n            \"TopicName\": \"测评知识\",\r\n            \"Order\": 4\r\n          },\r\n          {\r\n            \"TopicId\": \"2ce34e3b-4c31-4eae-86de-729170aa85c8\",\r\n            \"TopicName\": \"成功故事\",\r\n            \"Order\": 3\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD00ODFjMmZkZC01MDE3LTQ4MTctOWJlMC1mYmRmYzFmNDNiNzM*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"3de6ca33-d209-497d-8e44-0e86de1d9305\",\r\n        \"AskLibraryTitle\": \"携程如何选拔、培养、成就符合“程里人”特色的人才\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/fbcd03c4a9784b1686eb7983172ab88d.jpg\",\r\n        \"AskLibraryOrder\": 39,\r\n        \"AskLibraryIntroduction\": \"携程借助招聘管理系统、测评工具技术及人才管理技术选拔、培养、成就符合“程里人”特色的人才\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD0zZGU2Y2EzMy1kMjA5LTQ5N2QtOGU0NC0wZTg2ZGUxZDkzMDUmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"f78f4e9a-f718-4bf2-84b3-9a413ec389e5\",\r\n            \"TopicName\": \"校园招聘\",\r\n            \"Order\": 7\r\n          },\r\n          {\r\n            \"TopicId\": \"2ce34e3b-4c31-4eae-86de-729170aa85c8\",\r\n            \"TopicName\": \"成功故事\",\r\n            \"Order\": 3\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD0zZGU2Y2EzMy1kMjA5LTQ5N2QtOGU0NC0wZTg2ZGUxZDkzMDU*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"afb30e6b-0ff4-425b-ad67-e0ec61d6f48d\",\r\n        \"AskLibraryTitle\": \"雏鹰计划——三一集团的不拘一格降人才\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/71907c0ed4b74635973e147e0d74aae8.jpg\",\r\n        \"AskLibraryOrder\": 38,\r\n        \"AskLibraryIntroduction\": \"三一集团启动“雏鹰计划”，为转型升级和国际化战略的落地输送优秀的人才\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD1hZmIzMGU2Yi0wZmY0LTQyNWItYWQ2Ny1lMGVjNjFkNmY0OGQmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"70dc6526-a55d-470f-b525-8299e5049132\",\r\n            \"TopicName\": \"人才盘点\",\r\n            \"Order\": 6\r\n          },\r\n          {\r\n            \"TopicId\": \"2ce34e3b-4c31-4eae-86de-729170aa85c8\",\r\n            \"TopicName\": \"成功故事\",\r\n            \"Order\": 3\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD1hZmIzMGU2Yi0wZmY0LTQyNWItYWQ2Ny1lMGVjNjFkNmY0OGQ*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"14477732-a382-48d1-8f51-ef96e8ea9cde\",\r\n        \"AskLibraryTitle\": \"东风日产倚靠幸福——高效人才战略驱动人才管理\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/2846a8342cef4b9fae7d8b94be74b72f.jpg\",\r\n        \"AskLibraryOrder\": 37,\r\n        \"AskLibraryIntroduction\": \"东风日产联合北森，开展新员工培养及发展项目，打造高效幸福员工团队\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD0xNDQ3NzczMi1hMzgyLTQ4ZDEtOGY1MS1lZjk2ZThlYTljZGUmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"70dc6526-a55d-470f-b525-8299e5049132\",\r\n            \"TopicName\": \"人才盘点\",\r\n            \"Order\": 6\r\n          },\r\n          {\r\n            \"TopicId\": \"2ce34e3b-4c31-4eae-86de-729170aa85c8\",\r\n            \"TopicName\": \"成功故事\",\r\n            \"Order\": 3\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD0xNDQ3NzczMi1hMzgyLTQ4ZDEtOGY1MS1lZjk2ZThlYTljZGU*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"c64d402a-cb86-4f25-8c7a-d48cf88f744c\",\r\n        \"AskLibraryTitle\": \"战略转型下的阳光城组织变革策略\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/bf896a0f7b89409dbff6bbcdadffbb2f.jpg\",\r\n        \"AskLibraryOrder\": 36,\r\n        \"AskLibraryIntroduction\": \"阳光城以“大公司，小组织，微团队”引领组织变革，应对高速发展、体量增加、产业多元化等挑战\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD1jNjRkNDAyYS1jYjg2LTRmMjUtOGM3YS1kNDhjZjg4Zjc0NGMmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"70dc6526-a55d-470f-b525-8299e5049132\",\r\n            \"TopicName\": \"人才盘点\",\r\n            \"Order\": 6\r\n          },\r\n          {\r\n            \"TopicId\": \"2ce34e3b-4c31-4eae-86de-729170aa85c8\",\r\n            \"TopicName\": \"成功故事\",\r\n            \"Order\": 3\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD1jNjRkNDAyYS1jYjg2LTRmMjUtOGM3YS1kNDhjZjg4Zjc0NGM*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"7cbd08ce-933b-4635-9837-47b3023c6bdc\",\r\n        \"AskLibraryTitle\": \"人才盘点优化创新 助力上海家化转型发展\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/dfd30d9a7c114c1db9969b67fe62f010.jpg\",\r\n        \"AskLibraryOrder\": 35,\r\n        \"AskLibraryIntroduction\": \"人才盘点项目是上海家化落实人才发展战略的重要举措，旨在对组织和人才进行系统的管理\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD03Y2JkMDhjZS05MzNiLTQ2MzUtOTgzNy00N2IzMDIzYzZiZGMmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"70dc6526-a55d-470f-b525-8299e5049132\",\r\n            \"TopicName\": \"人才盘点\",\r\n            \"Order\": 6\r\n          },\r\n          {\r\n            \"TopicId\": \"2ce34e3b-4c31-4eae-86de-729170aa85c8\",\r\n            \"TopicName\": \"成功故事\",\r\n            \"Order\": 3\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD03Y2JkMDhjZS05MzNiLTQ2MzUtOTgzNy00N2IzMDIzYzZiZGM*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"986e3b1c-a6a6-40f7-833d-0e0d5ce51e8f\",\r\n        \"AskLibraryTitle\": \"2017北森建筑地产行业社会招聘报告\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/33c6b9d58009491480609601fb864f67.jpg\",\r\n        \"AskLibraryOrder\": 34,\r\n        \"AskLibraryIntroduction\": \"建筑行业的候选人竞争非常激烈，意味着企业需要更加关注如何甄选出更适合企业的候选人\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD05ODZlM2IxYy1hNmE2LTQwZjctODMzZC0wZTBkNWNlNTFlOGYmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"fd735eac-2c7e-43af-92eb-ba59a61ec09f\",\r\n            \"TopicName\": \"顾问经验\",\r\n            \"Order\": 2\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD05ODZlM2IxYy1hNmE2LTQwZjctODMzZC0wZTBkNWNlNTFlOGY*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"754e3ed5-d0da-4a15-bec5-776d36be42b3\",\r\n        \"AskLibraryTitle\": \"2017年度校园招聘数据分析报告\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/f240bf6fd16144e4b98cdb972d7abde7.jpg\",\r\n        \"AskLibraryOrder\": 33,\r\n        \"AskLibraryIntroduction\": \"北森校园招聘报告新鲜出炉，看大数据分析如何帮您了解一个真实的校招季\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD03NTRlM2VkNS1kMGRhLTRhMTUtYmVjNS03NzZkMzZiZTQyYjMmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"f78f4e9a-f718-4bf2-84b3-9a413ec389e5\",\r\n            \"TopicName\": \"校园招聘\",\r\n            \"Order\": 7\r\n          },\r\n          {\r\n            \"TopicId\": \"fd735eac-2c7e-43af-92eb-ba59a61ec09f\",\r\n            \"TopicName\": \"顾问经验\",\r\n            \"Order\": 2\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD03NTRlM2VkNS1kMGRhLTRhMTUtYmVjNS03NzZkMzZiZTQyYjM*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"8ac3a77d-04f2-42c0-aab7-24ee95797a88\",\r\n        \"AskLibraryTitle\": \"天津航空转型时期的人才盘点\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/cb3d9a59f2b94e3f86875722cbd6f1aa.jpg\",\r\n        \"AskLibraryOrder\": 32,\r\n        \"AskLibraryIntroduction\": \"天津航空全面、系统地规划人才梯队建设，完善人才养成机制，为成功转型提供人才支持\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD04YWMzYTc3ZC0wNGYyLTQyYzAtYWFiNy0yNGVlOTU3OTdhODgmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"70dc6526-a55d-470f-b525-8299e5049132\",\r\n            \"TopicName\": \"人才盘点\",\r\n            \"Order\": 6\r\n          },\r\n          {\r\n            \"TopicId\": \"2ce34e3b-4c31-4eae-86de-729170aa85c8\",\r\n            \"TopicName\": \"成功故事\",\r\n            \"Order\": 3\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD04YWMzYTc3ZC0wNGYyLTQyYzAtYWFiNy0yNGVlOTU3OTdhODg*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"56f719dc-83ba-47f1-ab0a-be25ccb2687d\",\r\n        \"AskLibraryTitle\": \"恒丰银行人才盘点项目：打造新时代下的精品银行\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/f6fb67ba10554b298487eea7f4a7bac5.JPEG\",\r\n        \"AskLibraryOrder\": 31,\r\n        \"AskLibraryIntroduction\": \"恒丰银行认为要持续推进战略落地，首先要打造一支召之即来、来之能战、战则能胜的人才队伍\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD01NmY3MTlkYy04M2JhLTQ3ZjEtYWIwYS1iZTI1Y2NiMjY4N2QmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"70dc6526-a55d-470f-b525-8299e5049132\",\r\n            \"TopicName\": \"人才盘点\",\r\n            \"Order\": 6\r\n          },\r\n          {\r\n            \"TopicId\": \"2ce34e3b-4c31-4eae-86de-729170aa85c8\",\r\n            \"TopicName\": \"成功故事\",\r\n            \"Order\": 3\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD01NmY3MTlkYy04M2JhLTQ3ZjEtYWIwYS1iZTI1Y2NiMjY4N2Q*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"d2946a2b-cfd2-4e18-bcf5-6095990af891\",\r\n        \"AskLibraryTitle\": \"校园招聘决策前，HR要知道这些关键性数据！\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/6fcbb647974043ca9e4c8ecb245a9288.jpg\",\r\n        \"AskLibraryOrder\": 30,\r\n        \"AskLibraryIntroduction\": \"大数据分析前置，以便尽早对校园招聘过程进行干预，提升校园招聘效率\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD1kMjk0NmEyYi1jZmQyLTRlMTgtYmNmNS02MDk1OTkwYWY4OTEmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"f78f4e9a-f718-4bf2-84b3-9a413ec389e5\",\r\n            \"TopicName\": \"校园招聘\",\r\n            \"Order\": 7\r\n          },\r\n          {\r\n            \"TopicId\": \"fd735eac-2c7e-43af-92eb-ba59a61ec09f\",\r\n            \"TopicName\": \"顾问经验\",\r\n            \"Order\": 2\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD1kMjk0NmEyYi1jZmQyLTRlMTgtYmNmNS02MDk1OTkwYWY4OTE*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"0b782a90-2ced-4f57-91d9-e463f8438483\",\r\n        \"AskLibraryTitle\": \"60万校招生的胜任力素质的大数据分析\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/e00de085281246e7b82bf73b98c56488.jpeg\",\r\n        \"AskLibraryOrder\": 29,\r\n        \"AskLibraryIntroduction\": \"全球化经济时代，校园招聘大数据能够精锁定人才，助力企业校园招聘效益最大化\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD0wYjc4MmE5MC0yY2VkLTRmNTctOTFkOS1lNDYzZjg0Mzg0ODMmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"f78f4e9a-f718-4bf2-84b3-9a413ec389e5\",\r\n            \"TopicName\": \"校园招聘\",\r\n            \"Order\": 7\r\n          },\r\n          {\r\n            \"TopicId\": \"fd735eac-2c7e-43af-92eb-ba59a61ec09f\",\r\n            \"TopicName\": \"顾问经验\",\r\n            \"Order\": 2\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD0wYjc4MmE5MC0yY2VkLTRmNTctOTFkOS1lNDYzZjg0Mzg0ODM*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"43bbf8d1-e1d1-49b9-adeb-16e9ac9655ed\",\r\n        \"AskLibraryTitle\": \"如何敏捷定义“人才标准”\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/a152edb62aa744108a1b69ee349dc616.jpg\",\r\n        \"AskLibraryOrder\": 28,\r\n        \"AskLibraryIntroduction\": \"把定义人才和后续的评估人才、发展人才等流程有机整合是敏捷建模最重要的目标\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD00M2JiZjhkMS1lMWQxLTQ5YjktYWRlYi0xNmU5YWM5NjU1ZWQmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"54be128d-96d7-470f-b232-429d7bf289ce\",\r\n            \"TopicName\": \"能力建模\",\r\n            \"Order\": 5\r\n          },\r\n          {\r\n            \"TopicId\": \"13a4e9ee-9167-4313-9fce-9dc6a613e621\",\r\n            \"TopicName\": \"北森专栏\",\r\n            \"Order\": 1\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD00M2JiZjhkMS1lMWQxLTQ5YjktYWRlYi0xNmU5YWM5NjU1ZWQ*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"92c25ca1-d7b6-463f-9514-3fb7c4ca2c9d\",\r\n        \"AskLibraryTitle\": \"你的建模为什么敏捷不起来？\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/bda6e512536f43ea884d0d9cff08aa90.jpg\",\r\n        \"AskLibraryOrder\": 27,\r\n        \"AskLibraryIntroduction\": \"建模“敏捷”不起来的原因，往往是因为我们对能力模型产出的期望过于复杂\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD05MmMyNWNhMS1kN2I2LTQ2M2YtOTUxNC0zZmI3YzRjYTJjOWQmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"54be128d-96d7-470f-b232-429d7bf289ce\",\r\n            \"TopicName\": \"能力建模\",\r\n            \"Order\": 5\r\n          },\r\n          {\r\n            \"TopicId\": \"13a4e9ee-9167-4313-9fce-9dc6a613e621\",\r\n            \"TopicName\": \"北森专栏\",\r\n            \"Order\": 1\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD05MmMyNWNhMS1kN2I2LTQ2M2YtOTUxNC0zZmI3YzRjYTJjOWQ*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"b54510c3-4167-4ada-9a98-3e1bdccd2b3c\",\r\n        \"AskLibraryTitle\": \"敏捷建模成为“大势所趋”\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/c22f6af30af24a64bc45936eaf68531b.jpg\",\r\n        \"AskLibraryOrder\": 26,\r\n        \"AskLibraryIntroduction\": \"如今，“敏捷”已成为人才管理的常态，传统建模方法的局限性越来越明显，敏捷建模成为大势所趋\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD1iNTQ1MTBjMy00MTY3LTRhZGEtOWE5OC0zZTFiZGNjZDJiM2MmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"54be128d-96d7-470f-b232-429d7bf289ce\",\r\n            \"TopicName\": \"能力建模\",\r\n            \"Order\": 5\r\n          },\r\n          {\r\n            \"TopicId\": \"13a4e9ee-9167-4313-9fce-9dc6a613e621\",\r\n            \"TopicName\": \"北森专栏\",\r\n            \"Order\": 1\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD1iNTQ1MTBjMy00MTY3LTRhZGEtOWE5OC0zZTFiZGNjZDJiM2M*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"551d366d-3f20-4038-afb7-0ee48bcce254\",\r\n        \"AskLibraryTitle\": \"人才盘点新趋势分析\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/88c7491b386c46a6abb7aa29abde7531.png\",\r\n        \"AskLibraryOrder\": 25,\r\n        \"AskLibraryIntroduction\": \"快速变革期，所有组织和人都在激流中面临新的考验，人才盘点的新趋势将助力组织持续成功\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD01NTFkMzY2ZC0zZjIwLTQwMzgtYWZiNy0wZWU0OGJjY2UyNTQmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"70dc6526-a55d-470f-b525-8299e5049132\",\r\n            \"TopicName\": \"人才盘点\",\r\n            \"Order\": 6\r\n          },\r\n          {\r\n            \"TopicId\": \"fd735eac-2c7e-43af-92eb-ba59a61ec09f\",\r\n            \"TopicName\": \"顾问经验\",\r\n            \"Order\": 2\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD01NTFkMzY2ZC0zZjIwLTQwMzgtYWZiNy0wZWU0OGJjY2UyNTQ*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"0e7feab0-44b8-4c03-b747-cec77af4a0f0\",\r\n        \"AskLibraryTitle\": \"碧业生——碧桂园未来事业发展的生力军\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/ab90ebdb36e048bfa6407194d6f2cbe1.jpeg\",\r\n        \"AskLibraryOrder\": 24,\r\n        \"AskLibraryIntroduction\": \"碧桂园坚信企业竞争归根结底是人才的竞争，持续致力打造人才发展平台\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD0wZTdmZWFiMC00NGI4LTRjMDMtYjc0Ny1jZWM3N2FmNGEwZjAmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"70dc6526-a55d-470f-b525-8299e5049132\",\r\n            \"TopicName\": \"人才盘点\",\r\n            \"Order\": 6\r\n          },\r\n          {\r\n            \"TopicId\": \"2ce34e3b-4c31-4eae-86de-729170aa85c8\",\r\n            \"TopicName\": \"成功故事\",\r\n            \"Order\": 3\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD0wZTdmZWFiMC00NGI4LTRjMDMtYjc0Ny1jZWM3N2FmNGEwZjA*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"77b3b8cc-156d-4175-9cb6-8453419aaf8f\",\r\n        \"AskLibraryTitle\": \"太平洋保险：数据驱动人才盘点，助力公司战略转型\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/6eef2661003c466583af801ddab1354e.png\",\r\n        \"AskLibraryOrder\": 23,\r\n        \"AskLibraryIntroduction\": \"太平洋保险以“智信仁勇严”为核心理念的人才管理实践，构建数据可视化的“人才账簿”\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD03N2IzYjhjYy0xNTZkLTQxNzUtOWNiNi04NDUzNDE5YWFmOGYmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"70dc6526-a55d-470f-b525-8299e5049132\",\r\n            \"TopicName\": \"人才盘点\",\r\n            \"Order\": 6\r\n          },\r\n          {\r\n            \"TopicId\": \"2ce34e3b-4c31-4eae-86de-729170aa85c8\",\r\n            \"TopicName\": \"成功故事\",\r\n            \"Order\": 3\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD03N2IzYjhjYy0xNTZkLTQxNzUtOWNiNi04NDUzNDE5YWFmOGY*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"22257fd3-91d1-43d0-8194-b11ff0f1583e\",\r\n        \"AskLibraryTitle\": \"行业人才研究之新零售店长模型\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/cf09cdd515a54c26ba0f08c6e26bfdae.jpg\",\r\n        \"AskLibraryOrder\": 22,\r\n        \"AskLibraryIntroduction\": \"新零售聚焦线上线下的深度融合，带动实体店店长能力素质全面转型升级\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD0yMjI1N2ZkMy05MWQxLTQzZDAtODE5NC1iMTFmZjBmMTU4M2UmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"54be128d-96d7-470f-b232-429d7bf289ce\",\r\n            \"TopicName\": \"能力建模\",\r\n            \"Order\": 5\r\n          },\r\n          {\r\n            \"TopicId\": \"56f6e39b-88cb-4337-b2ca-992e04302ba5\",\r\n            \"TopicName\": \"测评知识\",\r\n            \"Order\": 4\r\n          },\r\n          {\r\n            \"TopicId\": \"fd735eac-2c7e-43af-92eb-ba59a61ec09f\",\r\n            \"TopicName\": \"顾问经验\",\r\n            \"Order\": 2\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD0yMjI1N2ZkMy05MWQxLTQzZDAtODE5NC1iMTFmZjBmMTU4M2U*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"0c9793b9-5e83-495c-9c03-757e72c03882\",\r\n        \"AskLibraryTitle\": \"途牛：建立岗位素质模型，突破招聘困局\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/d39741b83d0645df8bb23d5b9c61680f.jpg\",\r\n        \"AskLibraryOrder\": 21,\r\n        \"AskLibraryIntroduction\": \"途牛人力资源部门精益求精，用科学、有效的招聘手段保证旅游顾问人员持续高质量的供应\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD0wYzk3OTNiOS01ZTgzLTQ5NWMtOWMwMy03NTdlNzJjMDM4ODImZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"f78f4e9a-f718-4bf2-84b3-9a413ec389e5\",\r\n            \"TopicName\": \"校园招聘\",\r\n            \"Order\": 7\r\n          },\r\n          {\r\n            \"TopicId\": \"54be128d-96d7-470f-b232-429d7bf289ce\",\r\n            \"TopicName\": \"能力建模\",\r\n            \"Order\": 5\r\n          },\r\n          {\r\n            \"TopicId\": \"2ce34e3b-4c31-4eae-86de-729170aa85c8\",\r\n            \"TopicName\": \"成功故事\",\r\n            \"Order\": 3\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD0wYzk3OTNiOS01ZTgzLTQ5NWMtOWMwMy03NTdlNzJjMDM4ODI*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"3b606198-6dfe-4642-9406-6c6ca4eb872f\",\r\n        \"AskLibraryTitle\": \"德邦：物畅其流，人尽其才\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/3390d5a6cdf74fb6b7c4edc7db4693b8.jpg\",\r\n        \"AskLibraryOrder\": 20,\r\n        \"AskLibraryIntroduction\": \"面对物流行业的巨变期，招聘与人才甄选成为德邦物流的人力资源管理活动中最重要的环节\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD0zYjYwNjE5OC02ZGZlLTQ2NDItOTQwNi02YzZjYTRlYjg3MmYmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"f78f4e9a-f718-4bf2-84b3-9a413ec389e5\",\r\n            \"TopicName\": \"校园招聘\",\r\n            \"Order\": 7\r\n          },\r\n          {\r\n            \"TopicId\": \"2ce34e3b-4c31-4eae-86de-729170aa85c8\",\r\n            \"TopicName\": \"成功故事\",\r\n            \"Order\": 3\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD0zYjYwNjE5OC02ZGZlLTQ2NDItOTQwNi02YzZjYTRlYjg3MmY*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"ca80c99b-6fa4-41fd-8379-f4da236c939d\",\r\n        \"AskLibraryTitle\": \"雅居乐—人才管理体系构建详解\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/03f74b94f8ce45329c0294dd3d2b2184.png\",\r\n        \"AskLibraryOrder\": 19,\r\n        \"AskLibraryIntroduction\": \"雅居乐以人才盘点为契机，成功打破人员晋升、调薪、高管培养及人才梯队优化的联动壁垒\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD1jYTgwYzk5Yi02ZmE0LTQxZmQtODM3OS1mNGRhMjM2YzkzOWQmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"70dc6526-a55d-470f-b525-8299e5049132\",\r\n            \"TopicName\": \"人才盘点\",\r\n            \"Order\": 6\r\n          },\r\n          {\r\n            \"TopicId\": \"2ce34e3b-4c31-4eae-86de-729170aa85c8\",\r\n            \"TopicName\": \"成功故事\",\r\n            \"Order\": 3\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD1jYTgwYzk5Yi02ZmE0LTQxZmQtODM3OS1mNGRhMjM2YzkzOWQ*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"227f7b08-e837-46e2-8b6d-5abeaf9efb9f\",\r\n        \"AskLibraryTitle\": \"人才招聘趋势分析\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/7cacd3890ed6465e97b54b9cba8358ac.jpg\",\r\n        \"AskLibraryOrder\": 18,\r\n        \"AskLibraryIntroduction\": \"企业只有借助趋势认清短板和威胁，及时调整招聘战略，才能在激烈的人才竞争中获取优势地位\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD0yMjdmN2IwOC1lODM3LTQ2ZTItOGI2ZC01YWJlYWY5ZWZiOWYmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"f78f4e9a-f718-4bf2-84b3-9a413ec389e5\",\r\n            \"TopicName\": \"校园招聘\",\r\n            \"Order\": 7\r\n          },\r\n          {\r\n            \"TopicId\": \"70dc6526-a55d-470f-b525-8299e5049132\",\r\n            \"TopicName\": \"人才盘点\",\r\n            \"Order\": 6\r\n          },\r\n          {\r\n            \"TopicId\": \"fd735eac-2c7e-43af-92eb-ba59a61ec09f\",\r\n            \"TopicName\": \"顾问经验\",\r\n            \"Order\": 2\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD0yMjdmN2IwOC1lODM3LTQ2ZTItOGI2ZC01YWJlYWY5ZWZiOWY*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"95cdf398-2ccd-47ab-9020-1528f2ef1ae8\",\r\n        \"AskLibraryTitle\": \"华为不相信360度评估？你得信！\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/da9a3f4f48244949a83f2c38825853d9.jpg\",\r\n        \"AskLibraryOrder\": 17,\r\n        \"AskLibraryIntroduction\": \"360最理想的做法是为组织中的不同角色定义胜任力模型，在360中使用高度行为化的描述\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD05NWNkZjM5OC0yY2NkLTQ3YWItOTAyMC0xNTI4ZjJlZjFhZTgmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"56f6e39b-88cb-4337-b2ca-992e04302ba5\",\r\n            \"TopicName\": \"测评知识\",\r\n            \"Order\": 4\r\n          },\r\n          {\r\n            \"TopicId\": \"fd735eac-2c7e-43af-92eb-ba59a61ec09f\",\r\n            \"TopicName\": \"顾问经验\",\r\n            \"Order\": 2\r\n          },\r\n          {\r\n            \"TopicId\": \"13a4e9ee-9167-4313-9fce-9dc6a613e621\",\r\n            \"TopicName\": \"北森专栏\",\r\n            \"Order\": 1\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD05NWNkZjM5OC0yY2NkLTQ3YWItOTAyMC0xNTI4ZjJlZjFhZTg*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"31b4e60e-7a6d-4259-9012-a2534d4c68b3\",\r\n        \"AskLibraryTitle\": \"集团化企业怎么做招聘，才能支撑战略发展\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/47567f7f74974a648f265d0479b91feb.jpg\",\r\n        \"AskLibraryOrder\": 16,\r\n        \"AskLibraryIntroduction\": \"因新业务的涉足和原有业务的转型升级而带来的人才诉求，成为企业人力资源工作的重中之重\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD0zMWI0ZTYwZS03YTZkLTQyNTktOTAxMi1hMjUzNGQ0YzY4YjMmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"f78f4e9a-f718-4bf2-84b3-9a413ec389e5\",\r\n            \"TopicName\": \"校园招聘\",\r\n            \"Order\": 7\r\n          },\r\n          {\r\n            \"TopicId\": \"70dc6526-a55d-470f-b525-8299e5049132\",\r\n            \"TopicName\": \"人才盘点\",\r\n            \"Order\": 6\r\n          },\r\n          {\r\n            \"TopicId\": \"fd735eac-2c7e-43af-92eb-ba59a61ec09f\",\r\n            \"TopicName\": \"顾问经验\",\r\n            \"Order\": 2\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD0zMWI0ZTYwZS03YTZkLTQyNTktOTAxMi1hMjUzNGQ0YzY4YjM*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"13c4b514-4488-4689-91e4-2ec844176737\",\r\n        \"AskLibraryTitle\": \"工作价值观测验\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/d686305bbd0940cdacd318f84bc78b46.png\",\r\n        \"AskLibraryOrder\": 15,\r\n        \"AskLibraryIntroduction\": \"识别员工深层次的内心需求，辅助企业更好地招聘、激励和保留人才\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD0xM2M0YjUxNC00NDg4LTQ2ODktOTFlNC0yZWM4NDQxNzY3MzcmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"56f6e39b-88cb-4337-b2ca-992e04302ba5\",\r\n            \"TopicName\": \"测评知识\",\r\n            \"Order\": 4\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD0xM2M0YjUxNC00NDg4LTQ2ODktOTFlNC0yZWM4NDQxNzY3Mzc*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"050e6303-1da5-4991-b73f-91a00fef3327\",\r\n        \"AskLibraryTitle\": \"知识型员工心理风险因素评估测验\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/ed4935fcbbae41e08556ff54eb3882c3.png\",\r\n        \"AskLibraryOrder\": 14,\r\n        \"AskLibraryIntroduction\": \"通过考察行为层面的特征判断候选人是否具有相应的情绪和人格问题倾向\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD0wNTBlNjMwMy0xZGE1LTQ5OTEtYjczZi05MWEwMGZlZjMzMjcmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"56f6e39b-88cb-4337-b2ca-992e04302ba5\",\r\n            \"TopicName\": \"测评知识\",\r\n            \"Order\": 4\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD0wNTBlNjMwMy0xZGE1LTQ5OTEtYjczZi05MWEwMGZlZjMzMjc*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"1f09388a-ae39-4450-afc1-bfcc90efc4c3\",\r\n        \"AskLibraryTitle\": \"能力倾向计算机自适应测验 (CATA)\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/90f7a83aa4ce4821863604a09cdea68a.png\",\r\n        \"AskLibraryOrder\": 13,\r\n        \"AskLibraryIntroduction\": \"采用心理测量学的尖端技术，考察候选人的认知能力，帮助企业了解候选人的发展潜力\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD0xZjA5Mzg4YS1hZTM5LTQ0NTAtYWZjMS1iZmNjOTBlZmM0YzMmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"56f6e39b-88cb-4337-b2ca-992e04302ba5\",\r\n            \"TopicName\": \"测评知识\",\r\n            \"Order\": 4\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD0xZjA5Mzg4YS1hZTM5LTQ0NTAtYWZjMS1iZmNjOTBlZmM0YzM*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"0cf24c98-fa56-42c7-a806-1b973a2c2164\",\r\n        \"AskLibraryTitle\": \"校园招聘通用测验V6\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/a23463f31a5c422fafa5c46d71ad4f3a.png\",\r\n        \"AskLibraryOrder\": 12,\r\n        \"AskLibraryIntroduction\": \"考察候选人与招聘岗位的匹配度，帮助企业深入地了解候选人，为选拔提供依据\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD0wY2YyNGM5OC1mYTU2LTQyYzctYTgwNi0xYjk3M2EyYzIxNjQmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"56f6e39b-88cb-4337-b2ca-992e04302ba5\",\r\n            \"TopicName\": \"测评知识\",\r\n            \"Order\": 4\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD0wY2YyNGM5OC1mYTU2LTQyYzctYTgwNi0xYjk3M2EyYzIxNjQ*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"90c6082d-1a7d-4fc3-ba5a-59b9f088a479\",\r\n        \"AskLibraryTitle\": \"领导力评估测验\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/e785a0961807454c9cb2c0efaf0712c5.png\",\r\n        \"AskLibraryOrder\": 11,\r\n        \"AskLibraryIntroduction\": \"对高层管理者的深层次的行为特征进行测量的评估工具\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD05MGM2MDgyZC0xYTdkLTRmYzMtYmE1YS01OWI5ZjA4OGE0NzkmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"56f6e39b-88cb-4337-b2ca-992e04302ba5\",\r\n            \"TopicName\": \"测评知识\",\r\n            \"Order\": 4\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD05MGM2MDgyZC0xYTdkLTRmYzMtYmE1YS01OWI5ZjA4OGE0Nzk*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"18304eaf-9e38-4421-afe6-70901b8ef29f\",\r\n        \"AskLibraryTitle\": \"职业锚测验\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/403cb085ee45468483d5ae2c18fdd2e9.PNG\",\r\n        \"AskLibraryOrder\": 10,\r\n        \"AskLibraryIntroduction\": \"考察个体对职业目标的追求，为与组织价值观匹配、员工激励保留提供重要的参考依据\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD0xODMwNGVhZi05ZTM4LTQ0MjEtYWZlNi03MDkwMWI4ZWYyOWYmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"56f6e39b-88cb-4337-b2ca-992e04302ba5\",\r\n            \"TopicName\": \"测评知识\",\r\n            \"Order\": 4\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD0xODMwNGVhZi05ZTM4LTQ0MjEtYWZlNi03MDkwMWI4ZWYyOWY*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"beffd46b-f763-4cfe-8f29-8b4a20cd22d3\",\r\n        \"AskLibraryTitle\": \"偏离因素测验\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/989ee0c9e1ae49fb8423e513fa2ed7b0.PNG\",\r\n        \"AskLibraryOrder\": 9,\r\n        \"AskLibraryIntroduction\": \"考察管理者在压力情境下表现出来的绩效降低、阻碍组织发展的个性特征和情绪问题\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD1iZWZmZDQ2Yi1mNzYzLTRjZmUtOGYyOS04YjRhMjBjZDIyZDMmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"56f6e39b-88cb-4337-b2ca-992e04302ba5\",\r\n            \"TopicName\": \"测评知识\",\r\n            \"Order\": 4\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD1iZWZmZDQ2Yi1mNzYzLTRjZmUtOGYyOS04YjRhMjBjZDIyZDM*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"5a2aa236-7b5e-4ad7-b218-ebd1a7bfc500\",\r\n        \"AskLibraryTitle\": \"管理个性测验\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/a3e2d7648c3c401f9a75bfda7ca1c79d.png\",\r\n        \"AskLibraryOrder\": 8,\r\n        \"AskLibraryIntroduction\": \"覆盖了与管理行为个性特征，其结果可应用于人员选拔、团队搭配、高潜识别等多种场景中\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD01YTJhYTIzNi03YjVlLTRhZDctYjIxOC1lYmQxYTdiZmM1MDAmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"56f6e39b-88cb-4337-b2ca-992e04302ba5\",\r\n            \"TopicName\": \"测评知识\",\r\n            \"Order\": 4\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD01YTJhYTIzNi03YjVlLTRhZDctYjIxOC1lYmQxYTdiZmM1MDA*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"467ca4c1-d802-4659-8226-82e25f27801f\",\r\n        \"AskLibraryTitle\": \"管理技能测验\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/c575bdfc2b434ab2ae32e165bd20652f.PNG\",\r\n        \"AskLibraryOrder\": 7,\r\n        \"AskLibraryIntroduction\": \"考察管理者在管理活动中正确处理管理问题、有效履行管理职能所具备的知识技能水平\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD00NjdjYTRjMS1kODAyLTQ2NTktODIyNi04MmUyNWYyNzgwMWYmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"56f6e39b-88cb-4337-b2ca-992e04302ba5\",\r\n            \"TopicName\": \"测评知识\",\r\n            \"Order\": 4\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD00NjdjYTRjMS1kODAyLTQ2NTktODIyNi04MmUyNWYyNzgwMWY*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"2de19586-f136-4aa0-ac82-3af9fe661fb7\",\r\n        \"AskLibraryTitle\": \"商业综合推理能力测验\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/05de19c0a980423eb24a5e73a235024d.PNG\",\r\n        \"AskLibraryOrder\": 6,\r\n        \"AskLibraryIntroduction\": \"考察管理者认识事物、解决问题的综合能力，帮助企业了解候选人基本的管理潜能\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD0yZGUxOTU4Ni1mMTM2LTRhYTAtYWM4Mi0zYWY5ZmU2NjFmYjcmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"56f6e39b-88cb-4337-b2ca-992e04302ba5\",\r\n            \"TopicName\": \"测评知识\",\r\n            \"Order\": 4\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD0yZGUxOTU4Ni1mMTM2LTRhYTAtYWM4Mi0zYWY5ZmU2NjFmYjc*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"f8d1970b-2cef-4846-9874-669ad70460e1\",\r\n        \"AskLibraryTitle\": \"管理风格测验\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/12e305c090654c97b63150508950bc5c.PNG\",\r\n        \"AskLibraryOrder\": 5,\r\n        \"AskLibraryIntroduction\": \"定义了典型的管理风格，帮助识别管理者在影响他人时所表现出来的固定的行为模式\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD1mOGQxOTcwYi0yY2VmLTQ4NDYtOTg3NC02NjlhZDcwNDYwZTEmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"56f6e39b-88cb-4337-b2ca-992e04302ba5\",\r\n            \"TopicName\": \"测评知识\",\r\n            \"Order\": 4\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD1mOGQxOTcwYi0yY2VmLTQ4NDYtOTg3NC02NjlhZDcwNDYwZTE*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"3ece1ba3-f411-464b-94c8-6a6e2bdeb503\",\r\n        \"AskLibraryTitle\": \"客户服务类社会招聘测验V6\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/4c82f1d5c0dc42a78badfb02d01fa66f.png\",\r\n        \"AskLibraryOrder\": 4,\r\n        \"AskLibraryIntroduction\": \"考察候选人与客服类岗位的匹配度，帮助企业深入地了解候选人，为选拔提供依据\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD0zZWNlMWJhMy1mNDExLTQ2NGItOTRjOC02YTZlMmJkZWI1MDMmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"56f6e39b-88cb-4337-b2ca-992e04302ba5\",\r\n            \"TopicName\": \"测评知识\",\r\n            \"Order\": 4\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD0zZWNlMWJhMy1mNDExLTQ2NGItOTRjOC02YTZlMmJkZWI1MDM*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"c3f35759-6754-4bcc-b653-bef7267cc3d4\",\r\n        \"AskLibraryTitle\": \"研发类社会招聘测验V6\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/8751b875ea714f779646ece6385a2a2e.png\",\r\n        \"AskLibraryOrder\": 3,\r\n        \"AskLibraryIntroduction\": \"考察候选人与研发类岗位的匹配度，帮助企业深入地了解候选人，为选拔提供依据\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD1jM2YzNTc1OS02NzU0LTRiY2MtYjY1My1iZWY3MjY3Y2MzZDQmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"56f6e39b-88cb-4337-b2ca-992e04302ba5\",\r\n            \"TopicName\": \"测评知识\",\r\n            \"Order\": 4\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD1jM2YzNTc1OS02NzU0LTRiY2MtYjY1My1iZWY3MjY3Y2MzZDQ*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"1e802bda-8374-4b3d-a265-2d25be823871\",\r\n        \"AskLibraryTitle\": \"市场类社会招聘测验V6\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/75ff52c47d004e7dbac389ac9321b427.png\",\r\n        \"AskLibraryOrder\": 2,\r\n        \"AskLibraryIntroduction\": \"考察候选人与市场类岗位的匹配度，帮助企业深入地了解候选人，为选拔提供依据\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD0xZTgwMmJkYS04Mzc0LTRiM2QtYTI2NS0yZDI1YmU4MjM4NzEmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"56f6e39b-88cb-4337-b2ca-992e04302ba5\",\r\n            \"TopicName\": \"测评知识\",\r\n            \"Order\": 4\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD0xZTgwMmJkYS04Mzc0LTRiM2QtYTI2NS0yZDI1YmU4MjM4NzE*\",\r\n        \"IsLike\": false\r\n      },\r\n      {\r\n        \"AskLibraryId\": \"87b21637-b260-408c-9fa5-da677853decf\",\r\n        \"AskLibraryTitle\": \"财务类社会招聘测验V6\",\r\n        \"AskLibraryBody\": null,\r\n        \"AskLibraryTitleImg\": \"https://cusreport-cloud.italent.cn/AssessFile/120033/5bc5e9a5bc3d44f983621a887b3cd3d1.png\",\r\n        \"AskLibraryOrder\": 1,\r\n        \"AskLibraryIntroduction\": \"考察候选人与财务类岗位的匹配度，帮助企业深入地了解候选人，为选拔提供依据\",\r\n        \"AskLibraryUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuQXNrTGlicmFyeSZpZD04N2IyMTYzNy1iMjYwLTQwOGMtOWZhNS1kYTY3Nzg1M2RlY2YmZm9ybVN0YXRlPXNob3c*\",\r\n        \"AskLibraryTopics\": [\r\n          {\r\n            \"TopicId\": \"56f6e39b-88cb-4337-b2ca-992e04302ba5\",\r\n            \"TopicName\": \"测评知识\",\r\n            \"Order\": 4\r\n          }\r\n        ],\r\n        \"IndexAskDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2tBcnRpY2xlJkFydGljbGVJRD04N2IyMTYzNy1iMjYwLTQwOGMtOWZhNS1kYTY3Nzg1M2RlY2Y*\",\r\n        \"IsLike\": false\r\n      }\r\n    ],\r\n    \"Total\": 49,\r\n    \"IndexSeeAllUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPUlBc2s*\"\r\n  },\r\n  \"Message\": null\r\n}"
+          },
+          "redirectURL": "",
+          "headersSize": 214,
+          "bodySize": 66066,
+          "_transferSize": 66280
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 2.1085480000399985,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.04800000000000004,
+          "wait": 404.8150000185296,
+          "receive": 50.106999988202006,
+          "_blocked_queueing": 0.5480000399984419,
+          "_blocked_proxy": 0.4790000000000001
+        },
+        "serverIPAddress": "60.28.209.81",
+        "connection": "239041"
+      },
+      {
+        "startedDateTime": "2018-08-14T03:59:55.579Z",
+        "time": 145.40256100192346,
+        "request": {
+          "method": "GET",
+          "url": "https://cloud.italent.cn/AssessMRest/100000/SearchHistory/GetHistoryDataList",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Origin",
+              "value": "https://www.italent.cn"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Host",
+              "value": "cloud.italent.cn"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "zh-CN,zh;q=0.9,en;q=0.8,fr;q=0.7"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "*/*"
+            },
+            {
+              "name": "Referer",
+              "value": "https://www.italent.cn/108805543/PageBuilder?pageCode=App1020_AssessHomePage"
+            },
+            {
+              "name": "Cookie",
+              "value": "gr_user_id=b516cb3b-bc49-40a6-a82d-124432e81336; UM_distinctid=16513a3fb476a-058466eec33194-10396f5d-13c680-16513a3fb48709; gr_session_id_882ff8b3236342a9=8ef3a756-e4e2-46f3-b4d8-d0b4fb6f49b6; gr_session_id_882ff8b3236342a9_8ef3a756-e4e2-46f3-b4d8-d0b4fb6f49b6=true; Tita_PC=6Q9TMHs9IaQ9xeZ2s_yPSvsF7h68fz0xTrE7hb8ArJcOft_VlDAxyA"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "queryString": [],
+          "cookies": [
+            {
+              "name": "gr_user_id",
+              "value": "b516cb3b-bc49-40a6-a82d-124432e81336",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "UM_distinctid",
+              "value": "16513a3fb476a-058466eec33194-10396f5d-13c680-16513a3fb48709",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "gr_session_id_882ff8b3236342a9",
+              "value": "8ef3a756-e4e2-46f3-b4d8-d0b4fb6f49b6",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "gr_session_id_882ff8b3236342a9_8ef3a756-e4e2-46f3-b4d8-d0b4fb6f49b6",
+              "value": "true",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "Tita_PC",
+              "value": "6Q9TMHs9IaQ9xeZ2s_yPSvsF7h68fz0xTrE7hb8ArJcOft_VlDAxyA",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            }
+          ],
+          "headersSize": 808,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Date",
+              "value": "Tue, 14 Aug 2018 03:59:55 GMT"
+            },
+            {
+              "name": "Server",
+              "value": "Microsoft-IIS/7.5"
+            },
+            {
+              "name": "X-AspNet-Version",
+              "value": "4.0.30319"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "ASP.NET"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "https://www.italent.cn"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "private"
+            },
+            {
+              "name": "Access-Control-Allow-Credentials",
+              "value": "true"
+            },
+            {
+              "name": "Content-Length",
+              "value": "187"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 187,
+            "mimeType": "application/json",
+            "compression": 0,
+            "text": "[\r\n  {\r\n    \"Id\": \"cfe4e70f-84dc-46ed-a224-6ade5c873e98\",\r\n    \"SearchKey\": \"Assess_100013_108805543\",\r\n    \"SearchData\": \"项目\",\r\n    \"SearchTitle\": \"\",\r\n    \"SearchType\": 1\r\n  }\r\n]"
+          },
+          "redirectURL": "",
+          "headersSize": 305,
+          "bodySize": 187,
+          "_transferSize": 492
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 3.1165610000007438,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.07399999999999984,
+          "wait": 140.40200000035344,
+          "receive": 1.8100000015692785,
+          "_blocked_queueing": 0.5610000007436611,
+          "_blocked_proxy": 0.42900000000000027
+        },
+        "serverIPAddress": "60.28.209.81",
+        "connection": "118801",
+        "pageref": "page_1"
+      },
+      {
+        "startedDateTime": "2018-07-26T12:02:30.820Z",
+        "time": 634.4947919980841,
+        "request": {
+          "method": "GET",
+          "url": "http://cloud.italent.cn/AssessMRest/100000/Index/GetHomeDisplayProjectInfo?tag=3&count=3",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Origin",
+              "value": "http://www.italent.cn"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate"
+            },
+            {
+              "name": "Host",
+              "value": "cloud.italent.cn"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "zh-CN,zh;q=0.9,en;q=0.8,fr;q=0.7"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "*/*"
+            },
+            {
+              "name": "Referer",
+              "value": "http://www.italent.cn/108805543/PageBuilder?pageCode=App1020_AssessHomePage"
+            },
+            {
+              "name": "Cookie",
+              "value": "gr_user_id=5e4e140b-70d3-4e42-89ba-38cb6ec7841d; UM_distinctid=1641ba869a4604-0b8c64b01fde0f-17376952-2a3000-1641ba869a527; undefined.widgetState=false; Hm_lvt_d97486b49cae43869efc342d0f201d45=1532485270; Hm_lpvt_d97486b49cae43869efc342d0f201d45=1532500455; Tita_PC=TZr0bW2jJTXRM4HO-7Bkbff7qr-Ycw2bIw_IrFamPOZHuQEI15QC8g"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "queryString": [
+            {
+              "name": "tag",
+              "value": "3"
+            },
+            {
+              "name": "count",
+              "value": "3"
+            }
+          ],
+          "cookies": [
+            {
+              "name": "gr_user_id",
+              "value": "5e4e140b-70d3-4e42-89ba-38cb6ec7841d",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "UM_distinctid",
+              "value": "1641ba869a4604-0b8c64b01fde0f-17376952-2a3000-1641ba869a527",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "undefined.widgetState",
+              "value": "false",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "Hm_lvt_d97486b49cae43869efc342d0f201d45",
+              "value": "1532485270",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "Hm_lpvt_d97486b49cae43869efc342d0f201d45",
+              "value": "1532500455",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "Tita_PC",
+              "value": "TZr0bW2jJTXRM4HO-7Bkbff7qr-Ycw2bIw_IrFamPOZHuQEI15QC8g",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            }
+          ],
+          "headersSize": 805,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Date",
+              "value": "Thu, 26 Jul 2018 12:02:30 GMT"
+            },
+            {
+              "name": "Server",
+              "value": "Microsoft-IIS/7.5"
+            },
+            {
+              "name": "X-AspNet-Version",
+              "value": "4.0.30319"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "ASP.NET"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "http://www.italent.cn"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "private"
+            },
+            {
+              "name": "Access-Control-Allow-Credentials",
+              "value": "true"
+            },
+            {
+              "name": "Content-Length",
+              "value": "2561"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 2561,
+            "mimeType": "application/json",
+            "compression": 0,
+            "text": "\"{\\\"projectinfolist\\\":[{\\\"name\\\":\\\"四大皆空\\\",\\\"createBy\\\":\\\"yandan\\\",\\\"completeNumber\\\":0,\\\"inviteNumber\\\":0,\\\"state\\\":\\\"2\\\",\\\"createDate\\\":\\\"2018-07-25T00:00:00\\\",\\\"particularsUrl\\\":\\\"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuUHJvamVjdCZpZD0yYzFmZWZmYi1iMzBjLTRkMTEtYTA5Mi01OWE4MmZmNWVhNWImZm9ybVN0YXRlPXNob3cmbGlzdFZpZXdOYW1lPUFzc2Vzcy5TaW5nbGVPYmplY3RMaXN0Vmlldy5Qcm9qZWN0TGlzdA**\\\",\\\"participantsUrl\\\":\\\"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuUHJvamVjdCZpZD0yYzFmZWZmYi1iMzBjLTRkMTEtYTA5Mi01OWE4MmZmNWVhNWImZm9ybVN0YXRlPXNob3cmYWN0aXZlTmFtZT1Bc3Nlc21lbnRVc2VyJmxpc3RWaWV3TmFtZT1Bc3Nlc3MuU2luZ2xlT2JqZWN0TGlzdFZpZXcuUHJvamVjdExpc3Q*\\\"},{\\\"name\\\":\\\"ly建勿动\\\",\\\"createBy\\\":\\\"李妍\\\",\\\"completeNumber\\\":7,\\\"inviteNumber\\\":9,\\\"state\\\":\\\"2\\\",\\\"createDate\\\":\\\"2018-07-22T00:00:00\\\",\\\"particularsUrl\\\":\\\"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuUHJvamVjdCZpZD1mZDNiZDUwZC0zMGM2LTQ0ZWYtYWYxYy0zNjE2MTY1NzE3YmMmZm9ybVN0YXRlPXNob3cmbGlzdFZpZXdOYW1lPUFzc2Vzcy5TaW5nbGVPYmplY3RMaXN0Vmlldy5Qcm9qZWN0TGlzdA**\\\",\\\"participantsUrl\\\":\\\"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuUHJvamVjdCZpZD1mZDNiZDUwZC0zMGM2LTQ0ZWYtYWYxYy0zNjE2MTY1NzE3YmMmZm9ybVN0YXRlPXNob3cmYWN0aXZlTmFtZT1Bc3Nlc21lbnRVc2VyJmxpc3RWaWV3TmFtZT1Bc3Nlc3MuU2luZ2xlT2JqZWN0TGlzdFZpZXcuUHJvamVjdExpc3Q*\\\"},{\\\"name\\\":\\\"测试点才是从是\\\",\\\"createBy\\\":\\\"luomiao\\\",\\\"completeNumber\\\":0,\\\"inviteNumber\\\":0,\\\"state\\\":\\\"2\\\",\\\"createDate\\\":\\\"2018-07-18T00:00:00\\\",\\\"particularsUrl\\\":\\\"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuUHJvamVjdCZpZD1mYTRiNGE2Zi1jMDAxLTQwYWItYjQ4My04Y2U0MWJjZDk0MjImZm9ybVN0YXRlPXNob3cmbGlzdFZpZXdOYW1lPUFzc2Vzcy5TaW5nbGVPYmplY3RMaXN0Vmlldy5Qcm9qZWN0TGlzdA**\\\",\\\"participantsUrl\\\":\\\"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2VzcyMvRGV0YWlsUGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuUHJvamVjdCZpZD1mYTRiNGE2Zi1jMDAxLTQwYWItYjQ4My04Y2U0MWJjZDk0MjImZm9ybVN0YXRlPXNob3cmYWN0aXZlTmFtZT1Bc3Nlc21lbnRVc2VyJmxpc3RWaWV3TmFtZT1Bc3Nlc3MuU2luZ2xlT2JqZWN0TGlzdFZpZXcuUHJvamVjdExpc3Q*\\\"}],\\\"listUrl\\\":\\\"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2luZGV4UGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuUHJvamVjdA**\\\"}\""
+          },
+          "redirectURL": "",
+          "headersSize": 305,
+          "bodySize": 2561,
+          "_transferSize": 2866
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 2.82279199999891,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.04899999999999993,
+          "wait": 442.79599999995764,
+          "receive": 188.82699999812758,
+          "_blocked_queueing": 0.7919999989098869,
+          "_blocked_proxy": 1.0370000000000001
+        },
+        "serverIPAddress": "60.28.209.81",
+        "connection": "1859"
+      },
+      {
+        "startedDateTime": "2018-08-14T03:59:55.584Z",
+        "time": 19.59565199793724,
+        "request": {
+          "method": "GET",
+          "url": "https://cloud.italent.cn/AssessMRest/100000/Index/GetProjectIndexUrl",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Origin",
+              "value": "https://www.italent.cn"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Host",
+              "value": "cloud.italent.cn"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "zh-CN,zh;q=0.9,en;q=0.8,fr;q=0.7"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "*/*"
+            },
+            {
+              "name": "Referer",
+              "value": "https://www.italent.cn/108805543/PageBuilder?pageCode=App1020_AssessHomePage"
+            },
+            {
+              "name": "Cookie",
+              "value": "gr_user_id=b516cb3b-bc49-40a6-a82d-124432e81336; UM_distinctid=16513a3fb476a-058466eec33194-10396f5d-13c680-16513a3fb48709; gr_session_id_882ff8b3236342a9=8ef3a756-e4e2-46f3-b4d8-d0b4fb6f49b6; gr_session_id_882ff8b3236342a9_8ef3a756-e4e2-46f3-b4d8-d0b4fb6f49b6=true; Tita_PC=6Q9TMHs9IaQ9xeZ2s_yPSvsF7h68fz0xTrE7hb8ArJcOft_VlDAxyA"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "queryString": [],
+          "cookies": [
+            {
+              "name": "gr_user_id",
+              "value": "b516cb3b-bc49-40a6-a82d-124432e81336",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "UM_distinctid",
+              "value": "16513a3fb476a-058466eec33194-10396f5d-13c680-16513a3fb48709",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "gr_session_id_882ff8b3236342a9",
+              "value": "8ef3a756-e4e2-46f3-b4d8-d0b4fb6f49b6",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "gr_session_id_882ff8b3236342a9_8ef3a756-e4e2-46f3-b4d8-d0b4fb6f49b6",
+              "value": "true",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "Tita_PC",
+              "value": "6Q9TMHs9IaQ9xeZ2s_yPSvsF7h68fz0xTrE7hb8ArJcOft_VlDAxyA",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            }
+          ],
+          "headersSize": 800,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Date",
+              "value": "Tue, 14 Aug 2018 03:59:55 GMT"
+            },
+            {
+              "name": "Server",
+              "value": "Microsoft-IIS/7.5"
+            },
+            {
+              "name": "X-AspNet-Version",
+              "value": "4.0.30319"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "ASP.NET"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "https://www.italent.cn"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "private"
+            },
+            {
+              "name": "Access-Control-Allow-Credentials",
+              "value": "true"
+            },
+            {
+              "name": "Content-Length",
+              "value": "142"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 142,
+            "mimeType": "application/json",
+            "compression": 0,
+            "text": "\"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2luZGV4UGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuUHJvamVjdA**\""
+          },
+          "redirectURL": "",
+          "headersSize": 305,
+          "bodySize": 142,
+          "_transferSize": 447
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 2.8336520000024468,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.07699999999999996,
+          "wait": 14.963999997391365,
+          "receive": 1.7210000005434267,
+          "_blocked_queueing": 0.6520000024465844,
+          "_blocked_proxy": 0.2749999999999999
+        },
+        "serverIPAddress": "60.28.209.81",
+        "connection": "118097",
+        "pageref": "page_1"
+      },
+      {
+        "startedDateTime": "2018-08-14T03:59:55.595Z",
+        "time": 125.49578100022336,
+        "request": {
+          "method": "GET",
+          "url": "https://cloud.italent.cn/AssessMRest/100000/Index/GetRecommendScheme",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Origin",
+              "value": "https://www.italent.cn"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Host",
+              "value": "cloud.italent.cn"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "zh-CN,zh;q=0.9,en;q=0.8,fr;q=0.7"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "*/*"
+            },
+            {
+              "name": "Referer",
+              "value": "https://www.italent.cn/108805543/PageBuilder?pageCode=App1020_AssessHomePage"
+            },
+            {
+              "name": "Cookie",
+              "value": "gr_user_id=b516cb3b-bc49-40a6-a82d-124432e81336; UM_distinctid=16513a3fb476a-058466eec33194-10396f5d-13c680-16513a3fb48709; gr_session_id_882ff8b3236342a9=8ef3a756-e4e2-46f3-b4d8-d0b4fb6f49b6; gr_session_id_882ff8b3236342a9_8ef3a756-e4e2-46f3-b4d8-d0b4fb6f49b6=true; Tita_PC=6Q9TMHs9IaQ9xeZ2s_yPSvsF7h68fz0xTrE7hb8ArJcOft_VlDAxyA"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "queryString": [],
+          "cookies": [
+            {
+              "name": "gr_user_id",
+              "value": "b516cb3b-bc49-40a6-a82d-124432e81336",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "UM_distinctid",
+              "value": "16513a3fb476a-058466eec33194-10396f5d-13c680-16513a3fb48709",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "gr_session_id_882ff8b3236342a9",
+              "value": "8ef3a756-e4e2-46f3-b4d8-d0b4fb6f49b6",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "gr_session_id_882ff8b3236342a9_8ef3a756-e4e2-46f3-b4d8-d0b4fb6f49b6",
+              "value": "true",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "Tita_PC",
+              "value": "6Q9TMHs9IaQ9xeZ2s_yPSvsF7h68fz0xTrE7hb8ArJcOft_VlDAxyA",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            }
+          ],
+          "headersSize": 800,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Date",
+              "value": "Tue, 14 Aug 2018 03:59:55 GMT"
+            },
+            {
+              "name": "Server",
+              "value": "Microsoft-IIS/7.5"
+            },
+            {
+              "name": "X-AspNet-Version",
+              "value": "4.0.30319"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "ASP.NET"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "https://www.italent.cn"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "private"
+            },
+            {
+              "name": "Access-Control-Allow-Credentials",
+              "value": "true"
+            },
+            {
+              "name": "Content-Length",
+              "value": "25664"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 25664,
+            "mimeType": "application/json",
+            "compression": 0,
+            "text": "{\r\n  \"SchemeWithTests\": [\r\n    {\r\n      \"Id\": \"2e96fdc3-ec90-4e20-b99c-a16e2dcc4d46\",\r\n      \"CreatedBy\": \"系统管理员\",\r\n      \"CreatedTime\": \"2018-05-25\",\r\n      \"SchemeName\": \"社会招聘方案（客户服务岗）\",\r\n      \"SchemeDescription\": \"服务于企业招聘时对客户服务岗位候选人进行深度评估。从能力、个性和动机三个层面，评估候选人的岗位适配程度。\",\r\n      \"SchemeApplyHierarchicals\": null,\r\n      \"SchemeUses\": null,\r\n      \"AssessmentTests\": [\r\n        {\r\n          \"Id\": \"cea7e98f-f543-4a14-9b5a-d75a15aabb69\",\r\n          \"TestName\": \"客户服务类社会招聘测验V6\",\r\n          \"TestUrl\": \"//www.italent.cn/100512999/SignRedirect?appId=1020&redirectUrl=https%3a%2f%2ftms.beisen.com%2fsso%2flogin%3fredirect_url%3dhttps%25253a%25252f%25252fassess.tms.beisen.com%25252fSystemSolution%25252fSolutionBasic%25253fobjectType%25253d1%252526objectID%25253d%25252cb931bcf5-2b50-4226-ba42-279cfa030a31%25252c7d12bd9e-fb97-413c-a5eb-642aa023d6c8%252526questionCount%25253d175%252526answerTime%25253d23%252526isDetails%25253d1%252526Tag%25253d-273226494\",\r\n          \"QuestionCount\": \"175\",\r\n          \"AnswerTime\": \"23\",\r\n          \"AssessmentTestTypeSource\": 1,\r\n          \"TemplateType\": 2,\r\n          \"ReportNames\": [],\r\n          \"ExtendSelect\": false,\r\n          \"TMSSolutionId\": \"4297a5c9-a668-4e48-aad7-c4ec4f88a6ed\",\r\n          \"TMSTemplateId\": \"b931bcf5-2b50-4226-ba42-279cfa030a31\",\r\n          \"TMSTestId\": \"7d12bd9e-fb97-413c-a5eb-642aa023d6c8\",\r\n          \"RTSpecailTestList\": null,\r\n          \"IsCustomerTest\": false\r\n        }\r\n      ],\r\n      \"TotalQuestionCount\": \"\",\r\n      \"TotalAnswerTime\": \"\",\r\n      \"AddActivityUrl\": null,\r\n      \"TotalUnitPrice\": null,\r\n      \"UseNumber\": \"10万+\",\r\n      \"SchemeDetail\": \"&amp;lt;div class=&amp;quot;solution-detail&amp;quot;&amp;gt;&amp;lt;p&amp;gt;在社会招聘中，通过简历和面试环节，企业往往比较容易判断候选人过往的工作经验和技能水平，但候选人在个性特征、思维方式、行为风格等方面是否与目标职位相匹配，则需要通过心理测评结果进一步获取信息，整体把握候选人的优劣势特征，辅助用人决策。&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;社会招聘方案（客户服务岗）是针对客户服务类基层岗位胜任力模型建立的评估方案，旨在深入评估候选人的人岗适配程度，满足企业对候选人的内在特点进行评估的需要，帮助企业从岗位胜任力层面对候选人进行有效区分。&amp;lt;/p&amp;gt;&amp;lt;div class=&amp;quot;container clearfix&amp;quot;&amp;gt;&amp;lt;div class=&amp;quot;left&amp;quot;&amp;gt;&amp;lt;h2&amp;gt;测评报告&amp;lt;/h2&amp;gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;&amp;lt;span&amp;gt;社会招聘胜任力基本分析报告&amp;lt;/span&amp;gt;&amp;lt;a target=&amp;quot;_blank&amp;quot; href=&amp;quot;https://doc-cloud.italent.cn/120033/preview/AssessFile/207db34354ea4dcd8bd0a4ee8c8391f4.pdf?tid=120033&amp;amp;uid=118065357&amp;amp;ttl=0&amp;amp;sign=b15f661c72617916d36e05ca2eb7bc57&amp;quot;&amp;gt;样本报告&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;&amp;lt;span&amp;gt;社会招聘胜任力匹配报告&amp;lt;/span&amp;gt;&amp;lt;a target=&amp;quot;_blank&amp;quot; href=&amp;quot;https://doc-cloud.italent.cn/120033/preview/AssessFile/b479eb4ea1374a40bb7f95059e45bc61.pdf?tid=120033&amp;amp;uid=118065357&amp;amp;ttl=0&amp;amp;sign=30b2c871b5344b614a31b62f84b2fa81&amp;quot;&amp;gt;样本报告&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;&amp;lt;span&amp;gt;社会招聘个人反馈报告（受测者阅读）&amp;lt;/span&amp;gt;&amp;lt;a target=&amp;quot;_blank&amp;quot; href=&amp;quot;https://doc-cloud.italent.cn/120033/preview/AssessFile/f6feaa247b004c188e7d44ee81f9c6f2.pdf?tid=120033&amp;amp;uid=118065357&amp;amp;ttl=0&amp;amp;sign=2f8ee7d081774cc8db72713008ca0312&amp;quot;&amp;gt;样本报告&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;&amp;lt;span&amp;gt;社会招聘团队分析报告&amp;lt;/span&amp;gt;&amp;lt;a target=&amp;quot;_blank&amp;quot; href=&amp;quot;https://doc-cloud.italent.cn/120033/preview/AssessFile/4fb93ab50be64d0db14694f6c1e99853.pdf?tid=120033&amp;amp;uid=118065357&amp;amp;ttl=0&amp;amp;sign=00f58e32d6ce28e60fba7cd919d02a68&amp;quot;&amp;gt;样本报告&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;quot;right&amp;quot;&amp;gt;&amp;lt;h2&amp;gt;评估模型和工具&amp;lt;/h2&amp;gt;&amp;lt;p&amp;gt;本方案基于北森胜任力测评体系，针对客户服务岗位设置专门的评估模型，从能力、个性、动机三个层面考察候选人的特点。&amp;lt;/p&amp;gt;&amp;lt;div class=&amp;quot;box_container clearfix&amp;quot;&amp;gt;&amp;lt;div class=&amp;quot;icon&amp;quot;&amp;gt;胜任力&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;quot;right-container&amp;quot;&amp;gt;&amp;lt;div class=&amp;quot;left-info&amp;quot;&amp;gt;&amp;lt;span&amp;gt;客户服务类社会招聘测验V6&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt;&amp;lt;a class=&amp;quot;exam_intro&amp;quot; target=&amp;quot;_blank&amp;quot; href=&amp;quot;http://cloud.italent.cn/Assess/?tenant_id=120033&amp;amp;user_id=118065357&amp;amp;app_id=1020&amp;amp;time_stamp=1527232839&amp;amp;sign=62cc8052864cbbadb2490391fc96772a&amp;amp;sign_type=1#/basePage?pageType=IAskArticle&amp;amp;ArticleID=3ece1ba3-f411-464b-94c8-6a6e2bdeb503&amp;amp;_k=kucsh5&amp;quot;&amp;gt;测验介绍及样题&amp;lt;/a&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;quot;right-info&amp;quot;&amp;gt;&amp;lt;span class=&amp;quot;ncount&amp;quot;&amp;gt;175题&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt;23分钟&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;&amp;lt;br/&amp;gt;&amp;lt;/p&amp;gt;\",\r\n      \"SchemeSource\": null,\r\n      \"TalentModel\": null,\r\n      \"TalentModelName\": null,\r\n      \"SchemeUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPVNvbHV0aW9uQ2VudGVyJm5lZWRQcmVsb2FkUG9wVXA9dHJ1ZSZzY2hlbWVUeXBlPTEmc2NoZW1lSWQ9MmU5NmZkYzMtZWM5MC00ZTIwLWI5OWMtYTE2ZTJkY2M0ZDQ2\",\r\n      \"OceanDashboards\": null,\r\n      \"TalentCriterion\": null,\r\n      \"TalentCriterionName\": null,\r\n      \"StandardsAndSuggestions\": null\r\n    },\r\n    {\r\n      \"Id\": \"725e528c-228c-4ec5-a856-5a1e11295bd8\",\r\n      \"CreatedBy\": \"系统管理员\",\r\n      \"CreatedTime\": \"2018-05-25\",\r\n      \"SchemeName\": \"社会招聘方案（研发岗）\",\r\n      \"SchemeDescription\": \"服务于企业社会招聘时对研发类岗位候选人进行深度评估。从能力、个性和动机三个层面，评估候选人的岗位适配程度。\",\r\n      \"SchemeApplyHierarchicals\": null,\r\n      \"SchemeUses\": null,\r\n      \"AssessmentTests\": [\r\n        {\r\n          \"Id\": \"adfe9014-078f-4645-8b33-f5433e6af958\",\r\n          \"TestName\": \"研发类社会招聘测验V6\",\r\n          \"TestUrl\": \"//www.italent.cn/100512999/SignRedirect?appId=1020&redirectUrl=https%3a%2f%2ftms.beisen.com%2fsso%2flogin%3fredirect_url%3dhttps%25253a%25252f%25252fassess.tms.beisen.com%25252fSystemSolution%25252fSolutionBasic%25253fobjectType%25253d1%252526objectID%25253d%25252c6edc5327-aede-4bed-897b-66b3b3d702f3%25252c12630946-7da0-4207-9af6-4b17f3d2cc8a%252526questionCount%25253d196%252526answerTime%25253d48%252526isDetails%25253d1%252526Tag%25253d-1535127584\",\r\n          \"QuestionCount\": \"196\",\r\n          \"AnswerTime\": \"48\",\r\n          \"AssessmentTestTypeSource\": 1,\r\n          \"TemplateType\": 2,\r\n          \"ReportNames\": [],\r\n          \"ExtendSelect\": false,\r\n          \"TMSSolutionId\": \"4297a5c9-a668-4e48-aad7-c4ec4f88a6ed\",\r\n          \"TMSTemplateId\": \"6edc5327-aede-4bed-897b-66b3b3d702f3\",\r\n          \"TMSTestId\": \"12630946-7da0-4207-9af6-4b17f3d2cc8a\",\r\n          \"RTSpecailTestList\": null,\r\n          \"IsCustomerTest\": false\r\n        }\r\n      ],\r\n      \"TotalQuestionCount\": \"\",\r\n      \"TotalAnswerTime\": \"\",\r\n      \"AddActivityUrl\": null,\r\n      \"TotalUnitPrice\": null,\r\n      \"UseNumber\": \"10万+\",\r\n      \"SchemeDetail\": \"&amp;lt;div class=&amp;quot;solution-detail&amp;quot;&amp;gt;&amp;lt;p&amp;gt;在社会招聘中，通过简历和面试环节，企业往往比较容易判断候选人过往的工作经验和技能水平，但候选人在个性特征、思维方式、行为风格等方面是否与目标职位相匹配，则需要通过心理测评结果进一步获取信息，整体把握候选人的优劣势特征，辅助用人决策。&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;本方案基于北森胜任力测评体系，针对研发类岗位设置专门的评估模型，从能力、个性、动机三个层面考察候选人的特点。&amp;lt;/p&amp;gt;&amp;lt;div class=&amp;quot;container clearfix&amp;quot;&amp;gt;&amp;lt;div class=&amp;quot;left&amp;quot;&amp;gt;&amp;lt;h2&amp;gt;测评报告&amp;lt;/h2&amp;gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;&amp;lt;span&amp;gt;社会招聘胜任力基本分析报告&amp;lt;/span&amp;gt;&amp;lt;a target=&amp;quot;_blank&amp;quot; href=&amp;quot;https://doc-cloud.italent.cn/120033/preview/AssessFile/bf3f602d437d442fab7d8be35ffda134.pdf?tid=120033&amp;amp;uid=118065357&amp;amp;ttl=0&amp;amp;sign=fcc1ed2918a37285ad7e198280a2e8fc&amp;quot;&amp;gt;样本报告&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;&amp;lt;span&amp;gt;社会招聘胜任力匹配报告&amp;lt;/span&amp;gt;&amp;lt;a target=&amp;quot;_blank&amp;quot; href=&amp;quot;https://doc-cloud.italent.cn/120033/preview/AssessFile/b420d9594a7545a2a68498131aa4dd63.pdf?tid=120033&amp;amp;uid=118065357&amp;amp;ttl=0&amp;amp;sign=7c0bcb6da9fe75507aed2dfa030f5d57&amp;quot;&amp;gt;样本报告&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;&amp;lt;span&amp;gt;社会招聘个人反馈报告（受测者阅读）&amp;lt;/span&amp;gt;&amp;lt;a target=&amp;quot;_blank&amp;quot; href=&amp;quot;https://doc-cloud.italent.cn/120033/preview/AssessFile/0853ae70d62f49aca4a40c4128879e7a.pdf?tid=120033&amp;amp;uid=118065357&amp;amp;ttl=0&amp;amp;sign=5ca86f73a55ef75ceff61d81f0aa2f40&amp;quot;&amp;gt;样本报告&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;&amp;lt;span&amp;gt;社会招聘团队分析报告&amp;lt;/span&amp;gt;&amp;lt;a target=&amp;quot;_blank&amp;quot; href=&amp;quot;https://doc-cloud.italent.cn/120033/preview/AssessFile/caa40471a3084fd1b81e6b5bb787b46b.pdf?tid=120033&amp;amp;uid=118065357&amp;amp;ttl=0&amp;amp;sign=c61a96ce970ac50e328c8c2ab9cf1a64&amp;quot;&amp;gt;样本报告&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;quot;right&amp;quot;&amp;gt;&amp;lt;h2&amp;gt;评估模型和工具&amp;lt;/h2&amp;gt;&amp;lt;p&amp;gt;本方案基于北森的胜任力冰山评估结构，从行为、个性、动机三个层面出发，考察受测者在不同测验维度上的水平，评估受测者与研发类岗位的适配程度。&amp;lt;/p&amp;gt;&amp;lt;div class=&amp;quot;box_container clearfix&amp;quot;&amp;gt;&amp;lt;div class=&amp;quot;icon&amp;quot;&amp;gt;胜任力&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;quot;right-container&amp;quot;&amp;gt;&amp;lt;div class=&amp;quot;left-info&amp;quot;&amp;gt;&amp;lt;span&amp;gt;研发类社会招聘测验V6&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt;&amp;lt;a class=&amp;quot;exam_intro&amp;quot; target=&amp;quot;_blank&amp;quot; href=&amp;quot;http://cloud.italent.cn/Assess/?tenant_id=120033&amp;amp;user_id=118065357&amp;amp;app_id=1020&amp;amp;time_stamp=1527232839&amp;amp;sign=62cc8052864cbbadb2490391fc96772a&amp;amp;sign_type=1#/basePage?pageType=IAskArticle&amp;amp;ArticleID=c3f35759-6754-4bcc-b653-bef7267cc3d4&amp;amp;_k=bknnic&amp;quot;&amp;gt;测验介绍及样题&amp;lt;/a&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;quot;right-info&amp;quot;&amp;gt;&amp;lt;span class=&amp;quot;ncount&amp;quot;&amp;gt;196题&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt;48分钟&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;&amp;lt;br/&amp;gt;&amp;lt;/p&amp;gt;\",\r\n      \"SchemeSource\": null,\r\n      \"TalentModel\": null,\r\n      \"TalentModelName\": null,\r\n      \"SchemeUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPVNvbHV0aW9uQ2VudGVyJm5lZWRQcmVsb2FkUG9wVXA9dHJ1ZSZzY2hlbWVUeXBlPTEmc2NoZW1lSWQ9NzI1ZTUyOGMtMjI4Yy00ZWM1LWE4NTYtNWExZTExMjk1YmQ4\",\r\n      \"OceanDashboards\": null,\r\n      \"TalentCriterion\": null,\r\n      \"TalentCriterionName\": null,\r\n      \"StandardsAndSuggestions\": null\r\n    },\r\n    {\r\n      \"Id\": \"7466da5d-1afc-4724-b854-efe8c10503fe\",\r\n      \"CreatedBy\": \"系统管理员\",\r\n      \"CreatedTime\": \"2018-03-30\",\r\n      \"SchemeName\": \"高层领导力评估方案\",\r\n      \"SchemeDescription\": \"服务于企业高层管理人员的盘点和发展。基于北森领导力模型，评估领导力偏好与倾向。\",\r\n      \"SchemeApplyHierarchicals\": null,\r\n      \"SchemeUses\": null,\r\n      \"AssessmentTests\": [\r\n        {\r\n          \"Id\": \"3d949570-7a53-4b1a-93e4-e58d9c61c127\",\r\n          \"TestName\": \"领导力评估测验\",\r\n          \"TestUrl\": \"//www.italent.cn/100512999/SignRedirect?appId=1020&redirectUrl=https%3a%2f%2ftms.beisen.com%2fsso%2flogin%3fredirect_url%3dhttps%25253a%25252f%25252fassess.tms.beisen.com%25252fSystemSolution%25252fSolutionBasic%25253fobjectType%25253d1%252526objectID%25253d%25252c905094da-6036-4776-8648-e32f45557d93%25252cf29f7a39-2373-4589-b4b0-4e2705ee1013%252526questionCount%25253d42%252526answerTime%25253d20%252526isDetails%25253d1%252526Tag%25253d548755880\",\r\n          \"QuestionCount\": \"42\",\r\n          \"AnswerTime\": \"20\",\r\n          \"AssessmentTestTypeSource\": 1,\r\n          \"TemplateType\": 2,\r\n          \"ReportNames\": [],\r\n          \"ExtendSelect\": false,\r\n          \"TMSSolutionId\": \"a88b8ee1-ea62-42ac-92b0-db8a96c8e440\",\r\n          \"TMSTemplateId\": \"905094da-6036-4776-8648-e32f45557d93\",\r\n          \"TMSTestId\": \"f29f7a39-2373-4589-b4b0-4e2705ee1013\",\r\n          \"RTSpecailTestList\": null,\r\n          \"IsCustomerTest\": false\r\n        }\r\n      ],\r\n      \"TotalQuestionCount\": \"\",\r\n      \"TotalAnswerTime\": \"\",\r\n      \"AddActivityUrl\": null,\r\n      \"TotalUnitPrice\": null,\r\n      \"UseNumber\": \"8000+\",\r\n      \"SchemeDetail\": \"&amp;lt;div class=&amp;quot;solution-detail&amp;quot;&amp;gt;&amp;lt;p&amp;gt;高层领导力评估方案是针对企业高层管理人员实施的深入的评估。明确领导力标准，盘清高管现状，服务于企业战略业务变化等情况下的用人需求，进而促进企业商业目标的达成。&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;深入了解高层管理人员的现状，清晰高管人才账，在企业变革以及人员调用、安置时做到心中有数，充分发挥高管优势，降低高层人员任用风险。&amp;lt;/p&amp;gt;&amp;lt;div class=&amp;quot;container clearfix&amp;quot;&amp;gt;&amp;lt;div class=&amp;quot;left&amp;quot;&amp;gt;&amp;lt;h2&amp;gt;测评报告&amp;lt;/h2&amp;gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;&amp;lt;span&amp;gt;FLA领导力面试报告&amp;lt;/span&amp;gt;&amp;lt;a target=&amp;quot;_blank&amp;quot; href=&amp;quot;https://doc-cloud.italent.cn/120033/preview/AssessFile/ad9250cdc0c34ed29a9f5bcaf83a0540.pdf?tid=120033&amp;amp;uid=118065357&amp;amp;ttl=0&amp;amp;sign=760a6c3f7d8a891dbe0805158704a59c&amp;quot;&amp;gt;样本报告&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;&amp;lt;span&amp;gt;FLA领导力测评报告&amp;lt;/span&amp;gt;&amp;lt;a target=&amp;quot;_blank&amp;quot; href=&amp;quot;https://doc-cloud.italent.cn/120033/preview/AssessFile/4fd30ce2779c4894928efbb94581fcf2.pdf?tid=120033&amp;amp;uid=118065357&amp;amp;ttl=0&amp;amp;sign=d1d147d682ce89437913e0048353625c&amp;quot;&amp;gt;样本报告&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;&amp;lt;span&amp;gt;FLA领导力应用分析报告&amp;lt;/span&amp;gt;&amp;lt;a target=&amp;quot;_blank&amp;quot; href=&amp;quot;https://doc-cloud.italent.cn/120033/preview/AssessFile/6cdd7209445c419d9e09be3029f2e55d.pdf?tid=120033&amp;amp;uid=118065357&amp;amp;ttl=0&amp;amp;sign=08fe3d41222825c2fbbeba8554125574&amp;quot;&amp;gt;样本报告&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;&amp;lt;span&amp;gt;FLA领导力教练发展报告（受测者阅读）&amp;lt;/span&amp;gt;&amp;lt;a target=&amp;quot;_blank&amp;quot; href=&amp;quot;https://doc-cloud.italent.cn/120033/preview/AssessFile/7820b3ff5d1143e68aa25f95c7417dcd.pdf?tid=120033&amp;amp;uid=118065357&amp;amp;ttl=0&amp;amp;sign=9e4b07db00644de6bd14da82a97bd386&amp;quot;&amp;gt;样本报告&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;quot;right&amp;quot;&amp;gt;&amp;lt;h2&amp;gt;评估模型和工具&amp;lt;/h2&amp;gt;&amp;lt;p&amp;gt;高层领导力测评，采用北森五因素领导力模型（The Five-Factor Leadership Model , FLA)，从个性出发，基于领导力偏好与倾向，综合评估高管在内外部管理工作中展现出的领导力水平。&amp;lt;/p&amp;gt;&amp;lt;div class=&amp;quot;box_container clearfix&amp;quot;&amp;gt;&amp;lt;div class=&amp;quot;icon&amp;quot;&amp;gt;FLA&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;quot;right-container&amp;quot;&amp;gt;&amp;lt;div class=&amp;quot;left-info&amp;quot;&amp;gt;&amp;lt;span&amp;gt;领导力评估测验&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt;&amp;lt;a class=&amp;quot;exam_intro&amp;quot; target=&amp;quot;_blank&amp;quot; href=&amp;quot;http://cloud.italent.cn/Assess/?tenant_id=120033&amp;amp;user_id=118065357&amp;amp;app_id=1020&amp;amp;time_stamp=1522687634&amp;amp;sign=ce811426cabe87d42b3f02b9993c247e&amp;amp;sign_type=1#/basePage?pageType=IAskArticle&amp;amp;ArticleID=90c6082d-1a7d-4fc3-ba5a-59b9f088a479&amp;amp;_k=3iq3mo&amp;quot;&amp;gt;测验介绍及样题&amp;lt;/a&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;quot;right-info&amp;quot;&amp;gt;&amp;lt;span class=&amp;quot;ncount&amp;quot;&amp;gt;42题&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt;20分钟&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;&amp;lt;br/&amp;gt;&amp;lt;/p&amp;gt;\",\r\n      \"SchemeSource\": null,\r\n      \"TalentModel\": null,\r\n      \"TalentModelName\": null,\r\n      \"SchemeUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPVNvbHV0aW9uQ2VudGVyJm5lZWRQcmVsb2FkUG9wVXA9dHJ1ZSZzY2hlbWVUeXBlPTEmc2NoZW1lSWQ9NzQ2NmRhNWQtMWFmYy00NzI0LWI4NTQtZWZlOGMxMDUwM2Zl\",\r\n      \"OceanDashboards\": null,\r\n      \"TalentCriterion\": null,\r\n      \"TalentCriterionName\": null,\r\n      \"StandardsAndSuggestions\": null\r\n    },\r\n    {\r\n      \"Id\": \"3d0df9aa-8d71-422e-b5f6-59ee14118060\",\r\n      \"CreatedBy\": \"系统管理员\",\r\n      \"CreatedTime\": \"2018-05-25\",\r\n      \"SchemeName\": \"社会招聘方案（财务岗）\",\r\n      \"SchemeDescription\": \"服务于企业招聘时对财务岗位候选人进行深度评估。从能力、个性和动机三个层面，评估岗位候选人的岗位适配程度。\",\r\n      \"SchemeApplyHierarchicals\": null,\r\n      \"SchemeUses\": null,\r\n      \"AssessmentTests\": [\r\n        {\r\n          \"Id\": \"410469a7-b049-4312-9d4a-b60d839163ce\",\r\n          \"TestName\": \"财务类社会招聘测验V6\",\r\n          \"TestUrl\": \"//www.italent.cn/100512999/SignRedirect?appId=1020&redirectUrl=https%3a%2f%2ftms.beisen.com%2fsso%2flogin%3fredirect_url%3dhttps%25253a%25252f%25252fassess.tms.beisen.com%25252fSystemSolution%25252fSolutionBasic%25253fobjectType%25253d1%252526objectID%25253d%25252c6b5ebccb-3b20-4235-af77-94e9b01ff0d5%25252ccd3979b8-4606-43bf-816d-8f9ae07e6a5e%252526questionCount%25253d177%252526answerTime%25253d44%252526isDetails%25253d1%252526Tag%25253d745539089\",\r\n          \"QuestionCount\": \"177\",\r\n          \"AnswerTime\": \"44\",\r\n          \"AssessmentTestTypeSource\": 1,\r\n          \"TemplateType\": 2,\r\n          \"ReportNames\": [],\r\n          \"ExtendSelect\": false,\r\n          \"TMSSolutionId\": \"4297a5c9-a668-4e48-aad7-c4ec4f88a6ed\",\r\n          \"TMSTemplateId\": \"6b5ebccb-3b20-4235-af77-94e9b01ff0d5\",\r\n          \"TMSTestId\": \"cd3979b8-4606-43bf-816d-8f9ae07e6a5e\",\r\n          \"RTSpecailTestList\": null,\r\n          \"IsCustomerTest\": false\r\n        }\r\n      ],\r\n      \"TotalQuestionCount\": \"\",\r\n      \"TotalAnswerTime\": \"\",\r\n      \"AddActivityUrl\": null,\r\n      \"TotalUnitPrice\": null,\r\n      \"UseNumber\": \"10万+\",\r\n      \"SchemeDetail\": \"&amp;lt;div class=&amp;quot;solution-detail&amp;quot;&amp;gt;&amp;lt;p&amp;gt;在社会招聘中，通过简历和面试环节，企业往往比较容易判断候选人过往的工作经验和技能水平，但候选人在个性特征、思维方式、行为风格等方面是否与目标职位相匹配，则需要通过心理测评结果进一步获取信息，整体把握候选人的优劣势特征，辅助用人决策。&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;社会招聘方案（财务岗）是针对财务类基层岗位胜任力模型建立的评估方案，旨在深入地评估候选人的人岗适配程度，满足企业对候选人的内在特点进行评估的需要，帮助企业从岗位胜任力层面对候选人进行有效区分。&amp;lt;/p&amp;gt;&amp;lt;div class=&amp;quot;container clearfix&amp;quot;&amp;gt;&amp;lt;div class=&amp;quot;left&amp;quot;&amp;gt;&amp;lt;h2&amp;gt;测评报告&amp;lt;/h2&amp;gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;&amp;lt;span&amp;gt;社会招聘胜任力基本分析报告&amp;lt;/span&amp;gt;&amp;lt;a target=&amp;quot;_blank&amp;quot; href=&amp;quot;https://doc-cloud.italent.cn/120033/preview/AssessFile/f5b0c3ece1274dada75633a986783c27.pdf?tid=120033&amp;amp;uid=118065357&amp;amp;ttl=0&amp;amp;sign=e5d0c4a9515bd2d412628dd87d6433cd&amp;quot;&amp;gt;样本报告&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;&amp;lt;span&amp;gt;社会招聘胜任力匹配报告&amp;lt;/span&amp;gt;&amp;lt;a target=&amp;quot;_blank&amp;quot; href=&amp;quot;https://doc-cloud.italent.cn/120033/preview/AssessFile/4d94c240dacd4980ab923c44cd3a8479.pdf?tid=120033&amp;amp;uid=118065357&amp;amp;ttl=0&amp;amp;sign=919aae9a7cac91e251ae1349644ce5d9&amp;quot;&amp;gt;样本报告&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;&amp;lt;span&amp;gt;社会招聘个人反馈报告（受测者阅读）&amp;lt;/span&amp;gt;&amp;lt;a target=&amp;quot;_blank&amp;quot; href=&amp;quot;https://doc-cloud.italent.cn/120033/preview/AssessFile/4ca05daffa71465f8615cc7865d4da01.pdf?tid=120033&amp;amp;uid=118065357&amp;amp;ttl=0&amp;amp;sign=2dd209827c24be9628977f7f86904ab6&amp;quot;&amp;gt;样本报告&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;&amp;lt;span&amp;gt;社会招聘团队分析报告&amp;lt;/span&amp;gt;&amp;lt;a target=&amp;quot;_blank&amp;quot; href=&amp;quot;https://doc-cloud.italent.cn/120033/preview/AssessFile/8cf9ae9ce3dd4711a94f89b2c6b9913d.pdf?tid=120033&amp;amp;uid=118065357&amp;amp;ttl=0&amp;amp;sign=6eed18dd3113a502c6e8d69a6a1747b1&amp;quot;&amp;gt;样本报告&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;quot;right&amp;quot;&amp;gt;&amp;lt;h2&amp;gt;评估模型和工具&amp;lt;/h2&amp;gt;&amp;lt;p&amp;gt;本方案基于北森胜任力测评体系，针对财务岗设置专门的评估模型，从能力、个性、动机三个层面考察候选人的特点。&amp;lt;/p&amp;gt;&amp;lt;div class=&amp;quot;box_container clearfix&amp;quot;&amp;gt;&amp;lt;div class=&amp;quot;icon&amp;quot;&amp;gt;胜任力&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;quot;right-container&amp;quot;&amp;gt;&amp;lt;div class=&amp;quot;left-info&amp;quot;&amp;gt;&amp;lt;span&amp;gt;财务类社会招聘测验V6&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt;&amp;lt;a class=&amp;quot;exam_intro&amp;quot; target=&amp;quot;_blank&amp;quot; href=&amp;quot;http://cloud.italent.cn/Assess/?tenant_id=120033&amp;amp;user_id=118065357&amp;amp;app_id=1020&amp;amp;time_stamp=1522687634&amp;amp;sign=ce811426cabe87d42b3f02b9993c247e&amp;amp;sign_type=1#/basePage?pageType=IAskArticle&amp;amp;ArticleID=87b21637-b260-408c-9fa5-da677853decf&amp;amp;_k=8myvgc&amp;quot;&amp;gt;测验介绍及样题&amp;lt;/a&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;quot;right-info&amp;quot;&amp;gt;&amp;lt;span class=&amp;quot;ncount&amp;quot;&amp;gt;177题&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt;44分钟&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;&amp;lt;br/&amp;gt;&amp;lt;/p&amp;gt;\",\r\n      \"SchemeSource\": null,\r\n      \"TalentModel\": null,\r\n      \"TalentModelName\": null,\r\n      \"SchemeUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPVNvbHV0aW9uQ2VudGVyJm5lZWRQcmVsb2FkUG9wVXA9dHJ1ZSZzY2hlbWVUeXBlPTEmc2NoZW1lSWQ9M2QwZGY5YWEtOGQ3MS00MjJlLWI1ZjYtNTllZTE0MTE4MDYw\",\r\n      \"OceanDashboards\": null,\r\n      \"TalentCriterion\": null,\r\n      \"TalentCriterionName\": null,\r\n      \"StandardsAndSuggestions\": null\r\n    }\r\n  ],\r\n  \"TotalCount\": 0,\r\n  \"SeeAllUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPVNvbHV0aW9uQ2VudGVyJm5lZWRQcmVsb2FkUG9wVXA9dHJ1ZSZzY2hlbWVUeXBlPTE*\",\r\n  \"SchemeCenterUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPVNvbHV0aW9uQ2VudGVyJm5lZWRQcmVsb2FkUG9wVXA9dHJ1ZSZzY2hlbWVUeXBlPTA*\"\r\n}"
+          },
+          "redirectURL": "",
+          "headersSize": 307,
+          "bodySize": 25664,
+          "_transferSize": 25971
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 8.554780999995186,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.04499999999999993,
+          "wait": 59.56599999695224,
+          "receive": 57.33000000327593,
+          "_blocked_queueing": 0.7809999951859936,
+          "_blocked_proxy": 0.359
+        },
+        "serverIPAddress": "60.28.209.81",
+        "connection": "118097",
+        "pageref": "page_1"
+      },
+      {
+        "startedDateTime": "2018-08-14T04:33:50.589Z",
+        "time": 3542.706633000176,
+        "request": {
+          "method": "GET",
+          "url": "http://cloud.italent.cn/AssessMRest/100000/Index/GetSearchData?searchName=%E9%A1%B9%E7%9B%AE",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Origin",
+              "value": "http://www.italent.cn"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate"
+            },
+            {
+              "name": "Host",
+              "value": "cloud.italent.cn"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "zh-CN,zh;q=0.9,en;q=0.8,fr;q=0.7"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "*/*"
+            },
+            {
+              "name": "Referer",
+              "value": "http://www.italent.cn/108805543/PageBuilder?pageCode=App1020_AssessHomePage"
+            },
+            {
+              "name": "Cookie",
+              "value": "gr_user_id=b516cb3b-bc49-40a6-a82d-124432e81336; UM_distinctid=16513a3fb476a-058466eec33194-10396f5d-13c680-16513a3fb48709; Tita_PC=6Q9TMHs9IaQ9xeZ2s_yPSvsF7h68fz0xTrE7hb8ArJcOft_VlDAxyA"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "queryString": [
+            {
+              "name": "searchName",
+              "value": "%E9%A1%B9%E7%9B%AE"
+            }
+          ],
+          "cookies": [
+            {
+              "name": "gr_user_id",
+              "value": "b516cb3b-bc49-40a6-a82d-124432e81336",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "UM_distinctid",
+              "value": "16513a3fb476a-058466eec33194-10396f5d-13c680-16513a3fb48709",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "Tita_PC",
+              "value": "6Q9TMHs9IaQ9xeZ2s_yPSvsF7h68fz0xTrE7hb8ArJcOft_VlDAxyA",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            }
+          ],
+          "headersSize": 676,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Date",
+              "value": "Tue, 14 Aug 2018 04:33:54 GMT"
+            },
+            {
+              "name": "Server",
+              "value": "Microsoft-IIS/7.5"
+            },
+            {
+              "name": "X-AspNet-Version",
+              "value": "4.0.30319"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "ASP.NET"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "http://www.italent.cn"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "private"
+            },
+            {
+              "name": "Access-Control-Allow-Credentials",
+              "value": "true"
+            },
+            {
+              "name": "Content-Length",
+              "value": "3564"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 3564,
+            "mimeType": "application/json",
+            "compression": 0,
+            "text": "{\r\n  \"ProjectSeeAllUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL0luZGV4UGFnZT9tZXRhT2JqTmFtZT1Bc3Nlc3MuUHJvamVjdCZhcHA9QXNzZXNzJnByb2plY3ROYW1lPSVlOSVhMSViOSVlNyU5YiVhZQ**\",\r\n  \"SchemeSeeAllUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL2Jhc2VQYWdlP3BhZ2VUeXBlPVNvbHV0aW9uQ2VudGVyJm5lZWRQcmVsb2FkUG9wVXA9dHJ1ZSZzY2hlbWVUeXBlPTA*\",\r\n  \"PersonalSeeAllUrl\": null,\r\n  \"projectInfoList\": [\r\n    {\r\n      \"Id\": \"288a82e3-8fb1-428e-a4d8-00a390e17a30\",\r\n      \"CreatedUserName\": null,\r\n      \"CreatedTime\": null,\r\n      \"ProjectName\": \"725项目\",\r\n      \"ProjectDescription\": null,\r\n      \"SchemeCount\": 0,\r\n      \"AssessActivityCount\": 0,\r\n      \"AssessmentUserCount\": 0,\r\n      \"ProjectDocumentCount\": 0,\r\n      \"ProjectDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL0RldGFpbFBhZ2U/bWV0YU9iak5hbWU9QXNzZXNzLlByb2plY3QmbGlzdFZpZXdOYW1lPUFzc2Vzcy5TaW5nbGVPYmplY3RMaXN0Vmlldy5Qcm9qZWN0TGlzdCZpZD0yODhhODJlMy04ZmIxLTQyOGUtYTRkOC0wMGEzOTBlMTdhMzAmZm9ybVN0YXRlPXNob3cmYXBwPUFzc2Vzcw**\"\r\n    },\r\n    {\r\n      \"Id\": \"db960830-3634-496c-b830-27c50476f455\",\r\n      \"CreatedUserName\": null,\r\n      \"CreatedTime\": null,\r\n      \"ProjectName\": \"83项目u\",\r\n      \"ProjectDescription\": null,\r\n      \"SchemeCount\": 0,\r\n      \"AssessActivityCount\": 0,\r\n      \"AssessmentUserCount\": 0,\r\n      \"ProjectDocumentCount\": 0,\r\n      \"ProjectDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL0RldGFpbFBhZ2U/bWV0YU9iak5hbWU9QXNzZXNzLlByb2plY3QmbGlzdFZpZXdOYW1lPUFzc2Vzcy5TaW5nbGVPYmplY3RMaXN0Vmlldy5Qcm9qZWN0TGlzdCZpZD1kYjk2MDgzMC0zNjM0LTQ5NmMtYjgzMC0yN2M1MDQ3NmY0NTUmZm9ybVN0YXRlPXNob3cmYXBwPUFzc2Vzcw**\"\r\n    },\r\n    {\r\n      \"Id\": \"436361cd-c4e1-4dde-a314-845419151694\",\r\n      \"CreatedUserName\": null,\r\n      \"CreatedTime\": null,\r\n      \"ProjectName\": \"项目项目dddd\",\r\n      \"ProjectDescription\": null,\r\n      \"SchemeCount\": 0,\r\n      \"AssessActivityCount\": 0,\r\n      \"AssessmentUserCount\": 0,\r\n      \"ProjectDocumentCount\": 0,\r\n      \"ProjectDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL0RldGFpbFBhZ2U/bWV0YU9iak5hbWU9QXNzZXNzLlByb2plY3QmbGlzdFZpZXdOYW1lPUFzc2Vzcy5TaW5nbGVPYmplY3RMaXN0Vmlldy5Qcm9qZWN0TGlzdCZpZD00MzYzNjFjZC1jNGUxLTRkZGUtYTMxNC04NDU0MTkxNTE2OTQmZm9ybVN0YXRlPXNob3cmYXBwPUFzc2Vzcw**\"\r\n    },\r\n    {\r\n      \"Id\": \"1eaaded7-3b3c-4b94-ba72-ff6033da01d2\",\r\n      \"CreatedUserName\": null,\r\n      \"CreatedTime\": null,\r\n      \"ProjectName\": \"张峰测试项目\",\r\n      \"ProjectDescription\": null,\r\n      \"SchemeCount\": 0,\r\n      \"AssessActivityCount\": 0,\r\n      \"AssessmentUserCount\": 0,\r\n      \"ProjectDocumentCount\": 0,\r\n      \"ProjectDetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL0RldGFpbFBhZ2U/bWV0YU9iak5hbWU9QXNzZXNzLlByb2plY3QmbGlzdFZpZXdOYW1lPUFzc2Vzcy5TaW5nbGVPYmplY3RMaXN0Vmlldy5Qcm9qZWN0TGlzdCZpZD0xZWFhZGVkNy0zYjNjLTRiOTQtYmE3Mi1mZjYwMzNkYTAxZDImZm9ybVN0YXRlPXNob3cmYXBwPUFzc2Vzcw**\"\r\n    }\r\n  ],\r\n  \"schemeInfoList\": [],\r\n  \"personalInfoList\": [\r\n    {\r\n      \"Id\": 119838437,\r\n      \"PersonalName\": \"ll无项目\",\r\n      \"Email\": \"llwxm@beisen.com\",\r\n      \"DetailUrl\": \"//cloud.italent.cn//ItalentTransfer?iTalentFrame=Ly9jbG91ZC5pdGFsZW50LmNuL0Fzc2Vzcy8jL0RldGFpbFBhZ2U/bWV0YU9iak5hbWU9QXNzZXNzLlBlcnNvbmFsQmFzaWNJbmZvJmlkPWMwMGM0NDU2LTRhMzEtNDdmZi05OGI1LTljNGE4ZmQ1MzA4NiZ1c2VySWQ9MTE5ODM4NDM3JlRhYkFjdGlvbj1hbnN3ZXImZm9ybVN0YXRlPXNob3c*\"\r\n    }\r\n  ]\r\n}"
+          },
+          "redirectURL": "",
+          "headersSize": 305,
+          "bodySize": 3564,
+          "_transferSize": 3869
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 2.6416329999960144,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.05699999999999994,
+          "wait": 3533.9639999986143,
+          "receive": 6.044000001566019,
+          "_blocked_queueing": 0.632999996014405,
+          "_blocked_proxy": 0.30600000000000005
+        },
+        "serverIPAddress": "60.28.209.81",
+        "connection": "129500",
+        "pageref": "page_1"
+      },
+      {
+        "startedDateTime": "2018-08-14T03:59:55.600Z",
+        "time": 15.625534999999218,
+        "request": {
+          "method": "GET",
+          "url": "https://cloudladder.italent.cn/TalentTip/GetTodayQuestion",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Origin",
+              "value": "https://www.italent.cn"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Host",
+              "value": "cloudladder.italent.cn"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "zh-CN,zh;q=0.9,en;q=0.8,fr;q=0.7"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "*/*"
+            },
+            {
+              "name": "Referer",
+              "value": "https://www.italent.cn/108805543/PageBuilder?pageCode=App1020_AssessHomePage"
+            },
+            {
+              "name": "Cookie",
+              "value": "gr_user_id=b516cb3b-bc49-40a6-a82d-124432e81336; UM_distinctid=16513a3fb476a-058466eec33194-10396f5d-13c680-16513a3fb48709; gr_session_id_882ff8b3236342a9=8ef3a756-e4e2-46f3-b4d8-d0b4fb6f49b6; gr_session_id_882ff8b3236342a9_8ef3a756-e4e2-46f3-b4d8-d0b4fb6f49b6=true; Tita_PC=6Q9TMHs9IaQ9xeZ2s_yPSvsF7h68fz0xTrE7hb8ArJcOft_VlDAxyA"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "queryString": [],
+          "cookies": [
+            {
+              "name": "gr_user_id",
+              "value": "b516cb3b-bc49-40a6-a82d-124432e81336",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "UM_distinctid",
+              "value": "16513a3fb476a-058466eec33194-10396f5d-13c680-16513a3fb48709",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "gr_session_id_882ff8b3236342a9",
+              "value": "8ef3a756-e4e2-46f3-b4d8-d0b4fb6f49b6",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "gr_session_id_882ff8b3236342a9_8ef3a756-e4e2-46f3-b4d8-d0b4fb6f49b6",
+              "value": "true",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "Tita_PC",
+              "value": "6Q9TMHs9IaQ9xeZ2s_yPSvsF7h68fz0xTrE7hb8ArJcOft_VlDAxyA",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            }
+          ],
+          "headersSize": 789,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Date",
+              "value": "Tue, 14 Aug 2018 03:59:55 GMT"
+            },
+            {
+              "name": "X-AspNetMvc-Version",
+              "value": "5.2"
+            },
+            {
+              "name": "X-AspNet-Version",
+              "value": "4.0.30319"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "ASP.NET"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "https://www.italent.cn"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "private"
+            },
+            {
+              "name": "Access-Control-Allow-Credentials",
+              "value": "true"
+            },
+            {
+              "name": "Content-Length",
+              "value": "62"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 62,
+            "mimeType": "application/json",
+            "compression": 0,
+            "text": "{\"Code\":1001,\"Message\":\"无进行中学习计划\",\"Data\":null}"
+          },
+          "redirectURL": "",
+          "headersSize": 318,
+          "bodySize": 62,
+          "_transferSize": 380
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 3.8425349999992178,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.04999999999999982,
+          "wait": 10.474000003064983,
+          "receive": 1.2589999969350174,
+          "_blocked_queueing": 0.534999999217689,
+          "_blocked_proxy": 0.702
+        },
+        "serverIPAddress": "60.29.245.44",
+        "connection": "117987",
+        "pageref": "page_1"
+      }
+    ]
+  }
+}

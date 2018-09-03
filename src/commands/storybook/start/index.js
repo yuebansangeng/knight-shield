@@ -34,8 +34,7 @@ export default class extends Generator {
         '-c', storybookConfigPath
       ],
       {
-        'stdio': 'inherit',
-        'cwd': __dirname
+        'stdio': 'inherit'
       }
     )
   }

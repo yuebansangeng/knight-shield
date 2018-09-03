@@ -1,7 +1,7 @@
 
+import fs from 'fs'
 import path from 'path'
 import request from 'request-promise'
-import { getContent } from './get-file-content'
 import getExamples from '../../../helpers/make-stories/get-examples'
 import check from './check'
 import readrc from '../../../helpers/read-rc'
@@ -23,17 +23,17 @@ export default async (o) => {
     'rc': JSON.stringify(rc),
     'package': JSON.stringify(packinfo),
     'examples': JSON.stringify(examples),
-    'readme': getContent(path.join(contextRoot, 'README.md'))
+    'readme': fs.readFileSync(path.join(contextRoot, 'README.md'), 'utf8')
   }
 
   if (!examples.length) {
-    formData['example_code_default'] = getContent(`${__dirname}/default-example.ejs`)
+    formData['example_code_default'] = fs.readFileSync(`${__dirname}/example.ejs`, 'utf8')
     formData['example_css_default'] = ''
     formData.examples = JSON.stringify([{ 'name': 'default' }])
   } else {
     examples.forEach(({ name }) => {
-      formData[`example_code_${name}`] = getContent(path.join(contextRoot, 'examples', name, 'index.js'))
-      formData[`example_css_${name}`] = getContent(path.join(contextRoot, 'examples', name, 'index.css'))
+      formData[`example_code_${name}`] = fs.readFileSync(path.join(contextRoot, 'examples', name, 'index.js'), 'utf8')
+      formData[`example_css_${name}`] = fs.readFileSync(path.join(contextRoot, 'examples', name, 'index.css'), 'utf8')
     })
   }
 
