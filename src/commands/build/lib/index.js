@@ -6,43 +6,36 @@ import { fork } from 'child_process'
 import Generator from 'yeoman-generator'
 import makeSingleLib from './make-single-lib'
 import logger from '../../../helpers/logger'
+import prepareCmpPaths from '../../../helpers/prepare-cmp-paths'
 
 export default class extends Generator {
 
   async writing () {
-    let { contextRoot, watch, rc, resp = null } = this.options
+    let { contextRoot, watch, rc, independent } = this.options
     let { components, workspaces } = rc
 
     logger.enableProgress()
     let tracker = null
 
-    // default workspaces
-    if (!workspaces.length) {
-      workspaces = workspaces.concat(components)
+    let buildPaths = [ contextRoot ]
+
+    if (independent) {
+      // component paths, default
+      buildPaths = prepareCmpPaths({ contextRoot, 'independent': true, rc })
+      // override build paths, if workspaces
+      if (workspaces && workspaces.length) {
+        buildPaths = fg.sync(workspaces, { 'onlyDirectories': true }).map(p => path.join(contextRoot, p))
+      }
     }
 
-    if (workspaces.length) {
+    tracker = logger.newItem('building', buildPaths.length)
 
-      let packages = fg.sync(workspaces, { 'onlyDirectories': true })
-      packages = packages.map(p => path.join(contextRoot, p))
-      
-      tracker = logger.newItem('building', packages.length)
+    for (let i = 0; i < buildPaths.length; i++) {
 
-      for (let i = 0; i < packages.length; i++) {
-
-        logger.silly('success', packages[i])
-        tracker.completeWork(1)
-        await makeSingleLib({ 'contextRoot': packages[i] })
-      }
-
-    } else {
-
-      tracker = logger.newItem('building', 1)
-
-      logger.silly('success', contextRoot)
+      logger.silly('success', buildPaths[i])
       tracker.completeWork(1)
 
-      await makeSingleLib({ contextRoot })
+      await makeSingleLib({ 'contextRoot': buildPaths[i] })
     }
 
     tracker.finish()

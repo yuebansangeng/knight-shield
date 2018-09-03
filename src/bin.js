@@ -39,12 +39,13 @@ program
 
 program
   .command('build <cmd>')
+  .option('-i, --independent [independent]', '组件独立构建lib')
   .option('-s, --source [source]', '命令执行时所构建的组件项目')
   .option('-c, --watch [watch]', '监听目录文件变动重新构建')
   .description('构建组件的 lib 目录')
   .action((cmd, opts) => {
-    let { source, watch } = opts
-    env.run(`build ${cmd}`, { source, watch })
+    let { source, watch, independent } = opts
+    env.run(`build ${cmd}`, { source, watch, independent })
   })
 
 program.parse(process.argv)
