@@ -4,6 +4,7 @@ import Generator from 'yeoman-generator'
 import singlePub from './single-pub'
 import fg from 'fast-glob'
 import logger from '../../../helpers/logger'
+import prepareCmpPaths from '../../../helpers/prepare-cmp-paths'
 
 export default class extends Generator {
   async writing () {
@@ -12,16 +13,7 @@ export default class extends Generator {
     logger.enableProgress()
     let tracker = null
 
-    let cmpPaths = [ contextRoot ]
-    
-    // 如果是 independent 模式，则使用 rc 文件中配置的 components
-    if (independent) {
-      if (rc.components.length) {
-        cmpPaths = await fg(rc.components, { 'onlyDirectories': true }).then(cps => 
-          cps.map(p => path.join(contextRoot, p))
-        )  
-      }
-    }
+    let cmpPaths = prepareCmpPaths({ contextRoot, independent, rc })
 
     tracker = logger.newItem('publishing', cmpPaths.length)
 

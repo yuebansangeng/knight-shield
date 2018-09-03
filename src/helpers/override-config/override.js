@@ -2,15 +2,6 @@
 import fs from 'fs'
 import path from 'path'
 
-// o.configs
-// const configs = [
-//   'tsconfig.json',
-//   {
-//     'ori': '.babelrc',
-//     'dest': 'babelrc.json'
-//   }
-// ]
-
 export default (o) => {
   const { configPath, destinationPath, configs = [] } = o
 

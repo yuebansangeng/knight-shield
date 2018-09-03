@@ -9,9 +9,9 @@ export default (options = {}) => {
 
   return new Promise((resolve, reject) => {
     
-    const { storybookConfigPath, components = [] } = options
+    const { storybookConfigPath, cmpPaths = [] } = options
 
-    const storyMetas = components.map(contentRoot => {
+    const storyMetas = cmpPaths.map(contentRoot => {
 
       const packinfo = require(`${contentRoot}/package.json`)
       const examples = getExamples(contentRoot)
