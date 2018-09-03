@@ -22,13 +22,13 @@ export default async o => {
     return await execa('git', args)
       .then(({ stdout }) => stdout.split('\n'))
       .then(changeFiles => {
-        return changeFiles.map(cf => {
-          for(var i = 0; i < cmpPaths.length; i++)
-            // 判断是否存在
-            if (cf.match(new RegExp(cmpPaths[i], 'ig')))
-              // 追加 contextRoot，绝对路径
-              return path.join(contextRoot, cmpPaths[i])
-        })
+        let cfs = changeFiles.join(',') // O(n^2) => O(n)
+        let res = []
+        for(var i = 0; i < cmpPaths.length; i++) {
+          if (cfs.match(new RegExp(cmpPaths[i], 'ig')))
+            res.push(path.join(contextRoot, cmpPaths[i]))
+        }
+        return res
       })
   } else {
     
