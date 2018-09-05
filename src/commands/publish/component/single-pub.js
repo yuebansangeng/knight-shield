@@ -7,6 +7,10 @@ import check from './check'
 import readrc from '../../../helpers/read-rc'
 import 'colors'
 
+let getContentIfExists = (cp) => {
+  return fs.existsSync(cp) ? fs.readFileSync(cp, 'utf8') : ''
+}
+
 export default async (o) => {
   const { CMP_SERVER_HOST } = process.env
   const { contextRoot } = o
@@ -23,17 +27,17 @@ export default async (o) => {
     'rc': JSON.stringify(rc),
     'package': JSON.stringify(packinfo),
     'examples': JSON.stringify(examples),
-    'readme': fs.readFileSync(path.join(contextRoot, 'README.md'), 'utf8')
+    'readme': getContentIfExists(path.join(contextRoot, 'README.md'))
   }
 
   if (!examples.length) {
-    formData['example_code_default'] = fs.readFileSync(`${__dirname}/example.ejs`, 'utf8')
+    formData['example_code_default'] = getContentIfExists(`${__dirname}/example.ejs`)
     formData['example_css_default'] = ''
     formData.examples = JSON.stringify([{ 'name': 'default' }])
   } else {
     examples.forEach(({ name }) => {
-      formData[`example_code_${name}`] = fs.readFileSync(path.join(contextRoot, 'examples', name, 'index.js'), 'utf8')
-      formData[`example_css_${name}`] = fs.readFileSync(path.join(contextRoot, 'examples', name, 'index.css'), 'utf8')
+      formData[`example_code_${name}`] = getContentIfExists(path.join(contextRoot, 'examples', name, 'index.js'))
+      formData[`example_css_${name}`] = getContentIfExists(path.join(contextRoot, 'examples', name, 'index.css'))
     })
   }
 

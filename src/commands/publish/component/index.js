@@ -15,6 +15,8 @@ export default class extends Generator {
 
     let cmpPaths = prepareCmpPaths({ contextRoot, independent, rc })
 
+    // TODO: publish if modified use `git diff`
+
     tracker = logger.newItem('publishing', cmpPaths.length)
 
     for (let i = 0; i < cmpPaths.length; i++) {
