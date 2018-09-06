@@ -5,7 +5,7 @@ import buildCmpStatics from './build-cmp-statics'
 import overrideConfig from '../../../helpers/override-config'
 import generateHttpHAREntry from '../../../helpers/generate-http-har-entry'
 import prepareCmpPaths from '../../../helpers/prepare-cmp-paths'
-import collectUpdates from './collect-updates'
+import collectUpdates from '../../../helpers/collect-updates'
 import logger from '../../../helpers/logger'
 
 export default class extends Generator {

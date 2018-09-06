@@ -19,10 +19,11 @@ program
   .command('publish')
   .option('-s, --source [source]', '命令执行时所构建的组件项目')
   .option('-i, --independent [independent]', '组件单独发布')
+  .option('-v, --only-updated [onlyUpdated]', '监听目录文件变动重新构建')
   .description('发布组件到共享中心')
   .action(opts => {
-    let { source, cinumber, jobname, independent } = opts
-    env.run('publish', { source, cinumber, jobname, independent })
+    let { source, independent, onlyUpdated } = opts
+    env.run('publish', { source, independent, onlyUpdated })
   })
 
 program

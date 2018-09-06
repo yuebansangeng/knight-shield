@@ -5,15 +5,21 @@ import singlePub from './single-pub'
 import fg from 'fast-glob'
 import logger from '../../../helpers/logger'
 import prepareCmpPaths from '../../../helpers/prepare-cmp-paths'
+import collectUpdates from '../../../helpers/collect-updates'
 
 export default class extends Generator {
   async writing () {
-    const { independent, rc, contextRoot } = this.options
+    const { independent, rc, contextRoot, onlyUpdated } = this.options
 
     logger.enableProgress()
     let tracker = null
 
     let cmpPaths = prepareCmpPaths({ contextRoot, independent, rc })
+
+    // 过滤没有修改的组件
+    if (onlyUpdated) {
+      cmpPaths = await collectUpdates({ contextRoot, independent, rc })
+    }
 
     // TODO: publish if modified use `git diff`
 

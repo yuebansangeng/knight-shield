@@ -3,7 +3,6 @@ import path from 'path'
 import execa from 'execa'
 import fg from 'fast-glob'
 
-// 通过 git diff 获取当前与上一次提交中的变动文件，然后筛选出更新的组件
 export default async o => {
   let { contextRoot, independent, rc } = o
   let args = [ 'diff', 'HEAD^', 'HEAD', '--name-only' ]
@@ -25,8 +24,10 @@ export default async o => {
         let cfs = changeFiles.join(',') // O(n^2) => O(n)
         let res = []
         for(var i = 0; i < cmpPaths.length; i++) {
-          if (cfs.match(new RegExp(cmpPaths[i], 'ig')))
-            res.push(path.join(contextRoot, cmpPaths[i]))
+          // remove relative path head ./
+          let cp = cmpPaths[i].replace(/^\.\//, '')
+          if (cfs.match(new RegExp(cp, 'ig')))
+            res.push(path.join(contextRoot, cp))
         }
         return res
       })
