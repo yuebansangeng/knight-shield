@@ -17,8 +17,9 @@ export default async (o) => {
     ]
   })
 
-  return await execa('node', [
-      'node_modules/.bin/gulp',
+  // npx: npm version >= 5
+  return await execa('npx', [
+      'gulp',
       '--gulpfile', path.join(__dirname, '..', '..', '..', 'configs', 'gulpfile.js'),
       '--cwd', contextRoot,
       '--colors'

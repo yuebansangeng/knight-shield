@@ -6,6 +6,7 @@ export default async (o) => {
   const { 'rc': { name, team }, 'package': { 'name': module } } = o
 
   if (!name) {
+    // can not happend
     throw new Error(`请在 rc 配置文件中，配置 name 字段`)
   }
   if (!name.match(/^[A-Za-z\-\d@\/]+?$/)) {
