@@ -23,7 +23,7 @@ export default class extends Generator {
       contextRoot = source.match(/^\//) ? source : path.join(this.contextRoot, source)
       packinfo = require(`${contextRoot}/package.json`)
     }
-   
+
     this.composeWith(
       require.resolve(compoesePath),
       Object.assign(

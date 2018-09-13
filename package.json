@@ -1,6 +1,6 @@
 {
   "name": "@beisen/storybook-lib",
-  "version": "0.4.26",
+  "version": "0.4.28",
   "description": "二次封装，易使用",
   "scripts": {
     "prepublish": "gulp && npm run test",
@@ -10,6 +10,7 @@
   },
   "bin": {
     "sbl": "./bin/index.js",
+    "build-lib": "./bin/build-lib.js",
     "storybook-lib": "./bin/storybook-start.js",
     "build-storybook-statics": "./bin/build-storybook-statics.js"
   },
@@ -27,6 +28,7 @@
   ],
   "dependencies": {
     "@beisen/gulp-typescript": "0.0.2",
+    "@lerna/publish": "^3.0.6",
     "@storybook/addon-viewport": "^3.4.6",
     "@storybook/react": "^3.3.15",
     "@types/prop-types": "^15.5.5",
