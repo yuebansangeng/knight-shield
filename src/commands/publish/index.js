@@ -3,6 +3,7 @@ import path from 'path'
 import Generator from 'yeoman-generator'
 import readrc from '../../helpers/read-rc'
 
+
 export default class extends Generator {
 
   constructor (args, opts) {
@@ -18,12 +19,14 @@ export default class extends Generator {
     let packinfo = require(`${this.contextRoot}/package.json`)
     let contextRoot = this.contextRoot
 
+
     let { source } = this.options
     if (source) {
       contextRoot = source.match(/^\//) ? source : path.join(this.contextRoot, source)
       packinfo = require(`${contextRoot}/package.json`)
     }
-   
+
+
     this.composeWith(
       require.resolve(compoesePath),
       Object.assign(

@@ -6,6 +6,7 @@ import getExamples from '../../../helpers/make-stories/get-examples'
 import check from './check'
 import readrc from '../../../helpers/read-rc'
 import 'colors'
+import { spawnSync } from 'child_process'
 
 let getContentIfExists = (cp) => {
   return fs.existsSync(cp) ? fs.readFileSync(cp, 'utf8') : ''
@@ -19,12 +20,17 @@ export default async (o) => {
 
   await check({ 'package': packinfo, rc })
 
+  // 修改rc文件, 添加 developers
+  const { stdout } = spawnSync('git', [ 'config', 'user.name' ])
+  let username = `${stdout}`.replace(/^\s+|\s+$/, '')
+  rc.developers = [username]
+
   const examples = getExamples(contextRoot)
 
   let formData = {
     'name': rc.name,
-    'version': packinfo.version,
     'rc': JSON.stringify(rc),
+    'version': packinfo.version,
     'package': JSON.stringify(packinfo),
     'examples': JSON.stringify(examples),
     'readme': getContentIfExists(path.join(contextRoot, 'README.md'))
