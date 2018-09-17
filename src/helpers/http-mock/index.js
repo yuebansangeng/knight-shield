@@ -30,6 +30,7 @@ export const adapterFeth = () => {
   }
 }
 
+// TODO:
 export const adapterXHR = () => {
   // let native = window.XMLHttpRequest.prototype.open
 

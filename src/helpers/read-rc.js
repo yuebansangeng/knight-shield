@@ -18,11 +18,12 @@ export const extractRCFromPakcage = (workspace) => {
   return {
     'name': name,
     'description': description,
+    // TODO: remove
     'developers': developers,
-    'version': '',
     'team': 'Unknown',
-    'components': [],
-    'workspaces': [],
+    'components': [], // fs-glob
+    'workspaces': [], // fs-glob
+    'privates': [],   // fs-glob
     'category': '',
     'device': '',
     'mock': {
