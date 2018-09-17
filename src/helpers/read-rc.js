@@ -19,6 +19,7 @@ export const extractRCFromPakcage = (workspace) => {
     'name': name,
     'description': description,
     'developers': developers,
+    'version': '',
     'team': 'Unknown',
     'components': [],
     'workspaces': [],

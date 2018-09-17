@@ -1,28 +1,59 @@
 
 import path from 'path'
+import fg from 'fast-glob'
+import Package from '@lerna/package'
 import Generator from 'yeoman-generator'
-import lernaPublish from '@lerna/publish'
+import readrc from '../../../helpers/read-rc'
+import PackageGraph from '@lerna/package-graph'
+import readPackage from '../../../helpers/read-package'
+import collectUpdates from '../../../helpers/collect-updates'
+import makePackagesGraph from './make-packages-graph'
 
 export default class extends Generator {
   async writing () {
-    const { independent, rc, contextRoot, onlyUpdated } = this.options
+    const { rc, contextRoot, onlyUpdated } = this.options
+    const packinfo = this.options.package
 
-    // logger.enableProgress()
+    // components is sub of workspaces
+    // there mabe some another module which is not component，but independent npm module
+    let cmpPaths = fg.sync(rc.workspaces || rc.components, { 'onlyDirectories': true })
 
-    // tracker = logger.newItem('publishing', 1)
+    // TODO: 
+    // if (onlyUpdated) {
+      // 'independent': true => get all components package
+      // cmpPaths = await collectUpdates({ contextRoot, 'independent': true, rc })
+    // }
 
-    let p = lernaPublish({
-      '_': [ 'publish' ],
-		  'progress': true,
-		  'ci': false,
-		  'loglevel': 'info',
-		  'composed': 'publish',
-		  'lernaVersion': '3.1.2',
-		  '$0': 'lerna'
-		})
+    // default version is package
+    let updateVersion = readrc(contextRoot).version || packinfo.version
 
-		p.execute()
+    // get packages
+    let packages = cmpPaths.map(cp => {
 
-    // tracker.finish()
+      let pack = readPackage(path.join(contextRoot, cp, 'package.json'))
+      // warp for serialize etc.
+      return new Package(pack, cp, contextRoot)
+    })
+
+    // get packages graph
+    packages = new PackageGraph(packages, 'allDependencies', true)
+
+    // update package
+    // 'localDependencies': file: | link: resolver
+    packages.forEach(async ({ pkg, localDependencies }) => {
+
+      // update version for publish
+      pkg.version = updateVersion
+
+      // update deps' version
+      for (const [ depName, resolved ] of localDependencies) {
+        pkg.updateLocalDependency(resolved, updateVersion, '')
+      }
+
+      await pkg.serialize().then(() => {
+        console.log(`${pkg.name} updated!`)
+      })
+    })
+
   }
 }
