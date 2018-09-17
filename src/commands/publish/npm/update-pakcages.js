@@ -1,7 +1,6 @@
 
 import os from 'os'
 import path from 'path'
-import fg from 'fast-glob'
 import output from '@lerna/output'
 import Package from '@lerna/package'
 import PackageGraph from '@lerna/package-graph'
@@ -9,21 +8,10 @@ import readrc from '../../../helpers/read-rc'
 import readPackage from '../../../helpers/read-package'
 
 export default o => {
-  const { rc, contextRoot } = o
-  const packinfo = o.package
-
-  // components is sub of workspaces
-  // there mabe some another module which is not component，but independent npm module
-  let cmpPaths = fg.sync(rc.workspaces || rc.components, { 'onlyDirectories': true })
-
-  // TODO: 
-  // if (onlyUpdated) {
-  // 'independent': true => get all components package
-  // cmpPaths = await collectUpdates({ contextRoot, 'independent': true, rc })
-  // }
+  const { rc, contextRoot, cmpPaths, 'package': { version } } = o
 
   // default version is package
-  let updateVersion = readrc(contextRoot).version || packinfo.version
+  let updateVersion = readrc(contextRoot).version || version
 
   // get packages
   let packages = cmpPaths.map(cp => {
@@ -50,6 +38,7 @@ export default o => {
       pkg.updateLocalDependency(resolved, updateVersion, '')
     }
 
+    // override pakcage.json
     await pkg.serialize()
   })
 
