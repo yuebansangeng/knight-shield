@@ -8,7 +8,7 @@ export default class extends Generator {
 
   constructor (args, opts) {
     super(args, opts)
-    this.argument('cmd', { 'type': String, 'required': false, 'default': 'component' })
+    this.argument('cmd', { 'type': String, 'required': true })
   }
 
   composing () {

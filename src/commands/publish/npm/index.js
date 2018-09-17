@@ -1,7 +1,7 @@
 
 import Generator from 'yeoman-generator'
 import updatePackages from './update-pakcages'
-import publishPackages from './publish-pakcages'
+import publishNpm from './publish-npm'
 import gitCheckout from './git-checkout'
 
 export default class extends Generator {
@@ -11,7 +11,7 @@ export default class extends Generator {
 
     let { packages } = updatePackages({ rc, contextRoot, 'package': packinfo })
 
-    publishPackages({ packages })
+    publishNpm({ packages })
 
     gitCheckout()
   }

@@ -21,7 +21,7 @@ program
   .option('-i, --independent [independent]', '组件单独发布')
   .option('-v, --only-updated [onlyUpdated]', '监听目录文件变动重新构建')
   .description('发布组件到共享中心')
-  .action((cmd = 'component', opts) => {
+  .action((cmd = 'bscpm', opts) => {
     // cmd = 'component'：默认执行component的命令
     let { source, independent, onlyUpdated } = opts
     env.run(`publish ${cmd}`, { source, independent, onlyUpdated })
