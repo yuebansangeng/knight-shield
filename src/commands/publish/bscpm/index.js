@@ -1,8 +1,6 @@
 
-import path from 'path'
 import Generator from 'yeoman-generator'
 import singlePub from './single-pub'
-import fg from 'fast-glob'
 import logger from '../../../helpers/logger'
 import prepareCmpPaths from '../../../helpers/prepare-cmp-paths'
 import collectUpdates from '../../../helpers/collect-updates'

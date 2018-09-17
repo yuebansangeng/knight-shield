@@ -3,7 +3,6 @@ import fg from 'fast-glob'
 import chokidar from 'chokidar'
 import minimist from 'minimist'
 import path from 'path'
-import execa from 'execa'
 import yeomanEnv from 'yeoman-environment'
 import logger from '../../../helpers/logger'
 

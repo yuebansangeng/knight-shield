@@ -1,7 +1,6 @@
 
 import execa from 'execa'
 import Promise from 'bluebird'
-import logger from '../../../helpers/logger'
 
 export default o => {
   let { packages } = o

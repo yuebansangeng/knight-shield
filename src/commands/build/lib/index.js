@@ -1,5 +1,4 @@
 
-import fs from 'fs'
 import path from 'path'
 import fg from 'fast-glob'
 import { fork } from 'child_process'

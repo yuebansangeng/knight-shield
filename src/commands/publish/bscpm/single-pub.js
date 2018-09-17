@@ -5,7 +5,6 @@ import request from 'request-promise'
 import getExamples from '../../../helpers/make-stories/get-examples'
 import check from './check'
 import readrc from '../../../helpers/read-rc'
-import 'colors'
 import { spawnSync } from 'child_process'
 
 let getContentIfExists = (cp) => {
