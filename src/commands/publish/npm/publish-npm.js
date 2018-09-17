@@ -7,7 +7,7 @@ export default o => {
 
   return Promise.map(
     packages,
-    async ([ pckname, pkg ]) => {
+    ([ pckname, pkg ]) => {
 
       return execa('npm', [ 'publish', '--access=public', '--ignore-scripts', '--tag', 'latest' ], {
           'cwd': pkg.location,
