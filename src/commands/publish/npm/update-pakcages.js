@@ -52,6 +52,8 @@ export default o => {
 
     await pkg.serialize()
   })
+
+  return { packages, updateVersion }
 }
 
 // output message for updates
