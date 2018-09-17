@@ -1,7 +1,7 @@
 {
   "name": "@beisen/storybook-lib",
-  "version": "0.4.29",
-  "description": "二次封装，易使用",
+  "version": "0.4.30",
+  "description": "",
   "scripts": {
     "prepublish": "gulp && npm run test",
     "watch": "gulp watch",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BeisenUX/storybooks-lib.git"
+    "url": "git+https://github.com/knight-org/knight-shield.git"
   },
   "author": "zhanngyue@beisen.com",
   "license": "ISC",
@@ -86,5 +86,5 @@
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0"
   },
-  "homepage": "https://github.com/BeisenUX/storybooks-lib#readme"
+  "homepage": "https://github.com/knight-org/knight-shield#readme"
 }
