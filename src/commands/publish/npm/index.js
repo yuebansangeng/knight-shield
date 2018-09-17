@@ -1,7 +1,7 @@
 
 import fg from 'fast-glob'
 import Generator from 'yeoman-generator'
-import updatePackages from './update-pakcages'
+import updatePackages from './update-packages'
 import publishNpm from './publish-npm'
 import gitCheckout from './git-checkout'
 
@@ -21,7 +21,6 @@ export default class extends Generator {
     let { packages } = updatePackages({ cmpPaths, contextRoot, 'package': packinfo })
 
     publishNpm({ packages })
-
-    gitCheckout()
+      .then(() => gitCheckout())
   }
 }

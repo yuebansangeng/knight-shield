@@ -1,31 +1,29 @@
 
-import npmPublish from '@lerna/npm-publish'
-import runParallelBatches from '@lerna/run-parallel-batches'
+import execa from 'execa'
+import Promise from 'bluebird'
 import logger from '../../../helpers/logger'
-
-// lernarc npm config
-const lernarc = {
-  'npmConfig': {
-    'npmClient': 'npm'
-  }
-}
-const distTag = 'bscpm-tag'
-const concurrency = 10
-
 
 export default o => {
   let { packages } = o
 
-  const tracker = logger.newItem(`${lernarc.npmConfig.npmClient} publish`)
-  tracker.addWork(packages.length)
+  logger.enableProgress()
 
-  runParallelBatches(packages, concurrency, pkg =>
-    npmPublish(pkg, distTag, lernarc.npmConfig)
-      // postpublish is _not_ run when publishing a tarball
-      // .then(() => this.runPackageLifecycle(pkg, "postpublish"))
-      .then(() => {
-        tracker.info('published', pkg.name)
-        tracker.completeWork(1)
+  const tracker = logger.newItem(`npm publish`)
+  tracker.addWork(packages.size)
+
+  return Promise.map(
+    packages,
+    async ([ pckname, pkg ]) => {
+
+      tracker.silly('publishing', pckname)
+      tracker.completeWork(1)
+
+      return execa('npm', [ 'publish', '--access=public', '--ignore-scripts', '--tag', 'latest' ], {
+        'cwd': pkg.location,
+        'stdout': 'inherit'
       })
+    },
+    // execa 5 times once
+    { 'concurrency': 5 }
   )
 }

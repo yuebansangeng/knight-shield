@@ -1,15 +1,14 @@
 {
-  "extends": "./node_modules/@talentui/tools/typescript/ts.json",
   "compilerOptions": {
-    "baseUrl": "./"
+    "module": "esnext",
+    "target": "es5",
+    "lib": ["es2015", "es2016", "es2017", "dom"],
+    "sourceMap": true,
+    "allowJs": true,
+    "jsx": "react",
+    "moduleResolution": "node"
   },
   "exclude": [
-    "node_modules",
-    "dist",
-    "coverage",
-    "static",
-    "tests",
-    "extras",
-    "webpack"
+    "node_modules"
   ]
 }

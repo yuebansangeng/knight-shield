@@ -7,9 +7,7 @@
     "transform-react-display-name",
     "transform-object-assign",
     "transform-class-properties",
-    [
-      "transform-es2015-classes", { "loose": true }
-    ],
+    ["transform-es2015-classes", { "loose": true }],
     "transform-proto-to-assign"
   ]
 }
