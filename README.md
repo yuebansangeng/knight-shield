@@ -36,3 +36,6 @@ $ npx sbl storybook start
 ## Concepts
 
 ## Dependencies
+<p align="center">
+  <img alt="Shield" src="http://lc-cj3ctxdw.cn-n1.lcfile.com/e6180c4dca55ac0e6d24.png" height="200px" with="250px" />
+</p>
