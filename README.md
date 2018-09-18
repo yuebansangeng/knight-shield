@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-  前端UI组件调试发布工具模块
+  A tool for debug and publish UI components.
 </p>
 
 * [About](#about)
