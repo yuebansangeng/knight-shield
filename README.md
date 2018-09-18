@@ -1,6 +1,7 @@
 
 <p align="center">
-  <img alt="Lerna" src="http://lc-cj3ctxdw.cn-n1.lcfile.com/650b2962e00df497f54f.png" width="480">
+  <img alt="Shield" src="http://lc-cj3ctxdw.cn-n1.lcfile.com/650b2962e00df497f54f.png" />
+</p>
 
 <p align="center">
   前端UI组件调试发布工具模块
