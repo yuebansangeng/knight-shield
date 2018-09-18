@@ -16,7 +16,7 @@
   - [`sbl publish`](./commands/version#readme)
   - [`sbl build`](./commands/bootstrap#readme)
 * [Concepts](#concepts)
-* [Lerna.json](#lernajson)
+* [Bscpmrc](#bscpmrc)
 * [Global Flags](./core/global-options)
 * [Filter Flags](./core/filter-options)
 
