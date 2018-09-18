@@ -5,13 +5,13 @@ import { fork } from 'child_process'
 import Generator from 'yeoman-generator'
 import makeSingleLib from './make-single-lib'
 import logger from '../../../helpers/logger'
-import prepareCmpPaths from '../../../helpers/prepare-cmp-paths'
+import ReadRC from '../../../helpers/read-rc'
 
 export default class extends Generator {
 
   async writing () {
-    let { contextRoot, watch, rc, independent } = this.options
-    let { workspaces } = rc
+    let { contextRoot, watch, independent } = this.options
+    let rc = new ReadRC({ contextRoot })
 
     logger.enableProgress()
     let tracker = null
@@ -20,11 +20,8 @@ export default class extends Generator {
 
     if (independent) {
       // component paths, default
-      buildPaths = prepareCmpPaths({ contextRoot, 'independent': true, rc })
-      // override build paths, if workspaces
-      if (workspaces.length) {
-        buildPaths = fg.sync(workspaces, { 'onlyDirectories': true }).map(p => path.join(contextRoot, p))
-      }
+      // override build paths
+      buildPaths = rc.getLibsPath()
     }
 
     tracker = logger.newItem('building', buildPaths.length)
@@ -43,7 +40,7 @@ export default class extends Generator {
     // watching change, rebuild
     if (watch) {
       logger.info('watching', '*/src')
-      fork(`${__dirname}/watcher.js`, [ '--workspaces', JSON.stringify(workspaces), '--context-root', contextRoot ])
+      fork(`${__dirname}/watcher.js`, [ '--packages', JSON.stringify(buildPaths) ])
     }
   }
 }

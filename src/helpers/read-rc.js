@@ -33,8 +33,8 @@ export default class ReadRC {
 
   getLibsPath () {
     const { components, libs } = this.toJSON()
-    const libsPath = new Set(libs.concat(components)).keys()
-    return fg.sync(libsPath, this.fsGlobOps)
+    const libsPath = new Set(libs.concat(components))
+    return fg.sync([ ...libsPath ], this.fsGlobOps)
   }
 
   getPackageInfo () {

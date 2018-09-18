@@ -8,13 +8,7 @@ import logger from '../../../helpers/logger'
 
 const argv = minimist(process.argv.slice(2))
 const env = yeomanEnv.createEnv().register(require.resolve('../../build'), 'build')
-
-const { 'context-root': contextRoot, workspaces } = argv
-
-let packages = fg.sync(JSON.parse(workspaces), { 'onlyDirectories': true })
-
-// default watching context-root, if no pakcages
-if (!packages || !packages.length) packages = [ contextRoot ]
+const packages = JSON.parse(argv.packages)
 
 packages.forEach(pack => {
   chokidar

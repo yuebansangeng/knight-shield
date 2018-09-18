@@ -15,7 +15,7 @@ export default async (o) => {
   const { CMP_SERVER_HOST } = process.env
   const { contextRoot } = o
   const packinfo = require(path.join(contextRoot, 'package.json'))
-  const rc = new ReadRC({ contextRoot }).toJSON()
+  const rc = new ReadRC({ contextRoot })
   const rcJson = rc.toJSON()
 
   await check({ 'package': packinfo, 'rc': rcJson })
