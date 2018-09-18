@@ -31,5 +31,3 @@
 ## Concepts
 
 ## Dependencies
-
-##
