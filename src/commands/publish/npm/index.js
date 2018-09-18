@@ -1,25 +1,18 @@
 
 import path from 'path'
 import Generator from 'yeoman-generator'
-import getPackages from './get-packages'
-import updatePackages from './update-packages'
 import publishNpm from './publish-npm'
 import gitCheckout from './git-checkout'
 import ReadRC from '../../../helpers/read-rc'
 import collectUpdates from '../../../helpers/collect-updates'
 import readPackage from '../../../helpers/read-package'
+import PackageGraph from '../../../helpers/package-graph'
 
 export default class extends Generator {
   async writing () {
     const { contextRoot, onlyUpdated, independent } = this.options
     const packinfo = this.options.package
     const rc = new ReadRC({ contextRoot })
-
-    // generate all local packs, for lerna update deps' version
-    const localPackages = getPackages({
-      contextRoot,
-      'cmpPaths': independent ? rc.getLocalModulesPath() : [ contextRoot ]
-    })
 
     // independent
     let cmpPaths = independent ? rc.getPublishModulesPath() : [ contextRoot ]
@@ -33,15 +26,18 @@ export default class extends Generator {
     }
 
     // get packs' name for publish filter
-    let publishCmpNames = cmpPaths.map(cp => readPackage(path.join(cp, 'package.json')).name)
+    const publishCmpNames = cmpPaths.map(cp => readPackage(path.join(cp, 'package.json')).name)
+
+    const pkgGraph = new PackageGraph({
+      contextRoot,
+      'paths': independent ? rc.getLocalModulesPath() : [ contextRoot ]
+    })
 
     // TODO: update updated module
-    updatePackages({
-      contextRoot,
-      publishCmpNames,
-      'packages': localPackages,
-      'rootProjectVersion': packinfo.version
-    })
+    pkgGraph.updatePackages(publishCmpNames, packinfo.version)
+
+    // generate all local packs, for lerna update deps' version
+    const localPackages = pkgGraph.getLocalPackages()
 
     await publishNpm({ localPackages, publishCmpNames })
       .then(() => gitCheckout())

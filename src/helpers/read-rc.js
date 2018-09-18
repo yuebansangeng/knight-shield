@@ -75,6 +75,7 @@ export default class ReadRC {
 
     return {
       'name': name,
+      'module': name,
       'description': description,
       'developers': developers, // TODO: remove
       'team': 'Unknown',
