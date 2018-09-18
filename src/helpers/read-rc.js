@@ -27,7 +27,12 @@ export default class ReadRC {
   get (key) {
     return this.toJSON()[key]
   }
-  
+
+  getLocalModulesPath () {
+    const libsPath = this.getLibsPath(false)
+    return libsPath.map(p => path.join(this.contextRoot, p))
+  }
+
   /*
    filter private module
   */

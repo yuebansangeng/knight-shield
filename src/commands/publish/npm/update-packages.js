@@ -1,28 +1,23 @@
 
 import os from 'os'
 import output from '@lerna/output'
-import ReadRC from '../../../helpers/read-rc'
 
 export default o => {
-  const { packages, version, contextRoot } = o
-  const rc = new ReadRC({ contextRoot })
-
-  // default version is package
-  let updateVersion = rc.get('version') || version
+  const { packages, rootProjectVersion, publishCmpNames } = o
 
   //notice
-  ouputUpdated({ packages, updateVersion })
+  ouputUpdated(packages, publishCmpNames, rootProjectVersion)
 
   // update package
   // 'localDependencies': file: | link: resolver
   packages.forEach(async ({ pkg, localDependencies }) => {
 
     // update version for publish
-    pkg.version = updateVersion
+    pkg.version = rootProjectVersion
 
     // update deps' version
-    for (const [resolved] of localDependencies) {
-      pkg.updateLocalDependency(resolved, updateVersion, '')
+    for (const [ resolved ] of localDependencies) {
+      pkg.updateLocalDependency(resolved, rootProjectVersion, '')
     }
 
     // override pakcage.json
@@ -32,11 +27,11 @@ export default o => {
 
 // from lerna source
 // output message for updates
-const ouputUpdated = o => {
-  let { packages, updateVersion } = o
+const ouputUpdated = (packages, publishCmpNames, updateVersion) => {
 
   const changes = []
   packages.forEach(({ pkg }) => {
+    if (!publishCmpNames.includes(pkg.name)) return
     let line = ` - ${pkg.name}: ${pkg.version} => ${updateVersion}`
     changes.push(line)
   })

@@ -3,11 +3,14 @@ import execa from 'execa'
 import Promise from 'bluebird'
 
 export default o => {
-  let { packages } = o
+  let { localPackages, publishCmpNames } = o
 
   return Promise.map(
-    packages,
+    localPackages,
     ([ pckname, pkg ]) => {
+
+      // filter cmps
+      if (!publishCmpNames.includes(pkg.name)) return
 
       return execa('npm', [ 'publish', '--access=public', '--ignore-scripts', '--tag', 'latest' ], {
           'cwd': pkg.location,
