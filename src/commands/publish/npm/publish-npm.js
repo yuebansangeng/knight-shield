@@ -1,6 +1,7 @@
 
 import execa from 'execa'
 import Promise from 'bluebird'
+import logger from '../../../helpers/logger'
 
 export default o => {
   let { localPackages, publishCmpNames } = o
@@ -11,6 +12,8 @@ export default o => {
 
       // filter cmps
       if (!publishCmpNames.includes(pckname)) return
+
+      logger.info('publishing', pckname)
 
       return execa('npm', [ 'publish', '--access=public', '--ignore-scripts', '--tag', 'latest' ], {
           'cwd': pkg.location,
