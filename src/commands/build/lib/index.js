@@ -1,6 +1,5 @@
 
-import path from 'path'
-import fg from 'fast-glob'
+import Promise from 'bluebird'
 import { fork } from 'child_process'
 import Generator from 'yeoman-generator'
 import makeSingleLib from './make-single-lib'
@@ -8,8 +7,7 @@ import logger from '../../../helpers/logger'
 import ReadRC from '../../../helpers/read-rc'
 
 export default class extends Generator {
-
-  async writing () {
+  writing () {
     let { contextRoot, watch, independent } = this.options
     let rc = new ReadRC({ contextRoot })
 
@@ -26,21 +24,27 @@ export default class extends Generator {
 
     tracker = logger.newItem('building', buildPaths.length)
 
-    for (let i = 0; i < buildPaths.length; i++) {
+    Promise.map(
+      buildPaths,
+      subCmpContextRoot => {
 
-      logger.silly('success', buildPaths[i])
-      tracker.completeWork(1)
+        logger.silly('success', subCmpContextRoot)
+        tracker.completeWork(1)
 
-      await makeSingleLib({ 'contextRoot': buildPaths[i] })
-    }
+        return makeSingleLib({ 'contextRoot': subCmpContextRoot })
+      },
+      // 6 sub-process one time
+      { 'concurrency': 6 }
+    ).then(() => {
 
-    tracker.finish()
-    logger.disableProgress()
+      tracker.finish()
+      logger.disableProgress()
 
-    // watching change, rebuild
-    if (watch) {
-      logger.info('watching', '*/src')
-      fork(`${__dirname}/watcher.js`, [ '--packages', JSON.stringify(buildPaths) ])
-    }
+      // watching change, rebuild
+      if (watch) {
+        logger.info('watching', '*/src')
+        fork(`${__dirname}/watcher.js`, [ '--packages', JSON.stringify(buildPaths) ])
+      }
+    })
   }
 }

@@ -3,7 +3,7 @@ import path from 'path'
 import execa from 'execa'
 import override from '../../../helpers/override-config/override'
 
-export default async (o) => {
+export default (o) => {
   const { contextRoot } = o
   const storybookConfigPath = path.join(__dirname, '..', '..', '..', 'configs')
 
@@ -18,7 +18,7 @@ export default async (o) => {
   })
 
   // TODO: Promise.map 10
-  return await execa('npx', [
+  return execa('npx', [
       'gulp',
       '--gulpfile', path.join(__dirname, '..', '..', '..', 'configs', 'gulpfile.js'),
       '--cwd', contextRoot,

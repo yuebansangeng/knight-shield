@@ -38,6 +38,7 @@ export default class extends Generator {
 
     tracker = logger.newItem('building', cmpPaths.length)
 
+    // TODO: Promise.map
     for (let i = 0; i < cmpPaths.length; i++) {
 
       logger.silly('building', cmpPaths[i])

@@ -1,5 +1,4 @@
 
-import fg from 'fast-glob'
 import chokidar from 'chokidar'
 import minimist from 'minimist'
 import path from 'path'
