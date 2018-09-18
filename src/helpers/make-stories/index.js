@@ -3,7 +3,7 @@ import path from 'path'
 import fs from 'fs'
 import ejs from 'ejs'
 import getExamples from './get-examples'
-import readrc from '../read-rc'
+import ReadRC from '../read-rc'
 
 export default (options = {}) => {
 
@@ -15,7 +15,7 @@ export default (options = {}) => {
 
       const packinfo = require(`${contentRoot}/package.json`)
       const examples = getExamples(contentRoot)
-      const rc = readrc(contentRoot)
+      const rc = new ReadRC({ contentRoot })
 
       let readme = ''
       if (fs.existsSync(`${contentRoot}/README.md`)) {
@@ -40,7 +40,7 @@ export default (options = {}) => {
       }
 
       return {
-        'name': rc.name,
+        'name': rc.get('name'),
         'stories': stories,
         'readme': readme
       }

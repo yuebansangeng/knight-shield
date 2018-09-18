@@ -5,13 +5,15 @@ import fg from 'fast-glob'
 
 export default async o => {
   let { contextRoot, independent, rc } = o
+  let { components } = rc
+
   let args = [ 'diff', 'HEAD^', 'HEAD', '--name-only' ]
 
   let cmpPaths = [ contextRoot ]
 
   if (independent) {
-    if (rc.components && rc.components.length) {
-      cmpPaths = fg.sync(rc.components, { 'onlyDirectories': true })
+    if (components.length) {
+      cmpPaths = fg.sync(components, { 'onlyDirectories': true })
     }
 
     if (cmpPaths && cmpPaths.length) {

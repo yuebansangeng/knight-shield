@@ -4,7 +4,7 @@ import path from 'path'
 import request from 'request-promise'
 import getExamples from '../../../helpers/make-stories/get-examples'
 import check from './check'
-import readrc from '../../../helpers/read-rc'
+import ReadRC from '../../../helpers/read-rc'
 import { spawnSync } from 'child_process'
 
 let getContentIfExists = (cp) => {
@@ -15,20 +15,21 @@ export default async (o) => {
   const { CMP_SERVER_HOST } = process.env
   const { contextRoot } = o
   const packinfo = require(path.join(contextRoot, 'package.json'))
-  const rc = readrc(contextRoot)
+  const rc = new ReadRC({ contextRoot }).toJSON()
+  const rcJson = rc.toJSON()
 
-  await check({ 'package': packinfo, rc })
+  await check({ 'package': packinfo, 'rc': rcJson })
 
   // 修改rc文件, 添加 developers
   const { stdout } = spawnSync('git', [ 'config', 'user.name' ])
   let username = `${stdout}`.replace(/^\s+|\s+$/, '')
-  rc.developers = [username]
+  rcJson.developers = [username]
 
   const examples = getExamples(contextRoot)
 
   let formData = {
-    'name': rc.name,
-    'rc': JSON.stringify(rc),
+    'name': rcJson.name,
+    'rc': JSON.stringify(rcJson),
     'version': packinfo.version,
     'package': JSON.stringify(packinfo),
     'examples': JSON.stringify(examples),

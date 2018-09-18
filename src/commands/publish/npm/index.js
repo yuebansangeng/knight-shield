@@ -8,17 +8,17 @@ import gitCheckout from './git-checkout'
 
 const fgOps = { 'onlyDirectories': true }
 
-
 export default class extends Generator {
 
   async writing () {
     const { rc, contextRoot, onlyUpdated, independent } = this.options
     const { workspaces, components, privates } = rc
+    const needPublishModules = components.concat(workspaces)
     const packinfo = this.options.package
 
     // components is sub of workspaces
     // there mabe some another module which is not component，but independent npm module
-    let cmpPaths = fg.sync(workspaces || components, fgOps)
+    let cmpPaths = fg.sync(needPublishModules, fgOps)
 
     if (onlyUpdated) {
       cmpPaths = await collectUpdates({ contextRoot, independent, rc })
@@ -33,11 +33,15 @@ export default class extends Generator {
       cmpPaths = cmpPaths.filter(cp => !totalPMPaths.match(new RegExp(cp), 'ig'))
     }
 
+    console.log(cmpPaths)
+
+    return
+
     let packages = getPackages({ cmpPaths, contextRoot })
 
     updatePackages({ contextRoot, packages, 'version': packinfo.version })
 
     await publishNpm({ packages })
-      .then(() => gitCheckout())
+            .then(() => gitCheckout())
   }
 }

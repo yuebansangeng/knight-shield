@@ -1,49 +1,64 @@
 
 import fs from 'fs'
+import fg from 'fast-glob'
 import Hjson from 'hjson'
 
-const fileNames = [ '.bscpmrc', '.bscpmrc.json' ]
+export default class ReadRC {
 
-export const getPackageInfo = (workspace) => {
-  const cpath = workspace || process.cwd()
-  return fs.existsSync(`${cpath}/package.json`) && require(`${cpath}/package.json`) || {}
-}
+  constructor (props = {}) {
+    this.fileNames = [ '.bscpmrc', '.bscpmrc.json' ]
+    this.contextRoot = props.contextRoot || process.cwd()
+    this.fsGlobOps = { 'onlyDirectories': true }
+  }
 
-export const extractRCFromPakcage = (workspace) => {
-  const cpath = workspace || process.cwd()
-  const { maintainers = [], name, description } = getPackageInfo(workspace)
+  toJSON () {
+    let packInfo = this.extractRCFromPakcage()
+    let rc = {}
+    for (let filename of this.fileNames) {
+      if (fs.existsSync(`${this.contextRoot}/${filename}`)) {
+        rc = Hjson.parse(fs.readFileSync(`${this.contextRoot}/${filename}`, 'utf-8'))
+        break
+      }
+    }
+    return Object.assign({}, packInfo, rc)
+  }
 
-  const developers = maintainers.map(developer => developer.name)
+  get (key) {
+    return this.toJSON()[key]
+  }
 
-  return {
-    'name': name,
-    'description': description,
-    // TODO: remove
-    'developers': developers,
-    'team': 'Unknown',
-    'components': [], // fs-glob
-    'workspaces': [], // fs-glob
-    'privates': [],   // fs-glob
-    'category': '',
-    'device': '',
-    'mock': {
-      'https': ''
+  getComponentsPath () {
+    return fg.sync(this.toJSON().components, this.fsGlobOps)
+  }
+
+  getLibsPath () {
+    const { components, libs } = this.toJSON()
+    const libsPath = new Set(libs.concat(components)).keys()
+    return fg.sync(libsPath, this.fsGlobOps)
+  }
+
+  getPackageInfo () {
+    return fs.existsSync(`${this.contextRoot}/package.json`) &&
+      require(`${this.contextRoot}/package.json`) || {}
+  }
+
+  extractRCFromPakcage () {
+    const { maintainers = [], name, description } = this.getPackageInfo()
+    const developers = maintainers.map(developer => developer.name)
+
+    return {
+      'name': name,
+      'description': description,
+      'developers': developers, // TODO: remove
+      'team': 'Unknown',
+      'components': [], // fs-glob
+      'libs': [],       // fs-glob
+      'privates': [],   // fs-glob
+      'category': '',
+      'device': '',
+      'mock': {
+        'https': ''
+      }
     }
   }
-}
-
-export default (workspace) => {
-  let cpath = workspace || process.cwd()
-  let packInfo = extractRCFromPakcage(workspace)
-  let rc = {}
-  for (let filename of fileNames) {
-    if (fs.existsSync(`${cpath}/${filename}`)) {
-      rc = Hjson.parse(fs.readFileSync(`${cpath}/${filename}`, 'utf-8'))
-    }
-  }
-  return Object.assign(
-    {},
-    extractRCFromPakcage(workspace),
-    rc
-  )
 }

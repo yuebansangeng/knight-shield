@@ -1,14 +1,14 @@
 
 import path from 'path'
 import makeStories from '../../../helpers/make-stories'
-import readrc from '../../../helpers/read-rc'
+import ReadRC from '../../../helpers/read-rc'
 import execa from 'execa'
 
 export default async (o) => {
   const { contextRoot, output } = o
   const { 'name': module, version } = require(`${contextRoot}/package.json`)
   const storybookConfigPath = path.join(__dirname, '../../../', 'configs')
-  const rc = readrc(contextRoot)
+  const rc = new ReadRC({ contextRoot })
 
   makeStories({ storybookConfigPath, 'cmpPaths': [ contextRoot ] })
 
@@ -16,7 +16,7 @@ export default async (o) => {
     [
       `build-storybook`,
       '-c', storybookConfigPath,
-      '-o', `${output || contextRoot}/storybook-static/${rc.name}/${version}`
+      '-o', `${output || contextRoot}/storybook-static/${rc.get('name')}/${version}`
     ],
     { }
   )

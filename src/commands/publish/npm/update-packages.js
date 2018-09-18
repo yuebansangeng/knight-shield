@@ -1,13 +1,14 @@
 
 import os from 'os'
 import output from '@lerna/output'
-import readrc from '../../../helpers/read-rc'
+import ReadRC from '../../../helpers/read-rc'
 
 export default o => {
   const { packages, version, contextRoot } = o
+  const rc = new ReadRC({ contextRoot })
 
   // default version is package
-  let updateVersion = readrc(contextRoot).version || version
+  let updateVersion = rc.get('version') || version
 
   //notice
   ouputUpdated({ packages, updateVersion })
@@ -29,6 +30,7 @@ export default o => {
   })
 }
 
+// from lerna source
 // output message for updates
 const ouputUpdated = o => {
   let { packages, updateVersion } = o

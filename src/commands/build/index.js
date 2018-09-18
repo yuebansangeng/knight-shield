@@ -1,7 +1,7 @@
 
 import path from 'path'
 import Generator from 'yeoman-generator'
-import readrc from '../../helpers/read-rc'
+import ReadRC from '../../helpers/read-rc'
 
 export default class extends Generator {
 
@@ -25,13 +25,15 @@ export default class extends Generator {
       packinfo = require(`${contextRoot}/package.json`)
     }
 
+    const rc = new ReadRC({ contextRoot })
+
     this.composeWith(
       require.resolve(compoesePath),
       Object.assign(
         { },
         this.options,
         {
-          'rc': readrc(contextRoot),
+          'rc': rc.toJSON(),
           'package': packinfo,
           contextRoot
         }

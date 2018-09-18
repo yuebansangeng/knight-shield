@@ -9,7 +9,6 @@ export default o => {
 
   // get packages
   let packages = cmpPaths.map(cp => {
-
     let pack = readPackage(path.join(contextRoot, cp, 'package.json'))
     // warp for serialize etc.
     return new Package(pack, cp, contextRoot)

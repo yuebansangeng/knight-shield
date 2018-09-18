@@ -17,7 +17,7 @@ export default async (o) => {
     ]
   })
 
-  // npx: npm version >= 5
+  // TODO: Promise.map 10
   return await execa('npx', [
       'gulp',
       '--gulpfile', path.join(__dirname, '..', '..', '..', 'configs', 'gulpfile.js'),

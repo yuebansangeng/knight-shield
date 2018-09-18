@@ -11,7 +11,7 @@ export default class extends Generator {
 
   async writing () {
     let { contextRoot, watch, rc, independent } = this.options
-    let { components, workspaces } = rc
+    let { workspaces } = rc
 
     logger.enableProgress()
     let tracker = null
@@ -22,7 +22,7 @@ export default class extends Generator {
       // component paths, default
       buildPaths = prepareCmpPaths({ contextRoot, 'independent': true, rc })
       // override build paths, if workspaces
-      if (workspaces && workspaces.length) {
+      if (workspaces.length) {
         buildPaths = fg.sync(workspaces, { 'onlyDirectories': true }).map(p => path.join(contextRoot, p))
       }
     }
