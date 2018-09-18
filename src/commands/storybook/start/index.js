@@ -4,7 +4,6 @@ import Generator from 'yeoman-generator'
 import makeStories from '../../../helpers/make-stories'
 import overrideConfig from '../../../helpers/override-config'
 import generateHttpHAREntry from '../../../helpers/generate-http-har-entry'
-import prepareCmpPaths from '../../../helpers/prepare-cmp-paths'
 import ReadRC from '../../../helpers/read-rc'
 import execa from 'execa'
 
