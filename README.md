@@ -34,6 +34,7 @@ $ npx sbl storybook start
 ## Concepts
 * 组件调试
 * 多组件管理模式
+* 文档服务化
 
 ## Dependencies
 <p align="left">
