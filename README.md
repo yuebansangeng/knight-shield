@@ -9,7 +9,6 @@
 
 * [About](#about)
 * [Getting Started](#getting-started)
-* [How It Works](#how-it-works)
 * Commands
   - [`sbl storybook`](./src/commands/storybook#readme)
   - [`sbl build`](./src/commands/build#readme)
@@ -31,8 +30,6 @@
 $ npm install @beisen/storybook-lib --save-dev
 $ npx sbl storybook start
 ```
-
-## How It Works
 
 ## Concepts
 
