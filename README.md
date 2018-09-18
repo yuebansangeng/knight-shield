@@ -26,6 +26,11 @@
 
 ## Getting Started
 
+```sh
+$ npm install @beisen/storybook-lib --save-dev
+$ npx sbl storybook start
+```
+
 ## How It Works
 
 ## Concepts
