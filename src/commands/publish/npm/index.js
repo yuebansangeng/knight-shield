@@ -27,6 +27,7 @@ export default class extends Generator {
     if (onlyUpdated) {
       cmpPaths = await collectUpdates({
         contextRoot,
+        // 'false': only need relative path, for git diff check
         'cmpPaths': independent ? rc.getPublishModulesPath(false) : [ '.' ]
       })
     }

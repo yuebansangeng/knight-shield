@@ -3,7 +3,11 @@ import os from 'os'
 import output from '@lerna/output'
 
 export default o => {
-  const { packages, rootProjectVersion, publishCmpNames } = o
+  const {
+    packages,
+    rootProjectVersion,
+    publishCmpNames
+  } = o
 
   //notice
   ouputUpdated(packages, publishCmpNames, rootProjectVersion)
