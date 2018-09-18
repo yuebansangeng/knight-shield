@@ -5,43 +5,29 @@ import getPackages from './get-packages'
 import updatePackages from './update-packages'
 import publishNpm from './publish-npm'
 import gitCheckout from './git-checkout'
+import ReadRC from '../../../helpers/read-rc'
 
 const fgOps = { 'onlyDirectories': true }
 
 export default class extends Generator {
 
   async writing () {
-    const { rc, contextRoot, onlyUpdated, independent } = this.options
-    const { workspaces, components, privates } = rc
-    const needPublishModules = components.concat(workspaces)
+    const { contextRoot, onlyUpdated, independent } = this.options
     const packinfo = this.options.package
+    const rc = new ReadRC({ contextRoot })
 
-    // components is sub of workspaces
-    // there mabe some another module which is not component，but independent npm module
-    let cmpPaths = fg.sync(needPublishModules, fgOps)
+    // & filter private module
+    let cmpPaths = rc.getPublishModulesPath()
 
     if (onlyUpdated) {
       cmpPaths = await collectUpdates({ contextRoot, independent, rc })
     }
-
-    // private module
-    // some modules do not publish
-    if (privates) {
-      let privateModulePaths = fg.sync(privates, fgOps)
-      let totalPMPaths = privateModulePaths.join(' ')
-      // filter exists path
-      cmpPaths = cmpPaths.filter(cp => !totalPMPaths.match(new RegExp(cp), 'ig'))
-    }
-
-    console.log(cmpPaths)
-
-    return
 
     let packages = getPackages({ cmpPaths, contextRoot })
 
     updatePackages({ contextRoot, packages, 'version': packinfo.version })
 
     await publishNpm({ packages })
-            .then(() => gitCheckout())
+      .then(() => gitCheckout())
   }
 }
