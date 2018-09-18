@@ -16,6 +16,7 @@
   - [`sbl build`](./src/commands/build#readme)
 * [Concepts](#concepts)
 * [Dependencies](#dependencies)
+* [License](#license)
 
 
 ## About
@@ -40,3 +41,8 @@ $ npx sbl storybook start
   <img alt="Lerna" src="http://lc-cj3ctxdw.cn-n1.lcfile.com/e6180c4dca55ac0e6d24.png" height="200px" with="250px" />
   <img alt="Storybook" src="http://lc-cj3ctxdw.cn-n1.lcfile.com/6dd894cd5e025fdbff2d.png" height="160px" with="210px" />
 </p>
+
+## License
+
+[MIT](https://github.com/storybooks/storybook/blob/master/LICENSE)
+
