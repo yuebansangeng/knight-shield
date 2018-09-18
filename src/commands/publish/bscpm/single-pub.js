@@ -1,11 +1,11 @@
 
 import fs from 'fs'
 import path from 'path'
+import check from './check'
 import request from 'request-promise'
 import getExamples from '../../../helpers/make-stories/get-examples'
-import check from './check'
 import ReadRC from '../../../helpers/read-rc'
-import { spawnSync } from 'child_process'
+import execa from 'execa'
 
 let getContentIfExists = (cp) => {
   return fs.existsSync(cp) ? fs.readFileSync(cp, 'utf8') : ''
@@ -25,7 +25,7 @@ export default async (o) => {
   })
 
   // 修改rc文件, 添加 developers
-  const { stdout } = spawnSync('git', [ 'config', 'user.name' ])
+  const { stdout } = execa.sync('git', [ 'config', 'user.name' ])
   let username = `${stdout}`.replace(/^\s+|\s+$/, '')
   rcJson.developers = [username]
 
