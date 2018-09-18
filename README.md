@@ -36,7 +36,7 @@ $ npx sbl storybook start
 ## Concepts
 
 ## Dependencies
-<p align="center">
+<p align="left">
   <img alt="Lerna" src="http://lc-cj3ctxdw.cn-n1.lcfile.com/e6180c4dca55ac0e6d24.png" height="200px" with="250px" />
   <img alt="Storybook" src="http://lc-cj3ctxdw.cn-n1.lcfile.com/6dd894cd5e025fdbff2d.png" height="160px" with="210px" />
 </p>
