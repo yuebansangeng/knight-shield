@@ -10,7 +10,7 @@ export default o => {
     ([ pckname, pkg ]) => {
 
       // filter cmps
-      if (!publishCmpNames.includes(pkg.name)) return
+      if (!publishCmpNames.includes(pckname)) return
 
       return execa('npm', [ 'publish', '--access=public', '--ignore-scripts', '--tag', 'latest' ], {
           'cwd': pkg.location,

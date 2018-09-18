@@ -1,6 +1,5 @@
 
 import path from 'path'
-import fg from 'fast-glob'
 import Generator from 'yeoman-generator'
 import getPackages from './get-packages'
 import updatePackages from './update-packages'
