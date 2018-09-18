@@ -2,24 +2,28 @@
 import Generator from 'yeoman-generator'
 import singlePub from './single-pub'
 import logger from '../../../helpers/logger'
-import prepareCmpPaths from '../../../helpers/prepare-cmp-paths'
 import collectUpdates from '../../../helpers/collect-updates'
+import ReadRC from '../../../helpers/read-rc'
 
 export default class extends Generator {
   async writing () {
-    const { independent, rc, contextRoot, onlyUpdated } = this.options
+    const { independent, contextRoot, onlyUpdated } = this.options
+    const rc = new ReadRC({ contextRoot })
 
     logger.enableProgress()
     let tracker = null
 
-    let cmpPaths = prepareCmpPaths({ contextRoot, independent, rc })
+    // independent
+    let cmpPaths = independent ? rc.getComponentsPath() : [ contextRoot ]
 
-    // 过滤没有修改的组件
+    // only-updated
     if (onlyUpdated) {
-      cmpPaths = await collectUpdates({ contextRoot, independent, rc })
+      cmpPaths = await collectUpdates({
+        contextRoot,
+        // 'false': only need relative path, for git diff check
+        'cmpPaths': independent ? rc.getComponentsPath(false) : [ '.' ]
+      })
     }
-
-    // TODO: publish if modified use `git diff`
 
     tracker = logger.newItem('publishing', cmpPaths.length)
 

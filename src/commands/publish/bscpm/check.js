@@ -3,14 +3,14 @@ import request from 'request-promise'
 
 export default async (o) => {
   const { CMP_SERVER_HOST } = process.env
-  const { 'rc': { name, team }, 'package': { 'name': module } } = o
+  const { module, name, team } = o
 
   if (!name) {
     // can not happend
-    throw new Error(`请在 rc 配置文件中，配置 name 字段`)
+    throw new Error(`请在配置文件中，配置 name 字段`)
   }
   if (!name.match(/^[A-Za-z\-\d@\/]+?$/)) {
-    throw new Error(`rc 文件中，name 字段只能包含有[A-Z,a-z,-,0-9,@,/]`)
+    throw new Error(`配置文件中，name 字段只能包含有[A-Z,a-z,-,0-9,@,/]`)
   }
 
   const { code, message, data } =

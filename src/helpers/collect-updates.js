@@ -5,9 +5,7 @@ import fg from 'fast-glob'
 
 export default async o => {
   let { contextRoot, cmpPaths } = o
-
   let args = ['diff', 'HEAD^', 'HEAD', '--name-only']
-
   args = args.concat(['--']).concat(cmpPaths)
 
   return await execa('git', args)

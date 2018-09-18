@@ -18,7 +18,11 @@ export default async (o) => {
   const rc = new ReadRC({ contextRoot })
   const rcJson = rc.toJSON()
 
-  await check({ 'package': packinfo, 'rc': rcJson })
+  await check({
+    'module': packinfo.name,
+    'name': rcJson.name,
+    'team': rcJson.team
+  })
 
   // 修改rc文件, 添加 developers
   const { stdout } = spawnSync('git', [ 'config', 'user.name' ])

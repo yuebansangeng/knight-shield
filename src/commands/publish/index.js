@@ -23,8 +23,6 @@ export default class extends Generator {
       packinfo = require(`${contextRoot}/package.json`)
     }
 
-    let rc = new ReadRC({ contextRoot })
-
     this.composeWith(
       require.resolve(compoesePath),
       Object.assign(

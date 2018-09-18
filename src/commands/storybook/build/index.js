@@ -30,7 +30,7 @@ export default class extends Generator {
       cmpPaths = await collectUpdates({
         contextRoot,
         // 'false': only need relative path, for git diff check
-        'cmpPaths': rc.getComponentsPath(false)
+        'cmpPaths': rindependent ? rc.getComponentsPath(false) : [ '.' ]
       })
     }
 
