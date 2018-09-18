@@ -11,15 +11,15 @@ export default (options = {}) => {
     
     const { storybookConfigPath, cmpPaths = [] } = options
 
-    const storyMetas = cmpPaths.map(contentRoot => {
+    const storyMetas = cmpPaths.map(contextRoot => {
 
-      const packinfo = require(`${contentRoot}/package.json`)
-      const examples = getExamples(contentRoot)
-      const rc = new ReadRC({ contentRoot })
+      const packinfo = require(`${contextRoot}/package.json`)
+      const examples = getExamples(contextRoot)
+      const rc = new ReadRC({ contextRoot })
 
       let readme = ''
-      if (fs.existsSync(`${contentRoot}/README.md`)) {
-        readme = `require('${contentRoot}/README.md')`
+      if (fs.existsSync(`${contextRoot}/README.md`)) {
+        readme = `require('${contextRoot}/README.md')`
       }
 
       let stories = []
@@ -27,14 +27,14 @@ export default (options = {}) => {
         stories.push({
           'name': 'default',
           'story': {
-            'component': `require('${contentRoot}/src')`
+            'component': `require('${contextRoot}/src')`
           }
         })
       } else {
         stories = examples.map(exp => ({
           'name': exp.name,
           'story': {
-            'component': `require('${contentRoot}/examples/${exp.name}')`
+            'component': `require('${contextRoot}/examples/${exp.name}')`
           }
         }))
       }
