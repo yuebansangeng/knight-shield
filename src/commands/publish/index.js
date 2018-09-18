@@ -1,7 +1,6 @@
 
 import path from 'path'
 import Generator from 'yeoman-generator'
-import ReadRC from '../../helpers/read-rc'
 
 export default class extends Generator {
 
@@ -32,7 +31,6 @@ export default class extends Generator {
         {},
         this.options,
         {
-          'rc': rc.toJSON(),
           'package': packinfo,
           contextRoot
         }

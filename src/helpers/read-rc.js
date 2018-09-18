@@ -1,7 +1,8 @@
 
 import fs from 'fs'
-import fg from 'fast-glob'
+import path from 'path'
 import Hjson from 'hjson'
+import fg from 'fast-glob'
 
 export default class ReadRC {
 
@@ -27,14 +28,22 @@ export default class ReadRC {
     return this.toJSON()[key]
   }
 
-  getComponentsPath () {
-    return fg.sync(this.toJSON().components, this.fsGlobOps)
+  getComponentsPath (absolute = true) {
+    const paths = fg.sync(this.toJSON().components, this.fsGlobOps)
+    if (absolute) {
+      return paths.map(p => path.join(this.contextRoot, p))
+    }
+    return paths
   }
 
-  getLibsPath () {
+  getLibsPath (absolute = true) {
     const { components, libs } = this.toJSON()
     const libsPath = new Set(libs.concat(components))
-    return fg.sync([ ...libsPath ], this.fsGlobOps)
+    const paths = fg.sync([ ...libsPath ], this.fsGlobOps)
+    if (absolute) {
+      return paths.map(p => path.join(this.contextRoot, p))
+    }
+    return paths
   }
 
   getPackageInfo () {
