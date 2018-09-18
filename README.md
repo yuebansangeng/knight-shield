@@ -37,5 +37,6 @@ $ npx sbl storybook start
 
 ## Dependencies
 <p align="center">
-  <img alt="Shield" src="http://lc-cj3ctxdw.cn-n1.lcfile.com/e6180c4dca55ac0e6d24.png" height="200px" with="250px" />
+  <img alt="Lerna" src="http://lc-cj3ctxdw.cn-n1.lcfile.com/e6180c4dca55ac0e6d24.png" height="200px" with="250px" />
+  <img alt="Storybook" src="http://lc-cj3ctxdw.cn-n1.lcfile.com/bb3e1fea3e85aebeed12.png" height="200px" with="250px" />
 </p>
