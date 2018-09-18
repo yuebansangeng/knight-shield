@@ -12,8 +12,8 @@
 * [How It Works](#how-it-works)
 * Commands
   - [`sbl storybook`](./src/commands/storybook#readme)
-  - [`sbl publish`](./src/commands/publish#readme)
   - [`sbl build`](./src/commands/build#readme)
+  - [`sbl publish`](./src/commands/publish#readme)
 * [Concepts](#concepts)
 * [Dependencies](#dependencies)
 * [License](#license)
