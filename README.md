@@ -11,9 +11,9 @@
 * [Getting Started](#getting-started)
 * [How It Works](#how-it-works)
 * Commands
-  - [`sbl storybook`](./commands/publish#readme)
-  - [`sbl publish`](./commands/version#readme)
-  - [`sbl build`](./commands/bootstrap#readme)
+  - [`sbl storybook`](./src/commands/storybook#readme)
+  - [`sbl publish`](./src/commands/publish#readme)
+  - [`sbl build`](./src/commands/build#readme)
 * [Concepts](#concepts)
 * [Config](#config)
 
