@@ -27,14 +27,18 @@ export default class ReadRC {
   get (key) {
     return this.toJSON()[key]
   }
-
-  getPublishModulesPath () {
+  
+  /*
+   filter private module
+  */
+  getPublishModulesPath (absolute = true) {
     const libsPath = this.getLibsPath(false)
     const totalPMPaths = fg.sync([ ...this.get('privates') ], this.fsGlobOps).join(' ')
-    return libsPath
-      // filter exists path
-      .filter(cp => !totalPMPaths.match(new RegExp(cp), 'ig'))
-      .map(p => path.join(this.contextRoot, p))
+    const paths = libsPath.filter(cp => !totalPMPaths.match(new RegExp(cp), 'ig'))
+    if (absolute) {
+      return paths.map(p => path.join(this.contextRoot, p))
+    }
+    return paths
   }
 
   getComponentsPath (absolute = true) {

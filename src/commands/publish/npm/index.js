@@ -6,8 +6,7 @@ import updatePackages from './update-packages'
 import publishNpm from './publish-npm'
 import gitCheckout from './git-checkout'
 import ReadRC from '../../../helpers/read-rc'
-
-const fgOps = { 'onlyDirectories': true }
+import collectUpdates from '../../../helpers/collect-updates'
 
 export default class extends Generator {
 
@@ -16,14 +15,19 @@ export default class extends Generator {
     const packinfo = this.options.package
     const rc = new ReadRC({ contextRoot })
 
-    // & filter private module
-    let cmpPaths = rc.getPublishModulesPath()
+    let cmpPaths = independent ? rc.getPublishModulesPath() : [ contextRoot ]
 
     if (onlyUpdated) {
-      cmpPaths = await collectUpdates({ contextRoot, independent, rc })
+      cmpPaths = await collectUpdates({
+        contextRoot,
+        'cmpPaths': independent ? rc.getPublishModulesPath(false) : [ '.' ]
+      })
     }
 
     let packages = getPackages({ cmpPaths, contextRoot })
+
+    console.log(packages)
+    return
 
     updatePackages({ contextRoot, packages, 'version': packinfo.version })
 
