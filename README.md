@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img alt="Shield" src="http://lc-cj3ctxdw.cn-n1.lcfile.com/650b2962e00df497f54f.png" />
+  <img alt="Shield" src="http://lc-cj3ctxdw.cn-n1.lcfile.com/46a081678093e910d9b5.png" />
 </p>
 
 <p align="center">
