@@ -13,7 +13,7 @@
   - [`storybook`](./src/commands/storybook#readme)
   - [`publish`](./src/commands/publish#readme)
   - [`build`](./src/commands/build#readme)
-* [Monorepo Project](#monorepo-project)
+* [Monorepo](#monorepo)
 * [Dependencies](#dependencies)
 * [Developers](#developers)
 * [License](#license)
@@ -41,7 +41,7 @@ $ npx sbl publish npm # 发布组件
 $ npx sbl buil lib # 编译lib
 ```
 
-## Monorepo Project
+## Monorepo
 
 使用 `sbl storybook` 功能可以很方便的调试组件。但，在某些场景下往往需要和项目中其他的代码进行联合调试。在这种场景下可以结合 `yarn`，使用其提供的 [workspaces](https://yarnpkg.com/blog/2017/08/02/introducing-workspaces/) 功能
 
