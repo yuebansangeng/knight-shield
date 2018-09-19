@@ -4,8 +4,8 @@ import { fork } from 'child_process'
 import Generator from 'yeoman-generator'
 import makeSingleLib from './make-single-lib'
 import logger from '../../../helpers/logger'
-import ReadRC from '../../../helpers/read-rc'
-import ConfigConsumer from '../../../helpers/config-consumer'
+import ReadRC from '../../../core/read-rc'
+import ConfigConsumer from '../../../core/config-consumer'
 
 export default class extends Generator {
   writing () {

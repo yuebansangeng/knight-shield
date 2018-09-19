@@ -3,10 +3,10 @@ import path from 'path'
 import Generator from 'yeoman-generator'
 import publishNpm from './publish-npm'
 import gitCheckout from './git-checkout'
-import ReadRC from '../../../helpers/read-rc'
-import collectUpdates from '../../../helpers/collect-updates'
+import ReadRC from '../../../core/read-rc'
+import collectUpdates from '../../../core/collect-updates'
 import readPackage from '../../../helpers/read-package'
-import PackageGraph from '../../../helpers/package-graph'
+import PackageGraph from '../../../core/package-graph'
 
 export default class extends Generator {
   async writing () {

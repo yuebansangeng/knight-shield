@@ -7,7 +7,7 @@ import ReadRC from '../read-rc'
 
 // where config-* is
 const configRoot = path.join(__dirname, '..', '..', '..', 'caches')
-const oriConfigPath = path.join(__dirname, '..', '..', 'configs')
+const oriConfigPath = path.join(__dirname, 'storybook')
 
 
 export default class ConfigConsumer {

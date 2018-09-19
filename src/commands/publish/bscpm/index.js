@@ -2,9 +2,9 @@
 import Generator from 'yeoman-generator'
 import singlePub from './single-pub'
 import logger from '../../../helpers/logger'
-import collectUpdates from '../../../helpers/collect-updates'
-import ReadRC from '../../../helpers/read-rc'
-import PackageGraph from '../../../helpers/package-graph'
+import collectUpdates from '../../../core/collect-updates'
+import ReadRC from '../../../core/read-rc'
+import PackageGraph from '../../../core/package-graph'
 
 export default class extends Generator {
   async writing () {

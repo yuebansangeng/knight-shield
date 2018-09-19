@@ -4,8 +4,8 @@ import path from 'path'
 import execa from 'execa'
 import check from './check'
 import request from 'request-promise'
-import { getExamples } from '../../../helpers/config-consumer'
-import ReadRC from '../../../helpers/read-rc'
+import { getExamples } from '../../../core/config-consumer'
+import ReadRC from '../../../core/read-rc'
 
 export default async (o) => {
   const { CMP_SERVER_HOST } = process.env

@@ -4,7 +4,7 @@ import path from 'path'
 import output from '@lerna/output'
 import Package from '@lerna/package'
 import PackageGraph from '@lerna/package-graph'
-import readPackage from './read-package'
+import readPackage from '../helpers/read-package'
 
 export default class PkgGraph {
 

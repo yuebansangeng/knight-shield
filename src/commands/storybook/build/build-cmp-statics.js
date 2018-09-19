@@ -1,8 +1,8 @@
 
 import path from 'path'
 import execa from 'execa'
-import ReadRC from '../../../helpers/read-rc'
-import ConfigConsumer from '../../../helpers/config-consumer'
+import ReadRC from '../../../core/read-rc'
+import ConfigConsumer from '../../../core/config-consumer'
 
 export default async (o) => {
   const { contextRoot, output } = o

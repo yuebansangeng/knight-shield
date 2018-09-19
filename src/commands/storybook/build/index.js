@@ -3,11 +3,11 @@ import path from 'path'
 import Promise from 'bluebird'
 import Generator from 'yeoman-generator'
 import buildCmpStatics from './build-cmp-statics'
-import generateHttpHAREntry from '../../../helpers/generate-http-har-entry'
-import collectUpdates from '../../../helpers/collect-updates'
+import generateHttpHAREntry from '../../../core/generate-http-har-entry'
+import collectUpdates from '../../../core/collect-updates'
 import logger from '../../../helpers/logger'
-import ReadRC from '../../../helpers/read-rc'
-import PackageGraph from '../../../helpers/package-graph'
+import ReadRC from '../../../core/read-rc'
+import PackageGraph from '../../../core/package-graph'
 
 export default class extends Generator {
 

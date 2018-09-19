@@ -1,9 +1,9 @@
 
 import path from 'path'
 import Generator from 'yeoman-generator'
-import ConfigConsumer from '../../../helpers/config-consumer'
-import generateHttpHAREntry from '../../../helpers/generate-http-har-entry'
-import ReadRC from '../../../helpers/read-rc'
+import ConfigConsumer from '../../../core/config-consumer'
+import generateHttpHAREntry from '../../../core/generate-http-har-entry'
+import ReadRC from '../../../core/read-rc'
 import execa from 'execa'
 
 export default class extends Generator {
