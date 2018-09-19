@@ -8,7 +8,7 @@ import PackageGraph from '../../../helpers/package-graph'
 
 export default class extends Generator {
   async writing () {
-    const { independent, contextRoot, onlyUpdated } = this.options
+    const { independent, contextRoot, onlyUpdated, 'package': packinfo } = this.options
     const rc = new ReadRC({ contextRoot })
 
     logger.enableProgress()
