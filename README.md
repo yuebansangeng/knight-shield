@@ -13,12 +13,10 @@
   - [`storybook`](./src/commands/storybook#readme)
   - [`publish`](./src/commands/publish#readme)
   - [`build`](./src/commands/build#readme)
-* [How It Works](#how-it-works)
-* [Used With Yarn](#used-with-yarn)
+* [Monorepo Project](#monorepo-project)
 * [Dependencies](#dependencies)
 * [Developers](#developers)
 * [License](#license)
-
 
 ## About
 
@@ -43,13 +41,29 @@ $ npx sbl publish npm # 发布组件
 $ npx sbl buil lib # 编译lib
 ```
 
-## How it Works
-`knight-shield`提供了三大块功能：
+## Monorepo Project
 
-[ 录屏展示 ]
-
-## Used With Yarn
 使用 `sbl storybook` 功能可以很方便的调试组件。但，在某些场景下往往需要和项目中其他的代码进行联合调试。在这种场景下可以结合 `yarn`，使用其提供的 [workspaces](https://yarnpkg.com/blog/2017/08/02/introducing-workspaces/) 功能
+
+### Project Structure
+
+<img alt="monorepo" src="./demo/monorepo.png"  />
+
+在 components/ 中的组件都是MONO的维护方式，是独立的模块。在复杂项目中可能会存在MONO中模块互相依赖的情况，使用yarn的 `link:` 协议创建依赖
+```json
+{
+  "dependencies": {
+    "button": "link:../button"
+  }
+}
+```
+项目中的非MONO模块代码如需引用MONO中的模块，可直接使用 `./src/**/js` 方式引用即可，如上图所示 pages 对 button-group 的引用
+
+**注意**：整个项目是一个大版本，项目的维护者完全不要关心子模块的版本。因屏蔽子模块的版本号，减少了开始者在维护子模块互相依赖时更新版本号带来的成本
+
+### CI
+
+对于项目开发来说，无论是MONO模块还是非MONO模块，只需要修改源代码即可。执行 git push 之后，在执行jenkins任务时，添加 `npx sbl publish npm --independent --only-updated` 实现增量发布MONO中的模块，子模块的版本使用的是项目的版本号
 
 ## Dependencies
 [Storybook](https://github.com/storybooks/storybook) 和 [Learn](https://github.com/lerna/lerna) 已助实现了部分功能。基于Storybook之上封装了一系列配件和功能实现了**调试功能**。基于了Lerna的内部模块(*@lerna/package, @lerna/package-graph, @lerna/output*)实现了**组件发布功能**
