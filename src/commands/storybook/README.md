@@ -9,7 +9,8 @@
 ```sh
 $ sbl storybook [ start, build ]
 ```
-开启本地调试
+
+### Options
 
 ### --independent
 
