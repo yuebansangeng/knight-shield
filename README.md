@@ -50,7 +50,7 @@ $ npx sbl buil lib # 编译lib
 ### 编译
 执行 `npx sbl build lib` 命令可以编译组件，生成的 es5,css,images,.. 会放如组件的 lib/ 目录下。详细见: [build](./src/commands/build#readme)
 
-### Dependencies
+## Dependencies
 [Storybook](https://github.com/storybooks/storybook) 和 [Learn](https://github.com/lerna/lerna) 已助实现了部分功能。基于Storybook之上封装了一系列配件和功能实现了**调试功能**。基于了Lerna的内部模块(*@lerna/package, @lerna/package-graph, @lerna/output*)实现了**组件发布功能**
 
 <p align="left">
@@ -58,8 +58,12 @@ $ npx sbl buil lib # 编译lib
   <img alt="Storybook" src="http://lc-cj3ctxdw.cn-n1.lcfile.com/6dd894cd5e025fdbff2d.png" height="120px" with="170px" />
 </p>
 
-### Developers
-
+## Developers
+<p align="center">
+  <img alt="zhangyue" src="http://lc-cj3ctxdw.cn-n1.lcfile.com/d791c661693edc1ace6a.png" height="60px" with="60px" />
+  <img alt="liuhuijuan" src="http://lc-cj3ctxdw.cn-n1.lcfile.com/d591ed1070d5baa859a1.png" height="60px" with="60px" />
+  <img alt="liumingyuan" src="http://lc-cj3ctxdw.cn-n1.lcfile.com/37172c625246d48d2b3e.png" height="60px" with="60px" />
+</p>
 
 ## License
 
