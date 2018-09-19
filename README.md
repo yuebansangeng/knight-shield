@@ -23,7 +23,7 @@
 
 在前端开发领域，业务开发普遍组件化。这种模式下，对源码的维护就有很大的挑战。目前有两种维护方式 [MONO](https://zhuanlan.zhihu.com/p/31289463) 与 [MULTI](https://zhuanlan.zhihu.com/p/31289463)。在维护大量组件时，使用MONO既可以保证组件的独立性，又可以减少维护成本。
 
-目前针对于MONO已经有了不少的管理工具，[Lerna](https://github.com/lerna/lerna) 是一个不错的管理工具，但，对于前端组件开发领域，Lerna的配置和使用有些繁琐，也不利于集成进自己 [CI](https://github.com/knight-org/knight-shield/blob/master/demo/jenkins-pipeline) 任务中，为了在 **开发** 和 **集成** 时中更方便的管理组件 `knight-shield` 便由此产生
+目前针对于MONO已经有了不少的管理工具，[Lerna](https://github.com/lerna/lerna) 是一个不错的管理工具。但，对于前端组件开发领域，Lerna的配置和使用有些繁琐，也不利于集成进自己 [CI](https://github.com/knight-org/knight-shield/blob/master/demo/jenkins-pipeline) 任务中，为了在 **开发** 和 **集成** 时中更方便的管理组件 `knight-shield` 便由此产生
 
 ## Getting Started
 
