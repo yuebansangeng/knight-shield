@@ -1,0 +1,5 @@
+// 可添加的配置文件如下：
+
+1. webpack.config.js
+2. tsconfig.json
+3. .babelrc
