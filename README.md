@@ -66,7 +66,7 @@ $ npx sbl buil lib # 编译lib
   <a href="https://github.com/holly-juan">
     <img alt="liuhuijuan" src="http://lc-cj3ctxdw.cn-n1.lcfile.com/d591ed1070d5baa859a1.png" height="60px" with="60px" />
   </a>
-  <a href="www.baidu.com">
+  <a href="https://github.com/yuebansangeng">
     <img alt="liumingyuan" src="http://lc-cj3ctxdw.cn-n1.lcfile.com/37172c625246d48d2b3e.png" height="60px" with="60px" />
   </a>
 </p>
