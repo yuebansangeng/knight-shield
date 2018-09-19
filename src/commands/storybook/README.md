@@ -14,7 +14,7 @@ $ sbl storybook [ start, build ]
 
 ### --independent
 
-获取 [.bscpmrc]() 配置中的 `components` 字段, 调试多个组件示例
+获取 [.bscpmrc](https://github.com/knight-org/knight-shield/blob/master/demo/.bscpmrc) 配置中的 `components` 字段, 调试多个组件示例
 
 ```sh
 $ sbl storybook start --independent
