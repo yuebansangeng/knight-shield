@@ -28,7 +28,14 @@
 
 ```sh
 $ npm install @beisen/storybook-lib --save-dev
-$ npx sbl storybook start
+```
+
+```sh
+$ npx sbl storybook start # 开发时对组件进行调试
+```
+
+```sh
+$ npx sbl publish npm # 对组件进行批量发布
 ```
 
 ## Concepts
