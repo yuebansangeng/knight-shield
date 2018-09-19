@@ -26,11 +26,19 @@ $ sbl storybook start --independent
 
 指定 `storybook start` 命令执行的组件路径
 
+```sh
+$ sbl storybook start --source ./src/components/button/
+```
+
 注意: --source命令一般配置全局安装使用，knight-shield安装在全局，指定--source参数即可调试指定目录下的组件
 
 ### --port
 
-指定调试服务使用的端口
+指定调试服务使用的端口，默认使用 9001 端口
+
+```sh
+$ sbl storybook start --port 9002
+```
 
 ### --only-updated
 
