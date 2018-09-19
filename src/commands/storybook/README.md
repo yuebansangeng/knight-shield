@@ -36,4 +36,8 @@ $ sbl storybook start --independent
 
 增量构建的组件的静态资源站点
 
+```sh
+$ sbl storybook build --only-updated
+```
+
 注意：--only-updated参数只在 `sbl storybook build` 命令下可用
