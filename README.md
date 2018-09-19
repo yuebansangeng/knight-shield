@@ -49,7 +49,7 @@ $ npx sbl buil lib # 编译lib
 [ 录屏展示 ]
 
 ## Used With Yarn
-使用 `sbl storybook` 功能可以很方便的调试组件。但，在某些场景下往往需要和项目中其他的代码进行联合调试。在这种场景下，可以结合 `yarn`，使用其提供的 [workspaces](https://yarnpkg.com/blog/2017/08/02/introducing-workspaces/) 功能，
+使用 `sbl storybook` 功能可以很方便的调试组件。但，在某些场景下往往需要和项目中其他的代码进行联合调试。在这种场景下可以结合 `yarn`，使用其提供的 [workspaces](https://yarnpkg.com/blog/2017/08/02/introducing-workspaces/) 功能
 
 ## Dependencies
 [Storybook](https://github.com/storybooks/storybook) 和 [Learn](https://github.com/lerna/lerna) 已助实现了部分功能。基于Storybook之上封装了一系列配件和功能实现了**调试功能**。基于了Lerna的内部模块(*@lerna/package, @lerna/package-graph, @lerna/output*)实现了**组件发布功能**
