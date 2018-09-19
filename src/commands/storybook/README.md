@@ -1,11 +1,12 @@
 # storybook
 
-> 提供本地调试等命令
+> 提供本地调试等命令，支持两个子命令：start，build
 
 ## Usage
 
 ```sh
 $ sbl storybook start
+$ sbl storybook build
 ```
 开启本地调试
 
