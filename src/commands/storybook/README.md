@@ -5,8 +5,7 @@
 ## Usage
 
 ```sh
-$ sbl storybook start
-$ sbl storybook build
+$ sbl storybook [ start, build ]
 ```
 开启本地调试
 
@@ -29,3 +28,9 @@ $ sbl storybook start --independent
 ### --prot
 
 指定调试服务使用的端口
+
+### --only-updated
+
+只构建增量更新的组件静态站点
+
+注意：--only-updated参数只在 `sbl storybook build` 命令下可用
