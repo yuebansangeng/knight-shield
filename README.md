@@ -46,6 +46,8 @@ $ npx sbl buil lib # 编译lib
 ## How it Works
 `knight-shield`提供了三大块功能：
 
+[ 录屏展示 ]
+
 ### 调试
 执行 `npx sbl storybook start` 命令即可开始调试，无需配置额外的配置文件 (*如: babelrc,webpack,tsconfig*)，项目配置文件已默认集成，如有自定义配置需求，可添加 [配置文件](https://github.com/knight-org/knight-shield/blob/master/demo/custom-configs) 到根目录下即可。详细见: [storybook](./src/commands/storybook#readme)
 
