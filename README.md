@@ -13,7 +13,6 @@
   - [`storybook`](./src/commands/storybook#readme)
   - [`publish`](./src/commands/publish#readme)
   - [`build`](./src/commands/build#readme)
-* [How It Works](#how-it-works)
 * [Monorepo Project](#monorepo-project)
 * [Dependencies](#dependencies)
 * [Developers](#developers)
@@ -41,11 +40,6 @@ $ npx sbl publish npm # 发布组件
 ```sh
 $ npx sbl buil lib # 编译lib
 ```
-
-## How it Works
-`knight-shield`提供了三大块功能：
-
-[ 录屏展示 ]
 
 ## Monorepo Project
 
