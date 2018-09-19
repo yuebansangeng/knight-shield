@@ -52,7 +52,14 @@ $ npx sbl buil lib # 编译lib
 
 <img alt="monorepo" src="./demo/monorepo.png"  />
 
-在 components/ 中的组件都是MONO的维护方式，是独立的模块。在复杂项目中可能会存在MONO中模块互相依赖的情况，使用yarn的 `link:` 协议创建依赖，如图：
+在 components/ 中的组件都是MONO的维护方式，是独立的模块。在复杂项目中可能会存在MONO中模块互相依赖的情况，使用yarn的 `link:` 协议创建依赖
+```json
+{
+  "dependencies": {
+    "button": "link:../button"
+  }
+}
+```
 
 ## Dependencies
 [Storybook](https://github.com/storybooks/storybook) 和 [Learn](https://github.com/lerna/lerna) 已助实现了部分功能。基于Storybook之上封装了一系列配件和功能实现了**调试功能**。基于了Lerna的内部模块(*@lerna/package, @lerna/package-graph, @lerna/output*)实现了**组件发布功能**
