@@ -1,6 +1,6 @@
 # publish
 
-提供本地调试等命令，支持一个子命令：**npm**。 npm子命令将组件发布到NPM
+提供本地调试等命令，支持一个子命令：**npm**。 npm子命令将模块发布到NPM
 
 ## Usage
 
@@ -12,13 +12,13 @@ $ sbl publish npm
 
 ### --independent
 
-获取 [.bscpmrc](https://github.com/knight-org/knight-shield/blob/master/demo/.bscpmrc) 配置中的 `components` 字段, 调试多个组件示例
+获取 [.bscpmrc](https://github.com/knight-org/knight-shield/blob/master/demo/.bscpmrc) 配置中的 `components` 和 `libs` 字段, 发布多个模块
 
 ```sh
 $ sbl publish npm --independent
 ```
 
-注意: `components` 字段是数据，数据是字符串，使用glog规范获取组件路径
+注意: `components`, `libs` 字段中的所有模块会一并发布到NPM，如果又私有模块不想发到NPM，可以使用 `privates` 字段
 
 ### --source
 
