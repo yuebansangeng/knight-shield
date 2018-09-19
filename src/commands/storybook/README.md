@@ -27,7 +27,7 @@ $ sbl storybook start --independent
 
 注意: --source命令一般配置全局安装使用，knight-shield安装在全局，指定--source参数即可调试指定目录下的组件
 
-### --prot
+### --port
 
 指定调试服务使用的端口
 
