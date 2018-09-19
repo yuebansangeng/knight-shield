@@ -40,7 +40,7 @@ $ npx sbl publish npm # 对组件进行批量发布
 `knight-shield`提供了两大块功能：
 
 ### 调试
-执行 `npx sbl storybook start` 命令即可开始调试，无需配置额外的配置文件(babelrc,webpack,tsconfig)，项目配置文件已默认集成，如有自定义配置需求，可添加 [配置文件](https://github.com/knight-org/knight-shield/blob/master/demo/custom-configs) 到根目录下即可。详细文档见: [sbl storybook]()
+执行 `npx sbl storybook start` 命令即可开始调试，无需配置额外的配置文件 (*如: babelrc,webpack,tsconfig*)，项目配置文件已默认集成，如有自定义配置需求，可添加 [配置文件](https://github.com/knight-org/knight-shield/blob/master/demo/custom-configs) 到根目录下即可。详细文档见: [sbl storybook]()
 
 ### 批量发布
 执行 
