@@ -45,7 +45,7 @@ $ sbl storybook start --port 9002
 增量构建的组件的静态资源站点
 
 ```sh
-$ sbl storybook build --only-updated
+$ sbl storybook build --only-updated --independent
 ```
 
 注意：--only-updated参数只在 `sbl storybook build` 命令下可用。一般结合 --independent 参数使用，用于实现组件的批量发布
