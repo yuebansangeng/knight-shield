@@ -19,7 +19,7 @@
     "url": "git+https://github.com/knight-org/knight-shield.git"
   },
   "author": "zhanngyue@beisen.com",
-  "license": "ISC",
+  "license": "MIT",
   "engines": {
     "node": ">=6"
   },
