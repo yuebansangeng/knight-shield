@@ -1,0 +1,32 @@
+// 这是一个jenkins任务，展示对组件进行批量发布
+
+pipeline {
+    agent any
+    parameters { 
+        string(defaultValue: '', description: 'ssh url', name: 'gitcloneurl')
+        string(defaultValue: 'master', description: 'git branch', name: 'branch')
+    }
+    stages {
+        stage('INIT') {
+            steps {
+                git url: "${params.gitcloneurl}", branch: "${params.branch}"
+            }
+        }
+
+        /* some stages  here*/
+
+        stage('NPM-PUBLISH') {
+            steps {
+                // independent: 组件独立发布
+                // only-updated: 增量发布组件
+                sh 'npx sbl publish npm --independent --only-updated'
+            }
+        }
+    }
+    post {
+        /* some process here */
+        cleanup {
+            cleanWs()
+        }
+    }
+}
