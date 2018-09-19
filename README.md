@@ -46,7 +46,7 @@ $ npx sbl publish npm # 对组件进行批量发布
 执行 `npx sbl publish npm` 命令即可批量发布组件到NPM。详细文档见: [sbl publish]()
 
 ### 编译
-执行 `npx sbl build lib` 命令可以批量编译组件，生成的 es5,css,images,.. 会放如组件的 lib/ 目录下
+执行 `npx sbl build lib` 命令可以批量编译组件，生成的 es5,css,images,.. 会放如组件的 lib/ 目录下。详细文档见: [sbl build]()
 
 ## Dependencies
 <p align="left">
