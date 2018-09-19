@@ -58,8 +58,8 @@ $ npx sbl buil lib # 编译lib
 [Storybook](https://github.com/storybooks/storybook) 和 [Learn](https://github.com/lerna/lerna) 已助实现了部分功能。基于Storybook之上封装了一系列配件和功能实现了**调试功能**。基于了Lerna的内部模块(*@lerna/package, @lerna/package-graph, @lerna/output*)实现了**组件发布功能**
 
 <p align="left">
-  <img alt="Lerna" src="http://lc-cj3ctxdw.cn-n1.lcfile.com/e6180c4dca55ac0e6d24.png" height="160px" with="210px" />
-  <img alt="Storybook" src="http://lc-cj3ctxdw.cn-n1.lcfile.com/6dd894cd5e025fdbff2d.png" height="120px" with="170px" />
+  <img alt="Lerna" src="http://lc-cj3ctxdw.cn-n1.lcfile.com/e6180c4dca55ac0e6d24.png" height="120px" with="150px" />
+  <img alt="Storybook" src="http://lc-cj3ctxdw.cn-n1.lcfile.com/6dd894cd5e025fdbff2d.png" height="110px" with="130px" />
 </p>
 
 ## Developers
