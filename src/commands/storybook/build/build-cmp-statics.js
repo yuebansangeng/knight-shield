@@ -1,14 +1,16 @@
 
 import path from 'path'
-import ReadRC from '../../../helpers/read-rc'
 import execa from 'execa'
+import ReadRC from '../../../helpers/read-rc'
+import ConfigConsumer from '../../../helpers/config-consumer'
 
 export default async (o) => {
-  const { contextRoot, output, configer } = o
+  const { contextRoot, output } = o
   const { 'name': module, version } = require(`${contextRoot}/package.json`)
   const rc = new ReadRC({ contextRoot })
 
-  // generate stories.js
+  // generate configs
+  const configer = new ConfigConsumer({ contextRoot, 'name': rc.get('name') })
   configer.generateStoriesJs([ contextRoot ])
 
   return execa('npx',

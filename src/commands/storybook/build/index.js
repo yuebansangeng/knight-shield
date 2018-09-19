@@ -8,7 +8,6 @@ import collectUpdates from '../../../helpers/collect-updates'
 import logger from '../../../helpers/logger'
 import ReadRC from '../../../helpers/read-rc'
 import PackageGraph from '../../../helpers/package-graph'
-import ConfigConsumer from '../../../helpers/config-consumer'
 
 export default class extends Generator {
 
@@ -31,9 +30,6 @@ export default class extends Generator {
       })
     }
 
-    // generate configs
-    const configer = new ConfigConsumer({ contextRoot, 'name': rc.get('name') })
-
     generateHttpHAREntry({ 'httpHARPath': rc.get('mock').https, contextRoot })
 
     // update moudules version first
@@ -53,10 +49,10 @@ export default class extends Generator {
         logger.silly('building', cp)
         tracker.completeWork(1)
 
-        return buildCmpStatics({ 'contextRoot': cp, 'output': contextRoot, configer })
+        return buildCmpStatics({ 'contextRoot': cp, 'output': contextRoot })
       },
       // must 1, because config/stories.js
-      { 'concurrency': 1 }
+      { 'concurrency': 3 }
     ).then(() => {
 
       tracker.finish()
