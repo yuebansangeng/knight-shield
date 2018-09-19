@@ -34,7 +34,11 @@ $ npm install @beisen/storybook-lib --save-dev
 ### Usage
 ```sh
 $ npx sbl storybook start # 组件调试
+```
+```sh
 $ npx sbl publish npm # 发布组件
+```
+```sh
 $ npx sbl buil lib # 编译lib
 ```
 
