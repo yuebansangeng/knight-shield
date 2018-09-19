@@ -37,9 +37,9 @@ $ npx sbl publish npm # 对组件进行批量发布
 ```
 
 ## How it Works
-* 组件调试
-* 多组件管理模式
-* 文档服务化
+`knight-shield`提供了两大块功能：
+* 调试
+* 批量发布
 
 ## Dependencies
 <p align="left">
