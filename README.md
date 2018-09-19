@@ -13,7 +13,7 @@
   - [`sbl storybook`](./src/commands/storybook#readme)
   - [`sbl build`](./src/commands/build#readme)
   - [`sbl publish`](./src/commands/publish#readme)
-* [How it Works](#how it works)
+* [How It Works](#how-it-works)
 * [Dependencies](#dependencies)
 * [License](#license)
 
