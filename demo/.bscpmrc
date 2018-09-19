@@ -1,3 +1,5 @@
+// 将.bscpmrc置于项目根目录下，配合 knight-shield 模块使用
+
 {
   "components": [           // 配置组件路径
     "src/components/*"      // glog
