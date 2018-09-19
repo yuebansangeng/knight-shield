@@ -18,6 +18,13 @@
     "type": "git",
     "url": "git+https://github.com/knight-org/knight-shield.git"
   },
+  "keywords": [
+    "storybook",
+    "lerna",
+    "monorepos",
+    "component",
+    "react"
+  ],
   "author": "zhanngyue@beisen.com",
   "license": "MIT",
   "engines": {
