@@ -1,5 +1,6 @@
 
 import path from 'path'
+import Promise from 'bluebird'
 import Generator from 'yeoman-generator'
 import buildCmpStatics from './build-cmp-statics'
 import overrideConfig from '../../../helpers/override-config'
@@ -46,15 +47,21 @@ export default class extends Generator {
 
     tracker = logger.newItem('building', cmpPaths.length)
 
-    // TODO: Promise.map
-    for (let i = 0; i < cmpPaths.length; i++) {
+    // build statics 3
+    await Promise.map(
+      cmpPaths,
+      cp => {
 
-      logger.silly('building', cmpPaths[i])
-      tracker.completeWork(1)
+        logger.silly('building', cp)
+        tracker.completeWork(1)
 
-      await buildCmpStatics({ 'contextRoot': cmpPaths[i], 'output': contextRoot })
-    }
+        return buildCmpStatics({ 'contextRoot': cp, 'output': contextRoot })
+      },
+      // must 1, because config/stories.js
+      { 'concurrency': 1 }
+    ).then(() => {
 
-    tracker.finish()
+      tracker.finish()
+    })
   }
 }

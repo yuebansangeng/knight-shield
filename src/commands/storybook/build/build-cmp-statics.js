@@ -12,7 +12,7 @@ export default async (o) => {
 
   makeStories({ storybookConfigPath, 'cmpPaths': [ contextRoot ] })
 
-  return await execa('npx',
+  return execa('npx',
     [
       `build-storybook`,
       '-c', storybookConfigPath,
