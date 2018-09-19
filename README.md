@@ -34,19 +34,20 @@ $ npm install @beisen/storybook-lib --save-dev
 ```sh
 $ npx sbl storybook start # 开发时对组件进行调试
 $ npx sbl publish npm # 对组件进行批量发布
+$ npx sbl buil lib # 编译组件生成lib
 ```
 
 ## How it Works
 `knight-shield`提供了三大块功能：
 
 ### 调试
-执行 `npx sbl storybook start` 命令即可开始调试，无需配置额外的配置文件 (*如: babelrc,webpack,tsconfig*)，项目配置文件已默认集成，如有自定义配置需求，可添加 [配置文件](https://github.com/knight-org/knight-shield/blob/master/demo/custom-configs) 到根目录下即可。详细文档见: [sbl storybook]()
+执行 `npx sbl storybook start` 命令即可开始调试，无需配置额外的配置文件 (*如: babelrc,webpack,tsconfig*)，项目配置文件已默认集成，如有自定义配置需求，可添加 [配置文件](https://github.com/knight-org/knight-shield/blob/master/demo/custom-configs) 到根目录下即可。详细见: [sbl storybook]()
 
 ### 批量发布
-执行 `npx sbl publish npm` 命令即可批量发布组件到NPM。详细文档见: [sbl publish]()
+执行 `npx sbl publish npm` 命令即可批量发布组件到NPM。详细见: [sbl publish]()
 
 ### 编译
-执行 `npx sbl build lib` 命令可以批量编译组件，生成的 es5,css,images,.. 会放如组件的 lib/ 目录下。详细文档见: [sbl build]()
+执行 `npx sbl build lib` 命令可以批量编译组件，生成的 es5,css,images,.. 会放如组件的 lib/ 目录下。详细见: [sbl build]()
 
 ## Dependencies
 [Storybook](https://github.com/storybooks/storybook) 和 [Learn](https://github.com/lerna/lerna) 已助实现了部分功能。基于Storybook之上封装了一系列配件和功能实现了**调试功能**。基于了Lerna内部的一些模块(*@lerna/package, @lerna/package-graph, @lerna/output*)封装而实现了**批量发布功能**
