@@ -1,6 +1,8 @@
 # storybook
 
-提供本地调试等命令，支持两个子命令：**start**，**build**。 start子命令用于调试组件的示例，build命令用于生成组件示例的 [静态资源站点](https://github.com/knight-org/knight-shield/blob/master/demo/build.png)
+提供本地调试等命令，无需配置额外的配置文件 (如: babelrc,webpack,tsconfig)，项目配置文件已默认集成，如有自定义配置需求，可添加 [配置文件](https://github.com/knight-org/knight-shield/blob/master/demo/custom-configs) 到根目录下即可
+
+支持两个子命令：**start**，**build**。 start子命令用于调试组件的示例，build命令用于生成组件示例的 [静态资源站点](https://github.com/knight-org/knight-shield/blob/master/demo/build.png)
 
 注意：build命令主要用于CI构建时使用发布组件示例时使用, 该功能主要用于 [文档服务化体系]() 中的组件示例发布，支持线上其他开发者预览
 
