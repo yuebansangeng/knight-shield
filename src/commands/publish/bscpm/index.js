@@ -4,6 +4,7 @@ import singlePub from './single-pub'
 import logger from '../../../helpers/logger'
 import collectUpdates from '../../../helpers/collect-updates'
 import ReadRC from '../../../helpers/read-rc'
+import PackageGraph from '../../../helpers/package-graph'
 
 export default class extends Generator {
   async writing () {
@@ -24,6 +25,13 @@ export default class extends Generator {
         'cmpPaths': independent ? rc.getComponentsPath(false) : [ '.' ]
       })
     }
+
+    // update moudules version first
+    // after exec build statics
+    new PackageGraph({
+      contextRoot,
+      'paths': independent ? rc.getLocalModulesPath() : [ contextRoot ]
+    }).updatePackages(null, packinfo.version)
 
     tracker = logger.newItem('publishing', cmpPaths.length)
 
