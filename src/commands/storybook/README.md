@@ -1,4 +1,4 @@
-# storybook
+# sbl storybook
 
 提供本地调试等命令，支持两个子命令：**start**，**build**。 start子命令用于调试组件的示例，build命令用于生成组件示例的静态资源站点
 
