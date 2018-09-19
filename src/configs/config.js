@@ -3,7 +3,7 @@ import React from 'react'
 import { storiesOf, configure } from '@storybook/react'
 import { withReadme }  from 'storybook-readme'
 import storieConfigs from './stories.js'
-import { adapterFeth, adapterXHR } from '../helpers/http-mock'
+import { adapterFeth, adapterXHR } from './http-mock'
 
 adapterFeth()
 adapterXHR()

@@ -1,8 +1,7 @@
 
 import path from 'path'
 import Generator from 'yeoman-generator'
-import makeStories from '../../../helpers/make-stories'
-import overrideConfig from '../../../helpers/override-config'
+import ConfigConsumer from '../../../helpers/config-consumer'
 import generateHttpHAREntry from '../../../helpers/generate-http-har-entry'
 import ReadRC from '../../../helpers/read-rc'
 import execa from 'execa'
@@ -14,21 +13,20 @@ export default class extends Generator {
     const storybookConfigPath = path.join(__dirname, '../../../', 'configs')
     const rc = new ReadRC({ contextRoot })
 
-    overrideConfig({ contextRoot, storybookConfigPath })
-
     // independent
-    let cmpPaths = independent ? rc.getComponentsPath() : [ contextRoot ]
-
-    makeStories({ storybookConfigPath, cmpPaths })
+    const cmpPaths = independent ? rc.getComponentsPath() : [ contextRoot ]
 
     generateHttpHAREntry({ 'httpHARPath': rc.get('mock').https, contextRoot })
+
+    const configer = new ConfigConsumer({ contextRoot, 'name': rc.get('name') })
+    configer.generateStoriesJs(cmpPaths)
 
     execa('npx',
       [
         'start-storybook',
         '-s', '.',
         '-p', port,
-        '-c', storybookConfigPath
+        '-c', configer.getConfigPath()
       ],
       {
         'stdio': 'inherit'

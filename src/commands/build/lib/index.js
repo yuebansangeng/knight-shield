@@ -5,6 +5,7 @@ import Generator from 'yeoman-generator'
 import makeSingleLib from './make-single-lib'
 import logger from '../../../helpers/logger'
 import ReadRC from '../../../helpers/read-rc'
+import ConfigConsumer from '../../../helpers/config-consumer'
 
 export default class extends Generator {
   writing () {
@@ -21,6 +22,9 @@ export default class extends Generator {
       // override build paths
       buildPaths = rc.getLibsPath()
     }
+
+    // generate configs
+    new ConfigConsumer({ contextRoot, 'name': rc.get('name') })
 
     tracker = logger.newItem('building', buildPaths.length)
 

@@ -3,23 +3,18 @@ import path from 'path'
 import Promise from 'bluebird'
 import Generator from 'yeoman-generator'
 import buildCmpStatics from './build-cmp-statics'
-import overrideConfig from '../../../helpers/override-config'
 import generateHttpHAREntry from '../../../helpers/generate-http-har-entry'
 import collectUpdates from '../../../helpers/collect-updates'
 import logger from '../../../helpers/logger'
 import ReadRC from '../../../helpers/read-rc'
 import PackageGraph from '../../../helpers/package-graph'
+import ConfigConsumer from '../../../helpers/config-consumer'
 
 export default class extends Generator {
 
   async writing () {
     const { contextRoot, independent, onlyUpdated, 'package': packinfo } = this.options
     const rc = new ReadRC({ contextRoot })
-
-    overrideConfig({
-      contextRoot,
-      'storybookConfigPath': path.join(__dirname, '../../../', 'configs')
-    })
 
     logger.enableProgress()
     let tracker = null
@@ -35,6 +30,9 @@ export default class extends Generator {
         'cmpPaths': independent ? rc.getComponentsPath(false) : [ '.' ]
       })
     }
+
+    // generate configs
+    const configer = new ConfigConsumer({ contextRoot, 'name': rc.get('name') })
 
     generateHttpHAREntry({ 'httpHARPath': rc.get('mock').https, contextRoot })
 
@@ -55,7 +53,7 @@ export default class extends Generator {
         logger.silly('building', cp)
         tracker.completeWork(1)
 
-        return buildCmpStatics({ 'contextRoot': cp, 'output': contextRoot })
+        return buildCmpStatics({ 'contextRoot': cp, 'output': contextRoot, configer })
       },
       // must 1, because config/stories.js
       { 'concurrency': 1 }

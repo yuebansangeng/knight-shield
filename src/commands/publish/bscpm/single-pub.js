@@ -1,15 +1,11 @@
 
 import fs from 'fs'
 import path from 'path'
+import execa from 'execa'
 import check from './check'
 import request from 'request-promise'
-import getExamples from '../../../helpers/make-stories/get-examples'
+import { getExamples } from '../../../helpers/config-consumer'
 import ReadRC from '../../../helpers/read-rc'
-import execa from 'execa'
-
-let getContentIfExists = (cp) => {
-  return fs.existsSync(cp) ? fs.readFileSync(cp, 'utf8') : ''
-}
 
 export default async (o) => {
   const { CMP_SERVER_HOST } = process.env
@@ -58,3 +54,8 @@ export default async (o) => {
   .then(res => JSON.parse(res))
   .catch(err => { throw new Error(err) })
 }
+
+const getContentIfExists = (cp) => {
+  return fs.existsSync(cp) ? fs.readFileSync(cp, 'utf8') : ''
+}
+
