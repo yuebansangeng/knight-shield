@@ -48,6 +48,8 @@ $ npx sbl buil lib # 编译lib
 [ 录屏展示 ]
 
 ## Used With Yarn
+
+### Project Structure
 使用 `sbl storybook` 功能可以很方便的调试组件。但，在某些场景下往往需要和项目中其他的代码进行联合调试。在这种场景下可以结合 `yarn`，使用其提供的 [workspaces](https://yarnpkg.com/blog/2017/08/02/introducing-workspaces/) 功能，项目结构如下：
 
 <img alt="monorepo" src="./demo/monorepo.png"  />
@@ -63,6 +65,8 @@ $ npx sbl buil lib # 编译lib
 项目中的非MONO模块代码如需引用MONO中的模块，可直接使用 `./src/**/js` 方式引用即可，如上图所示 pages 对 button-group 的引用
 
 **注意**：整个项目是一个大版本，项目的维护者完全不要关心子模块的版本。因屏蔽子模块的版本号，减少了开始者在维护子模块互相依赖时更新版本号带来的成本
+
+### CI
 
 ## Dependencies
 [Storybook](https://github.com/storybooks/storybook) 和 [Learn](https://github.com/lerna/lerna) 已助实现了部分功能。基于Storybook之上封装了一系列配件和功能实现了**调试功能**。基于了Lerna的内部模块(*@lerna/package, @lerna/package-graph, @lerna/output*)实现了**组件发布功能**
