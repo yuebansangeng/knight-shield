@@ -14,6 +14,7 @@
   - [`publish`](./src/commands/publish#readme)
   - [`build`](./src/commands/build#readme)
 * [How It Works](#how-it-works)
+* [Used With Yarn](#used-with-yarn)
 * [Dependencies](#dependencies)
 * [Developers](#developers)
 * [License](#license)
@@ -53,6 +54,8 @@ $ npx sbl buil lib # 编译lib
 
 ### 编译
 执行 `npx sbl build lib` 命令可以编译组件，生成的 es5,css,images,.. 会放如组件的 lib/ 目录下。详细见: [build](./src/commands/build#readme)
+
+## Used With Yarn
 
 ## Dependencies
 [Storybook](https://github.com/storybooks/storybook) 和 [Learn](https://github.com/lerna/lerna) 已助实现了部分功能。基于Storybook之上封装了一系列配件和功能实现了**调试功能**。基于了Lerna的内部模块(*@lerna/package, @lerna/package-graph, @lerna/output*)实现了**组件发布功能**
