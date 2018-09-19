@@ -51,7 +51,7 @@ $ npx sbl publish npm # 对组件进行批量发布
 ## Dependencies
 非常开心的是，Storybook 和 Learn 已经实现了大部分功能
 对于 `sbl storybook start` 命令来说，是基于 Storybook 之上封装了一系列配置文件和功能实现的
-对于 `sbl publish npm` 命令来说，没有直接给予 Lerna。而是，基于了Lerna内部的一些模块(*@lerna/package, @lerna/package-graph, @lerna/output*)封装而成，去掉了一些不需要的功能模块
+对于 `sbl publish npm` 命令来说，没有直接给予 Lerna。而是，基于了Lerna内部的一些模块(*@lerna/package, @lerna/package-graph, @lerna/output*)封装而成
 
 <p align="left">
   <img alt="Lerna" src="http://lc-cj3ctxdw.cn-n1.lcfile.com/e6180c4dca55ac0e6d24.png" height="160px" with="210px" />
