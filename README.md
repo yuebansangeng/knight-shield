@@ -60,7 +60,7 @@ $ npx sbl buil lib # 编译lib
 
 ## Developers
 <p align="left">
-  <a href="www.baidu.com">
+  <a href="https://github.com/zygeilit">
     <img alt="zhangyue" src="http://lc-cj3ctxdw.cn-n1.lcfile.com/d791c661693edc1ace6a.png" height="60px" with="60px" />
   </a>
   <a href="www.baidu.com">
