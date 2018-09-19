@@ -4,6 +4,8 @@ npm-debug.log
 .DS_Store
 storybook-static
 
+caches
+
 npm-debug.log
 node_modules/
 .idea/

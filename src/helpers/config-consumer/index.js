@@ -25,10 +25,16 @@ export default class ConfigConsumer {
 
   cloneConfigs() {
 
+    // create caches/ if none
+    if (!fs.existsSync(configRoot)) {
+      execa.sync('mkdir', [ configRoot ])
+    }
+
     // create config dir
     if (fs.existsSync(this.storybookConfigPath)) {
       execa.sync('rm', [ '-rf', this.storybookConfigPath ])
     }
+
     execa.sync('mkdir', [ this.storybookConfigPath ])
 
     // copy config
