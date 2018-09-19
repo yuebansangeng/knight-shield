@@ -13,7 +13,7 @@
   - [`sbl storybook`](./src/commands/storybook#readme)
   - [`sbl build`](./src/commands/build#readme)
   - [`sbl publish`](./src/commands/publish#readme)
-* [Concepts](#concepts)
+* [How it Works](#how it works)
 * [Dependencies](#dependencies)
 * [License](#license)
 
@@ -36,7 +36,7 @@ $ npx sbl storybook start # 开发时对组件进行调试
 $ npx sbl publish npm # 对组件进行批量发布
 ```
 
-## Concepts
+## How it Works
 * 组件调试
 * 多组件管理模式
 * 文档服务化
