@@ -69,7 +69,7 @@ $ npx sbl buil lib # 编译lib
 
 ### CI
 
-对于项目开发来说，无论是MONO模块还是非MONO模块，只需要修改源代码即可。执行 git push 之后，在执行完该项目jenkins任务之后，再执行 `npx sbl publish npm --independent --only-updated` 批量发布MONO中的模块即可
+对于项目开发来说，无论是MONO模块还是非MONO模块，只需要修改源代码即可。执行 git push 之后，在执行jenkins任务时，添加 `npx sbl publish npm --independent --only-updated` 批量发布MONO中的模块即可
 
 ## Dependencies
 [Storybook](https://github.com/storybooks/storybook) 和 [Learn](https://github.com/lerna/lerna) 已助实现了部分功能。基于Storybook之上封装了一系列配件和功能实现了**调试功能**。基于了Lerna的内部模块(*@lerna/package, @lerna/package-graph, @lerna/output*)实现了**组件发布功能**
