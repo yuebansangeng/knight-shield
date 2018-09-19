@@ -1,0 +1,10 @@
+{
+  "components": [           // 配置组件路径
+    "src/components/*"      // glog
+  ], 
+  "libs": [],               // 所有独立模块所在路径 [glog]
+  "privates": [],           // 不发布NPM的模块 [glog]
+  "mock": {                 // Mock XHR
+    'https': "./recordings" // https mock 数据所在目录，.har文件格式
+  }
+}
