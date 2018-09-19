@@ -49,6 +49,10 @@ $ npx sbl publish npm # 对组件进行批量发布
 执行 `npx sbl build lib` 命令可以批量编译组件，生成的 es5,css,images,.. 会放如组件的 lib/ 目录下。详细文档见: [sbl build]()
 
 ## Dependencies
+非常开心的是，Storybook 和 Learn 已经实现了大部分功能
+对于 `sbl storybook start` 命令来说，是基于 Storybook 之上封装了一系列配置文件和功能实现的
+对于 `sbl publish npm` 命令来说，没有直接给予 Lerna。而是，基于了Lerna内部的一些模块(*@lerna/package, @lerna/package-graph, @lerna/output*)封装而成，去掉了一些不需要的功能模块
+
 <p align="left">
   <img alt="Lerna" src="http://lc-cj3ctxdw.cn-n1.lcfile.com/e6180c4dca55ac0e6d24.png" height="160px" with="210px" />
   <img alt="Storybook" src="http://lc-cj3ctxdw.cn-n1.lcfile.com/6dd894cd5e025fdbff2d.png" height="120px" with="170px" />
