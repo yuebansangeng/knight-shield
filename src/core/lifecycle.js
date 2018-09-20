@@ -31,7 +31,7 @@ export default class Lifecycle {
   run(script, opts) {
     if (!this.lifecycle[script]) return
 
-    execa.shell(this.lifecycle[script], Object.assign({
+    execa.shellSync(this.lifecycle[script], Object.assign({
       'cwd': this.contextRoot,
       'env': this.env,
       'stdout': 'inherit'
