@@ -15,7 +15,9 @@ export default class ConfigConsumer {
 
   constructor(props = {}) {
     this.contextRoot = props.contextRoot
-    this.storybookConfigPath = `${configRoot}/config-${props.name}`
+    // sub folder bug
+    this.packageName = props.name.replace('/', '-')
+    this.storybookConfigPath = `${configRoot}/config-${this.packageName}`
     // copy configs
     this.cloneConfigs()
   }
