@@ -24,7 +24,7 @@ export default class extends Generator {
     }
 
     // generate configs
-    new ConfigConsumer({ contextRoot, 'name': rc.get('name') })
+    const configer = new ConfigConsumer({ contextRoot, 'name': rc.get('name') })
 
     tracker = logger.newItem('building', buildPaths.length)
 
@@ -35,7 +35,7 @@ export default class extends Generator {
         logger.silly('success', subCmpContextRoot)
         tracker.completeWork(1)
 
-        return makeSingleLib({ 'contextRoot': subCmpContextRoot })
+        return makeSingleLib({ 'contextRoot': subCmpContextRoot, configer })
       },
       // 6 sub-process one time
       { 'concurrency': 6 }

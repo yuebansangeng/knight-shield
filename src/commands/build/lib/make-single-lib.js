@@ -3,12 +3,11 @@ import path from 'path'
 import execa from 'execa'
 
 export default (o) => {
-  const { contextRoot } = o
-  const storybookConfigPath = path.join(__dirname, '..', '..', '..', 'configs')
+  const { contextRoot, configer } = o
 
   return execa('npx', [
       'gulp',
-      '--gulpfile', path.join(__dirname, '..', '..', '..', 'configs', 'gulpfile.js'),
+      '--gulpfile', path.join(configer.getConfigPath(), 'gulpfile.js'),
       '--cwd', contextRoot,
       '--colors'
     ],
