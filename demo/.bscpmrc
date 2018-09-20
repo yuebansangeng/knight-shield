@@ -1,4 +1,5 @@
 // 将.bscpmrc置于项目根目录下，配合 knight-shield 模块使用
+
 {
   "components": [           // 配置组件路径
     "src/components/*"      // glog
@@ -7,5 +8,8 @@
   "privates": [],           // 不发布NPM的模块 [glog]
   "mock": {                 // Mock XHR
     'https': "./recordings" // https mock 数据所在目录，.har文件格式
+  },
+  "lifecycle": {
+    "prepublish": "echo ${PACKAGE_LOCATION}"
   }
 }
