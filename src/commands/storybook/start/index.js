@@ -2,7 +2,6 @@
 import path from 'path'
 import Generator from 'yeoman-generator'
 import ConfigConsumer from '../../../core/config-consumer'
-import generateHttpHAREntry from '../../../core/generate-http-har-entry'
 import ReadRC from '../../../core/read-rc'
 import execa from 'execa'
 
@@ -16,10 +15,9 @@ export default class extends Generator {
     // independent
     const cmpPaths = independent ? rc.getComponentsPath() : [ contextRoot ]
 
-    generateHttpHAREntry({ 'httpHARPath': rc.get('mock').https, contextRoot })
-
     const configer = new ConfigConsumer({ contextRoot, 'name': rc.get('name') })
     configer.generateStoriesJs(cmpPaths)
+    configer.generateHttpHAREntry(rc.get('mock').https)
 
     execa('npx',
       [

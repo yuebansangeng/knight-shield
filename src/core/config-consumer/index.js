@@ -4,6 +4,7 @@ import ejs from 'ejs'
 import path from 'path'
 import execa from 'execa'
 import ReadRC from '../read-rc'
+import copydir from '../../helpers/copy-dir'
 
 // where config-* is
 const configRoot = path.join(__dirname, '..', '..', '..', 'caches')
@@ -38,7 +39,7 @@ export default class ConfigConsumer {
     execa.sync('mkdir', [ this.storybookConfigPath ])
 
     // copy config
-    this.copydir(oriConfigPath, this.storybookConfigPath)
+    copydir(oriConfigPath, this.storybookConfigPath)
 
     // override storybook config
     this.override(
@@ -66,6 +67,46 @@ export default class ConfigConsumer {
           'dest': 'babelrc.json'
         }
       ]
+    )
+  }
+
+  generateHttpHAREntry(httpHARPath) {
+    if (!httpHARPath) {
+      return false
+    }
+
+    if (httpHARPath) {
+      httpHARPath = path.join(this.contextRoot, httpHARPath)
+    } else {
+      httpHARPath = this.contextRoot
+    }
+
+    if (!fs.existsSync(httpHARPath)) {
+      return false
+    }
+
+    let entries = []
+    fs.readdirSync(httpHARPath)
+      .filter(filename => !filename.match(/^\./))
+      .forEach(filename => {
+        const harHttpJson = require(path.join(httpHARPath, filename))
+        entries.push(harHttpJson)
+      })
+
+    fs.writeFileSync(
+      `${this.storybookConfigPath}/http-mock/https.json`,
+      JSON.stringify({
+        'log': {
+          'version': '0.0.1',
+          'creator': {
+            'name': '@beisen/http-mocker',
+            'version': '0.0.1'
+          },
+          'pages': {},
+          'entries': entries
+        }
+      }, null, 2),
+      'utf8'
     )
   }
 
@@ -140,34 +181,6 @@ export default class ConfigConsumer {
     })
 
     return retFilesPath
-  }
-
-  copydir(srcDir, dstDir) {
-    var results = []
-    var list = fs.readdirSync(srcDir)
-    var src, dst
-
-    list.forEach(file => {
-      src = srcDir + '/' + file
-      dst = dstDir + '/' + file
-      var stat = fs.statSync(src)
-      if (stat && stat.isDirectory()) {
-        try {
-          fs.mkdirSync(dst)
-        } catch (e) {
-          console.log('directory already exists: ' + dst)
-        }
-        results = results.concat(this.copydir(src, dst))
-      } else {
-        try {
-          fs.writeFileSync(dst, fs.readFileSync(src))
-        } catch (e) {
-          console.log('could\'t copy file: ' + dst)
-        }
-        results.push(src)
-      }
-    })
-    return results
   }
 
   clean() {

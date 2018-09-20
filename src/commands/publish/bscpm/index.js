@@ -1,4 +1,5 @@
 
+import Promise from 'bluebird'
 import Generator from 'yeoman-generator'
 import singlePub from './single-pub'
 import logger from '../../../helpers/logger'
@@ -35,19 +36,21 @@ export default class extends Generator {
 
     tracker = logger.newItem('publishing', cmpPaths.length)
 
-    // TODO: Promise.map
-    for (let i = 0; i < cmpPaths.length; i++) {
+    // publish metadata
+    await Promise.map(
+      cmpPaths,
+      cp => {
 
-      logger.silly('publishing', cmpPaths[i])
-      tracker.completeWork(1)
+        logger.silly('publishing', cp)
+        tracker.completeWork(1)
 
-      let { code ,message } = await singlePub({ 'contextRoot': cmpPaths[i] })
+        return singlePub({ 'contextRoot': cp })
+      },
+      { 'concurrency': 6 }
+    ).then(() => {
 
-      if (code !== 200) {
-        throw new Error(message)
-      }
-    }
-
-    tracker.finish()
+      tracker.finish()
+    })
+    .catch(err => console.log(err))
   }
 }

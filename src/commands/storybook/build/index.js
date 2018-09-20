@@ -3,7 +3,6 @@ import path from 'path'
 import Promise from 'bluebird'
 import Generator from 'yeoman-generator'
 import buildCmpStatics from './build-cmp-statics'
-import generateHttpHAREntry from '../../../core/generate-http-har-entry'
 import collectUpdates from '../../../core/collect-updates'
 import logger from '../../../helpers/logger'
 import ReadRC from '../../../core/read-rc'
@@ -29,8 +28,6 @@ export default class extends Generator {
         'cmpPaths': independent ? rc.getComponentsPath(false) : [ '.' ]
       })
     }
-
-    generateHttpHAREntry({ 'httpHARPath': rc.get('mock').https, contextRoot })
 
     // update moudules version first
     // after exec build statics

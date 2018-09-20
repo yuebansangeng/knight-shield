@@ -12,6 +12,7 @@ export default async (o) => {
   // generate configs
   const configer = new ConfigConsumer({ contextRoot, 'name': rc.get('name') })
   configer.generateStoriesJs([ contextRoot ])
+  configer.generateHttpHAREntry(rc.get('mock').https)
 
   return execa('npx',
     [

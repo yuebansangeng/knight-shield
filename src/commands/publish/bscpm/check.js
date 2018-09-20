@@ -13,11 +13,6 @@ export default async (o) => {
     throw new Error(`配置文件中，name 字段只能包含有[A-Z,a-z,-,0-9,@,/]`)
   }
 
-  const { code, message, data } =
-    await request(`${CMP_SERVER_HOST}/users/check-cmp?name=${name || ''}&team=${team || ''}&module=${module || ''}`)
-            .then(res => JSON.parse(res))
-
-  if (code !== 200 || !data) {
-    throw new Error(message)
-  }
+  return request(`${CMP_SERVER_HOST}/users/check-cmp?name=${name || ''}&team=${team || ''}&module=${module || ''}`)
+           .then(res => JSON.parse(res))
 }

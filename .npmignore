@@ -6,6 +6,8 @@ src
 test
 coverage
 
+caches
+
 # build tools
 .travis.yml
 .jenkins.yml
