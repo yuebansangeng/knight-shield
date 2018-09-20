@@ -129,7 +129,6 @@ export default class ConfigConsumer {
   makeStoriesJson(cmpPaths) {
     return cmpPaths.map(contextRoot => {
 
-      const packinfo = require(`${contextRoot}/package.json`)
       const examples = getExamples(contextRoot)
       const rc = new ReadRC({ contextRoot })
 
@@ -194,9 +193,13 @@ export const getExamples = (contextRoot) => {
   if (!fs.existsSync(epath)) return []
 
   return readdirSync(epath)
-    .map(name => path.join(epath, name))
-    .filter(source => lstatSync(epath).isDirectory())
-    .map(name => ({ 'name': name.split('\/')[name.split('\/').length - 1] }))
+    // filter directory name
+    .filter(ffname => {
+      let fullFFPath = path.join(epath, ffname)
+      return lstatSync(fullFFPath).isDirectory()
+    })
+    // filter config-link folder, e.g. .git/
+    .map(name => ({ name }))
     .filter(file => !file.name.match(/^\./))
 }
 
