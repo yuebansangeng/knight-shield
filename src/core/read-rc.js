@@ -82,6 +82,7 @@ export default class ReadRC {
       'components': [], // fs-glob
       'libs': [],       // fs-glob
       'privates': [],   // fs-glob
+      'lifecycle': {},  // hooks
       'category': '',
       'device': '',
       'mock': {

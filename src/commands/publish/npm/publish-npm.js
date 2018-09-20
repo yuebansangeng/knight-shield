@@ -4,19 +4,23 @@ import Promise from 'bluebird'
 import logger from '../../../helpers/logger'
 
 export default o => {
-  let { localPackages, publishCmpNames } = o
+  let { localPackages, publishCmpNames, lifecycle } = o
 
   return Promise.map(
     localPackages,
     ([ pckname, pkg ]) => {
-
       // filter cmps
       if (!publishCmpNames.includes(pckname)) return
+
+      const { location } = pkg
+
+      // exec command under roor, but location is sub-module's path
+      lifecycle.run('prepublish', { 'PACKAGE_LOCATION': location })
 
       logger.info('publishing', pckname)
 
       return execa('npm', [ 'publish', '--access=public', '--ignore-scripts', '--tag', 'latest' ], {
-          'cwd': pkg.location,
+          'cwd': location,
           'stdout': 'inherit',
           'encoding': 'utf8'
         })

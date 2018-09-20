@@ -202,4 +202,3 @@ export const getExamples = (contextRoot) => {
     .map(name => ({ name }))
     .filter(file => !file.name.match(/^\./))
 }
-
