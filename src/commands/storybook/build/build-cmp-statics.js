@@ -1,12 +1,11 @@
 
-import path from 'path'
 import execa from 'execa'
 import ReadRC from '../../../core/read-rc'
 import ConfigConsumer from '../../../core/config-consumer'
 
 export default async (o) => {
   const { contextRoot, output } = o
-  const { 'name': module, version } = require(`${contextRoot}/package.json`)
+  const { version } = require(`${contextRoot}/package.json`)
   const rc = new ReadRC({ contextRoot })
 
   // generate configs

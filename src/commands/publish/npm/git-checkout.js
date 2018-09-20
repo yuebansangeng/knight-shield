@@ -2,7 +2,7 @@
 import execa from 'execa'
 import logger from '../../../helpers/logger'
 
-export default (fileGlob, opts) => {
+export default () => {
   logger.silly('gitCheckout', '.')
-  return execa('git', [ 'checkout', '.' ], opts)
+  return execa('git', [ 'checkout', '.' ])
 }

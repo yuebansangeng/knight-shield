@@ -1,5 +1,4 @@
 
-import path from 'path'
 import Promise from 'bluebird'
 import Generator from 'yeoman-generator'
 import buildCmpStatics from './build-cmp-statics'

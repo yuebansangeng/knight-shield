@@ -9,7 +9,6 @@ export default class extends Generator {
 
   async writing () {
     let { contextRoot, port = '9001', independent } = this.options
-    const storybookConfigPath = path.join(__dirname, '../../../', 'configs')
     const rc = new ReadRC({ contextRoot })
 
     // independent

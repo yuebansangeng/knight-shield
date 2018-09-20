@@ -1,7 +1,6 @@
 
 import path from 'path'
 import execa from 'execa'
-import fg from 'fast-glob'
 
 export default async o => {
   let { contextRoot, cmpPaths } = o

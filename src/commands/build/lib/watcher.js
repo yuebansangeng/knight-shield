@@ -12,7 +12,7 @@ const packages = JSON.parse(argv.packages)
 packages.forEach(pack => {
   chokidar
     .watch(path.join(pack, 'src'))
-    .on('change', (event, path) => {
+    .on('change', () => {
       env.run('build lib', { 'source': pack })
       logger.info('rebuild', pack)
     })
