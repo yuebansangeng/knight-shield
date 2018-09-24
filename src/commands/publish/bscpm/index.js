@@ -9,7 +9,7 @@ import PackageGraph from '../../../core/package-graph'
 
 export default class extends Generator {
   async writing () {
-    const { independent, contextRoot, onlyUpdated, 'package': packinfo } = this.options
+    const { independent, contextRoot, onlyUpdated, username, 'package': packinfo } = this.options
     const rc = new ReadRC({ contextRoot })
 
     logger.enableProgress()
@@ -44,7 +44,7 @@ export default class extends Generator {
         logger.silly('publishing', cp)
         tracker.completeWork(1)
 
-        return singlePub({ 'contextRoot': cp })
+        return singlePub({ 'contextRoot': cp, username })
       },
       { 'concurrency': 6 }
     ).then(() => {

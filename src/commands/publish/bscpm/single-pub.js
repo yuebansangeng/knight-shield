@@ -9,7 +9,7 @@ import ReadRC from '../../../core/read-rc'
 
 export default o => {
   const { CMP_SERVER_HOST } = process.env
-  const { contextRoot } = o
+  const { contextRoot, username } = o
   const packinfo = require(path.join(contextRoot, 'package.json'))
   const rc = new ReadRC({ contextRoot })
   const rcJson = rc.toJSON()
@@ -24,9 +24,7 @@ export default o => {
     if (code !== 200 || !data) throw new Error(message)
 
     // 修改rc文件, 添加 developers
-    const { stdout } = execa.sync('git', [ 'config', 'user.name' ])
-    const username = `${stdout}`.replace(/^\s+|\s+$/, '')
-    rcJson.developers = [username]
+    rcJson.developers = [ username ]
 
     const examples = getExamples(contextRoot)
 
