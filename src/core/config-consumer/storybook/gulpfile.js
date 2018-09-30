@@ -37,7 +37,7 @@ gulp.task('scripts', function () {
     .pipe(gulp.dest('lib'))
 })
 
-gulp.task('typescript', async function () {
+gulp.task('typescript', function () {
   return gulp.src([ 'src/**/*.ts', 'src/**/*.tsx' ])
     .pipe(tsProject())
     .pipe(babel(babelrc))
@@ -48,7 +48,7 @@ gulp.task('typescript', async function () {
 
 gulp.task('style', function () {
   return gulp.src([ './src/**/*.scss', './src/**/*.css' ])
-    .pipe(sass.sync().on('error', sass.logError))
+    .pipe(sass.sync())
     .pipe(cssbeautify({ indent: '  ' }))
     .pipe(gulp.dest('lib'))
 })
