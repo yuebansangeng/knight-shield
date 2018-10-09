@@ -6,6 +6,7 @@ import collectUpdates from '../../../core/collect-updates'
 import logger from '../../../helpers/logger'
 import ReadRC from '../../../core/read-rc'
 import PackageGraph from '../../../core/package-graph'
+import Lifecycle from '../../../core/lifecycle'
 
 export default class extends Generator {
 
@@ -35,6 +36,8 @@ export default class extends Generator {
       'paths': independent ? rc.getLocalModulesPath() : [ contextRoot ]
     }).updatePackages(null, packinfo.version)
 
+    const lifecycle = new Lifecycle({ contextRoot })
+
     tracker = logger.newItem('building', cmpPaths.length)
 
     // build statics 3
@@ -45,7 +48,7 @@ export default class extends Generator {
         logger.silly('building', cp)
         tracker.completeWork(1)
 
-        return buildCmpStatics({ 'contextRoot': cp, 'output': contextRoot })
+        return buildCmpStatics({ 'contextRoot': cp, 'output': contextRoot, lifecycle })
       },
       // must 1, because config/stories.js
       { 'concurrency': 3 }

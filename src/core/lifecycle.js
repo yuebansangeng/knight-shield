@@ -9,7 +9,6 @@ export default class Lifecycle {
   constructor(props) {
     this.contextRoot = props.contextRoot
     this.lifecycle = this.getLifecycleScripts(this.contextRoot)
-    // used in scripts
     this.env = {
       'PACKAGE_LOCATION': this.contextRoot
     }
@@ -20,6 +19,7 @@ export default class Lifecycle {
     const lifecycle = rc.get('lifecycle')
     const res = {}
 
+    // replace str-temp, if have
     Object.keys(lifecycle).forEach(lc => {
       res[lc] = stringTemplate(lifecycle[lc], {
         'PACKAGE_LOCATION': this.contextRoot

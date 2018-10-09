@@ -4,7 +4,7 @@ import ReadRC from '../../../core/read-rc'
 import ConfigConsumer from '../../../core/config-consumer'
 
 export default async (o) => {
-  const { contextRoot, output } = o
+  const { contextRoot, output, lifecycle } = o
   const { version } = require(`${contextRoot}/package.json`)
   const rc = new ReadRC({ contextRoot })
 
@@ -12,6 +12,8 @@ export default async (o) => {
   const configer = new ConfigConsumer({ contextRoot, 'name': rc.get('name') })
   configer.generateStoriesJs([ contextRoot ])
   configer.generateHttpHAREntry(rc.get('mock').https)
+
+  lifecycle.run('prebuild', { 'PACKAGE_LOCATION': contextRoot })
 
   return execa('npx',
     [
