@@ -1,6 +1,6 @@
 {
   "name": "@beisen/storybook-lib",
-  "version": "0.4.48",
+  "version": "0.4.49",
   "description": "",
   "scripts": {
     "clean": "rm -rf ./caches/*",

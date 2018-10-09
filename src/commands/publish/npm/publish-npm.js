@@ -4,7 +4,7 @@ import Promise from 'bluebird'
 import logger from '../../../helpers/logger'
 
 export default o => {
-  let { localPackages, publishCmpNames, lifecycle } = o
+  let { localPackages, publishCmpNames } = o
 
   return Promise.map(
     localPackages,
@@ -13,9 +13,6 @@ export default o => {
       if (!publishCmpNames.includes(pckname)) return
 
       const { location } = pkg
-
-      // exec command under roor, but location is sub-module's path
-      lifecycle.run('prepublish', { 'PACKAGE_LOCATION': location })
 
       logger.info('publishing', pckname)
 

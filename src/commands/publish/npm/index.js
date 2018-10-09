@@ -7,7 +7,6 @@ import ReadRC from '../../../core/read-rc'
 import collectUpdates from '../../../core/collect-updates'
 import readPackage from '../../../helpers/read-package'
 import PackageGraph from '../../../core/package-graph'
-import Lifecycle from '../../../core/lifecycle'
 
 export default class extends Generator {
   async writing () {
@@ -40,10 +39,7 @@ export default class extends Generator {
     // generate all local packs, for lerna update deps' version
     const localPackages = pkgGraph.getLocalPackages()
 
-    // hooks
-    const lifecycle = new Lifecycle({ contextRoot })
-
-    await publishNpm({ localPackages, publishCmpNames, lifecycle })
+    await publishNpm({ localPackages, publishCmpNames })
       // .then(() => gitCheckout())
   }
 }

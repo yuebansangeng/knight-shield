@@ -18,20 +18,20 @@ export default class Lifecycle {
     const rc = new ReadRC({ contextRoot })
     const lifecycle = rc.get('lifecycle')
     const res = {}
-
-    // replace str-temp, if have
     Object.keys(lifecycle).forEach(lc => {
-      res[lc] = stringTemplate(lifecycle[lc], {
-        'PACKAGE_LOCATION': this.contextRoot
-      })
+      res[lc] = lifecycle[lc]
     })
     return res
   }
 
-  run(script, opts) {
+  run(script, opts = {}) {
     if (!this.lifecycle[script]) return
 
-    execa.shellSync(this.lifecycle[script], Object.assign({
+    // replace str-temp, if have
+    // use default env first
+    const command = stringTemplate(this.lifecycle[script], Object.assign({}, this.env, opts.env))
+
+    execa.shellSync(command, Object.assign({
       'cwd': this.contextRoot,
       'env': this.env,
       'stdout': 'inherit'
