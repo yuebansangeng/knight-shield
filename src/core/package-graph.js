@@ -28,9 +28,7 @@ export default class PkgGraph {
     return new PackageGraph(packages, 'allDependencies', true)
   }
 
-  updatePackages(moduleNames, version) {
-    //notice
-    this.ouputUpdated(moduleNames, version)
+  updatePackages(version) {
     // update package
     // 'localDependencies': file: | link: resolver
     this.graph.forEach(async ({ pkg, localDependencies }) => {
@@ -47,26 +45,25 @@ export default class PkgGraph {
 
   collectUpdates() {
     // rawPackageList like results
-    return collectUpdates(
+    const updatesPackages = collectUpdates(
       this.graph.rawPackageList,
       this.graph,
       // @lerna/collect-updates/lib/make-diff-predicate.js need 'cwd'
       { 'cwd': this.contextRoot },
-      {}
+      { 'ignoreChanges': [] }
     )
+    //notice
+    this.ouputUpdated(updatesPackages)
+    return updatesPackages
   }
 
-  ouputUpdated(moduleNames, version) {
+  ouputUpdated(updatesPackages) {
     // no modules no output
-    if (!moduleNames) return
     const changes = []
-
-    this.graph.forEach(({ pkg }) => {
-      if (!moduleNames.includes(pkg.name)) return
-      let line = ` - ${pkg.name}: ${pkg.version} => ${version}`
+    updatesPackages.forEach(({ name, version }) => {
+      let line = ` - ${name}: version => ${version}`
       changes.push(line)
     })
-
     output('')
     output('Changes:')
     output(changes.join(os.EOL))

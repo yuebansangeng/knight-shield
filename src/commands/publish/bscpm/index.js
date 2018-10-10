@@ -49,7 +49,7 @@ export default class extends Generator {
       contextRoot,
       'paths': independent ? rc.getLocalModulesPath() : [ contextRoot ]
     })
-    packageGraph.updatePackages(null, packinfo.version)
+    packageGraph.updatePackages(packinfo.version)
   }
 
   _private_getCmpPackageGraph(rc) {
