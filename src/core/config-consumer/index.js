@@ -27,7 +27,6 @@ export default class ConfigConsumer {
   }
 
   cloneConfigs() {
-
     // create caches/ if none
     if (!fs.existsSync(configRoot)) {
       execa.sync('mkdir', [ configRoot ])

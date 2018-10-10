@@ -30,9 +30,16 @@ export default class extends Generator {
     await Promise.map(
       cmpPackages,
       ({ location }) => {
+
         logger.silly('building', location)
         tracker.completeWork(1)
-        return buildCmpStatics({ 'contextRoot': location, 'output': contextRoot, lifecycle })
+
+        return buildCmpStatics({
+          'contextRoot': location,
+          'output': contextRoot,
+          'configerRoot': contextRoot, // where to get configs
+          lifecycle,
+        })
       },
       // must 1, because config/stories.js
       { 'concurrency': 3 }
