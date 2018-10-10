@@ -3,7 +3,6 @@ import Promise from 'bluebird'
 import Generator from 'yeoman-generator'
 import singlePub from './single-pub'
 import logger from '../../../helpers/logger'
-import collectUpdates from '../../../core/collect-updates'
 import ReadRC from '../../../core/read-rc'
 import PackageGraph from '../../../core/package-graph'
 
