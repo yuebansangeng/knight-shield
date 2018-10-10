@@ -4,7 +4,6 @@ import Generator from 'yeoman-generator'
 import publishNpm from './publish-npm'
 import gitCheckout from './git-checkout'
 import ReadRC from '../../../core/read-rc'
-import readPackage from '../../../helpers/read-package'
 import PackageGraph from '../../../core/package-graph'
 
 export default class extends Generator {

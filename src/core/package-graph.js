@@ -1,11 +1,13 @@
 
 import os from 'os'
+import fs from 'fs'
 import path from 'path'
 import output from '@lerna/output'
 import Package from '@lerna/package'
 import PackageGraph from '@lerna/package-graph'
-import readPackage from '../helpers/read-package'
 import collectUpdates from '@lerna/collect-updates'
+
+const readPackage = (pckPath) => fs.existsSync(pckPath) ? require(pckPath) : {};
 
 export default class PkgGraph {
 
