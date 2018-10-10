@@ -13,7 +13,7 @@ export default async (o) => {
   configer.generateStoriesJs([ contextRoot ])
   configer.generateHttpHAREntry(rc.get('mock').https)
 
-  lifecycle.run('prebuild', { 'env': { 'PACKAGE_LOCATION': contextRoot } })
+  lifecycle.run('prebuildOnly', { 'env': { 'PACKAGE_LOCATION': contextRoot } })
 
   return execa('npx',
     [

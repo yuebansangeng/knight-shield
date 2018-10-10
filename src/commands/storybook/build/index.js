@@ -45,6 +45,12 @@ export default class extends Generator {
       { 'concurrency': 3 }
     ).then(() => {
 
+      // hooks after all build
+      lifecycle.run('postbuild', { 'env': {
+        // /project/src/cmp/button,/project/src/cmp/select
+        'PACKAGE_LOCATIONS': cmpPackages.map(({ location }) => location).join(',')
+      }})
+
       tracker.finish()
     })
   }

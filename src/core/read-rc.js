@@ -83,7 +83,8 @@ export default class ReadRC {
       'libs': [],       // fs-glob
       'privates': [],   // fs-glob
       'lifecycle': {    // hooks
-        'prebuild': ''    // trigger when component build static
+        'prebuildOnly': '',   // trigger when component build static
+        'postbuild': ''       // after all module build
       },
       'category': '',
       'device': '',
