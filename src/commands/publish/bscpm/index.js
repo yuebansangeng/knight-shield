@@ -8,49 +8,56 @@ import ReadRC from '../../../core/read-rc'
 import PackageGraph from '../../../core/package-graph'
 
 export default class extends Generator {
+
   async writing () {
     const { independent, contextRoot, onlyUpdated, username, 'package': packinfo } = this.options
     const rc = new ReadRC({ contextRoot })
+    const cmpPackageGraph = this._private_getCmpPackageGraph(rc)
+    let cmpPackages = cmpPackageGraph.packages
+    
 
-    logger.enableProgress()
-    let tracker = null
-
-    // independent
-    let cmpPaths = independent ? rc.getComponentsPath() : [ contextRoot ]
+    this._private_updatePackages(rc)
 
     // only-updated
     if (onlyUpdated) {
-      cmpPaths = await collectUpdates({
-        contextRoot,
-        // 'false': only need relative path, for git diff check
-        'cmpPaths': independent ? rc.getComponentsPath(false) : [ '.' ]
-      })
+      cmpPackages = cmpPackageGraph.collectUpdates()
     }
 
-    // update moudules version first
-    // after exec build statics
-    new PackageGraph({
-      contextRoot,
-      'paths': independent ? rc.getLocalModulesPath() : [ contextRoot ]
-    }).updatePackages(null, packinfo.version)
-
-    tracker = logger.newItem('publishing', cmpPaths.length)
+    logger.enableProgress()
+    let tracker = logger.newItem('publishing', cmpPackages.length)
 
     // publish metadata
     await Promise.map(
-      cmpPaths,
-      cp => {
+      cmpPackages,
+      ({ location }) => {
 
-        logger.silly('publishing', cp)
+        logger.silly('publishing', location)
         tracker.completeWork(1)
 
-        return singlePub({ 'contextRoot': cp, username })
+        return singlePub({ 'contextRoot': location, username })
       },
-      { 'concurrency': 6 }
+      { 'concurrency': 3 }
     ).then(() => {
 
       tracker.finish()
     })
     .catch(err => console.log(err))
+  }
+
+  _private_updatePackages(rc) {
+    const { contextRoot, independent, 'package': packinfo } = this.options
+    const packageGraph = new PackageGraph({
+      contextRoot,
+      'paths': independent ? rc.getLocalModulesPath() : [ contextRoot ]
+    })
+    packageGraph.updatePackages(null, packinfo.version)
+  }
+
+  _private_getCmpPackageGraph(rc) {
+    const { contextRoot, independent } = this.options
+    return new PackageGraph({
+      contextRoot,
+      'paths': independent ? rc.getComponentsPath() : [ contextRoot ]
+    })
   }
 }
