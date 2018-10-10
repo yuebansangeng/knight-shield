@@ -15,31 +15,27 @@ export default class extends Generator {
     const rc = new ReadRC({ contextRoot })
 
     // independent
-    let cmpPaths = independent ? rc.getPublishModulesPath() : [ contextRoot ]
+    let localModulePaths = independent ? rc.getLocalModulesPath() : [ contextRoot ]
+
+    const packageGraph = new PackageGraph({ contextRoot, 'paths': localModulePaths })
 
     if (onlyUpdated) {
-      cmpPaths = await collectUpdates({
-        contextRoot,
-        // 'false': only need relative path, for git diff check
-        'cmpPaths': independent ? rc.getPublishModulesPath(false) : [ '.' ]
-      })
+      localModulePaths =
+        packageGraph.collectUpdates(
+          // filter private module
+          independent ? rc.getPublishModulesPath() : [ contextRoot ]
+        )
     }
 
     // get packs' name for publish filter
     const publishCmpNames = cmpPaths.map(cp => readPackage(path.join(cp, 'package.json')).name)
 
-    const pkgGraph = new PackageGraph({
-      contextRoot,
-      'paths': independent ? rc.getLocalModulesPath() : [ contextRoot ]
-    })
-
     // TODO: update updated module
-    pkgGraph.updatePackages(publishCmpNames, packinfo.version)
+    packageGraph.updatePackages(publishCmpNames, packinfo.version)
 
     // generate all local packs, for lerna update deps' version
-    const localPackages = pkgGraph.getLocalPackages()
+    const localPackages = packageGraph.getLocalPackages()
 
     await publishNpm({ localPackages, publishCmpNames })
-      // .then(() => gitCheckout())
   }
 }
