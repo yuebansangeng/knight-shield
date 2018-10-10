@@ -4,17 +4,12 @@ import Promise from 'bluebird'
 import logger from '../../../helpers/logger'
 
 export default o => {
-  let { localPackages, moduleNames } = o
 
   return Promise.map(
-    localPackages,
-    ([ pckname, pkg ]) => {
-      // filter cmps
-      if (!publishCmpNames.includes(pckname)) return
+    o.packages,
+    ({ name, location }) => {
 
-      const { location } = pkg
-
-      logger.info('publishing', pckname)
+      logger.info('publishing', name)
 
       return execa('npm', [ 'publish', '--access=public', '--ignore-scripts', '--tag', 'latest' ], {
           'cwd': location,
@@ -27,6 +22,6 @@ export default o => {
         )
     },
     // execa 5 times once
-    { 'concurrency': 5 }
+    { 'concurrency': 3 }
   )
 }
