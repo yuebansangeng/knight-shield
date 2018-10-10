@@ -13,29 +13,33 @@ export default class extends Generator {
     const { contextRoot, onlyUpdated, independent } = this.options
     const packinfo = this.options.package
     const rc = new ReadRC({ contextRoot })
+    let modulePaths = independent ? rc.getLocalModulesPath() : [ contextRoot ]
+    const packageGraph = new PackageGraph({ contextRoot, 'paths': modulePaths })
 
-    // independent
-    let localModulePaths = independent ? rc.getLocalModulesPath() : [ contextRoot ]
 
-    const packageGraph = new PackageGraph({ contextRoot, 'paths': localModulePaths })
+    packageGraph.updatePackages(null, packinfo.version)
 
     if (onlyUpdated) {
-      localModulePaths =
-        packageGraph.collectUpdates(
-          // filter private module
-          independent ? rc.getPublishModulesPath() : [ contextRoot ]
-        )
+      let filteredPackages = this._private_getPublishPackages()
+      modulesPaths = packageGraph.collectUpdates(filteredPackages)
     }
 
     // get packs' name for publish filter
-    const publishCmpNames = cmpPaths.map(cp => readPackage(path.join(cp, 'package.json')).name)
-
-    // TODO: update updated module
-    packageGraph.updatePackages(publishCmpNames, packinfo.version)
+    // const publishModuleNames = modulesPaths.map(cp => readPackage(path.join(cp, 'package.json')).name)
 
     // generate all local packs, for lerna update deps' version
     const localPackages = packageGraph.getLocalPackages()
 
-    await publishNpm({ localPackages, publishCmpNames })
+    await publishNpm({ localPackages, moduleNames })
+  }
+
+  _private_getPublishPackages() {
+    const { contextRoot, independent } = this.options
+    const rc = new ReadRC({ contextRoot })
+    const packageGraph = new PackageGraph({
+      contextRoot,
+      'paths': independent ? rc.getPublishModulesPath() : [ contextRoot ]
+    })
+    return packageGraph.packages
   }
 }

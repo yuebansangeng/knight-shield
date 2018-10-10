@@ -13,34 +13,26 @@ export default class extends Generator {
     const { contextRoot, independent, onlyUpdated, 'package': packinfo } = this.options
     const rc = new ReadRC({ contextRoot })
     const lifecycle = new Lifecycle({ contextRoot })
-    // update moudules version first
-    // after exec build statics
-    const packageGraph = new PackageGraph({
-      contextRoot,
-      'paths': independent ? rc.getLocalModulesPath() : [ contextRoot ]
-    })
-    // build paths
-    let cmpPaths = independent ? rc.getComponentsPath() : [ contextRoot ]
+    const cmpPackageGraph = this._private_getCmpPackageGraph(rc)
+    let cmpPackages = cmpPackageGraph.packages
 
 
-    packageGraph.updatePackages(null, packinfo.version)
+    this._private_updatePackages(rc)
 
     if (onlyUpdated) {
-      // filter packages && get updates
-      let filteredPackages = this._private_getCmpPackages()
-      cmpPaths = packageGraph.collectUpdates(filteredPackages)
+      cmpPackages = cmpPackageGraph.collectUpdates()
     }
 
     logger.enableProgress()
-    let tracker = logger.newItem('building', cmpPaths.length)
+    let tracker = logger.newItem('building', cmpPackages.length)
 
     // build statics 3
     await Promise.map(
-      cmpPaths,
-      cp => {
-        logger.silly('building', cp)
+      cmpPackages,
+      ({ location }) => {
+        logger.silly('building', location)
         tracker.completeWork(1)
-        return buildCmpStatics({ 'contextRoot': cp, 'output': contextRoot, lifecycle })
+        return buildCmpStatics({ 'contextRoot': location, 'output': contextRoot, lifecycle })
       },
       // must 1, because config/stories.js
       { 'concurrency': 3 }
@@ -50,13 +42,20 @@ export default class extends Generator {
     })
   }
 
-  _private_getCmpPackages() {
-    const { contextRoot, independent } = this.options
-    const rc = new ReadRC({ contextRoot })
+  _private_updatePackages(rc) {
+    const { contextRoot, independent, 'package': packinfo } = this.options
     const packageGraph = new PackageGraph({
+      contextRoot,
+      'paths': independent ? rc.getLocalModulesPath() : [ contextRoot ]
+    })
+    packageGraph.updatePackages(null, packinfo.version)
+  }
+
+  _private_getCmpPackageGraph(rc) {
+    const { contextRoot, independent } = this.options
+    return new PackageGraph({
       contextRoot,
       'paths': independent ? rc.getComponentsPath() : [ contextRoot ]
     })
-    return packageGraph.packages
   }
 }

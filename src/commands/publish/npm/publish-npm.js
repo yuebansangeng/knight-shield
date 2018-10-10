@@ -4,7 +4,7 @@ import Promise from 'bluebird'
 import logger from '../../../helpers/logger'
 
 export default o => {
-  let { localPackages, publishCmpNames } = o
+  let { localPackages, moduleNames } = o
 
   return Promise.map(
     localPackages,
