@@ -1,7 +1,6 @@
 
 import fs from 'fs'
 import path from 'path'
-import execa from 'execa'
 import check from './check'
 import request from 'request-promise'
 import { getExamples } from '../../../core/config-consumer'

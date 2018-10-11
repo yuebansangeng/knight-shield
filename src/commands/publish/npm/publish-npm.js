@@ -11,7 +11,8 @@ export default o => {
 
       logger.info('publishing', name)
 
-      return execa('npm', [ 'publish', '--access=public', '--ignore-scripts', '--tag', 'latest' ], {
+      // '--ignore-scripts',
+      return execa('npm', [ 'publish', '--access=public', '--tag', 'latest' ], {
           'cwd': location,
           'stdout': 'inherit',
           'encoding': 'utf8'
