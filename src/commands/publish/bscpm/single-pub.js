@@ -14,13 +14,13 @@ export default o => {
   const rcJson = rc.toJSON()
 
   // first check
-  return check({
-    'module': packinfo.name,
-    'name': rcJson.name,
-    'team': rcJson.team
-  }).then(({ code, message, data }) => {
+  // return check({
+  //   'module': packinfo.name,
+  //   'name': rcJson.name,
+  //   'team': rcJson.team
+  // }).then(({ code, message, data }) => {
 
-    if (code !== 200 || !data) throw new Error(message)
+   // if (code !== 200 || !data) throw new Error(message)
 
     // 修改rc文件, 添加 developers
     rcJson.developers = [ username ]
@@ -54,7 +54,7 @@ export default o => {
     .then(res => JSON.parse(res))
     .catch(err => { console.log(err) })
 
-  }).catch(err => { console.log(err) })
+  // }).catch(err => { console.log(err) })
 }
 
 const getContentIfExists = (cp) => {
